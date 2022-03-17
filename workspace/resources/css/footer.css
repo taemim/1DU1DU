@@ -44,23 +44,6 @@ dl, ul, ol, li {
 /*--------------------------------------------------------------------------------------------------------------*/
 
 
-/* 메인 홈페이지 div박스 */
-div#home {
-    background-color: rgb(185, 185, 185);
-    width: 100%;
-    height: 700px;
-    margin-top: 80px;
-    align-items: center;
-    justify-content: center;
-    overflow:hidden;
-}
-
-/* 메인 첫화면 배경이미지 */
-.main-img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
 
 /* footer ----------------------------------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, address, caption, em, th, p {
