@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="..\workspace\resources\css\header-style.css" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    
+    <title>1DU1DU</title>
+
+</head>
+
+<body>
+    <!-- header 시작 -->
+    <header id="header" class="main-header">
+    
+    <div id="header_wrap_tm" style="display: blo ck;" >
+        <!-- 상단 top배너 광고 -->
+        <div class="top_banner_tm">
+           <p>지금 바로 정기구독 시작하면 1000원 즉시 할인</p>
+       </div>
+       <!-- 헤더 왼쪽 메인메뉴 nav -->
+        <nav class="h_cate_tm inline_tm">
+            <ul class="main-nav inline_tm">
+                <li>
+                    <a href="#">구독하기</a>
+                </li>
+                <li>
+                    <a href="#">Shop</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </nav><!-- 하위 카테고리 -->
+        <div class="h_cate_all inline_tm">                      
+            <div>  
+                <ul class="sub_menu">
+                    <li><a href="#">정기구독</a></li>
+                    <li><a href="#">취향테스트</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="sub_menu">
+                    <li><a href="#">new</a></li>
+                    <li><a href="#">best</a></li>
+                    <li><a href="#">원두</a></li>
+                    <li><a href="#">드립백</a></li>
+                    <li><a href="#">캡슐</a></li>
+                    <li><a href="#">커피용품</a></li>
+                </ul> 
+            </div>
+            <div>
+                <ul class="sub_menu">
+                    <li><a href="#">Notice</a></li>
+                    <li><a href="#">Partmership</a></li>
+                    <li><a href="#">Best Review</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 메뉴 하위카테고리 호버 슬라이드다운 효과  -->
+        <script>
+            $(document).ready(function(){
+
+                 $('.h_cate_all').hide();
+
+                 $('.h_cate_tm').mouseover(function(){
+                     $('.h_cate_all').slideDown();
+                });
+            
+                $('.h_cate_all').mouseleave(function(){
+                    $('.h_cate_all').fadeOut();
+                });
+            });
+
+        </script>
+
+            <!-- 로고 -->
+            <div class="logo">
+            <a href="#"><img src="..\workspace\resources\image\원두배너_투명.png"></a>
+            </div> <!-- /logo -->
+        
+            <!--헤더 오른쪽 메뉴-->
+            <div class="right_menu inline_tm">
+                <ul class="right_div inline_tm">
+                    <!-- 로그인시 회원/관리자에 따라 마이/관리 페이지 나타나기-->
+                    <li class="hidden-menu"><a href="#">관리페이지</a></li>
+                    <li class="hidden-menu"><a href="#">마이페이지</a></li>
+
+                    <li><a href="#">로그인</a></li>
+                    <!--장바구니 아이콘-->
+                    <li class="cart"><a href="#"><img src="..\workspace\resources\image\cart-img.png"></a></li>
+                </ul>
+            </div> 
+    </div>    
+    </header><!-- /header -->
+
+
+    <!-- 배너(우측 하단) - 카카오톡 1:1문의, 위로 가기 버튼 -->
+    <!-- display:fiexed로 우측하단에 고정되는 배너입니다. -->
+    <div class="banner-wrap">
+        <ul class="banner">
+            <li><a href="#"><span>top <!-- 후에 이미지로 대체하면서 텍스트를 없앨 수 있습니다 --></span></a></li>
+            <li><a href="#">1:1 문의하기</a></li>
+        </ul> <!-- /banner -->
+    </div><!-- /banner -->
+
+
+    <!-- main 배경이미지 -->
+    <main id="main" class="wrapper">
+    <div id="home" class="content1">
+        <img class="main-img" src="..\workspace\resources\image\img-bg1.png" >
+        <div class="home-txt-wrap">
+        <!-- 글자 뒤로 불투명도 0.5 -->                                                                         
+            <p>
+                내 입맛에 <b>꼭<b> 맞는 커피로 <br>
+                추천받고 <b>구독<b>하세요
+            </p>
+        </div> <!-- /home-txt-wrap -->
+        <button>원두 취향 테스트</button>
+
+        <div class="circle1">
+        <!-- 반투명한 원 효과 -->
+            <div class="circle2">
+            <!-- 반투명한 원 효과 -->
+                <p>내 취향에 딱 맞는 원두를 추천해요</p>
+                <p>구독을 시작하고 항상 무료 배송으로 받아보세요.</p>
+            </div> <!-- /circle2 -->
+        </div> <!-- /circle1 -->
+    </div> <!-- /content1 -->
+    
+</body>
+</html>
