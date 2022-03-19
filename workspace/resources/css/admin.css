@@ -70,6 +70,13 @@ dl, ul, ol, li {
     margin: 50px;
 }
 
+/* 관리자 전용 페이지 입니다 문구 */
+.admin-page h4{
+    text-align: center;
+    margin-top: 100px;
+    letter-spacing: 0.2em;
+}
+
 
 /* 사이드 바 메뉴 글자 설정 */
 .li-1{
