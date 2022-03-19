@@ -50,7 +50,7 @@
                 <h1>주문 내역 관리</h1>
                 <br>
                 <!-- 전체 내역 조회 (=테이블명)-->
-                <a href="#">전체 주문 조회</a>
+                <a href="#">전체 조회</a>
                 <!-- 같은 페이지에서 다른 데이터를 조회받을 때 (ex. 휴먼회원내역)-->
                 <a href="#">| 부분 조회</a>
                 <br><br>
@@ -58,7 +58,7 @@
                     <table class="table table-hover w-auto">
                         <thead  class="table-light">
                           <tr>
-                            <th scope="col"><input type="checkbox" readonly></th>
+                            <th scope="col">선택</th>
                             <th scope="col">컬럼명</th>
                             <th scope="col">컬럼명</th>
                             <th scope="col">컬럼명</th>
@@ -84,22 +84,21 @@
                             <td>123456789</td>
                             <td>123456789</td>
                             <td>123456789</td>
-                        
                           </tr>
                           <tr>
                             <td scope="row"><input type="checkbox" name="order_no" value="1"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td >Y</td>
+                            <td>123456789-123456789</td>
+                            <td>123456789</td>
+                            <td>123456789</td>
+                            <td>123456789</td>
+                            <td>123456789</td>
+                            <td>123456789</td>
+                            <td>123456789</td>
+                            <td>123456789</td>
                           </tr>
                         </tbody>
-                        <!-- 테이블 통계가 필요한 경우 추가 -->
+                        <!-- 테이블 통계가 필요한 경우 추가/ 아닌 경우 삭제 -->
                         <tfoot>
                             <tr>
                             <td>합계</td>
@@ -118,12 +117,20 @@
                     
                 </div>
                 <br>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="주문내역을 선택하세요.">
-                    발주처리
-                </button>
+                <!-- float:right; 설정 버튼 순서 오른쪽부터 시작-->
                 <button type="button" class="btn btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="주문내역을 선택하세요.">
-                    발송처리
+                  배송 처리
                 </button>
+                <button type="button" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="주문내역을 선택하세요.">
+                  발주 처리
+                </button>
+                <button type="button" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="주문내역을 선택하세요.">
+                  판매 취소 처리
+               </button>
+                <button type="button" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="주문내역을 선택하세요.">
+                  발송 지연 처리
+               </button>
+
                 <br>
             </div>
           </div>
