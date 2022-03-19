@@ -59,17 +59,11 @@ dl, ul, ol, li {
 
 /* 메인 div 영역 사이즈 */
 .main-box{
-    /* border: 3px solid #F3EFEF; */ /* 컨텐츠 생성시 이부분 주석 제거하기 ! */
+    border: 3px solid #F3EFEF;
     /* background: #F3EFEF; */
     border-radius: 25px;
     margin: 20px 0 50px 50px;
 }
-
-/* 메인 div 콘텐츠 영역 설정*/
-.admin-page{
-    margin: 50px;
-}
-
 
 /* 사이드 바 메뉴 글자 설정 */
 .li-1{
@@ -89,6 +83,10 @@ dl, ul, ol, li {
 
 /* 관리 페이지 메인 영역 --------------------------------------------------------------------------*/
 
+/* 메인 div 콘텐츠 영역 설정*/
+.admin-page{
+    margin: 50px;
+}
 
 /* 테이블 크기 설정 테이블 크기 벗어나면 스크롤 보임*/
 .table-scroll{
@@ -109,6 +107,10 @@ dl, ul, ol, li {
     margin-left: 10px;
     float: right;
 }
+
+
+
+
 
 
 
