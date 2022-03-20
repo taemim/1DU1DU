@@ -42,6 +42,10 @@ dl, ul, ol, li {
     visibility: hidden; /*숨김*/
 }
 
+.container-fluid {
+    padding: 200px;
+}
+
 
 /*관리 페이지 시작 사이드바/메인 기본 설정-----------------------------------------------------------------------------------------------------------*/
 /* 박스 모서리 둥글게 border-radius: 25px; */
@@ -52,8 +56,7 @@ dl, ul, ol, li {
     background: #F3EFEF; 
     text-align: center;
     border-radius: 25px;
-    margin: 20px auto;
-    padding: 0%;
+    margin: 0 auto;
     height: 100%;
 } 
 
@@ -62,7 +65,8 @@ dl, ul, ol, li {
     border: 3px solid #F3EFEF; 
     /* background: #F3EFEF; */
     border-radius: 25px;
-    margin: 20px 0 50px 50px;
+    margin: 0 auto;
+    margin-bottom: 30px;
 }
 
 /* 메인 div 콘텐츠 영역 설정*/
@@ -206,14 +210,14 @@ dl, ul, ol, li {
 /* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------*/
 
 /* a 링크 설정 변경 */
-.container li a {
+.container-fluid li a {
     text-decoration: none;
     color : #432;
     line-height: 2.5em;
 }
 
 /* a 링크 호버시 글자 굵게 */
-.container a:hover{
+.container-fluid a:hover{
     font-weight: bolder;
 }
 
