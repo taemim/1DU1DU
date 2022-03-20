@@ -43,28 +43,6 @@
 
 
 
-
-.loginArea #emailFind {
-
-    font-size: 0.9em;
-    font-weight:800;
-    letter-spacing: 0.5px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-
-
-/* 비밀번호 영역 */
-.loginArea #phonePwd {
-    margin-top: 10px;
-    font-size: 0.9em;
-    font-weight:800;
-    letter-spacing: 0.5px;
-}
-
-
-
 /* 입력창 전체*/
 .input_area {
     
@@ -118,42 +96,7 @@
 }
 
 
-
-
-
-/*로그인 화면 돌아가기*/
-.myButton {
-    width:200px;
-    margin-top: 90px;
-    margin-left: -30px;
-	background:black;
-	border-radius:50px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:16px;
-	font-weight:bold;
-	padding: 3px 0px 3px 20px;
-	text-decoration:none;
-    transition:0.4s;
-    display:block;
-}
-.myButton:hover {
-
-    background: white;
-    color:black;
-    cursor: pointer;
-	box-shadow: 0 2px 4px white;
-
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-
-
+/* 회원가입 버튼 */
 .input_area input[type=submit] {
 	background:black;
 	cursor : pointer;
@@ -165,3 +108,35 @@
 
 
 
+.input_area {
+	border: solid 1px #dadada;
+	padding: 10px 10px 14px 10px;
+	background: white;
+}
+
+.input_area input:focus {
+	outline: none;
+}
+
+.input_area input:not([type=checkbox]) {
+	width: 250px;
+	height: 30px;
+	border: 0px;
+}
+
+.btnArea {
+	text-align: center;
+	padding: 50px;
+}
+
+button {
+	width: 100px;
+	height: 35px;
+	border: 0px;
+	color: white;
+	background: #282A35;
+	margin: 5px;
+	cursor: pointer;
+    border-radius: 10px;
+
+}

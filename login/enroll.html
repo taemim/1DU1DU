@@ -31,87 +31,80 @@
 
 			<form class="loginArea" action="${ pageContext.servletContext.contextPath }/member/login" method="post">
 				
+
                 
-                <h1 id="t11">회원가입</h1>
-                <h4>&nbsp 가입시 사용한 이메일 입력</h4>
-                <!--이메일 입력칸-->
-				<span class="input_area"><input type="email" name="memberId" id="emailFind" maxlength="50"
-				placeholder="이메일 입력" required></span>
-                <h4>&nbsp 가입시 사용한 연락처 입력</h4>
-                <!--연락처 입력칸-->
-				<span class="input_area"><input type="text" name="memberPwd" id="phonePwd" maxlength="11"
-				placeholder="핸드폰번호 입력" required></span>
-                <h4>&nbsp 가입시 사용한 연락처 입력</h4>
-                <!--연락처 입력칸-->
-				<span class="input_area"><input type="text" name="memberPwd" id="phonePwd" maxlength="11"
-				placeholder="핸드폰번호 입력" required></span>
-                <h4>&nbsp 가입시 사용한 연락처 입력</h4>
-                <!--연락처 입력칸-->
-				<span class="input_area"><input type="text" name="memberPwd" id="phonePwd" maxlength="11"
-				placeholder="핸드폰번호 입력" required></span>
-                <h4>&nbsp 가입시 사용한 연락처 입력</h4>
-                <!--연락처 입력칸-->
-				<span class="input_area"><input type="text" name="memberPwd" id="phonePwd" maxlength="11"
-				placeholder="핸드폰번호 입력" required></span>
-                <h4>&nbsp 가입시 사용한 연락처 입력</h4>
-                <!--연락처 입력칸-->
-				<span class="input_area"><input type="text" name="memberPwd" id="phonePwd" maxlength="11"
-				placeholder="핸드폰번호 입력" required></span>
-                <h4>&nbsp 가입시 사용한 연락처 입력</h4>
-                <!--연락처 입력칸-->
-				<span class="input_area"><input type="text" name="memberPwd" id="phonePwd" maxlength="11"
-				placeholder="핸드폰번호 입력" required></span>
+                <h1 id="t11">회원 가입</h1>
                 
+                <!--아이디-->
+                <h4></h4>
+				<span class="input_area"><input type="text"  placeholder="아이디 입력" maxlength="13" name="memberId" required></span>
+				<button id="idCheck" type="button">중복확인</button>
+				
+				<!--비밀번호-->
+                <h4></h4>
+				<span class="input_area"><input type="password"  placeholder="비밀번호 입력 &nbsp ( 영문 대소문자/숫자 4~16자)" maxlength="16" name="memberPwd" required></span>
+				
+				<!--비밀번호 확인-->
+                <h4></h4>
+
+				<span class="input_area"><input type="password"  placeholder="비밀번호 확인" maxlength="16" name="memberPwd2" required></span>
+				<label id="pwdResult"></label>
+				
+				<h4>* 이름 </h4>
+				<span class="input_area"><input type="text" maxlength="10" name="yourname" required></span>
+				
+				<h4>이메일</h4>
+				<span class="input_area"><input type="email" name="email" id="emailCheck"></span>
+                <h5><input type="checkbox" name="agreeMail" id="agreeMail">
+                <label for="agreeMail">정보/이벤트 메일 수신에 동의합니다. </label></h5>
+
+
+				<h4>연락처</h4>
+				<span class="input_area"><input type="tel" maxlength="11" name="phone" placeholder="(-없이)01012345678"></span>
+				<h5><input type="checkbox" name="agreePhone" id="agreePhone">
+                <label for="agreePhone">정보/이벤트 SMS 수신에 동의합니다.</label></h5>				
+                
+                <label><b> 성별 </b> </label>
+                <input type="radio" id="male" name="gender" value="M" >
+                <LABEL for="male">남자</LABEL>
+                <input type="radio" id="female" name="gender" value="F" ckecked >
+                <LABEL for="female" >여자</LABEL>
+
+                
+                <label id="birth"><b>생년월일</b></label>
+                <input type="date" name="dateIn"><br>
+
+				
+				<h4>주소</h4>
+				<span class="input_area"><input type="text" name="zipCode" class="postcodify_postcode5" readonly></span>
+				<button id="postcodify_search_button" type="button">검색</button>
+				<h4>도로명 주소</h4>
+				<span class="input_area"><input type="text" name="address1" class="postcodify_address" readonly></span>
+				<h4>나머지 주소</h4>
+				<span class="input_area"><input type="text" name="address2" class="postcodify_details"></span>
                 
 
                 <h1></h1>
                 <h1></h1>
                 
+                <!--동의여부-->
+                <input type="checkbox" id="agree1" name="agreeAll" required>
+                <LABEL for="agree1">1DU1DU의 모든 약관을 확인하고 전체 동의합니다. (선택항목포함)</LABEL>
+                <br>
+                <input type="checkbox" id="agree1" name="agreeAll" required>
+                <LABEL for="agree1"> <b>(필수)</b> 이용약관</LABEL>
+                <br>
+                <input type="checkbox" id="agree1" name="agreeAll" required>
+                <LABEL for="agree1"><b>(필수)</b> 개인정보 수집 및 이용</LABEL>
+                <br>
 
-                <!-- 아이디 찾기버튼 -->   
-                <span class="input_area"><input type="submit" id="findButton" value="아이디 찾기" onclick="email_check()"></span>
+
+
+
+                <!-- 회원 가입 버튼 -->   
+                <span class="input_area"><input type="submit" id="findButton" value="회원 가입" onclick="email_check()"></span>
                 
-                
-                <script type>
 
-                    function email_check( emailFind ) {    
-                            var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-                            return (emailFind != '' && emailFind != 'undefined' && regex.test(emailFind)); 
-                        }
-
-                        $("input[type=email, type=phone]").blur(function(){
-                        var email = $(this).val();
-                        var phone = $(this).val();
-
-                        if( email == '' || email == 'undefined' || phone == '') return false;
-                        if( ! email_check(email) ) {
-                            alert('올바른 정보를 기입해주세요.');
-                            $(".result-email").alert('올바른 정보를 기입해주세요.');
-                            $(this).focus();
-                            return false;
-
-                        } else if ( ! phone == '' ) {
-                        alert('메일로 임시 비밀번호를 보냈습니다. 재로그인 후 회원정보수정에서 비밀번호를 재설정해주세요.');
-                            $(".result-email").text('');
-                            location.href="../login/find-id.html";
-                        } 
-                        });
-
-
-
-                    
-                    </script>
-
-
-
-
-
-
-                 <!--로그인화면 돌아가기-->
-                <a href="../login/login.html" class="myButton" !important> ◀ 로그인화면 돌아가기</a>
-
-                
-                
 
             
             </form>
@@ -123,9 +116,9 @@
                 <!--이메일 찾기 유효성 체크-->
                 <script>
 
-                    function email_check( email ) {    
+                    function email_check( emailCheck ) {    
                         var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-                        return (email != '' && email != 'undefined' && regex.test(email)); 
+                        return (emailCheck != '' && emailCheck != 'undefined' && regex.test(emailCheck)); 
                     }
     
                     $("input[type=email]").blur(function(){
