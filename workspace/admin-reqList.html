@@ -45,14 +45,14 @@
           <li><a href="#">구독 내역 관리</a></li>
           <li><a href="admin-reqList.html">교환/반품/취소 관리</a></li>
           <li class="li-2">상품관리</li>
-          <li><a href="#">상품 등록</a></li>
-          <li><a href="#">상품 조회</a></li>
+          <li><a href="goods_regist.html">상품 등록</a></li>
+          <li><a href="mng_goods_list.html">상품 조회</a></li>
           <li><a href="admin-order.html">주문 내역 관리</a></li>
           <li><a href="admin-reqList.html">교환/반품/취소 관리</a></li>
           <li class="li-2">문의/리뷰 관리</li>
           <li><a href="#">1:1 문의 관리</a></li>
           <li><a href="#">리뷰 관리</a></li>
-        </ul>
+      </ul>
         <br>
       </div> <!-- /side-box-->
       <script>
@@ -123,7 +123,7 @@
           <a href="javascript:openModal('modal1');" class="btn btn-dark btn-right" style=" color: #ffffff;">환불처리</a>
           <a href="javascript:openModal('modal2');" class="btn btn-light btn-right">요청거부처리</a>
           <a href="javascript:openModal('modal3');" class="btn btn-light btn-right">교환 발송 처리</a>
- 
+         
         <!-- 모달창 div 시작 !-->
         <div id="modal">
           <div class="modal-con modal1">
@@ -136,7 +136,7 @@
             <!-- 모달창 버튼 영역-->
             <div class="modal-btn">
               <button type="button" class="madal-btn button btn btn-light btn-sm">
-                  <a href="javascript:;" class="close">&nbsp;처리하기&nbsp;</a>
+                  <a href="javascript:;">&nbsp;처리하기&nbsp;</a>
               </button>
               &nbsp;&nbsp;
               <button type="button" class="madal-btn button btn btn-light btn-sm ">
@@ -190,19 +190,20 @@
               </button>
             </div>
           </div>
+        
           <!-- 모달 자바 스크립트 필수 -->
-            <script>
-              function openModal(modalname) {
-                document.get
-                $("#modal").fadeIn(300);
-                $("." + modalname).fadeIn(300);
-              }
-
-              $("#modal, .close").on('click', function () {
-                $("#modal").fadeOut(300);
-                $(".modal-con").fadeOut(300);
-              });  
-            </script>
+          <script>
+          function openModal(modalname){
+            document.get
+            $("#modal").fadeIn(300);
+            $("."+modalname).fadeIn(300);
+          }
+          
+          $(".close").on('click',function(){
+            $("#modal").fadeOut(300);
+            $(".modal-con").fadeOut(300);
+          });
+          </script>
 
         </div> <!-- 모달 div 종료지점 -->
 
