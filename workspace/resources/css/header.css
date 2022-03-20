@@ -46,9 +46,13 @@ dl, ul, ol, li {
     height: 50px;
     background: rgb(40, 40, 40);
     color: rgb(230, 230, 230);
+
     position: relative;
+
     text-align: center;
+
 }
+
 .top_banner > p {
     font-size: 1.2em;
     padding-top: 5px;
@@ -137,17 +141,9 @@ dl, ul, ol, li {
 /* 오른쪽 메뉴 */
 .right_menu {
     position: absolute;
-    top: 60px;
+    top: 80px;
     right: 20px;
     float: right;
-}
-
-
-/*장바구니 로고 크기&위치 */
-.right_menu img {
-    height: 30px;
-    width: 30px;
-    padding-top: 25px;
 }
 
 .right_menu ul li a {
@@ -159,4 +155,17 @@ dl, ul, ol, li {
 /* 관리/마이 페이지 숨김 */
 .hidden-menu {
    visibility: hidden;
+}
+
+/*------------------------------------------------------------------------*/
+/* a 링크 설정 변경 */
+#header li a {
+    text-decoration: none;
+    color : #432;
+    line-height: 2.5em;
+}
+
+/* a 링크 호버시 글자 굵게 */
+#header a:hover{
+    font-weight: bolder;
 }

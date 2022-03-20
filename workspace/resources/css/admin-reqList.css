@@ -59,7 +59,7 @@ dl, ul, ol, li {
 
 /* 메인 div 영역 사이즈 */
 .main-box{
-    /* border: 3px solid #F3EFEF; */ /* 컨텐츠 생성시 이부분 주석 제거하기 ! */
+    border: 3px solid #F3EFEF; 
     /* background: #F3EFEF; */
     border-radius: 25px;
     margin: 20px 0 50px 50px;
@@ -69,14 +69,6 @@ dl, ul, ol, li {
 .admin-page{
     margin: 50px;
 }
-
-/* 관리자 전용 페이지 입니다 문구 */
-.admin-page h4{
-    text-align: center;
-    margin-top: 100px;
-    letter-spacing: 0.2em;
-}
-
 
 /* 사이드 바 메뉴 글자 설정 */
 .li-1{
@@ -93,6 +85,7 @@ dl, ul, ol, li {
     /* background: #e0dcdc; */
     /* border-top: rgb(172, 151, 131) 1px solid; */
 }
+
 
 /* 관리 페이지 메인 영역 --------------------------------------------------------------------------*/
 
@@ -123,6 +116,93 @@ dl, ul, ol, li {
 }
 
 
+/*모달 설정 !!------------------------------------------------------------------------------*/
+
+/* 모달 팝업시 뒷 배경 어둡게 처리 */
+#modal{
+  display:none;
+  position:fixed; 
+  width:100%; height:100%;
+  top:0; left:0; 
+  background:rgba(0,0,0,0.2);
+}
+
+/* 모달 박스 크기 */
+.modal-con{
+  display:none;
+  position:fixed;
+  top:50%; left:53%;
+  transform: translate(-50%,-50%);
+  max-width: 60%;
+  min-height: 30%;
+  background:rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  border: 3px solid #d6741850;
+  width: 700px;
+}
+
+/* 모달 제목 */
+.modal-con .title{
+  font-size:1.5em;
+  text-align: center;
+}
+
+/* 모달 컨텐츠 내용 */
+.modal-con .con{
+  font-size:1.25em;
+  line-height:1.3;
+  text-align: center;
+}
+
+/* 모달 내부 버튼(닫기/저장) 정렬 */
+.modal-btn{
+    display:block;
+    position:absolute;
+    top:50%; left: 50%;
+    padding-left: 20px;
+    line-height: 30px;
+    text-align:center;
+    float: center;
+    transform: translate(-50%, 70px);
+}
+
+/* 모달 내부 p 상단 여유주기*/
+.con p{
+    margin-top: 20px;
+}
+
+/* 버튼 설정 */
+.button {
+    border: 3px solid #d6741850;
+    border-radius: 10px;
+    font-size: 1.15em;
+}
+
+/* 버튼 호버시 효과 */
+.madal-btn:hover{
+    border: 3px solid #d6741850;
+    box-shadow: 2px 2px  #d6741850;
+    font-weight: bold;
+} 
+
+
+/* 모달 내부 입령창 버튼 색 통일하기 (+호버) */
+.madal-input-btn{
+    border: 3px solid #d6741850;
+    background-color: #ffffff;
+}
+
+.madal-input-btn:hover{
+    background-color: #ffffff;
+    box-shadow: none;
+    color : #432;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
 /* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------*/
 
 /* a 링크 설정 변경 */
@@ -141,5 +221,3 @@ dl, ul, ol, li {
     text-decoration: none;
     color : #432;
 }
-
-
