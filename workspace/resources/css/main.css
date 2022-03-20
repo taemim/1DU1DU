@@ -45,7 +45,7 @@ dl, ul, ol, li {
 
 
 /* 메인 홈페이지 div박스 */
-div#home {
+/* div#home {
     background-color: rgb(185, 185, 185);
     width: 100%;
     height: 700px;
@@ -53,7 +53,7 @@ div#home {
     align-items: center;
     justify-content: center;
     overflow:hidden;
-}
+} */
 
 /* 메인 첫화면 배경이미지 */
 .main-img {
@@ -61,6 +61,102 @@ div#home {
     height:100%;
     object-fit:cover;
 }
+
+/* main image ----------------------------------------------------------------------------------------------------- */
+/* img 위에 글씨, 버튼 올리기 */
+.display_container {
+    position:relative;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.display_bottommiddle {
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translate(-50%,0%);
+}
+
+/* 꼭, 구독 bold */
+span {
+    font-weight: bold;
+}    
+
+/* 위의 문구 */
+.jumbo {
+    font-size:40px!important;
+    color: #432;
+    letter-spacing: 10px;
+    font-weight: 500;
+    line-height: 65px;
+}
+
+/* 버튼, 아래 문구 가운데 정렬 */
+.center {
+    text-align:center!important;
+}
+
+/* 원두 취향 테스트와 위의 문구 margin */
+.main_img_margin {
+    margin:16px!important;
+}
+
+/* 원두 취향 테스트 버튼 */
+.main_img_button {
+    border:none;
+    display:inline-block;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}    
+
+/* 원두 취향 테스트 버튼 */
+.btn_recomm {
+    color:rgb(230, 230, 230)!important;
+    background-color:black!important;
+    border-radius:12px;
+    opacity:0.8;
+}
+
+.main_img_button:hover {
+    color:#432!important;
+    background-color:#F4F1F1!important;
+    border-radius:12px;
+    opacity:0.8;
+}
+
+/* 원두 취향 테스트 padding */
+.padding_large {
+    padding:12px 24px!important
+}
+
+/* 원두 취향 테스트 글씨 크기 */
+.main_large {
+    font-size:18px!important
+}
+
+.margin_top {
+    margin-top:16px!important;
+    margin-bottom: 16px;
+}
+
+/* 아래 문구 */
+.recomm {
+    font-size: 18px;
+    line-height: 7px;
+    color: #432;
+    letter-spacing: 2px;
+}
+
+/* img 아래부터 padding */
+.padding_32 {
+    padding-bottom:32px!important
+}
+
+
+
 
 /* footer ----------------------------------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, address, caption, em, th, p {
@@ -137,8 +233,7 @@ ul {
 p {
     display: block;
     margin-block-start: 1em;
-    margin-block-end: 1em;
-    
+    margin-block-end: 1em;  
 }
 
 #footer .footer-bottom .footer-info p.copy {
