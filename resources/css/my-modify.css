@@ -56,48 +56,58 @@ dl, ul, ol, li {
     background: #F3EFEF; 
     text-align: center;
     border-radius: 30px;
-    margin: 0 auto;
-    height: 600px;
+    margin: 0 100px 0 auto;
+    height: 620px;
+    width: 300px;
 } 
 
 /* 메인 div 영역 사이즈 */
 .main-box{
+    border: 3px solid #F3EFEF; 
     /* background: #F3EFEF; */
     border-radius: 30px;
-    margin: 0 auto;
+    margin: 0 auto 0 0px;
     margin-bottom: 30px;
-    height: 400px;
-    min-width: 1500px
+    width: 1200px;
+    min-width: 1000px;
+    height: 1050px;
 }
 
-
-/* 고객환영 영역*/
+/* 메인 div 콘텐츠 영역 설정*/
 .admin-page{
-    border: 3px solid #F3EFEF; 
-    /* background: #F3EFEF; */
-    border-radius: 30px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    height: 300px;
-    min-width: 1500px
+    margin: 80px 50px;
 }
 
-/* 고객 정보 */
-.admin-page1{
-    margin: 50px;
-    border: 3px solid #F3EFEF; 
-    /* background: #F3EFEF; */
+/* 오늘도 원두원두와~ 배경 */
+.mygrade {
+    background-color: #F3EFEF;
+    padding : 20px 10px 12px 10px;
     border-radius: 30px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    height: 800px;
-    min-width: 1500px
+    height: 150px;
+    font-size: 30px;
+
 }
+
+
+/* 회원님의 등급은~ */
+#grade {
+    font-size: 20px;
+    margin-left: 60px;
+}
+
+
+label {
+    margin: 30px 50px;
+    line-height: 1px;
+}
+
+
+
 
 /* 사이드 바 메뉴 글자 설정 */
 .li-1{
     font-weight:bolder;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.6em;
     margin: 20px 0 20px 0;
 }
 
@@ -107,38 +117,202 @@ dl, ul, ol, li {
     font-weight:bolder;
     margin-top: 10px;
     margin-bottom: 15px;
-    /* background: #e0dcdc; */
-    /* border-top: rgb(172, 151, 131) 1px solid; */
 }
 
-
-/* 관리 페이지 메인 영역 --------------------------------------------------------------------------*/
-
-
-/* 테이블 크기 설정 테이블 크기 벗어나면 스크롤 보임*/
-.table-scroll{
-    width: 100%;
-    height: 500px;
-    overflow: auto;
+.li-2 #now {
+    background-color: white !important;
+    z-index: 999;
+    padding: 15px 30px;
+    border-radius: 30px;
 }
 
-/* 컬럼명 세로쓰기 방지 */
-.table th, td {
-    white-space:nowrap;
-    text-align: center;
-}
 
 /* 버튼 설정*/
 .btn-right {
     text-align: center;
-    margin-left: 10px;
-    float: right;
+    margin-right: 50px;
+    margin-bottom: 0px;
+    border-radius: 20px;
+    padding : 10px 20px;
+    font-size: 20px;
+    float : right;
+
 }
 
-.sub-list{
-    font-size: 1.15em;
-    margin-right: 20px;
+/* 모듈 버튼 설정*/
+.btn-right1 {
+    text-align: center;
+    margin-top: -140px;
+    margin-right: 50px;
+    margin-bottom: 0px;
+    border-radius: 20px;
+    padding : 10px 20px;
+    font-size: 20px;
+    float : right;
+
 }
+
+
+
+
+
+
+
+/*  ----------------------- 정보 수정 입력창 ---------------------------- */
+
+.my-info {
+    background-color: #F3EFEF;
+    padding: 50px 100px 150px 50px;
+    margin : 50px 0;
+    border-radius: 30px;
+    min-width: 1000px;
+    
+}
+
+
+
+
+
+
+
+/* 입력창 전체*/
+.input_area {
+    border-radius: 20px;
+    margin: 50px 10px 0px 150px;
+	padding: 17px 60px 17px 20px;
+	background: white;
+
+
+
+}
+
+/* 창조절 */
+.input_area input:not([type=checkbox]) {
+	width: 600px;
+	height: 40px;
+	border: 0px;
+
+
+}
+
+
+
+/* 메일 창 */
+.input_area #emailCheck {
+    margin-top: 10px;
+    margin-left: 8px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+/* 핸드폰 입력 창 */
+.input_area #phoneNum {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+
+
+/* 메일 라벨 */
+#mail {
+    margin-bottom: 20px;
+    margin-left: 150px;
+    font-size: 17px;
+    color: gray;
+}
+
+
+
+/* 연락처 라벨 */
+#phn {
+    margin-bottom: 20px;
+    margin-left: 150px;
+    font-size: 17px;
+    color: gray;
+}
+
+
+/* 주소 라벨 */
+#addr {
+    margin-bottom: 20px;
+    margin-left: 150px;
+    font-size: 17px;
+    color: gray;
+}
+
+
+/* 기본 주소창 */
+.input_area #basicAddr {
+    margin-top: 10px;
+    margin-left: 8px;
+    width: 480px;
+}
+
+
+
+/* 도로명 주소 */
+.input_area #addr1 {
+    margin-top: 30px;
+    margin-left: 8px;
+
+}
+
+
+/* 나머지 주소 */
+.input_area #addr2 {
+    margin-top: 30px;
+    margin-left: 8px;
+
+}
+
+
+
+
+
+
+/* 인풋창 전체 */
+.input_area input {
+
+	height: 30px;
+	border: 0px;
+}
+
+/* 인풋창 포커스 */
+.input_area input:focus {
+	outline: none;
+}
+
+
+
+
+
+
+/* 중복확인, 검색 버튼 */
+button {
+	width: 90px;
+	height: 45px;
+	border: 0px;
+	color: white;
+	background: #282A35;
+	cursor: pointer;
+    border-radius: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -151,7 +325,7 @@ dl, ul, ol, li {
   display:none;
   position:fixed; 
   width:100%; height:100%;
-  top:0; left:0; 
+  top:0; left: 0; 
   background:rgba(0,0,0,0.2);
 }
 
@@ -161,11 +335,11 @@ dl, ul, ol, li {
   position:fixed;
   top:50%; left:53%;
   transform: translate(-50%,-50%);
-  max-width: 70%;
+  max-width: 60%;
   min-height: 30%;
   background:rgba(255, 255, 255, 0.9);
   border-radius: 25px;
-  border: 3px solid #d6741850;
+  border: 3px solid black;
   width: 700px;
 }
 
@@ -173,6 +347,9 @@ dl, ul, ol, li {
 .modal-con .title{
   font-size:1.5em;
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bolder;
 }
 
 /* 모달 컨텐츠 내용 */
@@ -201,29 +378,29 @@ dl, ul, ol, li {
 
 /* 버튼 설정 */
 .button {
-    border: 3px solid #d6741850;
-    border-radius: 10px;
+    border: 3px solid black;
+    border-radius: 20px;
     font-size: 1.15em;
 }
 
 /* 버튼 호버시 효과 */
 .madal-btn:hover{
-    border: 3px solid #d6741850;
-    box-shadow: 2px 2px  #d6741850;
+    border: 3px solid black;
+    box-shadow: 2px 2px  black;
     font-weight: bold;
 } 
 
 
 /* 모달 내부 입령창 버튼 색 통일하기 (+호버) */
 .madal-input-btn{
-    border: 3px solid #d6741850;
+    border: 3px solid black;
     background-color: #ffffff;
 }
 
 .madal-input-btn:hover{
     background-color: #ffffff;
     box-shadow: none;
-    color : #432;
+    color : black;
 }
 
 
