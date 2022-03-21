@@ -292,17 +292,15 @@
 
     <script>
         function back(){
-            let reply = confirm('정말 뒤로 가시겠습니까?');
+            let reply = confirm('결제를 더이상 진행하지 않고 메인페이지로 이동합니다.');
             if(reply){
                 /* 이전 페이지로 가기*/
             }
         };
+
         function chk() {
-            if($('#order-check').is(':checked')){
-               
-            } else {
+            if(!$('#order-check').is(':checked')){
                 alert("청약의사 재확인을 동의해 주셔야 주문을 진행하실 수 있습니다.");
-             }
         };
     </script>
 
