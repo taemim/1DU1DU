@@ -56,10 +56,10 @@
                                 <div class="row form-box">
                                     <h3>주문인 정보</h3><br><br>
                                     <div class="col-sm-5">
-                                        <input type="email" class="form-control-plaintext" id="input1" value="임태미" placeholder="이름" readonly>
+                                        <input type="email" class="form-control-plaintext" id="input1" value="김길동" placeholder="이름" readonly>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input type="tel" class="form-control-plaintext" id="input2" value="01071792881" placeholder="연락처" readonly>
+                                        <input type="tel" class="form-control-plaintext" id="input2" value="01012341111" placeholder="연락처" readonly>
                                     </div>
                                     <br><br>
                                     <div class="form-group">
@@ -87,52 +87,48 @@
                                         <input type="text" class="form-control-plaintext" id="input" placeholder="수령인" required>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input type="tel" class="form-control-plaintext" id="input" placeholder="연락처" required>
+                                        <input type="tel" class="form-control-plaintext" id="input" maxlength="11" placeholder="연락처(-하이픈없이)" required>
                                     </div>
 
                                     <br><br>
 
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control-plaintext" id="input" placeholder="우편번호" 
+                                        <input type="text" class="form-control-plaintext" id="postcode" placeholder="우편번호" 
                                             required disabled>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input type="button" class="btn btn-dark" value="우편 번호 검색" >
-                                        <div class="valid-feedback">
-                                            우편번호를 입력해주세요.
-                                        </div>
+                                        <input type="button" class="btn btn-dark" 
+                                            onclick="execDaumPostcode();" value="우편번호 찾기">
                                     </div>
                                     <br><br>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control-plaintext" id="input" placeholder="주소"
+                                            <input type="text" class="form-control-plaintext" id="address" placeholder="도로명 주소"
                                                 required disabled>
                                         </div>
-                                        <div class="valid-feedback">
-                                            주소를 입력해주세요.
-                                        </div>
                                     </div>
                                     <br><br>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control-plaintext" id="input" placeholder="상세주소"
-                                                required disabled>
-                                        </div>
-                                        <div class="valid-feedback">
-                                            상세 주소를 입력해주세요.
+                                            <input type="text" class="form-control-plaintext" id="extraAddress" placeholder="상세주소"
+                                                required>
                                         </div>
                                     </div>
                                     <br><br>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control-plaintext" id="input" placeholder="배송메세지">
-                                        </div>
-                                    </div>
+                                    <div class="input-group mb-3">
+                                        <select class="form-control-plaintext" id="inputGroupSelect01">
+                                        <option selected disabled>배송 메세지 입력</option>
+                                        <option value="1">부재시 경비실에 맡겨주세요</option>
+                                        <option value="2">배송 전 연락 바랍니다.</option>
+                                        <option value="3">문앞에 놔주세요.</option>
+                                        <option value="etc">직접입력</option>
+                                      </select>
+                                  </div>
                                     <br><br>
                                     <div class="col-sm-12">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="" value=""> 회원정보 주소를 업데이트 합니다.
+                                                <input type="checkbox" name="" value=""> 위 내용을 회원정보에 반영합니다. (우편번호/도로명주소/상세주소)
                                             </label>
                                         </div>
                                     </div><br>
@@ -141,26 +137,36 @@
                         </fieldset>
                     </div>
                 </div><!-- 왼쪽 그리드 끝-->
+           
+                <!-- 다음 주소 api-->
+                <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                    <script>
+                        function execDaumPostcode() {
+                            new daum.Postcode({
+                                oncomplete: function(data) {
+                                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-                <script>
-                    (function () {
-                        'use strict'
+                                    // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                                    var addr = ''; // 주소 변수
+                                    var extraAddr = ''; // 참고항목 변수
 
-                        var forms = document.querySelectorAll('.needs-validation')
-
-                        Array.prototype.slice.call(forms)
-                            .forEach(function (form) {
-                                form.addEventListener('submit', function (event) {
-                                    if (!form.checkValidity()) {
-                                        event.preventDefault()
-                                        event.stopPropagation()
+                                    //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                                    if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                                        addr = data.roadAddress;
+                                    } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                                        addr = data.jibunAddress;
                                     }
 
-                                    form.classList.add('was-validated')
-                                }, false)
-                            })
-                    })()
-                </script>    
+                                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                                    document.getElementById('postcode').value = data.zonecode;
+                                    document.getElementById("address").value = addr;
+                                    // 커서를 상세주소 필드로 이동한다.
+                                    document.getElementById("extraAddress").focus();
+                                }
+                            }).open();
+                        }
+                    </script>
 
                 <!--오른쪽 그리드 -->
                 <div class="col-lg-6">
@@ -196,42 +202,45 @@
                             <br>
                         </div>
                         <br>
-                        <!-- 결제 수단-->
+                        <!-- 3. 결제 수단-->
                         <fieldset class="form-horizontal needs-validation" novalidate>
                             <div class="row form-box">
                                 <h3>결제 수단</h3><br><br>
                                 <div class="col-sm-5">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefau1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="checkName"
+                                            id="checkName" required>
+                                        <label class="form-check-label" for="checkName">
                                             <h5> 카카오 페이 </h5>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="checkName"
+                                            id="checkName" required >
+                                        <label class="form-check-label" for="checkName">
                                            <h5> 신용 카드 </h5>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
+
                         <br>
-                        <!-- 주문 동의-->
-                        <fieldset class="form-horizontal needs-validation" novalidate>
+                        <!-- 4. 주문 동의-->
+                        <fieldset class="form-horizontal needs-validation">
                             <div class="row form-box">
 
                                 <h3>주문 동의</h3><br><br>
                                 <div class="col-sm-12">
-                                    <div class="checkbox">
+
+                                    <div class="checkbox"> 
                                         <label>
-                                            <input type="checkbox" name="" value="">
+                                            <input type="checkbox" id="order-check"> 
                                             (필수) 구매하실 상품의 결제정보를 확인하였으며, 구매진행에 동의합니다.
                                         </label>
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -240,23 +249,31 @@
                         <br>
                         <div class="col-sm-12">
                             <div class="d-grid gap-2 col-11 mx-auto">
-                                <input class="btn btn-dark btn-lg" type="submit" value="결제 진행">
+                                <input class="btn btn-dark btn-lg" id="order-submit" onclick="chk();" type="submit" value="결제 진행">
                                 <button class="btn btn-outline-dark btn-lg" type="button" onclick= "back();">결제 취소</button>
                             </div>
                         </div><br>
                     </div>
                 </div>
             </div>
-            
         </form>
     </div><!-- /container-fluid-->
     <script>
         function back(){
-            let reply = confirm('정말 뒤로 가시겠습니까?');
+            let reply = confirm('결제를 더이상 진행하지 않고 메인페이지로 이동합니다.');
             if(reply){
                 /* 이전 페이지로 가기*/
             }
-        }
+        };
+
+    
+        function chk() {
+            if($('#order-check').is(':checked')){
+                alert("성공!")
+            } else {
+                alert("청약의사 재확인을 동의해 주셔야 주문을 진행하실 수 있습니다.");
+             }
+        };
     </script>
 
 
