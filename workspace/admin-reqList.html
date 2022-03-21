@@ -69,6 +69,7 @@
           <!-- 같은 페이지에서 다른 데이터를 조회받을 때 (ex. 휴먼회원내역)-->
           <a href="#" class="sub-list">구독건 요청 조회</a>
           <br><br>
+          <form>
           <div class="table-scroll">
             <table class="table table-hover w-auto">
               <thead class="table-light">
@@ -89,9 +90,8 @@
                 <!-- 테이블 내용 jstl c:forEach로 추가하기-->
                 <!-- 가 데이터 (확인용)-->
                 <tr>
-                  <td scope="row"><input type="checkbox" name="order_no" value="1"></td>
-
-                  <td>123456789-123456789</td>
+                  <td scope="row"><input type="checkbox" class="checkbox" name="order_no" value=""></td>
+                  <td name="order_no">123456789-123456789</td>
                   <td>user124</td>
                   <td>123456789123456789123456789</td>
                   <td>123456789</td>
@@ -116,11 +116,12 @@
               </tbody>
             </table>
           </div>
+        </form>
           <br>
       
         <!-- 모달 시작 !-->         
           <!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
-          <a href="javascript:openModal('modal1');" class="btn btn-dark btn-right" style=" color: #ffffff;">환불처리</a>
+          <a href="javascript:check();" class="modal-input-btn btn btn-dark btn-right" style=" color: #ffffff;">요청거부처리</a>
           <a href="javascript:openModal('modal2');" class="btn btn-light btn-right">요청거부처리</a>
           <a href="javascript:openModal('modal3');" class="btn btn-light btn-right">교환 발송 처리</a>
          
@@ -135,8 +136,11 @@
             </div>
             <!-- 모달창 버튼 영역-->
             <div class="modal-btn">
-              <button type="button" class="madal-btn button btn btn-light btn-sm">
-                  <a href="javascript:;" class="close">&nbsp;처리하기&nbsp;</a>
+              <form>
+                <input type="hidden" name="req-result" value="환불완료">
+              </form>
+              <button type="button" type="submit" class="madal-btn button btn btn-light btn-sm">
+                  &nbsp;처리하기&nbsp;
               </button>
               &nbsp;&nbsp;
               <button type="button" class="madal-btn button btn btn-light btn-sm ">
@@ -193,16 +197,26 @@
         
           <!-- 모달 자바 스크립트 필수 -->
           <script>
-          function openModal(modalname){
-            document.get
-            $("#modal").fadeIn(300);
-            $("."+modalname).fadeIn(300);
-          }
+              function check() {
+                  if($('.checkbox').is(':checked')){
+                    openModal('modal1');
+                  } else {
+                    alert("주문건을 선택해주세요.");
+                  }
+              }
+
+              function openModal(modalname) {
+                document.get
+                $("#modal").fadeIn(300);
+                $("." + modalname).fadeIn(300);
+              }
+  
+              $(".close").on('click', function () {
+                $("#modal").fadeOut(300);
+                $(".modal-con").fadeOut(300);
+              }); 
+              
           
-          $(".close").on('click',function(){
-            $("#modal").fadeOut(300);
-            $(".modal-con").fadeOut(300);
-          });
           </script>
 
         </div> <!-- 모달 div 종료지점 -->
