@@ -29,7 +29,7 @@
             <br>
             <ul>
               <li class="li-1"><a href="#">MYPAGE</a></li>
-              <li class="li-2"><a href="../mypage/my-modify.html">내 정보 확인</a></li>
+              <li class="li-2"><a href="../mypage/my-modify.html" id="now">내 정보 확인</a></li>
               <li class="li-2"><a href="#">구독 내역</a></li>
               <li class="li-2"><a href="#">주문 내역</a></li>
               <li class="li-2"><a href="#">1:1 문의</a></li>
@@ -42,227 +42,210 @@
           </div>
 
 
+<!-- 관리페이지 메인 영역 -->
+<div class="col-lg-9 main-box">
+    <div class="admin-page">
+
+        <div class="mygrade" id="my-grade">
+            <label id="grade1">오늘도 <b>1DU1DU</b>와 기분좋은 하루 보내세요! &#128151;</label><br>
+            <p id="grade">&#128204; 회원님의 등급은 &#128142; 입니다.
+
+            <a href="javascript:openModal('modal1');" class="btn btn-dark btn-right" style=" color: #ffffff;">비밀번호 변경</a>
+            </p>
+        </div>
+
+
+        
 
 
 
-          <!-- 관리페이지 메인 영역 -->
-          <div class="col-lg-9 main-box">
-            <div class="admin-page">
 
-                <h1>김원두님 안녕하세요</h1>
-                <br>
-                <!-- 전체 내역 조회 (=테이블명)-->
-                <a href="#" class="sub-list">전체 상품 조회</a>
-                <!-- 같은 페이지에서 다른 데이터를 조회받을 때 (ex. 휴먼회원내역)-->
-                <a href="#" class="sub-list">부분 상품 조회</a>
-                <br><br>
+    <!--내정보 수정칸-->
+
+
+
+
+        <div class="my-info">
+
+
+
+                <!--이메일-->
+				<h4></h4>
+                <label id="mail"><b>이메일</b></label>
+				<span class="input_area"><input type="email" name="email" id="emailCheck" placeholder="이메일 주소"></span>
+            
+
+                <!--연락처-->
+				<h4></h4>
+                <label id="phn"><b>연락처</b></label>
+				<span class="input_area"><input type="tel" maxlength="11" name="phone" id="phoneNum" placeholder=" 핸드폰 번호 "></span>
+		
                 
-                  </div>
-                  <br>
-
-                  <div class="admin-page1">
-
-                    <h1>김원두님 안녕하세요</h1>
-                    <br>
-                    <!-- 전체 내역 조회 (=테이블명)-->
-                    <a href="#" class="sub-list">전체 상품 조회</a>
-                    <!-- 같은 페이지에서 다른 데이터를 조회받을 때 (ex. 휴먼회원내역)-->
-                    <a href="#" class="sub-list">부분 상품 조회</a>
-                    <br><br>
-                    
-            <!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
-            <a href="javascript:openModal('modal1');" class="btn btn-dark btn-right" style=" color: #ffffff;">배송 처리</a>
-            <a href="javascript:openModal('modal2');" class="btn btn-light btn-right">발주 처리</a>
-
-
-                      <!-- 모달창 div 시작 !-->
-          <div id="modal">
-            <div class="modal-con modal1">
-              <!-- 모달 제목 -->
-              <p class="title">배송 처리</p>
-              <!-- 모달 콘텐츠 영역-->
-              <div class="con">
-                <p>해당 요청건을 환불처리 하시겠습니까? </p>
-              </div>
-              <!-- 모달창 버튼 영역-->
-              <div class="modal-btn">
-                <button type="button" class="madal-btn button btn btn-light btn-sm">
-                    <a href="javascript:;" class="close">&nbsp;처리하기&nbsp;</a>
-                </button>
-                &nbsp;&nbsp;
-                <button type="button" class="madal-btn button btn btn-light btn-sm ">
-                    <a href="javascript:;" class="close">&nbsp;&nbsp;닫기&nbsp;&nbsp;</a>
-                </button>
-              </div>
-            </div>
-  
-
-                      </div>
-                      <br>
-                  
-                  <!-- 모달 시작 !-->         
-                  <!-- float:right; 설정 버튼 순서 오른쪽부터 시작-->
-  
-
-   
-  
 
 
 
+                <!--주소-->
+				<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 
-            <!--두번째창-->
-            <div class="modal-con modal2">
-              <p class="title">발주 처리</p>
-              <div class="con">
-                <p>해당 요청건을 거부(철회) 처리 하시겠습니까? </p>
-              </div>
-              <div class="modal-btn">
-                <button type="button" class="madal-btn button btn btn-light btn-sm">
-                  <a href="javascript:;" class="close">&nbsp;처리하기&nbsp;</a>
-                </button>
-                &nbsp;&nbsp;
-                <button type="button" class="madal-btn button btn btn-light btn-sm">
-                    <a href="javascript:;" class="close">&nbsp;&nbsp;닫기&nbsp;&nbsp;</a>
-                </button>
-              </div>
-            </div>
-  
-            <div class="modal-con modal3">
-              <p class="title">판매 취소 처리</p>
-              <div class="con">
-                <p>교환 발송 처리 하시겠습니까?</p>
-                <!-- 모달 내부 입력창 부분 !-->
-                <div class="input-group modal-input">
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="madal-input-btn btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">택배사 선택</button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                  </ul>
-                  <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="운송장 번호를 입력하세요.">
-                  &nbsp;&nbsp;&nbsp;&nbsp; <!-- 입력 폼 양쪽 공백추가 -->
-                </div>
-              </div>
-              <div class="modal-btn">
-                <button type="button" class="madal-btn button btn btn-light btn-sm">
-                  <a href="javascript:;" class="close">&nbsp;처리하기&nbsp;</a>
-                </button>
-                &nbsp;&nbsp;
-                <button type="button" class="madal-btn button btn btn-light btn-sm ">
-                    <a href="javascript:;" class="close">&nbsp;&nbsp;닫기&nbsp;&nbsp;</a>
-                </button>
-              </div>
-            </div>
-  
-            <div class="modal-con modal4">
-              <p class="title">발송 지연 처리</p>
-              <div class="con">
-                <p>교환 발송 처리 하시겠습니까?</p>
-                <!-- 모달 내부 입력창 부분 !-->
-                <div class="input-group modal-input">
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="madal-input-btn btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">택배사 선택</button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                  </ul>
-                  <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="운송장 번호를 입력하세요.">
-                  &nbsp;&nbsp;&nbsp;&nbsp; <!-- 입력 폼 양쪽 공백추가 -->
-                </div>
-              </div>
-              <div class="modal-btn">
-                <button type="button" class="madal-btn button btn btn-light btn-sm">
-                  <a href="javascript:;" class="close">&nbsp;처리하기&nbsp;</a>
-                </button>
-                &nbsp;&nbsp;
-                <button type="button" class="madal-btn button btn btn-light btn-sm ">
-                    <a href="javascript:;" class="close">&nbsp;&nbsp;닫기&nbsp;&nbsp;</a>
-                </button>
-              </div>
-            </div>
-             <!-- 모달 자바 스크립트 필수 -->
-             <script>
-              function openModal(modalname) {
-                document.get
-                $("#modal").fadeIn(300);
-                $("." + modalname).fadeIn(300);
-              }
-  
-              $(".close").on('click', function () {
-                $("#modal").fadeOut(300);
-                $(".modal-con").fadeOut(300);
-              });  
-            </script>
-  
-  
-            </div> <!-- 모달 div 종료지점 -->
-  
-                  <br>
-              </div>
+				<h4></h4>
+                <label id="addr"><b>주소</b></label><br>
+                <!--기본주소-->
+				<span class="input_area"><input type="text" id="basicAddr" name="zipCode" class="postcodify_postcode5" readonly></span>
+				<button id="postcodify_search_button" type="button" onclick="openZipSearch()" >검색</button>
+			
+                <!--도로명 주소-->
+                <h4></h4>
+				<span class="input_area"><input type="text" placeholder="도로명 주소" name="address1" id="addr1" class="postcodify_address" readonly></span>
+				
+                <!--상세 주소-->
+                <h4></h4>
+				<span class="input_area"><input type="text" placeholder="상세 주소" name="address2" id="addr2" class="postcodify_details"></span>
+                
 
+
+                <!--다음 도로명 우편번호 검색-->
+                <script>
+                function openZipSearch() {
+                    new daum.Postcode({
+                        oncomplete: function(data) {
+                            $('[name=zipCode]').val(data.zonecode); // 우편번호 (5자리)
+                            $('[name=address1]').val(data.address);
+                            $('[name=address2]').val(data.buildingName);
+                        }
+                    }).open();
+                }
+                </script>
 
               
 
-
-
-                </div>
-
-
-
                 
 
 
 
+    </div>
+    
 
-          </div>
 
-          
+    <a href="javascript:openModal('modal4');" class="btn btn-dark btn-right1" style=" color: #ffffff;">정보 수정</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- 모달 시작 !-->         
+          <!-- float:right; 설정 버튼 순서 오른쪽부터 시작-->
+
+    <!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
+
+ 
+
+
+  <!-- 모달창 div 시작 !-->
+  <div id="modal">
+    <div class="modal-con modal1">
+      <!-- 모달 제목 -->
+      <p class="title">비밀번호 변경</p>
+      <!-- 모달 콘텐츠 영역-->
+      <div class="con">
+        <p>비밀번호를 변경 하시겠습니까? </p>
       </div>
-  
+      <!-- 모달창 버튼 영역-->
+      <div class="modal-btn">
+        <button type="button" class="madal-btn button btn btn-light btn-sm">
+            <a href="javascript:;" class="close">&nbsp;변경&nbsp;</a>
+        </button>
+        &nbsp;&nbsp;
+        <button type="button" class="madal-btn button btn btn-light btn-sm ">
+            <a href="javascript:;" class="close">&nbsp;&nbsp;취소&nbsp;&nbsp;</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-con modal4">
+      <p class="title">나의 정보 저장</p>
+      <div class="con">
+        <p>내 정보를 변경하시겠습니까?</p>
+        <!-- 모달 내부 입력창 부분 !-->
+        <div class="input-group modal-input">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="madal-input-btn btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">택배사 선택</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+          </ul>
+          <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="운송장 번호를 입력하세요.">
+          &nbsp;&nbsp;&nbsp;&nbsp; <!-- 입력 폼 양쪽 공백추가 -->
+        </div>
+      </div>
+      <div class="modal-btn">
+        <button type="button" class="madal-btn button btn btn-light btn-sm">
+          <a href="javascript:;" class="close">&nbsp;변경&nbsp;</a>
+        </button>
+        &nbsp;&nbsp;
+        <button type="button" class="madal-btn button btn btn-light btn-sm ">
+            <a href="javascript:;" class="close">&nbsp;&nbsp;취소&nbsp;&nbsp;</a>
+        </button>
+      </div>
+    </div>
+     <!-- 모달 자바 스크립트 필수 -->
+     <script>
+      function openModal(modalname) {
+        document.get
+        $("#modal").fadeIn(300);
+        $("." + modalname).fadeIn(300);
+      }
+
+      $(".close").on('click', function () {
+        $("#modal").fadeOut(300);
+        $(".modal-con").fadeOut(300);
+      });  
+    </script>
 
 
+  </div> <!-- 모달 div 종료지점 -->
 
+          <br>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- footer import -->
+<div data-include-path="footer.html"></div>
 
-
-
-
-
-
-
-
-
-
-      
-    <!-- footer import -->
-    <div data-include-path="footer.html"></div>
-  
-    <script>
-    window.addEventListener('load', function() {
-        var allElements = document.getElementsByTagName('*');
-        Array.prototype.forEach.call(allElements, function(el) {
-            var includePath = el.dataset.includePath;
-            if (includePath) {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        el.outerHTML = this.responseText;
-                    }
-                };
-                xhttp.open('GET', includePath, true);
-                xhttp.send();
+<script>
+window.addEventListener('load', function() {
+var allElements = document.getElementsByTagName('*');
+Array.prototype.forEach.call(allElements, function(el) {
+    var includePath = el.dataset.includePath;
+    if (includePath) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                el.outerHTML = this.responseText;
             }
-        });
-    });
+        };
+        xhttp.open('GET', includePath, true);
+        xhttp.send();
+    }
+});
+});
 </script>
-
 
 <!-- 부트스트랩 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
