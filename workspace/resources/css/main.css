@@ -84,6 +84,13 @@ dl, ul, ol, li {
     transform:translate(-50%,0%);
 }
 
+/* 뒷 배경 하얗게 */
+.main_white {
+    width: 2000px;
+    padding: 10px 0;
+    background-color: rgba(255,255,255,0.3);
+}
+
 /* 꼭, 구독 bold */
 span {
     font-weight: bold;
@@ -163,6 +170,14 @@ span {
     padding-bottom:32px!important
 }
 
+
+/* 최상단 이동 버튼 --------------------------------------- */
+.scroll_top {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
 
 /* footer ----------------------------------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, address, caption, em, th, p {
