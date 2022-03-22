@@ -18,7 +18,7 @@ a {
     color : #432;
 }
 
-img {
+img { 
     border: 0 none;
     vertical-align: top;
 }
@@ -35,6 +35,7 @@ textarea, button {
 div {
     display: block;
 }
+
 /* 리스트 블릿 기호 삭제 */
 dl, ul, ol, li {
     list-style: none;
@@ -43,9 +44,16 @@ dl, ul, ol, li {
 
 /*--------------------------------------------------------------------------------------------------------------*/
 
+/* 헤더 영역 비워놓기 */
+.header_hidden{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    visibility: hidden; /*숨김*/
+}
 
 /* 메인 홈페이지 div박스 */
-div#home {
+/* div#home {
     background-color: rgb(185, 185, 185);
     width: 100%;
     height: 700px;
@@ -53,13 +61,273 @@ div#home {
     align-items: center;
     justify-content: center;
     overflow:hidden;
-}
+} */
 
 /* 메인 첫화면 배경이미지 */
 .main-img {
     width:100%;
     height:100%;
     object-fit:cover;
+}
+
+/* main image ----------------------------------------------------------------------------------------------------- */
+/* img 위에 글씨, 버튼 올리기 */
+.display_container {
+    position:relative;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.display_bottommiddle {
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translate(-50%,0%);
+}
+
+/* 뒷 배경 하얗게 */
+.main_white {
+    width: 2000px;
+    padding: 10px 0;
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* 꼭, 구독 bold */
+span {
+    font-weight: bold;
+}    
+
+/* 위의 문구 */
+.jumbo {
+    font-size:40px!important;
+    color: #432;
+    letter-spacing: 10px;
+    font-weight: 500;
+    line-height: 65px;
+}
+
+/* 버튼, 아래 문구 가운데 정렬 */
+.center {
+    text-align:center!important;
+}
+
+/* 원두 취향 테스트와 위의 문구 margin */
+.main_img_margin {
+    margin:16px!important;
+}
+
+/* 원두 취향 테스트 버튼 */
+.main_img_button {
+    border:none;
+    display:inline-block;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}    
+
+/* 원두 취향 테스트 버튼 */
+.btn_recomm {
+    color:rgb(230, 230, 230)!important;
+    background-color:black!important;
+    border-radius:12px;
+    opacity:0.8;
+}
+
+.main_img_button:hover {
+    color:#432!important;
+    background-color:#F4F1F1!important;
+    border-radius:12px;
+    opacity:0.8;
+}
+
+/* 원두 취향 테스트 padding */
+.padding_large {
+    padding:12px 24px!important
+}
+
+/* 원두 취향 테스트 글씨 크기 */
+.main_large {
+    font-size:18px!important
+}
+
+.margin_top {
+    margin-top:16px!important;
+    margin-bottom: 16px;
+}
+
+/* 아래 문구 */
+.recomm {
+    font-size: 18px;
+    line-height: 7px;
+    color: #432;
+    letter-spacing: 2px;
+}
+
+/* img 아래부터 padding */
+.padding_32 {
+    padding-bottom:32px!important
+}
+
+
+/* 슬라이드 ------------------------------------------------------------------------------------------------ */
+.mySlides {
+    display: none
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    font-family: 'Nanum Gothic', sans-serif;
+    max-width: 1300px;
+    position: relative;
+    margin: auto;
+}
+
+/* 왼쪽, 오른쪽 버튼 */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #432;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* 뒷 배경 하얗게 */
+.white {
+    display: flex;
+    justify-content: center;
+}
+
+/* 위의 문구 */
+.text p {
+    font-weight: bold!important;
+    font-size: 30px!important;
+    margin-bottom: 8px;
+    margin-top:10px
+}
+
+/* 문구 사이 중간 선 */
+.bunder {
+    display: flex;
+    justify-content: center;
+}
+
+.under {
+    width: 350px;
+    border-top: 1px solid #432;
+    margin-bottom: 10px;
+}
+
+/* 아래 문구 */
+.text {
+    position: absolute;
+    margin: 0 auto;
+    width: 400px;
+    font-size: 30px;
+    text-align: center;
+    background-color: rgba( 255, 255, 255, 0.4 );
+    color: #432;
+    border-radius: 20px 20px 0 0;
+    padding-top: -50px;
+    padding-bottom: 20px;
+    margin-bottom: 70px;
+    bottom: 30px;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+/* 협업 카페 문구 */
+.fresh {
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+
+/* 구매 후기 -------------------------------------------------------------------------------------------------- */
+/* 원두원두 문구 */
+.review_title {
+    width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+/* 원두원두 로고 */
+.review_title img {
+    margin-top: 18px;
+}
+
+/* 최대 넓이 지정 */
+.main_review {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* 이미지 사이 간격 */
+.review_img {
+    margin: 0 20px;
+}
+
+/* 이미지 */
+.review_img img {
+    height: 600px;
+    /* width: 70px; */
+    /* border-color: #efca66; */
+}
+
+/* 후기 */
+.review_txt h2 {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: -200px;
+    text-align: center;
+    color: #432;
+    line-height: 27px;
+}
+
+/* 후기 작성자 */
+.review_txt p {
+    font-size: 13px;
+}
+
+/* 첫 번째 후기 2줄이라 패딩 부여 */
+.txt1 {
+    padding-top: 25px;
+}
+
+
+/* 최상단 이동 버튼 --------------------------------------- */
+.scroll_top {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 /* footer ----------------------------------------------------------------------------------------------------- */
@@ -137,8 +405,7 @@ ul {
 p {
     display: block;
     margin-block-start: 1em;
-    margin-block-end: 1em;
-    
+    margin-block-end: 1em;  
 }
 
 #footer .footer-bottom .footer-info p.copy {

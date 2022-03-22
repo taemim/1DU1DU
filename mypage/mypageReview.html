@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 구글웹폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- css 외부 링크 -->
+    <link href="../resources/css/mypageReview.css" rel="stylesheet" type="text/css">
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/x-icon" href="../resources/images/android-icon-48x48.png">
+    <title>사용자 - 리뷰 조회</title>
+</head>
+
+<body>
+
+    <div class="header_hidden">
+        <h1> 헤더영역 비워두는 용도 </h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- 마이페이지 사이드 영역 -->
+            <div class="col-lg-2 side-box">
+                <ul>
+                    <li class="li-1"><a href="mypage.html">mypage</a></li>
+                    <li><a href="#">내 정보 확인</a></li>
+                    <li><a href="#">구독 내역</a></li>
+                    <li><a href="#">주문 내역</a></li>
+                    <li><a href="#">1:1 문의</a></li>
+                    <li><a href="#">리뷰 관리</a></li>
+                    <li><a href="#">위시리스트 조회</a></li>
+                    <li><a href="#">회원 탈퇴</a></li>
+                    <div></div>
+                </ul>
+            </div>
+            <!-- 마이페이지 메인 영역 -->
+            <div class="col-lg-9 main-box">
+                <div class="mypage table-scroll">
+                    <h1>Review</h1>
+                    <br>
+                    <!-- 전체 내역 조회 (=my-review-list)-->
+                    <table class="baseTable">
+                        <colgroup>
+                            <col width="60">
+                            <col width="230">
+                            <col width="320">
+                            <col width="101">
+                            <col width="85">
+                            <col width="60">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">번호</th>
+                                <th scope="col">상품</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">작성일</th>
+                                <th scope="col">평점</th>
+                                <th scope="col">조회수</th>
+                            </tr>
+                        </thead>
+                        <c:forEach var="board" items="${ boardList }">
+                            <tbody>
+                                <tr>
+                                    <td>200</td>
+                                    <td>과테말라 부에나 비스타 내추럴</td>
+                                    <!-- <td class="url title myQuestion" onclick="detailView(${board.no})">배송 관련 문의드립니다.</td> -->
+                                    <td class="rt">
+                                        <a href="#none" class="url title myQuestion">원두 향이 좋아요</a>
+                                    </td>
+                                    <td>2022-03-20</td>
+                                    <td>♥♥♥♥♥</td>
+                                    <td>0</td>
+                                </tr>
+
+                                <tr class="answerView">
+									<td colspan="6" style="display:none;">
+										<div class="qnaList">
+											<div class="question">
+												<div class="account">
+													<p>글 내용 <br>
+                                                        <!-- 사진 첨부 예시 -->
+                                                        <div class="pdtPhoto"><img
+                                                            src="../resources/images/5.jpeg"
+                                                            width="150" height="150" alt="과테말라 부에나 비스타 내추럴">
+                                                        </div>
+                                                        <!-- 사진 첨부 예시 -->
+                                                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                                                    </p>
+												</div>
+											</div>
+											<div class="answer">
+												<div class="account">
+                                                    <p style="font-weight: bold; font-size: 22px;">답변 제목</p>
+													<p>답변 내용 <br>
+                                                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                                                    </p>
+												</div>
+											</div>
+										</div>
+                                        <div class="edit">
+                                            <div class="btnArea ct tPad30">
+                                                <button type="button" class="btn btnS1 btnGry btnW160" onclick="">삭제 하기</button>
+                                                <button type="button" class="btn btnS1 btnRed btnW160" ondblclick="">수정 하기</button>
+                                            </div>
+                                        </div>
+									</td>
+								</tr>
+
+                                <tr>
+                                    <td>200</td>
+                                    <td>과테말라 부에나 비스타 내추럴</td>
+                                    <!-- <td class="url title myQuestion" onclick="detailView(${board.no})">배송 관련 문의드립니다.</td> -->
+                                    <td class="rt">
+                                        <a href="#none" class="url title myQuestion">원두 향이 좋아요</a>
+                                    </td>
+                                    <td>2022-03-20</td>
+                                    <td>♥♥♥♥♥</td>
+                                    <td>0</td>
+                                </tr>
+
+                                <tr class="answerView">
+									<td colspan="6" style="display:none;">
+										<div class="qnaList">
+											<div class="question">
+												<div class="account">
+													<p>글 내용 <br>
+                                                        <!-- 사진 첨부 예시 -->
+                                                        <div class="pdtPhoto"><img
+                                                            src="../resources/images/5.jpeg"
+                                                            width="150" height="150" alt="과테말라 부에나 비스타 내추럴">
+                                                        </div>
+                                                        <!-- 사진 첨부 예시 -->
+                                                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                                                    </p>
+												</div>
+											</div>
+											<div class="answer">
+												<div class="account">
+                                                    <p style="font-weight: bold; font-size: 22px;">답변 제목</p>
+													<p>답변 내용 <br>
+                                                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                                                    </p>
+												</div>
+											</div>
+										</div>
+                                        <div class="edit">
+                                            <div class="btnArea ct tPad30">
+                                                <button type="button" class="btn btnS1 btnGry btnW160" onclick="window.close();">삭제 하기</button>
+                                                <button type="button" class="btn btnS1 btnRed btnW160" onclick="SubmitForm(document.SubmitFrm);">수정 하기</button>
+                                            </div>
+                                        </div>
+									</td>
+								</tr>
+                            </tbody>
+                        </c:forEach>
+                    </table>
+                </div>
+
+                <!-- 페이징 -->
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#"><small>&lt;</small></a>
+                    <a href="#">1</a>
+                    <a class="active" href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#"><small>&gt;</small></a>
+                    <a href="#">&raquo;</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+		// 1. 상세 페이지 조회
+		const boardList = document.querySelector(".baseTable");
+		
+		boardList.addEventListener('mouseover', function() {
+			if(event.target.classList.contains('url'))
+				event.target.classList.add('onmouseover');
+			else if(event.target.parentNode.classList.contains('url'))
+				event.target.parentNode.classList.add('onmouseover');
+		});
+		
+		boardList.addEventListener('mouseout', function() {
+			if(event.target.classList.contains('url'))
+				event.target.classList.remove('onmouseover');
+			else if(event.target.parentNode.classList.contains('url'))
+				event.target.parentNode.classList.remove('onmouseover');
+		});
+		
+		function detailView(no){
+			location.href = '${ pageContext.servletContext.contextPath }/board/detail?no=' + no;
+		}
+	</script> -->
+
+    <script type="text/javascript">
+        $(function() {
+            $(".baseTable .myQuestion").click(function() {
+                if($(this).parent().parent().next(".answerView").find("td").css("display") == "none") {
+                    $(".baseTable .answerView td").slideUp();
+                    $(this).parent().parent().next(".answerView").find("td").slideDown();
+                } else {
+                    $(this).parent().parent().next(".answerView").find("td").slideUp();
+                }
+            });
+        });
+    </script>
+    
+    <!-- footer import -->
+    <div data-include-path="footer.html"></div>
+
+    <script>
+        window.addEventListener('load', function () {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function (el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
