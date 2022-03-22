@@ -133,17 +133,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
           <!-- 모달 시작 !-->         
           <!-- float:right; 설정 버튼 순서 오른쪽부터 시작-->
 
@@ -250,5 +239,57 @@ Array.prototype.forEach.call(allElements, function(el) {
 <!-- 부트스트랩 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+
+
+
+
+
+
+
+    
+
+
+
 </body>
+
+
+
+
+
+
+    <!--푸터 임포트-->
+
+    <footer>
+
+      <div data-include-path="..\main\footer.html"></div>
+   
+      <script>
+   
+          window.addEventListener('load', function() {
+              var allElements = document.getElementsByTagName('*');
+              Array.prototype.forEach.call(allElements, function(el) {
+                  var includePath = el.dataset.includePath;
+                  if (includePath) {
+                      var xhttp = new XMLHttpRequest();
+                      xhttp.onreadystatechange = function () {
+                          if (this.readyState == 4 && this.status == 200) {
+                              el.outerHTML = this.responseText;
+                          }
+                      };
+                      xhttp.open('GET', includePath, true);
+                      xhttp.send();
+                  }
+              });
+          });
+   
+      </script>
+  
+  </footer>
+
+
+
+
+
+
+
 </html>
