@@ -7,6 +7,7 @@
     <title>login</title>
 
 
+    
     <!--폰트-->
     <link href="https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap" rel="stylesheet">
 
@@ -29,50 +30,61 @@
 
 
 
+<!--헤더-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--로그인 영역-->
- 
+
+    
 	<div class="wrapper">
 		<div class="outer">
 
 
-		<form class="loginArea" action="${ pageContext.servletContext.contextPath }/member/login" method="post">
-			<h1 id="t11">로그인</h1>
-             <h4></h4>
-
-            <!--아이디 입력칸-->
-			<span class="input_area"><input type="text" name="memberId" id="memberId"
-			placeholder="아이디 입력" required></span>
-            <h2></h2>
-
-             <!--비밀번호 입력칸-->
-			<span class="input_area"><input type="password" name="memberPwd" id="memberPwd"
-			placeholder="비밀번호 입력" required></span>
-
-            <!--아이디 저장 체크 박스-->
-			<h5><input type="checkbox" name="remember" id="remember">
-			<label for="remember">아이디 저장</label></h5>
-
-            <!--로그인 버튼-->
-            <span class="input_area"><input type="submit" id="login" value="로그인"></span>
-            <br>
-            <br>
-
-            <!--카카오톡으로 로그인-->
-			<span class="input_area"><input type="button" id="kakao-login" value="카카오톡으로 로그인"></span>
+			<form class="loginArea" action="${ pageContext.servletContext.contextPath }/member/login" method="post">
+				<h1 id="t11">로그인</h1>
+                <h4></h4>
+                <!--아이디 입력칸-->
+				<span class="input_area"><input type="text" name="memberId" id="memberId"
+				placeholder="아이디 입력" required></span>
+                <h2></h2>
+                <!--비밀번호 입력칸-->
+				<span class="input_area"><input type="password" name="memberPwd" id="memberPwd"
+				placeholder="비밀번호 입력" required></span>
+				<h5><input type="checkbox" name="remember" id="remember">
+				<label for="remember">아이디 저장</label></h5>
+                <span class="input_area"><input type="submit" id="login" value="로그인"></span>
+                <br>
+                <br>
+				<span class="input_area"><input type="button" id="kakao-login" value="카카오톡으로 로그인"></span>
                 
-            <div class="cantlogin">
-                 <a href="../login/find-id.html"><label for="idfind" id="id-find">아이디 찾기</label></a>
-                 &nbspㅣ&nbsp
-                <a href="../login/find-pwd.html"><label for="pwdfind" id="pwd-find">비밀번호 찾기</label></a>
-                 &nbspㅣ&nbsp
-                <a href="../login/enroll.html"><label for="enroll" id="enrollment">회원가입</label></h5></a>
-            </div>
+                <div class="cantlogin">
+                    <a href="../login/find-id.html"><label for="idfind" id="id-find">아이디 찾기</label></a>
+                    &nbspㅣ&nbsp
+                    <a href="../login/find-pwd.html"><label for="pwdfind" id="pwd-find">비밀번호 찾기</label></a>
+                    &nbspㅣ&nbsp
+                    <a href="#"><label for="enroll" id="enrollment">회원가입</label></h5></a>
+                </div>
                 
 
 
-            <!--글자위에 마우스 오버시 색상이 변하는 hover 효과-->
-            <script>
+                
+                <script>
                     $('#id-find').hover(function(){
                         $(this).css("color", "gray");
                     }, function(){

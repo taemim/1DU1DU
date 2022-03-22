@@ -8,7 +8,7 @@
 	width: 25%;
 	min-width: 450px;
 	height: 600px;
-	border-radius: 30px;
+	border-radius: 20px;
 	margin: 500px auto;
 	display: flex;
 	justify-content: center;
@@ -35,10 +35,10 @@
 
 }
 
-/* 로그인 영역 h4, h2 */
 .loginArea h4,h2 {
 	pointer-events: none;
 }
+
 
 
 /* 아이디 영역 */
@@ -76,7 +76,6 @@
 
 }
 
-/* 로그인 버튼 */
 .input_area:nth-child(7) {
     
     border-radius: 10px;
@@ -86,7 +85,7 @@
 
 }
 
-/* 카카오톡으로 로그인 */
+
 .input_area:nth-child(10) {
 
     border-radius: 10px;
@@ -137,7 +136,6 @@
 }
 
 
-/* 로그인 하단 다른 페이지 이동 */
 .cantlogin {
     margin-top: 3em;
     text-align: center;  
