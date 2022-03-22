@@ -1,254 +1,395 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="icon" type="image/x-icon" href="resources/android-icon-48x48.png">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>1DU1DU | 상품 페이지</title>
-  </head>
-  <body>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="icon" type="image/x-icon" href="resources/android-icon-48x48.png">
 
-    <div class="header_hidden" >
-        <h1> 헤더영역 비워두는 용도 </h1>
+  <!-- 제이쿼리 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- 스타일 시트 링크 -->
+  <link rel="stylesheet" href="../workspace/resources/css/goodspage_details.css" type="text/css">
+
+  <!-- 파비콘 -->
+  <link rel="icon" type="image/x-icon" href="../workspace/resources/image/android-icon-48x48.png">
+
+  <!-- 구글웹폰트 -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+  <title>1DU1DU | 상품 페이지</title>
+</head>
+
+<body>
+
+  <div class="header_hidden">
+    <h1> 헤더영역 비워두는 용도 </h1>
+  </div>
+
+  <!-- menu bar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">NEW</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">BEST</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">원두</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">드립백</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">콜드브루</a>
+          </li>
+          <li class="nav-item me-2">
+            <a class="nav-link" href="#">커피용품</a>
+          </li>
+        </ul>
+      </div>
+
+  </nav>
+  <div class="container">
+    <div class="row my-5">
+      <div class="col">
+        <h1 class="h1 mt-5">과테말라 부에나 비스타 내추럴</h1>
+        <p>Guatemala Buena Vista Natural</p>
+        <h4 class="text-sm-start mt-5 mb-5">초콜릿의 달콤함, 아몬드의 고소함</h4>
+        <h5 class="text-md-start mb-1">용량</h5>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>용량을 선택하세요</option>
+          <option value="1">200g</option>
+          <option value="2">500g</option>
+        </select>
+        <h5 class="text-md-start mt-5 mb-1">분쇄도</h5>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>분쇄도를 선택하세요</option>
+          <option value="1">홀빈(갈지않음)</option>
+          <option value="2">핸드드립/커피메이커</option>
+          <option value="3">프렌치프레스</option>
+          <option value="4">모카포트</option>
+          <option value="5">에스프레소머신</option>
+          <option value="6">콜드브루/더치</option>
+        </select>
+        <div class="row">
+          <div class="col-5">
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-primary btn-lg btn-dark mt-5">구매하기</button>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-lg btn-outline-dark mt-5">장바구니</button>
+            </div>
+          </div>
+          <div class="col-1 mt-5">
+            <div class="d-grid" style="text-align: center;">
+              <i class="bi bi-suit-heart-fill" style="font-size: 25px;"><a href="#"></a></i>
+              <span style="border-top: -20px;">320</span>
+              <!-- <p class="text" style="font-size: 1px;">153</p> -->
+            </div>
+          </div>
+          <div class="col-1 mt-5">
+            <div class="d-grid" style="text-align: center;">
+              <i class="bi-share" style="font-size: 25px;"><a href="#"></a></i>
+              <span style="border-top: -20px;">url</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <img src="../workspace/resources/image/1.jpeg" class="w-100" alt="매뉴팩트5">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row my-5">
+      <div class="col-4">
+        <h4>Fact sheet</h4>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td scope="row">생산자</td>
+              <th>Fredy Orantes</th>
+            </tr>
+            <tr>
+              <td scope="row">농장</td>
+              <th>Buena Vista</th>
+            </tr>
+            <tr>
+              <td scope="row">지역</td>
+              <th>Santa Rosa, Guatemala</th>
+            </tr>
+            <tr>
+              <td scope="row">품종</td>
+              <th>Yellow Catuai</th>
+            </tr>
+            <tr>
+              <td scope="row">가공</td>
+              <th>Natural</th>
+            </tr>
+            <tr>
+              <td scope="row">로스팅</td>
+              <th>Medium</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-1">
+        <div class="d-flex" style="height: 300px;">
+          <div class="vr"></div>
+        </div>
+      </div>
+      <div class="col-5">
+        <h4>ABOUT THIS COFFEE</h4>
+        <h5 class="h5 mt-3">초콜릿의 달콤함, 아몬드의 고소함</h5>
+        <p>
+          1DU1DU에서 두 번째로 소개드리는 부에나 비스타 농장의 커피입니다.
+          초콜릿의 달콤함과 아몬드의 고소함은 여전하지만,
+          이번 내추럴 커피에서는 은은한 베리 향미도 애프터에서 느끼실 수 있어요.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row my-5">
+      <div class="col">
+        <h2 class="h2">Shipping & Delivery</h2>
+        <div class="accordion my-3" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                배송 안내
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul>
+                  <li>배송비는 2,500원이며, 25,000원 이상 구매시 무료로 배송됩니다. (일부 도서산간지역은 추가 배송비가 발생할 수 있습니다.)</li>
+                  <li>평일 기준 오전 10시 이전 주문은 당일 출고되며, 이후 주문은 익일에 출고됩니다. </li>
+                  <li>상품은 출고 후 주말을 제외하고 1~3일 이내에 받아보실 수 있습니다. 단, 택배사 상황에 따라 지연될 수 있습니다. </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                교환/환불 안내
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul>
+                  <li>개봉 전이라면 고객 변심에 의한 상품(식품 외)의 교환/환불이 가능하지만, 배송비를 부담하셔야 합니다. </li>
+                  <li>원두와 커피는 식품의 특성 상, 제품의 하자와 오류를 제외하고 교환/환불이 불가능한 점 양해 부탁드립니다. </li>
+                  <li>기타 문의사항은 전화로 연락 바랍니다. (02-1234-5678, 평일 오전 10시-오후 7시) </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
-    <!-- menu bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item me-2">
-                <a class="nav-link" href="#">NEW</a>
-              </li>
-              <li class="nav-item me-2">
-                <a class="nav-link" href="#">BEST</a>
-              </li>
-              <li class="nav-item me-2">
-                <a class="nav-link" href="#">원두</a>
-              </li>
-              <li class="nav-item me-2">
-                <a class="nav-link" href="#">드립백</a>
-              </li>
-              <li class="nav-item me-2">
-                <a class="nav-link" href="#">콜드브루</a>
-              </li>
-              <li class="nav-item me-2">
-                <a class="nav-link" href="#">커피용품</a>
-              </li>
-            </ul>
-        </div>
-        
-      </nav>
-      <div class="container">
-        <div class="row my-5">
-            <div class="col">
-                <h1 class="h1 mt-5">과테말라 부에나 비스타 내추럴</h1>
-                <p>Guatemala Buena Vista Natural</p>
-                <h4 class="text-sm-start mt-5 mb-5">초콜릿의 달콤함, 아몬드의 고소함</h4>
-                <h5 class="text-md-start mb-1">용량</h5>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>용량을 선택하세요</option>
-                    <option value="1">200g</option>
-                    <option value="2">500g</option>
-                </select>
-                <h5 class="text-md-start mt-5 mb-1">분쇄도</h5>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>분쇄도를 선택하세요</option>
-                    <option value="1">홀빈(갈지않음)</option>
-                    <option value="2">핸드드립/커피메이커</option>
-                    <option value="3">프렌치프레스</option>
-                    <option value="4">모카포트</option>
-                    <option value="5">에스프레소머신</option>
-                    <option value="6">콜드브루/더치</option>
-                </select>
-                <div class="row">
-                    <div class="col-5">
-                        <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-primary btn-lg btn-dark mt-5">구매하기</button>
-                        </div>
-                    </div>
-                    <div class="col-5">
-                        <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-lg btn-outline-dark mt-5">장바구니</button>
-                        </div>
-                    </div>
-                    <div class="col-1 mt-5">
-                        <div class="d-grid">
-                            <i class="bi bi-suit-heart-fill" style="font-size: 1.5rem;"><a href="#"></a></i>
-                        </div>
-                        <p class="text" style="font-size: 1px;">153</p>
-                    </div>
-                    <div class="col-1 mt-5">
-                        <div class="d-grid">
-                            <i class="bi-share" style="font-size: 2rem;"><a href="#"></a></i>
-                        </div>
-                    </div>
-                </div>   
-            </div>   
-            <div class="col">
-                <img src="resources/매뉴팩트5.jpeg" class="w-100" alt="매뉴팩트5">
-            </div>
-        </div>
+  </div>
+  <div class="container">
+    <div class="row my-10">
+      <div class="col">
+        <h2 class="h2">Review</h2>
       </div>
-      <div class="container">
-          <div class="row my-5">
-              <div class="col-4">
-                <h4>Fact sheet</h4>
-                <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <td scope="row">생산자</td>
-                            <th>Fredy Orantes</th>
-                        </tr>
-                        <tr>
-                            <td scope="row">농장</td>
-                            <th>Buena Vista</th>
-                        </tr>
-                        <tr>
-                            <td scope="row">지역</td>
-                            <th>Santa Rosa, Guatemala</th>
-                        </tr>
-                        <tr>
-                            <td scope="row">품종</td>
-                            <th>Yellow Catuai</th>
-                        </tr>
-                        <tr>
-                            <td scope="row">가공</td>
-                            <th>Natural</th>
-                        </tr>
-                        <tr>
-                            <td scope="row">로스팅</td>
-                            <th>Medium</th>
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-              <div class="col-1">
-                <div class="d-flex" style="height: 300px;">
-                    <div class="vr"></div>
-                  </div>
-              </div>
-              <div class="col-5">
-                <h4>ABOUT THIS COFFEE</h4>
-                <h5 class="h5 mt-3">초콜릿의 달콤함, 아몬드의 고소함</h5>
-                <p>
-                    1DU1DU에서 두 번째로 소개드리는 부에나 비스타 농장의 커피입니다. 
-                    초콜릿의 달콤함과 아몬드의 고소함은 여전하지만, 
-                    이번 내추럴 커피에서는 은은한 베리 향미도 애프터에서 느끼실 수 있어요.
-                </p>
-              </div>
-          </div>
-      </div>
-      <div class="container">
-          <div class="row my-5">
-              <div class="col">
-                  <h2 class="h2">Shipping & Delivery</h2>
-                  <div class="accordion my-3" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          배송 안내
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <ul>
-                              <li>배송비는 2,500원이며, 25,000원 이상 구매시 무료로 배송됩니다. (일부 도서산간지역은 추가 배송비가 발생할 수 있습니다.)</li>
-                              <li>평일 기준 오전 10시 이전 주문은 당일 출고되며, 이후 주문은 익일에 출고됩니다. </li>
-                              <li>상품은 출고 후 주말을 제외하고 1~3일 이내에 받아보실 수 있습니다. 단, 택배사 상황에 따라 지연될 수 있습니다.  </li>
-                          </ul>
-                        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div>
+      <table class="baseTable">
+        <colgroup>
+          <col width="70">
+          <col width="300">
+          <col width="446">
+          <col width="100">
+          <col width="180">
+          <col width="110">
+          <col width="90">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">번호</th>
+            <th scope="col">상품</th>
+            <th scope="col">제목</th>
+            <th scope="col">평점</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일</th>
+            <th scope="col">조회수</th>
+          </tr>
+        </thead>
+        <c:forEach var="board" items="${ boardList }">
+          <tbody>
+            <tr>
+              <td>200</td>
+              <td>과테말라 부에나 비스타 내추럴</td>
+              <td class="rt">
+                <a href="#none" class="url title myQuestion">원두 향이 너무 좋아요.</a>
+              </td>
+              <td>♥♥♥♥♥</td>
+              <td>useruseruseruseruser</td>
+              <td>2022-03-21</td>
+              <td>22222</td>
+            </tr>
+            <tr class="answerView">
+              <td colspan="7" style="display:none;">
+                <div class="qnaList">
+                  <div class="question">
+                    <div class="account">
+                      <p>글 내용 <br>
+                        <!-- 사진 첨부 예시 -->
+                      <div class="pdtPhoto"><img src="../workspace/resources/image/1.jpeg" width="150" height="150"
+                          alt="">
                       </div>
+                      <!-- 사진 첨부 예시 -->
+                      싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만
+                      찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도
+                      아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의
+                      커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
                     </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          교환/환불 안내
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <ul>
-                                <li>개봉 전이라면 고객 변심에 의한 상품(식품 외)의 교환/환불이 가능하지만, 배송비를 부담하셔야 합니다. </li>
-                                <li>원두와 커피는 식품의 특성 상, 제품의 하자와 오류를 제외하고 교환/환불이 불가능한 점 양해 부탁드립니다.  </li>
-                                <li>기타 문의사항은 전화로 연락 바랍니다. (02-1234-5678, 평일 오전 10시-오후 7시)   </li>
-                            </ul>
-                        </div>
-                      </div>
-                    </div>
-                    
                   </div>
-              </div>
-          </div>
+                  <div class="answer">
+                    <div class="account">
+                      <p style="font-weight: bold; font-size: 22px;">답변 제목</p>
+                      <p>답변 내용 <br>
+                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의
+                        청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의
+                        밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로
+                        생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+  
+            <tr>
+              <td>200</td>
+              <td>과테말라 부에나 비스타 내추럴</td>
+              <td class="rt">
+                <a href="#none" class="url title myQuestion">원두 향이 너무 좋아요.</a>
+              </td>
+              <td>♥♥♥♥♥</td>
+              <td>useruseruseruseruser</td>
+              <td>2022-03-21</td>
+              <td>22222</td>
+            </tr>
+            <tr class="answerView">
+              <td colspan="7" style="display:none;">
+                <div class="qnaList">
+                  <div class="question">
+                    <div class="account">
+                      <p>글 내용 <br>
+                        <!-- 사진 첨부 예시 -->
+                      <div class="pdtPhoto"><img src="../workspace/resources/image/1.jpeg" width="150" height="150"
+                          alt="">
+                      </div>
+                      <!-- 사진 첨부 예시 -->
+                      싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만
+                      찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도
+                      아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의
+                      커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="answer">
+                    <div class="account">
+                      <p style="font-weight: bold; font-size: 22px;">답변 제목</p>
+                      <p>답변 내용 <br>
+                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의
+                        청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의
+                        밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로
+                        생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </c:forEach>
+      </table>
+    </div>
 
-      </div>
-      <div class="container">
-          <div class="row my-10">
-              <div class="col">
-                  <h2 class="h2">Review</h2>
-              </div>
-          </div>
-      </div>
-      <div class="container">
-        <table class="table text-center">
-            <thead>
-              <tr>
-                <th scope="col-1">번호</th>
-                <th scope="col-4">제목</th>
-                <th scope="col-2">작성일</th>
-                <th scope="col-2">작성자</th>
-                <th scope="col-1">조회</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">5</th>
-                <td>향도 좋고 고소해요.</td>
-                <td>22/03/01</td>
-                <td>김***</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>향도 좋고 고소해요.</td>
-                <td>22/03/01</td>
-                <td>김***</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>향도 좋고 고소해요.</td>
-                <td>22/03/01</td>
-                <td>김***</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>향도 좋고 고소해요.</td>
-                <td>22/03/01</td>
-                <td>김***</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>향도 좋고 고소해요.</td>
-                <td>22/03/01</td>
-                <td>김***</td>
-                <td>1</td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
+    <!-- 페이징 -->
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#"><small>&lt;</small></a>
+      <a href="#">1</a>
+      <a class="active" href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#"><small>&gt;</small></a>
+      <a href="#">&raquo;</a>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </div>
 
-      
-  </body>
+  <script type="text/javascript">
+    $(function() {
+            $(".baseTable .myQuestion").click(function() {
+                if($(this).parent().parent().next(".answerView").find("td").css("display") == "none") {
+                    $(".baseTable .answerView td").slideUp();
+                    $(this).parent().parent().next(".answerView").find("td").slideDown();
+                } else {
+                    $(this).parent().parent().next(".answerView").find("td").slideUp();
+                }
+            });
+        });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- footer import -->
+  <div data-include-path="footer.html"></div>
+  
+  <script>
+  window.addEventListener('load', function() {
+      var allElements = document.getElementsByTagName('*');
+      Array.prototype.forEach.call(allElements, function(el) {
+          var includePath = el.dataset.includePath;
+          if (includePath) {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+                      el.outerHTML = this.responseText;
+                  }
+              };
+              xhttp.open('GET', includePath, true);
+              xhttp.send();
+          }
+      });
+  });
+  </script>
+
+</body>
+
 </html>

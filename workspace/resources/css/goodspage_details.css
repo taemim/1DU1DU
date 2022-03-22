@@ -1,0 +1,176 @@
+@charset "UTF-8";       /* 인코딩 문자 깨짐 방지 */
+
+/* 공통 속성 */
+
+html {
+    /* 사용자 설정 문자 크기 그대로 반영 되도록 */
+    font-size : 100%;
+}
+
+body {
+    line-height: 2.0;
+    color : #432;
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
+
+
+img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: block;
+}
+
+dl, ul, ol, li {
+    list-style: none;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* 헤더 영역 비워놓기 */
+.header_hidden{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    visibility: hidden; /*숨김*/
+}
+
+.container-fluid {
+    padding: 100px;
+}
+
+/* 컬럼명 세로쓰기 방지 */
+.table th, td {
+    /* white-space:nowrap; */
+    text-align: center;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+/* 컬럼명 세로쓰기 방지 */
+.table th, td {
+    /* white-space:nowrap; */
+    text-align: center;
+}
+
+/* 버튼 설정*/
+.btn-dark {
+    margin-left: 10px;
+}
+
+/* 테이블 간격 설정 */
+tbody tr {
+    text-align: center;
+}
+
+/* review ------------------------------------------------------------------------------------------------------------ */
+
+table {
+    border-bottom: 1px solid #ddd;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+th {
+    background-color: #F4F1F1;
+    text-align: center;
+    border-top: 2px solid #432;
+    padding: 3px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 2px 0;
+}
+
+.rt {
+    border-collapse: collapse;
+    empty-cells: show;
+    text-align: left !important;
+    border-top: 1px solid #ddd;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.baseTable .answerView .qnaList {
+    padding: 0 20px;
+    text-align: left;
+}
+
+.qnaList .answer {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.baseTable .answerView td {
+    padding: 40px 0;
+    background-color: #fafafa;
+}
+
+
+/* 사진 예시 넣어 본 것 */
+.pdtPhoto {
+    width: 150px;
+    margin: 10px;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.container .baseTable {
+    margin: 10px auto 100px;
+
+}
+
+.baseTable th {
+    font-weight: bold;
+}
+
+/* 페이징 -------------------------------------------------------------------------------------------------- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: -50px;
+}
+
+.pagination a {
+    color: #432;
+    float: left;
+    padding: 3px 14px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 50%;
+}
+
+.pagination a.active {
+    background-color: #F3EFEF;
+    color: #432;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #f1f1f1;
+}
+
+
+/* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------------------------------------*/
+
+/* a 링크 설정 변경 */
+.baseTable a {
+    text-decoration: none;
+    color : #432!important;
+    line-height: 2.5em;
+}
+
+/* a 링크 호버시 글자 굵게 */
+.baseTable a:hover {
+    font-weight: bolder!important;
+    color : #432!important;
+}
