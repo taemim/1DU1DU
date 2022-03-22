@@ -65,20 +65,20 @@
                             return (emailFind != '' && emailFind != 'undefined' && regex.test(emailFind)); 
                         }
 
-                        $("input[type=email, type=phone]").blur(function(){
+                        $("input[type=email]").blur(function(){
                         var email = $(this).val();
-                        var phone = $(this).val();
 
-                        if( email == '' || email == 'undefined' || phone == '') return false;
+                        if( email == '' || email == 'undefined' || phonePwd == '') return false;
                         if( ! email_check(email) ) {
                             alert('올바른 정보를 기입해주세요.');
                             $(".result-email").alert('올바른 정보를 기입해주세요.');
                             $(this).focus();
                             return false;
 
-                        } else if ( ! phone == '' ) {
-                        alert('메일로 임시 비밀번호를 보냈습니다. 재로그인 후 회원정보수정에서 비밀번호를 재설정해주세요.');
-                            $(".result-email").text('');
+
+                        } else {
+                        alert('회원님의 아이디는 _____ 입니다.');
+                            $(".result-email").alert('메일로 임시 비밀번호를 보냈습니다. 재로그인 후 회원정보수정에서 비밀번호를 재설정해주세요.');
                             location.href="../login/find-id.html";
                         } 
                         });

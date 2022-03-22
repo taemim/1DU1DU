@@ -7,14 +7,14 @@
 .outer {
 	width: 25%;
 	min-width: 650px;
-	height: 1500px;
-	border-radius: 20px;
+	height: 1650px;
+	border-radius: 30px;
 	margin: 500px auto;
 	display: flex;
 	justify-content: center;
 	/*align-items: center;*/
     background-color: #F4F1F1;
-    margin-top: 200px;
+    margin-top: 50px;
     margin-bottom: 300px;
 }
 
@@ -32,32 +32,12 @@
     margin-bottom: 40px;
     font-size: 30px;
     font-weight:bolder;
+    margin-left: 40px;
 
 }
 
+/* 회원가입 글자 */
 .loginArea h4 {
-    font-size: 0.9em;
-    font-weight:800;
-    letter-spacing: 0.5px;
-}
-
-
-
-
-.loginArea #emailFind {
-
-    font-size: 0.9em;
-    font-weight:800;
-    letter-spacing: 0.5px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-
-
-/* 비밀번호 영역 */
-.loginArea #phonePwd {
-    margin-top: 10px;
     font-size: 0.9em;
     font-weight:800;
     letter-spacing: 0.5px;
@@ -67,30 +47,169 @@
 
 /* 입력창 전체*/
 .input_area {
-    
     border-radius: 10px;
-    margin-top: 20rem;
+    margin-top: 30px;
 	padding: 12px 60px 14px 20px;
 	background: white;
+    margin-left: 40px;
+
+
+}
+
+/* 창조절 */
+.input_area input:not([type=checkbox]) {
+	width: 480px;
+	height: 30px;
+	border: 0px;
+
 
 }
 
 
-/* 아이디 찾기 버튼 */
-.input_area:nth-child(8) {
+/* 아이디 입력 */
+.input_area #memberId {
+    margin-left: 8px;
+    width: 380px;
     
-    border-radius: 10px;
-    margin-top: 20rem;
-	padding: 12px 60px 14px 20px;
-	background: rgb(0, 0, 0);
+}
+
+
+/* 비밀번호 높이 조절 */
+.input_area #memberPwd1 {
+    margin-top: 30px;
+    margin-left: 8px;
+}
+
+
+
+/* 비밀번호 확인 높이 조절 */
+.input_area #memberPwd2 {
+    margin-top: 30px;
+    margin-left: 8px;
+}
+
+/* 이름 창 */
+.input_area #name {
+    margin-top: 30px;
+    margin-left: 8px;
+}
+
+
+
+/* 메일 창 */
+.input_area #emailCheck {
+    margin-top: 30px;
+    margin-left: 8px;
+}
+
+
+
+/* 메일, 핸드폰 수신 동의 창 */
+#check {
+    margin-top: 15px;
+    margin-left: 50px;
 
 }
+
+
+
+/* 핸드폰 입력 창 */
+.input_area #phoneNum {
+    margin-top: 30px;
+    margin-left: 8px;
+}
+
+
+/* 성별 및 생년월일 */
+.choice {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left:40px;
+}
+
+.choice #sex {
+    font-weight: 900;
+    font-size: 17px;
+}
+
+/* 남성 */
+.choice #male {
+    margin-left: 10px;
+}
+
+/* 여성 */
+.choice #female {
+    margin-left: 10px;
+}
+
+/* 생년 월일 */
+.choice #birth {
+    margin-left: 100px;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+
+/* 생년 월일 버튼 */
+.choice input[type=date] {
+	background:white;
+	cursor : pointer;
+    color : black;
+    border-radius: 10px;
+    border : white 5px solid;
+    text-align: center;
+    padding: 12px 35px 14px 50x;
+}
+
+
+/* 주소 라벨 */
+#addr {
+    margin-bottom: 10px;
+    margin-left: 40px;
+    font-size: 17px;
+}
+
+
+/* 기본 주소창 */
+.input_area #basicAddr {
+    margin-top: 10px;
+    margin-left: 8px;
+    width: 380px;
+}
+
+
+
+/* 도로명 주소 */
+.input_area #addr1 {
+    margin-top: 30px;
+    margin-left: 8px;
+
+}
+
+
+/* 나머지 주소 */
+.input_area #addr2 {
+    margin-top: 30px;
+    margin-left: 8px;
+
+}
+
+
+/* 기본 주소창 */
+.input_area #basicAddr {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 300px;
+}
+
+
+
 
 
 
 /* 인풋창 전체 */
 .input_area input {
-	width: 500px;
+
 	height: 30px;
 	border: 0px;
 }
@@ -100,68 +219,142 @@
 	outline: none;
 }
 
+
+
+
+/* 돌아가기 */
+.goRback {
+    display:flex;
+}
+
+
 /* 아이디 찾기 버튼 */
-.input_area #findButton {
+/* 돌아가기 */
+ #enrollment1 {
     width:250px;
-	background:black;
+    height: 50px;
+	background:white;
 	border: 0px;
-    color : rgb(255, 255, 255);
+    color : black;
     text-align: center;
-    font-size: 0.9em;
+    font-size: 1.2em;
     font-weight:900;
     letter-spacing: 0.7px;
-    padding: 12px 60px 14px 90px;
-    transition:0.4s;
-
+    padding: 12px 60px 12px 60px;
+    border-radius: 20px;
+    margin-top: 80px;
+    margin-left: 60px;
 
 
 }
-
-
-
-
-
-/*로그인 화면 돌아가기*/
-.myButton {
-    width:200px;
-    margin-top: 90px;
-    margin-left: -30px;
+/* 아이디 찾기 버튼 */
+/* 회원가입 */
+#enrollment2 {
+    width:250px;
+    height: 50px;
 	background:black;
-	border-radius:50px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:16px;
-	font-weight:bold;
-	padding: 3px 0px 3px 20px;
-	text-decoration:none;
-    transition:0.4s;
-    display:block;
-}
-.myButton:hover {
-
-    background: white;
-    color:black;
-    cursor: pointer;
-	box-shadow: 0 2px 4px white;
-
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-
-
-.input_area input[type=submit] {
-	background:black;
-	cursor : pointer;
+	border: 0px;
     color : white;
     text-align: center;
-    padding: 10px 35px 14px 80x;
+    font-size: 1.2em;
+    font-weight:900;
+    letter-spacing: 0.7px;
+    padding: 12px 60px 12px 60px;
+    border-radius: 20px;
+    margin-top: 80px;
+    margin-left: 40px;
+
+
 }
 
+
+
+
+
+/* 중복확인, 검색 버튼 */
+button {
+	width: 90px;
+	height: 40px;
+	border: 0px;
+	color: white;
+	background: #282A35;
+	cursor: pointer;
+    border-radius: 10px;
+
+}
+
+
+
+
+
+
+
+
+/* 약관 */
+
+
+  
+/* 약관 틀 */
+.contents {
+    margin-top: 70px;
+    margin-left: 10px;
+    margin-right: 20px;
+    padding: 10px 20px 10px 20px ;
+    border-radius: 20px;
+
+}
+ 
+ #form__wrap .terms__check__all {
+    display: flex;
+    margin-bottom: 100px;
+  }
+  
+ 
+  #form__wrap .terms__check__all label {
+    margin-left: 10px;
+    text-decoration: underline;
+  }
+  
+  .terms__list .terms__box {
+    margin: 20px 0;
+  }
+  
+  .contents label {
+    font-weight: 700;
+  }
+  
+  label.required::after {
+    margin-left: 4px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    color: black;
+    content: "(필수)";
+  }
+  
+  .terms__list .terms__content {
+    height: 90px;
+    overflow: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid white;
+    background: white;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 500px) {
+    .wrap {
+      min-width: 280px;
+      padding: 20px;
+    }
+  
+    #form__wrap {
+      max-width: 360px;
+      width: auto;
+    }
+  }
 
 
 
