@@ -133,6 +133,32 @@ td {
     font-weight: bold;
 }
 
+/* 페이징 -------------------------------------------------------------------------------------------------- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: -50px;
+}
+
+.pagination a {
+    color: #432;
+    float: left;
+    padding: 3px 14px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 50%;
+}
+
+.pagination a.active {
+    background-color: #F3EFEF;
+    color: #432;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #f1f1f1;
+}
+
 
 /* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------------------------------------*/
 

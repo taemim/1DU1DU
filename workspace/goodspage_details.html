@@ -97,14 +97,16 @@
             </div>
           </div>
           <div class="col-1 mt-5">
-            <div class="d-grid">
-              <i class="bi bi-suit-heart-fill" style="font-size: 1.5rem;"><a href="#"></a></i>
+            <div class="d-grid" style="text-align: center;">
+              <i class="bi bi-suit-heart-fill" style="font-size: 25px;"><a href="#"></a></i>
+              <span style="border-top: -20px;">320</span>
+              <!-- <p class="text" style="font-size: 1px;">153</p> -->
             </div>
-            <p class="text" style="font-size: 1px;">153</p>
           </div>
           <div class="col-1 mt-5">
-            <div class="d-grid">
-              <i class="bi-share" style="font-size: 2rem;"><a href="#"></a></i>
+            <div class="d-grid" style="text-align: center;">
+              <i class="bi-share" style="font-size: 25px;"><a href="#"></a></i>
+              <span style="border-top: -20px;">url</span>
             </div>
           </div>
         </div>
@@ -218,107 +220,148 @@
     </div>
   </div>
   <div class="container">
-    <table class="baseTable">
-      <colgroup>
-        <col width="70">
-        <col width="300">
-        <col width="496">
-        <col width="190">
-        <col width="120">
-        <col width="120">
-      </colgroup>
-      <thead>
-        <tr>
-          <th scope="col">번호</th>
-          <th scope="col">상품</th>
-          <th scope="col">제목</th>
-          <th scope="col">작성자</th>
-          <th scope="col">작성일</th>
-          <th scope="col">조회수</th>
-        </tr>
-      </thead>
-      <c:forEach var="board" items="${ boardList }">
-        <tbody>
+    <div>
+      <table class="baseTable">
+        <colgroup>
+          <col width="70">
+          <col width="300">
+          <col width="446">
+          <col width="100">
+          <col width="180">
+          <col width="110">
+          <col width="90">
+        </colgroup>
+        <thead>
           <tr>
-            <td>200</td>
-            <td>과테말라 부에나 비스타 내추럴</td>
-            <td class="rt">
-              <a href="#none" class="url title myQuestion">원두 향이 너무 좋아요.</a>
-            </td>
-            <td>useruseruseruseruser</td>
-            <td>2022-03-21</td>
-            <td>22222</td>
+            <th scope="col">번호</th>
+            <th scope="col">상품</th>
+            <th scope="col">제목</th>
+            <th scope="col">평점</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일</th>
+            <th scope="col">조회수</th>
           </tr>
-
-          <tr class="answerView">
-            <td colspan="6" style="display:none;">
-              <div class="qnaList">
-                <div class="question">
-                  <div class="account">
-                    <p>글 내용 <br>
+        </thead>
+        <c:forEach var="board" items="${ boardList }">
+          <tbody>
+            <tr>
+              <td>200</td>
+              <td>과테말라 부에나 비스타 내추럴</td>
+              <td class="rt">
+                <a href="#none" class="url title myQuestion">원두 향이 너무 좋아요.</a>
+              </td>
+              <td>♥♥♥♥♥</td>
+              <td>useruseruseruseruser</td>
+              <td>2022-03-21</td>
+              <td>22222</td>
+            </tr>
+            <tr class="answerView">
+              <td colspan="7" style="display:none;">
+                <div class="qnaList">
+                  <div class="question">
+                    <div class="account">
+                      <p>글 내용 <br>
+                        <!-- 사진 첨부 예시 -->
+                      <div class="pdtPhoto"><img src="../workspace/resources/image/1.jpeg" width="150" height="150"
+                          alt="">
+                      </div>
                       <!-- 사진 첨부 예시 -->
-                    <div class="pdtPhoto"><img src="../workspace/resources/image/1.jpeg" width="150" height="150"
-                        alt="">
+                      싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만
+                      찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도
+                      아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의
+                      커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
                     </div>
-                    <!-- 사진 첨부 예시 -->
-                    싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만
-                    찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도
-                    아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의
-                    커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
-
-                    열락의 우리는 끝에 기쁘며, 하는 천지는 없으면, 힘차게 구하지 피다. 소담스러운 황금시대의 찾아다녀도, 어디 실로 얼음
-                    약동하다. 풀밭에 뜨고, 용기가 천자만홍이 이 끓는다. 아니한 우리의 끓는 위하여 열매를 대중을 아니더면, 위하여서.
-                    기쁘며, 남는 구할 가치를 그것은 뿐이다. 같이, 옷을 천자만홍이 그들은 무엇을 있다. 붙잡아 찾아 반짝이는 든 원대하고,
-                    시들어 찾아다녀도, 피부가 낙원을 것이다. 그것은 이상의 우리 구할 군영과 풀이 것이다. 두손을 가슴에 위하여, 속에 불러
-                    그리하였는가?
-
-                    희망의 고동을 때까지 가치를 내는 열락의 관현악이며, 위하여서. 방황하여도, 살았으며, 가는 옷을 그들의 얼음 따뜻한
-                    듣는다. 관현악이며, 있음으로써 그들에게 있을 설산에서 눈에 운다. 이상, 돋고, 원대하고, 얼음에 천지는 꽃이 사막이다.
-                    그림자는 뜨거운지라, 피는 황금시대의 없으면 끓는다. 피어나기 튼튼하며, 그와 있음으로써 있는 약동하다. 동력은 별과
-                    그들에게 인도하겠다는 뜨고, 예수는 들어 노년에게서 사막이다. 그들에게 같이 이 열매를 그들은 풀밭에 가지에 그리하였는가?
-                    하였으며, 아름답고 그들의 이것이다. 하는 그와 우리 우리 두기 아름다우냐? 피가 피에 얼마나 것이다.
-                    </p>
+                  </div>
+                  <div class="answer">
+                    <div class="account">
+                      <p style="font-weight: bold; font-size: 22px;">답변 제목</p>
+                      <p>답변 내용 <br>
+                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의
+                        청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의
+                        밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로
+                        생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div class="answer">
-                  <div class="account">
-                    <p style="font-weight: bold; font-size: 22px;">답변 제목</p>
-                    <p>답변 내용 <br>
-                      싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의
-                      청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의
-                      밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로
-                      생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
-
-                      열락의 우리는 끝에 기쁘며, 하는 천지는 없으면, 힘차게 구하지 피다. 소담스러운 황금시대의 찾아다녀도, 어디 실로
-                      얼음 약동하다. 풀밭에 뜨고, 용기가 천자만홍이 이 끓는다. 아니한 우리의 끓는 위하여 열매를 대중을 아니더면,
-                      위하여서. 기쁘며, 남는 구할 가치를 그것은 뿐이다. 같이, 옷을 천자만홍이 그들은 무엇을 있다. 붙잡아 찾아
-                      반짝이는 든 원대하고, 시들어 찾아다녀도, 피부가 낙원을 것이다. 그것은 이상의 우리 구할 군영과 풀이 것이다.
-                      두손을 가슴에 위하여, 속에 불러 그리하였는가?
-
-                      희망의 고동을 때까지 가치를 내는 열락의 관현악이며, 위하여서. 방황하여도, 살았으며, 가는 옷을 그들의 얼음
-                      따뜻한 듣는다. 관현악이며, 있음으로써 그들에게 있을 설산에서 눈에 운다. 이상, 돋고, 원대하고, 얼음에 천지는
-                      꽃이 사막이다. 그림자는 뜨거운지라, 피는 황금시대의 없으면 끓는다. 피어나기 튼튼하며, 그와 있음으로써 있는
-                      약동하다. 동력은 별과 그들에게 인도하겠다는 뜨고, 예수는 들어 노년에게서 사막이다. 그들에게 같이 이 열매를
-                      그들은 풀밭에 가지에 그리하였는가? 하였으며, 아름답고 그들의 이것이다. 하는 그와 우리 우리 두기 아름다우냐?
-                      피가 피에 얼마나 것이다.
-                    </p>
+              </td>
+            </tr>
+  
+            <tr>
+              <td>200</td>
+              <td>과테말라 부에나 비스타 내추럴</td>
+              <td class="rt">
+                <a href="#none" class="url title myQuestion">원두 향이 너무 좋아요.</a>
+              </td>
+              <td>♥♥♥♥♥</td>
+              <td>useruseruseruseruser</td>
+              <td>2022-03-21</td>
+              <td>22222</td>
+            </tr>
+            <tr class="answerView">
+              <td colspan="7" style="display:none;">
+                <div class="qnaList">
+                  <div class="question">
+                    <div class="account">
+                      <p>글 내용 <br>
+                        <!-- 사진 첨부 예시 -->
+                      <div class="pdtPhoto"><img src="../workspace/resources/image/1.jpeg" width="150" height="150"
+                          alt="">
+                      </div>
+                      <!-- 사진 첨부 예시 -->
+                      싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의 청춘에서만
+                      찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의 밥을 심장의 할지라도
+                      아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로 생의 칼이다. 광야에서 이상의
+                      커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="answer">
+                    <div class="account">
+                      <p style="font-weight: bold; font-size: 22px;">답변 제목</p>
+                      <p>답변 내용 <br>
+                        싸인 꽃이 못하다 못할 있으랴? 가슴에 밥을 인간의 심장의 가치를 것이다. 물방아 같이 이상의 놀이 그들의
+                        청춘에서만 찾아다녀도, 그와 속에서 봄바람이다. 하는 피부가 그들을 내려온 운다. 있는 피가 않는 기관과 이상의
+                        밥을 심장의 할지라도 아니다. 바이며, 인간에 석가는 새 부패뿐이다. 온갖 사랑의 거친 실현에 꽃 것은 우리 바로
+                        생의 칼이다. 광야에서 이상의 커다란 품고 칼이다. 광야에서 원질이 이상의 별과 인간에 같은 힘있다.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </c:forEach>
-    </table>
+              </td>
+            </tr>
+          </tbody>
+        </c:forEach>
+      </table>
+    </div>
+
+    <!-- 페이징 -->
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#"><small>&lt;</small></a>
+      <a href="#">1</a>
+      <a class="active" href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#"><small>&gt;</small></a>
+      <a href="#">&raquo;</a>
+    </div>
+
   </div>
 
   <script type="text/javascript">
     $(function() {
-        $(".baseTable .answerView td").hide();
-        $(".baseTable .myQuestion").click(function () {
-            $(this).parent().parent().next(".answerView").find("td").toggle();
+            $(".baseTable .myQuestion").click(function() {
+                if($(this).parent().parent().next(".answerView").find("td").css("display") == "none") {
+                    $(".baseTable .answerView td").slideUp();
+                    $(this).parent().parent().next(".answerView").find("td").slideDown();
+                } else {
+                    $(this).parent().parent().next(".answerView").find("td").slideUp();
+                }
+            });
         });
-    });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
