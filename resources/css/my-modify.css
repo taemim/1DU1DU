@@ -66,8 +66,8 @@ dl, ul, ol, li {
     border: 3px solid #F3EFEF; 
     /* background: #F3EFEF; */
     border-radius: 30px;
-    margin: 0 auto 0 0px;
-    margin-bottom: 30px;
+    margin: 0 auto 300px 0px;
+
     width: 1200px;
     min-width: 1000px;
     height: 1050px;
@@ -93,6 +93,7 @@ dl, ul, ol, li {
 #grade {
     font-size: 20px;
     margin-left: 60px;
+    margin-top: 0px;
 }
 
 
