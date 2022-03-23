@@ -36,12 +36,12 @@
             <div class="container">
                 <div class="side-box">
                     <br>
-                    <h3>커피를 어떻게 내려드세요?</h3><br>
+                    <h3>어떤 커피를 즐기세요?</h3><br>
                     <div class="row">
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
                                 <i class="bi bi-check-lg"></i>
-                                <img src="../resources/image/coffee-maker.png">
+                                <img src="../resources/image/black.png">
                                 <h5>커피메이커</h5>
                             </button>
 
@@ -49,52 +49,27 @@
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
                                 <i class="bi bi-check-lg"></i>
-                                <img src="../resources/image/dripper.png">
+                                <img src="../resources/image/latte.png">
                                 <h5>핸드드립</h5>
                             </button>
                         </div>
+
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
                                 <i class="bi bi-check-lg"></i>
-                                <img src="../resources/image/espresso.png">
+                                <img src="../resources/image/sugar.png">
                                 <h5>에스프레소 머신</h5>
                             </button>
                         </div>
+
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
                                 <i class="bi bi-check-lg"></i>
-                                <img src="../resources/image/moka-pot.png">
+                                <img src="../resources/image/syrup.png">
                                 <h5>모카포트</h5>
                             </button>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" value="커피메이커">
-                                <i class="bi bi-check-lg"></i>
-                                <img src="../resources/image/french-press.png">
-                                <h5>프렌치 프레스</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" value="커피메이커">
-                                <i class="bi bi-check-lg"></i>
-                                <img src="../resources/image/aeropress.png">
-                                <h5>에어로 프레스</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" value="커피메이커">
-                                <i class="bi bi-check-lg"></i>
-                                <img src="../resources/image/cold-brew.png">
-                                <h5>콜드 브루</h5>
-                            </button>
-                            <div class="col-sm-1"></div>
-                        </div>
-
-                    </div>
+                    </div> <!-- /side-box -->
 
                     <div class="pre-box">
                         <button type="button" class="pre-button">
@@ -108,7 +83,15 @@
     </div>
 
     <script>
+        function javascript() {
+            if (document.getElementsByClassName("bi").style.display == "")    //안보여지는지 확인
+                document.getElementsByClassName("bi").style.display = "none";        //안보여지면 보이게
+            else
+                document.getElementsByClassName("bi").style.display = "";    //보여지면 안보이게
+        }
 
+
+        출처: https://jdkblog.tistory.com/47 [JDK's blog]
     </script>
 
 
