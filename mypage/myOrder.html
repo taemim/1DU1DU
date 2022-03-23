@@ -11,7 +11,9 @@
   <!-- 제이쿼리 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <!-- 부트스트랩 -->
+  <!-- 부트스트랩 아이콘 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- 부트스트랩 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- css 외부 링크 -->
@@ -33,9 +35,9 @@
         <br>
         <ul>
           <li class="li-1"><a href="#">MYPAGE</a></li>
-          <li class="li-2"><a href="../mypage/my-modify.html" id="now">내 정보 확인</a></li>
+          <li class="li-2"><a href="../mypage/my-modify.html">내 정보 확인</a></li>
           <li class="li-2"><a href="#">구독 내역</a></li>
-          <li class="li-2"><a href="#">주문 내역</a></li>
+          <li class="li-2"><a href="#" id="now">주문 내역</a></li>
           <li class="li-2"><a href="#">1:1 문의</a></li>
           <li class="li-2"><a href="#">리뷰 관리</a></li>
           <li class="li-2"><a href="#">위시리스트 조회</a></li>
@@ -50,103 +52,85 @@
       <div class="col-lg-9 main-box">
         <div class="admin-page">
           <h1>주문 내역</h1>
-
+          <br>
           <!--내정보 수정칸-->
-
+         <!-- 전체 내역 조회 (=테이블명)-->
+         <a href="#" class="sub-list">최근 주문조회</a>
+         <!-- 같은 페이지에서 다른 데이터를 조회받을 때 (ex. 휴먼회원내역)-->
+         <a href="#" class="sub-list">지난 주문조회</a>
           <div class="my-info">
-            <h5><b>최근 주문 내역</b>
-              <h5><br><br>
-                <div class="table-scroll">
-
-                  <table class="table table-hover w-auto overflow-auto">
-                    <thead>
-                      <tr>
-                        <th scope="col"><input type="checkbox" readonly></th>
-                        <th scope="col">날짜</th>
-                        <th scope="col">상품번호</th>
-                        <th scope="col">상품명</th>
-                        <th scope="col">상품가격</th>
-                        <th scope="col">재고</th>
-                        <th scope="col">옵션</th>
-                        <th scope="col">제조사</th>
-                        <th scope="col">상품등록일</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- 테이블 내용 jstl c:forEach로 추가하기-->
-                      <!-- 가 데이터 (확인용)-->
-                      <tr>
-                        <td scope="row"><input type="checkbox" name="order_no" value="1"></td>
-                        <td>원두</td>
-                        <td>P1BEEN001</td>
-                        <td>[NEW]과테말라 부에나 비스타 내추럴</td>
-                        <td>32,000</td>
-                        <td>999</td>
-                        <td>Y</td>
-                        <td>원두보관소</td>
-                        <td>22/03/01</td>
-                        <td>15</td>
-                        <td>4.2</td>
-                        <td>판매중</td>
-                      </tr>
-                      <tr>
-                        <td scope="row"><input type="checkbox" name="order_no" value="1"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                    <!-- 테이블 통계가 필요한 경우 추가 -->
-                    <tfoot>
-                      <tr>
-                        <td>통계</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tfoot>
-                  </table>
+                   <div class="table-scroll">
+                    <table class="table w-auto">
+                      <thead style="background-color:#F3EFEF50;">
+                        <tr>
+                          <th scope="col"><i class="bi bi-check-square bg-white"></i></th>
+                          <th scope="col">날짜 / 주문번호</th>
+                          <th scope="col"></th>
+                          <th scope="col">상품명 / 옵션</th>
+                          <th scope="col">상품 금액 / 수량</th>
+                          <th scope="col">주문상태</th>
+                          <th scope="col">운송장 번호</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- 테이블 내용 jstl c:forEach로 추가하기-->
+                        <!-- 가 데이터 (확인용)-->
+                        <tr>
+                          <td scope="row"><input type="checkbox" class="checkbox" name="order_no" value=""></td>
+                          <td scope="col">2022-03-22<br> 3443512</td>
+                          <td><img src="..\resources\image\1234.png"></td>
+                          <td><a href="#">콜롬비아 카우카 엘 파라이소 디카페인 무산소 </a></td>
+                          <td>12,000원<br>1개</td>
+                          <td>상품준비중</td>
+                          <td>123456789</td>
+                        </tr>
+                        <tr>
+                          <td scope="row"></td>
+                          <td scope="col"></td>
+                                                 
+                          <td><img src="..\resources\image\1234.png"></td>
+                          <td><a href="#">[NEW]과테말라 부에나 </a></td>
+                          <td>12,000원<br>수량</td>
+                          <td>상품준비중</td>
+                          <td>123456789</td>
+                        </tr>
+                        <tr>
+                          <td scope="row"><input type="checkbox" class="checkbox" name="order_no" value=""></td>
+                          <td scope="col">2022-03-22<br> 3443512</td>
+                          <td><img src="..\resources\image\1234.png"></td>
+                          <td style="max-width:350px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" title="..."><a href="#">[NEW]과테말라 부에나 부에나에나에나에나부에나부에나부에나 </a></td>
+                          <td>12,000원<br>수량</td>
+                          <td>상품준비중</td>
+                          <td>123456739389</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr></tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </form>
                 </div>
                 <br>
 
 
-                <a href="javascript:openModal('modal1');" class="btn btn-dark btn-right" style=" color: #ffffff;">정보
-                  수정</a>
-                <a href="javascript:openModal('modal2');" class="btn btn-dark btn-right" style=" color: #ffffff;">정보
-                  수정</a>
-                <a href="javascript:openModal('modal3');" class="btn btn-dark btn-right" style=" color: #ffffff;">정보
-                  수정</a>
-                <a href="javascript:openModal('modal4');" class="btn btn-dark btn-right" style=" color: #ffffff;">정보
-                  수정</a>
-
+                <!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
+          <a href="javascript:check('modal1');" class="modal-input-btn btn btn-dark btn-right" style=" color: #ffffff;">주문 상세 보기</a>
+          <a href="javascript:check('modal2');" class="btn btn-light btn-right">리뷰작성</a> 
+          <a href="javascript:check('modal3');" class="btn btn-light btn-right">문의작성</a> 
+          <a href="javascript:check('modal4');" class="btn btn-light btn-right">교환반품요청</a> 
+         
           </div>
-
-
-
-
-
-
-
 
           <!-- 모달 시작 !-->
           <!-- float:right; 설정 버튼 순서 오른쪽부터 시작-->
 
           <!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
           <!-- 모달창 div 시작 !-->
+         
+         
           <div id="modal">
-            <div class="modal-con modal">
+            <div class="modal-con modal1">
               <!-- 모달 제목 -->
               <p class="title">비밀번호 변경</p>
               <!-- 모달 콘텐츠 영역-->
@@ -165,60 +149,71 @@
               </div>
             </div>
 
-            <div class="modal-con modal1">
-              <p class="title">나의 정보 저장</p>
-              <div class="con">
-                <p>내 정보를 변경하시겠습니까?</p>
-
-                <!-- 모달 내부 입력창 부분 !-->
-                <form>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <select class="form-control-plaintext op1" id="" name="">
-                          <option selected disabled>요청 분류</option>
-                          <option value="1">교환</option>
-                          <option value="2">반품</option>
-                          <option value="3">환불</option>
-                          <option value="etc">기타</option>
-                        </select>
-                      </div>
-                      <div class="col-sm-8">
-                        <textarea class="form-control-plaintext"></textarea>
-                      </div>
-                      <br>
-                      <div class="offset-sm-3 col-sm-8">
-                        <input class="form-control-plaintext" type="file" value="">
-                      </div>
-                </form>
-
-                <!-- 폼 여기까지-->
+            <div class="modal-con modal3">
+                <p class="title">교환 반품 환불 요청</p>
+                <div class="con">
+                  <p>주문건에 대한 요청을 입력하세요.</p>
+              
+                  <!-- 모달 내부 입력창 부분 !-->
+                  <form>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <select class="form-control-plaintext op1" id="" name="">
+                            <option selected disabled>요청 분류</option>
+                            <option value="1">교환</option>
+                            <option value="2">반품</option>
+                            <option value="3">환불</option>
+                            <option value="etc">기타</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-8">
+                          <textarea class="form-control-plaintext"></textarea>
+                        </div>
+                        <br>
+                        <div class="offset-sm-3 col-sm-8">
+                          <input class="form-control-plaintext" type="file" value="">
+                        </div>
+                  </form>
+                  <!-- 폼 여기까지-->
+                </div>
+                <div class="modal-btn">
+                  <button type="button" class="madal-btn button btn btn-light btn-sm">
+                    <a href="javascript:;" class="close">변경</a>
+                  </button>
+                  &nbsp;&nbsp;
+                  <button type="button" class="madal-btn button btn btn-light btn-sm ">
+                    <a href="javascript:;" class="close">취소</a>
+                  </button>
               </div>
+              
             </div>
-            <div class="modal-btn">
-              <button type="button" class="madal-btn button btn btn-light btn-sm">
-                <a href="javascript:;" class="close">변경</a>
-              </button>
-              &nbsp;&nbsp;
-              <button type="button" class="madal-btn button btn btn-light btn-sm ">
-                <a href="javascript:;" class="close">취소</a>
-              </button>
-            </div>
+
           </div>
 
 
           <!-- 모달 자바 스크립트 필수 -->
-          <script>
-            function openModal(modalname) {
-              document.get
-              $("#modal").fadeIn(300);
-              $("." + modalname).fadeIn(300);
-            }
+           <script>
+              function check(modalname) {
+                  if($('.checkbox').is(':checked')){
+                    openModal(modalname);
+                  } else {
+                    alert("주문건을 선택해주세요.");
+                  }
+              }
 
-            $(".close").on('click', function () {
-              $("#modal").fadeOut(300);
-              $(".modal-con").fadeOut(300);
-            });  
+              function openModal(modalname) {
+                document.get
+                $("#modal").fadeIn(300);
+                $("." + modalname).fadeIn(300);
+              }
+  
+              $(".close").on('click', function () {
+                $("#modal").fadeOut(300);
+                $(".modal-con").fadeOut(300);
+              }); 
+              
+
           </script>
 
 

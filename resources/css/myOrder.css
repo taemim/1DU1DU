@@ -105,13 +105,10 @@ dl, ul, ol, li {
 /* 버튼 설정*/
 .btn-right {
     text-align: center;
-    margin-right: 50px;
     margin-bottom: 0px;
-    border-radius: 20px;
-    padding : 10px 20px;
+    border-radius: 10px;
     font-size: 20px;
     float : right;
-
 }
 
 
@@ -119,13 +116,22 @@ dl, ul, ol, li {
 /*  ----------------------- 마이페이지 ---------------------------- */
 
 .my-info {
-    background-color: #F3EFEF;
-    padding: 50px 100px 150px 50px;
-    margin : 50px 0;
+    margin : 20px 0;
     border-radius: 30px;
-    min-width: 1000px;
-    
+    min-width: 1000px;   
 }
+
+table img {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+table th{
+    font-weight: bold;
+    vertical-align : middle;
+}
+
 
 /* 테이블 크기 설정 테이블 크기 벗어나면 스크롤 보임*/
 .table-scroll{
@@ -277,4 +283,5 @@ dl, ul, ol, li {
 .admin-page a{
     text-decoration: none;
     color : #432;
+    font-size: 1.25em;
 }
