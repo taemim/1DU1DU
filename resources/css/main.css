@@ -110,7 +110,7 @@ span {
     text-align:center!important;
 }
 
-/* 위의 문구 margin */
+/* 원두 취향 테스트와 위의 문구 margin */
 .main_img_margin {
     margin:16px!important;
 }
@@ -153,7 +153,7 @@ span {
 }
 
 .margin_top {
-    margin-top:30px!important;
+    margin-top:16px!important;
     margin-bottom: 16px;
 }
 
@@ -196,7 +196,7 @@ img {
     top: 50%;
     width: auto;
     padding: 16px;
-    margin-top: -75px;
+    margin-top: -22px;
     color: #432;
     font-weight: bold;
     font-size: 18px;
@@ -273,12 +273,11 @@ img {
     font-family: 'Nanum Gothic', sans-serif;
     letter-spacing: 3px;
     margin-bottom: 20px;
-    margin-top: 80px;
 }
 
 /* 원두원두 로고 */
 .review_title img {
-    margin-top: -8px;
+    margin-top: 18px;
 }
 
 /* 최대 넓이 지정 */
@@ -322,66 +321,8 @@ img {
     padding-top: 25px;
 }
 
-/* FAQ---------------------------------------------------------------------------------------------- */
-/* 테이블 간격 설정 */
-tbody tr {
-    text-align: center;
-}
 
-table {
-    width: 1300px;
-    margin: 100px auto;
-    font-family: 'Nanum Gothic', sans-serif;
-}
-
-th {
-    background-color: #F4F1F1;
-    text-align: center;
-    border-top: 2px solid #432;
-    padding: 3px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 40px;
-    font-weight: bold!important;
-}
-
-td {
-    border-bottom: 1px solid #ddd;
-    padding: 6px 0;
-    font-size: 20px;
-}
-
-/* 질문 제목 */
-.rt {
-    border-collapse: collapse;
-    empty-cells: show;
-    text-align: left !important;
-    padding-left: 43px;
-    padding-right: 10px;
-}
-
-.baseTable .answerView .qnaList {
-    padding: 0 20px;
-    text-align: left;
-}
-
-/* 질문 답변 칸 */
-.qnaList .answer {
-    margin-top: 25px;
-    padding-top: 25px;
-    border-top: 1px solid #ddd;
-}
-
-.baseTable .answerView td {
-    padding: 40px 0;
-    background-color: #fafafa;
-}
-
-.account p {
-    padding: 0 40px;
-}
-
-
-/* 최상단 이동 버튼 ------------------------------------------------------------------------------ */
+/* 최상단 이동 버튼 --------------------------------------- */
 .scroll_top {
     display: flex;
     justify-content: end;
@@ -484,10 +425,4 @@ p {
 #footer-cs {
     font-size: medium;
     font-weight: 600;
-}
-
-/* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------*/
-/* a 링크 호버시 글자 굵게 */
-table a:hover{
-    font-weight: bolder!important;
 }
