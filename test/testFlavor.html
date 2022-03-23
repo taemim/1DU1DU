@@ -36,58 +36,34 @@
             <div class="container">
                 <div class="side-box">
                     <br>
-                    <h3>커피를 어떻게 내려드세요?</h3><br>
+                    <h3>어느 맛으로 즐기고 싶으세요?</h3><br>
                     <div class="row">
                         <div class="col-sm-3 box">
 
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/coffee-maker.png">
-                                <h5>커피메이커</h5>
+                            <button type="button" class="inner-box" value="커피메이커">
+                                <i id="bi" class="bi bi-check-lg"></i>
+                                <h5>상큼한 과일과 <br> 꽃향기의 <br> 깔끔한 느낌</h5>
                             </button>
 
                         </div>
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/dripper.png">
-                                <h5>핸드드립</h5>
+                            <button type="button" class="inner-box" value="커피메이커">
+                                <i id="bi" class="bi bi-check-lg"></i>
+                                <h5>달콤한 과일과 <br> 농후한 느낌</h5>
                             </button>
                         </div>
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/espresso.png">
-                                <h5>에스프레소 머신</h5>
+                            <button type="button" class="inner-box" value="커피메이커">
+                                <i id="bi" class="bi bi-check-lg"></i>
+                                <h5>고소하고 달콤하고 <br> 향긋한 <br> 균형잡힌 느낌</h5>
                             </button>
                         </div>
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/moka-pot.png">
-                                <h5>모카포트</h5>
+                            <button type="button" class="inner-box" value="커피메이커">
+                                <i id="bi" class="bi bi-check-lg"></i>
+                                <h5>다크초콜릿 같은 <br> 쌉쌀함이 <br> 묵직한 느낌</h5>
                             </button>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/french-press.png">
-                                <h5>프렌치 프레스</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/aeropress.png">
-                                <h5>에어로 프레스</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/cold-brew.png">
-                                <h5>콜드 브루</h5>
-                            </button>
-                            <div class="col-sm-1"></div>
-                        </div>
-
                     </div>
 
                     <div class="pre-box">
@@ -107,6 +83,15 @@
     <div data-include-path="footer.html"></div>
 
     <script>
+
+        $("#bi").onClick(function () {
+            var con = document.getElementById("bi");
+            if (con.style.display == "none") {
+                con.style.display = "block";
+            } else {
+                con.style.display = "none";
+            }
+        });
 
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');

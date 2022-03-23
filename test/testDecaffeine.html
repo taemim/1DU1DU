@@ -47,6 +47,7 @@
                         </div>
                         <div class="col-5 box">
                             <button type="button" class="inner-box" value="디카페인">
+                                <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>디카페인으로 주세요</h5>
                             </button>
                         </div>
@@ -55,6 +56,7 @@
 
                     <div class="pre-box">
                         <button type="button" class="pre-button">
+                            <i id="bi" class="bi bi-check-lg"></i>
                             <img src="/resources/image/arrow_pre.png" alt="">
                         </button> <!-- /pre-button -->
                     </div> <!-- /pre-box -->
@@ -70,6 +72,15 @@
     <div data-include-path="footer.html"></div>
 
     <script>
+
+        $("#bi").onClick(function () {
+            var con = document.getElementById("bi");
+            if (con.style.display == "none") {
+                con.style.display = "block";
+            } else {
+                con.style.display = "none";
+            }
+        });
 
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');

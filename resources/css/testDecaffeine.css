@@ -234,8 +234,7 @@ dl, ul, ol, li {
 /*-------------------------------------------------------------------*/
 
 .box{
-    height:500px; height: 200px;
-    padding: 20px;
+    height: 200px;
 }
 
 .container{
@@ -267,25 +266,29 @@ dl, ul, ol, li {
     box-shadow : 3px 3px 10px rgb(158, 158, 158);
 }
 
-.inner-box img {
-    width: 100px;
-    height: 100px;
-    margin: 20px;
-}
-
 .inner-box h5{
     font-weight: bold;
     color : #743C1C;
     text-align: center;
 }
 
-
-
 .inner-box:focus-within{
     border: rgb(237, 149, 62) 4px solid;
     box-shadow : none;
     box-shadow: none;
 }
+
+.bi {
+    width:10px; height:10px;
+    position:absolute;
+    top:20px; right:80px;
+    font-size:30px;
+    z-index:999;
+}
+    .bi::before {
+        opacity:0;
+        color: rgb(237, 149, 62);
+    }
 
 .pre-box {
     margin:0; padding:0;
