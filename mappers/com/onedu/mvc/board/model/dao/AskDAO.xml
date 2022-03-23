@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AskDAO">
+
+	<resultMap type="com.onedu.mvc.board.model.dto.AskDTO" id="askResultMap">
+		<id property="askNo" column="ASK_NO"/>
+		<result property="prodNo" column="PROD_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="askTitle" column="ASK_TITLE"/>
+		<result property="askType" column="ASK_TYPE"/>
+		<result property="askContents" column="ASK_CONTENTS"/>
+		<result property="askDate" column="ASK_DATE"/>
+		<result property="ansTitle" column="ANS_TITLE"/>
+		<result property="ansContents" column="ANS_CONTENTS"/>
+		<result property="ansDate" column="ANS_DATE"/>
+		<result property="askStatus" column="ASK_STATUS"/>
+	</resultMap>
+	
+	<select id="selectAllAskList" resultMap="askResultMap">
+		SELECT
+			   ASK_NO
+			 , ASK_TITLE
+			 , ASK_TYPE
+			 , ASK_CONTENTS
+			 , ASK_DATE
+			 , ANS_TITLE
+			 , ANS_CONTENTS
+			 , ANS_DATE
+			 , ASK_STATUS
+		  FROM ASK
+		 WHERE ASK_STATUS = 'Y'
+		 ORDER BY ASK_NO DESC
+	</select>
+
+</mapper>
