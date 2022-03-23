@@ -72,6 +72,15 @@
 
     <script>
 
+        $("#bi").onClick(function () {
+            var con = document.getElementById("bi");
+            if (con.style.display == "none") {
+                con.style.display = "block";
+            } else {
+                con.style.display = "none";
+            }
+        });
+
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');
             Array.prototype.forEach.call(allElements, function (el) {

@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- css 외부 링크 -->
-    <link href="..\resources\css\testTools.css" rel="stylesheet" type="text/css">
+    <link href="..\resources\css\testResult.css" rel="stylesheet" type="text/css">
     <!-- 제이쿼리 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -36,98 +36,106 @@
             <div class="container">
                 <div class="side-box">
                     <br>
-                    <h3>커피를 어떻게 내려드세요?</h3><br>
+                    <h2>1DU 1DU의 추천</h2><br>
+                    <h5>방금 입력하신 취향을 바탕으로 매달 새로운 원두를 보내드릴게요!</h5>
                     <div class="row">
                         <div class="col-sm-3 box">
-
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/coffee-maker.png">
-                                <h5>커피메이커</h5>
-                            </button>
-
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/dripper.png">
-                                <h5>핸드드립</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/espresso.png">
-                                <h5>에스프레소 머신</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/moka-pot.png">
-                                <h5>모카포트</h5>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/french-press.png">
-                                <h5>프렌치 프레스</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/aeropress.png">
-                                <h5>에어로 프레스</h5>
-                            </button>
-                        </div>
-                        <div class="col-sm-3 box">
-                            <button type="button" class="inner-box bi bi-check-lg" value="커피메이커">
-                                <img src="../resources/image/cold-brew.png">
-                                <h5>콜드 브루</h5>
-                            </button>
-                            <div class="col-sm-1"></div>
+                            <span>내리는 방식</span>
                         </div>
 
-                    </div>
+                        <div class="row">
+                            <div class="col-sm-3 box">
+                                <span>평소 커피 취향</span>
+                            </div>
+                        </div>
 
-                    <div class="pre-box">
-                        <button type="button" class="pre-button">
-                            <img src="/resources/image/arrow_pre.png" alt="">
-                        </button> <!-- /pre-button -->
-                    </div> <!-- /pre-box -->
+                        <div class="row">
+                            <div class="col-sm-3 box">
+                                <span>카페인</span>
+                            </div>
+                        </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
+                        <div class="row">
+                            <div class="col-sm-3 box">
+                                <span>스타일</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3 box">
+                                <span>원두 향</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3 box">
+                                <span>분쇄도</span>
+                            </div>
+                        </div>
+
+                        <div class="anal">
+                            <h3>김원두님의 취향 분석중...</h3>
+                            <span>1DU 1DU가 추천하는 이번달 원두는</span>
+                            <span><b>케냐룽게토AB, 블랙수트, 과테말라 부에나 비스타 내추럴</b>이에요!</span>
+                        </div> <!-- /anal -->
+
+                        <!-- 정기 구독하러 가기 -->
+                        <div class="subs-wrap">
+                            <button type="button" class="subs-button">
+                                <h5>정기 구독하러 가기</h5>
+                                <span>이 옵션으로 구독할래요!</span>
+                            </button> <!-- /subs-button -->
+                        </div> <!-- /subs-wrap -->
+
+                        <!-- 다른 상품 둘러보기 -->
+                        <div class="another-wrap">
+                            <button type="button" class="another-button">
+                                <h5>다른 상품 둘러보기</h5>
+                                <span>좀 더 둘러볼래요!</span>
+                            </button> <!-- /another-button -->
+                        </div> <!-- /another-wrap -->
+
+                    </div> <!-- /side-box -->
+                </div><!-- /container -->
+            </div> <!-- /row -->
+        </div> <!-- /container -->
 
 
 
-    <!-- footer import -->
-    <div data-include-path="footer.html"></div>
+        <!-- footer import -->
+        <div data-include-path="footer.html"></div>
 
-    <script>
+        <script>
 
-        window.addEventListener('load', function () {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function (el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
+            $("#bi").onClick(function () {
+                var con = document.getElementById("bi");
+                if (con.style.display == "none") {
+                    con.style.display = "block";
+                } else {
+                    con.style.display = "none";
                 }
             });
-        });
-    </script>
 
-    <!-- 부트스트랩 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+            window.addEventListener('load', function () {
+                var allElements = document.getElementsByTagName('*');
+                Array.prototype.forEach.call(allElements, function (el) {
+                    var includePath = el.dataset.includePath;
+                    if (includePath) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                el.outerHTML = this.responseText;
+                            }
+                        };
+                        xhttp.open('GET', includePath, true);
+                        xhttp.send();
+                    }
+                });
+            });
+        </script>
+
+        <!-- 부트스트랩 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 </body>
 
