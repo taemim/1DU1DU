@@ -236,11 +236,16 @@ dl, ul, ol, li {
 .box{
     height: 200px;
     padding: 20px;
+    padding-top:60px;
 }
 
 .container{
   justify-content: center;
   text-align: center;
+}
+.wrapper {
+        justify-content: center;
+        text-align: center;
 }
 
 .side-box{
@@ -256,49 +261,16 @@ dl, ul, ol, li {
     font-weight: bold;
 }
 
-.inner-box{
-    background: #ffffff;
-    border: none;
-    border-radius: 25px;
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-    box-shadow : 3px 3px 10px rgb(158, 158, 158);
-}
-
-.inner-box img {
-    width: 100px;
-    height: 100px;
-    margin: 20px;
-}
-
-.inner-box h5{
-    letter-spacing: 3px;
-    font-weight: bold;
-    color : #743C1C;
-    text-align: center;
-}
-
-
-
-.inner-box:focus-within{
-    border: rgb(237, 149, 62) 4px solid;
-    box-shadow : none;
-    box-shadow: none;
-}
-
-.pre-box {
+.start-box {
     margin:0; padding:0;
     /* 버튼을 살짝 올리기 위해 요소를 띄우고 위치 조정 */
     z-index:999;
     margin-top:-30px;
 }
-    .pre-button {
+    .start-button {
         margin:0; padding:0;
         border:none;
         background:none;
         margin-right:1200px;
     }
-        .pre-button img {
-            width:60px; height:60px;
-        }
+
