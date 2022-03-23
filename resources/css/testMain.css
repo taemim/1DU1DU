@@ -235,9 +235,20 @@ dl, ul, ol, li {
 
 .box{
     height: 200px;
-    padding: 20px;
+    padding: 20px 20px 20px 0;
     padding-top:60px;
 }
+.name-box {
+    width:100%;
+}
+    .box>input {
+        width:300px; height:50px;
+        text-align:center;
+        box-sizing: border-box;
+        border:2px solid orange;
+        border-radius:9px;
+        box-shadow:3px 5px 3px #e4e4e4;
+    }
 
 .container{
   justify-content: center;
@@ -263,14 +274,19 @@ dl, ul, ol, li {
 
 .start-box {
     margin:0; padding:0;
-    /* 버튼을 살짝 올리기 위해 요소를 띄우고 위치 조정 */
-    z-index:999;
-    margin-top:-30px;
+    text-align:center;
+    margin-top:-50px;
 }
-    .start-button {
+    .start {
         margin:0; padding:0;
-        border:none;
         background:none;
-        margin-right:1200px;
+        border:none;
+        width:200px; height:50px;
+        background:#d67318;
+        box-sizing: border-box;
+        border-radius:9px;
+        color:#fff;
+        font-size:20px;
+        font-weight:bold;
     }
 
