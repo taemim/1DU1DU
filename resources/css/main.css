@@ -305,7 +305,7 @@ img {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 18px;
     font-weight: bold;
-    margin-top: -200px;
+    margin-top: -100px;
     text-align: center;
     color: #432;
     line-height: 27px;
@@ -316,10 +316,7 @@ img {
     font-size: 13px;
 }
 
-/* 첫 번째 후기 2줄이라 패딩 부여 */
-.txt1 {
-    padding-top: 25px;
-}
+
 
 
 /* 최상단 이동 버튼 --------------------------------------- */
