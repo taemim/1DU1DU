@@ -234,7 +234,7 @@ dl, ul, ol, li {
 /*-------------------------------------------------------------------*/
 
 .box{
-    height: 200px;
+    height:210px;
     padding: 20px;
     position:relative;
 }
@@ -274,7 +274,6 @@ dl, ul, ol, li {
 }
 
 .inner-box h5{
-    letter-spacing: 3px;
     font-weight: bold;
     color : #743C1C;
     text-align: center;
@@ -302,9 +301,7 @@ dl, ul, ol, li {
 
 .pre-box {
     margin:0; padding:0;
-    /* 버튼을 살짝 올리기 위해 요소를 띄우고 위치 조정 */
-    z-index:999;
-    margin-top:-30px;
+    margin-top:30px;
 }
     .pre-button {
         margin:0; padding:0;

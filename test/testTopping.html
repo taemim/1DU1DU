@@ -40,33 +40,33 @@
                     <div class="row">
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
-                                <i class="bi bi-check-lg"></i>
+                                <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/black.png">
-                                <h5>커피메이커</h5>
+                                <h5>블랙 그대로</h5>
                             </button>
 
                         </div>
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
-                                <i class="bi bi-check-lg"></i>
+                                <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/latte.png">
-                                <h5>핸드드립</h5>
+                                <h5>우유를 더한 라떼</h5>
                             </button>
                         </div>
 
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
-                                <i class="bi bi-check-lg"></i>
+                                <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/sugar.png">
-                                <h5>에스프레소 머신</h5>
+                                <h5>설탕을 넣은 커피</h5>
                             </button>
                         </div>
 
                         <div class="col-sm-3 box">
                             <button type="button" class="inner-box" value="커피메이커">
-                                <i class="bi bi-check-lg"></i>
+                                <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/syrup.png">
-                                <h5>모카포트</h5>
+                                <h5>시럽을 넣은 커피</h5>
                             </button>
                         </div>
                     </div> <!-- /side-box -->
@@ -83,15 +83,14 @@
     </div>
 
     <script>
-        function javascript() {
-            if (document.getElementsByClassName("bi").style.display == "")    //안보여지는지 확인
-                document.getElementsByClassName("bi").style.display = "none";        //안보여지면 보이게
-            else
-                document.getElementsByClassName("bi").style.display = "";    //보여지면 안보이게
-        }
-
-
-        출처: https://jdkblog.tistory.com/47 [JDK's blog]
+        $("#bi").onClick(function() {
+            var con = document.getElementById("bi");
+            if (con.style.display == "none") {
+                con.style.display = "block";
+            } else {
+                con.style.display = "none";
+            }
+        });
     </script>
 
 
