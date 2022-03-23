@@ -17,7 +17,7 @@
     <link rel="icon" type="image/x-icon" href="../workspace/resources/image/android-icon-48x48.png">
     <!-- 부트스트랩 -->
     <!-- 슬라이드랑 충돌 나는 부트스트랩 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <title>1DU1DU</title>
 </head>
 
@@ -357,7 +357,7 @@
     </div> <!-- /content4 -->
 
     <!-- FAQ -->
-    <div class="container">
+    <!-- <div class="container">
         <br><br>
         <h1 class="h1 text-center"><strong>FAQ</strong></h1><br><br>
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -466,8 +466,136 @@
             </div>
         </div>
     </div>
-    <br><br><br>
+    <br><br><br> -->
     <!-- /FAQ -->
+
+    <table class="baseTable">
+        <thead>
+            <tr>
+                <th colspan="6">FAQ</th>
+            </tr>
+        </thead>
+        <c:forEach var="board" items="${ boardList }">
+            <tbody>
+                <tr>
+                    <td class="rt">
+                        <a href="#none" class="url title myQuestion">받아보는 커피들은 매달 달라지나요?</a>
+                    </td>
+                </tr>
+                <tr class="answerView">
+                    <td colspan="6" style="display:none;">
+                        <div class="qnaList">
+                            <div class="question">
+                                <div class="account">
+                                    <p>
+                                        1DU1DU는 입력해두신 커피 취향에 맞춰 매달 새로운 로스터리 브랜드의 커피들로 라인업이 구성되기 때문에<br>
+                                        매달 질릴 틈 없이 새로운 구성으로 즐기실 수 있습니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rt">
+                        <a href="#none" class="url title myQuestion">1DU1DU의 원두는 언제 로스팅 되나요?</a>
+                    </td>
+                </tr>
+                <tr class="answerView">
+                    <td colspan="6" style="display:none;">
+                        <div class="qnaList">
+                            <div class="question">
+                                <div class="account">
+                                    <p>
+                                        IDUIDU의 원두는 아래와 같은 과정을 거쳐 전달하는 것을 원칙으로 하고 있습니다.<br><br>
+                                        1) 발송일 기준 최대 3일 전 로스팅<br>
+                                        2) 발송일 전일 픽업 및 패키징<br>
+                                        3) 매월 정해진 발송일에 발송<br><br>
+                                        * 해당 기준은 원두 기준으로, 드립백과 캡슐 제품의 경우 신선도를 유지할 수 있는 공법을 활용해 제조된 제품들이기 때문에<br>
+                                        제조 일자는 배송일과 더 차이가 날 수 있습니다.<br>
+                                        <br><br>
+                                        다만, 파트너 로스터, 물류 파트너 등의 상황에 따라 변경될 수 있으며 일정이 변경될 경우 구독자분들께 사전에 안내하고 있어요.<br>
+                                        하지만 이 경우에도 최대 1주일 이내 발송하기 위해 노력하고 있습니다!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rt">
+                        <a href="#none" class="url title myQuestion">정기결제는 언제 진행되나요?</a>
+                    </td>
+                </tr>
+                <tr class="answerView">
+                    <td colspan="6" style="display:none;">
+                        <div class="qnaList">
+                            <div class="question">
+                                <div class="account">
+                                    <p>
+                                        매달 16일~다음달 1일 신청자의 경우 2일 정기결제,
+                                        2일~15일 신청자의 경우 16일 정기결제가 진행됩니다.<br>
+                                        (정기결제 회사 명 : 주식회사 원두데이볶나)
+                                        <br><br>
+                
+                                        구독 신청시 카드 등록과 동시에 결제가 진행되지는 않으며, 정해진 정기 결제일에 첫 결제가 진행됩니다. <br>
+                                        홈페이지의 내 구독 확인하기 페이지에서 언제든 받아볼 커피 정보 확인, 변경, 이번 결제 및 발송 스케줄 확인 등이 가능합니다.<br>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rt">
+                        <a href="#none" class="url title myQuestion">구독을 취소하거나 쉬어갈 수 있나요?</a>
+                    </td>
+                </tr>
+                <tr class="answerView">
+                    <td colspan="6" style="display:none;">
+                        <div class="qnaList">
+                            <div class="question">
+                                <div class="account">
+                                    <p>
+                                        내 구독 확인하기 > 구독 탭에서 언제든지 자유롭게 구독 취소, 쉬어가기가 가능합니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rt">
+                        <a href="#none" class="url title myQuestion">교환/환불을 받고 싶으면 어떻게 해야하나요?</a>
+                    </td>
+                </tr>
+                <tr class="answerView">
+                    <td colspan="6" style="display:none;">
+                        <div class="qnaList">
+                            <div class="question">
+                                <div class="account">
+                                    <p>
+                                        제품 하자 등으로 인해 교환/환불이 필요한 경우 반송비 등 비용은 1DU1DU가 부담하고 있습니다.<br>
+                                        제품에 문제가 있는 경우, 오른쪽 하단의 [카카오톡 상담]을 통해 문의하시면 CS 크루와 빠르게 상담하실 수 있습니다.<br>
+                                        다만, 신선식품인 제품의 특성상 아래와 같은 경우에는 교환/환불이 불가능합니다.<br><br>
+
+                                        1. 고객의 단순 변심으로 요청하는 경우<br>
+                                        2. 고객의 부주의로 인해 제품의 품질이 훼손된 경우<br>
+                                        3. CS 크루를 통한 교환 접수 절차 없이 임의로 반송한 경우
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </c:forEach>
+    </table>
 
     <!-- page top 버튼 -->
     <div class="scroll_top">
@@ -548,6 +676,20 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+    </script>
+
+    <!-- FAQ 토글 스크립트 -->
+    <script type="text/javascript">
+        $(function() {
+            $(".baseTable .myQuestion").click(function() {
+                if($(this).parent().parent().next(".answerView").find("td").css("display") == "none") {
+                    $(".baseTable .answerView td").slideUp();
+                    $(this).parent().parent().next(".answerView").find("td").slideDown();
+                } else {
+                    $(this).parent().parent().next(".answerView").find("td").slideUp();
+                }
+            });
+        });
     </script>
 
     <!-- 부트스트랩 -->
