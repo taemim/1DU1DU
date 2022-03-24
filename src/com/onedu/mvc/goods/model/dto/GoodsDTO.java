@@ -9,7 +9,6 @@ public class GoodsDTO implements java.io.Serializable {
 	private int categoryId;
 	private int typeId;
 	private String goodsName;
-	private String goodsNameEn;
 	private int price;
 	private String goodsExplain;
 	private Date enrollDate;
@@ -21,15 +20,14 @@ public class GoodsDTO implements java.io.Serializable {
 	
 	public GoodsDTO() {}
 
-	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, String goodsNameEn, int price,
-			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol, List<ImgDTO> imgList,
+	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, int price, String goodsExplain,
+			Date enrollDate, String saleCheck, int totalStock, int saleVol, List<ImgDTO> imgList,
 			CategoryDTO category) {
 		super();
 		this.goodsNo = goodsNo;
 		this.categoryId = categoryId;
 		this.typeId = typeId;
 		this.goodsName = goodsName;
-		this.goodsNameEn = goodsNameEn;
 		this.price = price;
 		this.goodsExplain = goodsExplain;
 		this.enrollDate = enrollDate;
@@ -70,14 +68,6 @@ public class GoodsDTO implements java.io.Serializable {
 
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
-	}
-
-	public String getGoodsNameEn() {
-		return goodsNameEn;
-	}
-
-	public void setGoodsNameEn(String goodsNameEn) {
-		this.goodsNameEn = goodsNameEn;
 	}
 
 	public int getPrice() {
@@ -147,10 +137,11 @@ public class GoodsDTO implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "GoodsDTO [goodsNo=" + goodsNo + ", categoryId=" + categoryId + ", typeId=" + typeId + ", goodsName="
-				+ goodsName + ", goodsNameEn=" + goodsNameEn + ", price=" + price + ", goodsExplain=" + goodsExplain
-				+ ", enrollDate=" + enrollDate + ", saleCheck=" + saleCheck + ", totalStock=" + totalStock
-				+ ", saleVol=" + saleVol + ", imgList=" + imgList + ", category=" + category + "]";
+				+ goodsName + ", price=" + price + ", goodsExplain=" + goodsExplain + ", enrollDate=" + enrollDate
+				+ ", saleCheck=" + saleCheck + ", totalStock=" + totalStock + ", saleVol=" + saleVol + ", imgList="
+				+ imgList + ", category=" + category + "]";
 	}
 
+	
 	
 }
