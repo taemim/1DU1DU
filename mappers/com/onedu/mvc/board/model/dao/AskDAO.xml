@@ -9,20 +9,27 @@
 		<result property="prodNo" column="PROD_NO"/>
 		<result property="userId" column="USER_ID"/>
 		<result property="askTitle" column="ASK_TITLE"/>
-		<result property="askType" column="ASK_TYPE"/>
 		<result property="askContents" column="ASK_CONTENTS"/>
 		<result property="askDate" column="ASK_DATE"/>
 		<result property="ansTitle" column="ANS_TITLE"/>
 		<result property="ansContents" column="ANS_CONTENTS"/>
 		<result property="ansDate" column="ANS_DATE"/>
 		<result property="askStatus" column="ASK_STATUS"/>
+		<result property="askCode" column="ASK_CODE"/>
+
+		<association property="ask" resultMap="askTypeResultMap"/> <!-- AskTypeDTO" -->
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.board.model.dto.AskTypeDTO" id="askTypeResultMap">
+		<id property="askCode" column="ASK_CODE"/>
+		<result property="askName" column="ASK_NAME"/>
 	</resultMap>
 	
 	<select id="selectAllAskList" resultMap="askResultMap">
 		SELECT
 			   ASK_NO
 			 , ASK_TITLE
-			 , ASK_TYPE
+			 , ASK_CODE
 			 , ASK_CONTENTS
 			 , ASK_DATE
 			 , ANS_TITLE
@@ -33,5 +40,34 @@
 		 WHERE ASK_STATUS = 'Y'
 		 ORDER BY ASK_NO DESC
 	</select>
+	
+	<insert id="insertAsk">
+		INSERT
+		  INTO ASK
+		(
+		  ASK_NO
+		, PROD_NO
+		, ASK_TITLE
+		, ASK_CODE
+		, USER_ID
+		, ASK_CONTENTS
+		)
+		VALUES
+		(
+		  SEQ_ASK_NO.NEXTVAL
+		, #{ prodNo }
+		, #{ askTitle }
+		, #{ askCode }
+		, 'user01'
+		, #{ askContents }
+		)
+	</insert>
+	
+	<delete id="deleteAsk">
+		UPDATE
+			   ASK
+		   SET ASK_STATUS = 'N'
+		 WHERE ASK_NO = #{ no }
+	</delete>
 
 </mapper>
