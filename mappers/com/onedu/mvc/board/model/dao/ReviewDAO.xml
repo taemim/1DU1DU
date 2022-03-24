@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReviewDAO">
+
+	<resultMap type="com.onedu.mvc.board.model.dto.ReviewDTO" id="reviewResultMap">
+		<id property="revNo" column="REV_NO"/>
+		<result property="prodNo" column="PROD_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="revTitle" column="REV_TITLE"/>
+		<result property="revContents" column="REV_CONTENTS"/>
+		<result property="writeDate" column="WRITE_DATE"/>
+		<result property="ansTitle" column="ANS_TITLE"/>
+		<result property="ansContents" column="ANS_CONTENTS"/>
+		<result property="ansDate" column="ANS_DATE"/>
+		<result property="gradeAvg" column="GRADE_AVG"/>
+		<result property="revHits" column="REV_HITS"/>
+		<result property="revStatus" column="REV_STATUS"/>
+		
+		<association property="goods" resultMap="goodsResultMap"/> <!-- GoodsDTO -->
+		<association property="writer" resultMap="memberResultMap"/> <!-- MemberDTO -->
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
+		<id property="goodsNo" column="PROD_NO"/>
+		<result property="categoryId" column="CATEGORY_ID"/>
+		<result property="typeId" column="TYPE_ID"/>
+		<result property="goodsName" column="PROD_NAME"/>
+		<result property="price" column="PROD_PRICE"/>
+		<result property="goodsExplain" column="PROD_EXPLAIN"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="saleCheck" column="SALE_CHECK"/>
+		<result property="totalStock" column="TOTAL_STOCK"/>
+		<result property="saleVol" column="SALE_VOL"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.member.model.dto.MemberDTO" id="memberResultMap">
+		<id property="userId" column="USER_ID"/>
+		<result property="userPwd" column="USER_PWD"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="birthday" column="BIRTHDAY"/>
+		<result property="gender" column="GENDER"/>
+		<result property="postal" column="POSTAL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="email" column="EMAIL"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="buyCnt" column="BUY_CNT"/>
+		<result property="userAct" column="USER_ACT"/>
+		<result property="userRole" column="USER_ROLE"/>
+		<result property="gradeNo" column="GRADE_NO"/>
+	</resultMap>
+	
+	<select id="selectAllReviewList" resultMap="reviewResultMap">
+		SELECT
+			   A.REV_NO
+			 , B.PROD_NAME
+			 , A.REV_TITLE
+			 , A.REV_CONTENTS
+			 , A.WRITE_DATE
+			 , A.ANS_TITLE
+			 , A.ANS_CONTENTS
+			 , A.GRADE_AVG
+			 , A.REV_HITS
+		  FROM REVIEW A
+		  JOIN PROD B ON(A.PROD_NO = B.PROD_NO)
+		 WHERE REV_STATUS = 'Y'
+		 ORDER BY A.REV_NO DESC
+	</select>
+
+</mapper>
