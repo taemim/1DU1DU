@@ -87,13 +87,19 @@
                             <tbody>
                                 <tr>
                                     <td>${ ask.askNo }</td>
-                                    <td>${ ask.askType }</td>
+                                    <td>${ ask.ask.askName }</td>
                                     <td class="rt">
                                         <a href="#none" class="url title myQuestion">${ ask.askTitle }</a>
                                     </td>
                                     <td>${ ask.askDate }</td>
                                     <td><c:if test="${ ask.ansContents != null }">Y</c:if></td>
-                                    <td><button type="button" class="btn_delete"><strong style="font-size: large;">X</strong></button></td>
+                                    <td>
+                                    	<button type="button" class="btn_delete" onclick="deleteAsk()"><strong style="font-size: large;">X</strong></button>
+                                    	<!-- form 태그를 post 방식으로 제출 -->
+										<form name="askForm" method="post">
+											<input type="hidden" name="no" value="${ ask.askNo }">
+										</form>
+                                    </td>
                                 </tr>
 
                                 <tr class="answerView">
@@ -156,6 +162,13 @@
                 }
             });
         });
+        
+        function deleteAsk(){
+			if(confirm('이 게시글을 삭제하시겠습니까?')){
+				document.forms.askForm.action = "${ pageContext.servletContext.contextPath }/ask/delete";
+				document.forms.askForm.submit();
+			}
+		}
     </script>
     
     <!-- footer import -->
