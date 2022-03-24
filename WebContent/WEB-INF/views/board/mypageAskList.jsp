@@ -2,32 +2,35 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-	<!-- 외부 스타일 시트 -->
-	<link href="${ pageContext.servletContext.contextPath }/resources/css/mypageAsk.css" rel="stylesheet">
-	<!-- 구글웹폰트 -->
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	<!-- 제이쿼리 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 구글웹폰트 -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!-- 제이쿼리 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<!-- 부트스트랩 -->
+    <!-- 부트스트랩 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<!-- 파비콘 -->
+    <!-- css 외부 링크 -->
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/mypageAsk.css" rel="stylesheet" type="text/css">
+    <!-- 파비콘 -->
     <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
-<title>사용자 - 1:1 문의 조회</title>
+    <title>사용자 - 1:1 문의 조회</title>
 </head>
 <body>
-	
+
 	<!-- header import -->
-	<div class="header_hidden">
+    <div class="header_hidden">
         <h1> 헤더영역 비워두는 용도 </h1>
     </div>
 
-	<div class="container">
+    <div class="container">
         <div class="row">
             <!-- 마이페이지 사이드 영역 -->
             <div class="col-lg-2 side-box">
@@ -36,7 +39,7 @@
                     <li><a href="#">내 정보 확인</a></li>
                     <li><a href="#">구독 내역</a></li>
                     <li><a href="#">주문 내역</a></li>
-                    <li><a href="#">1:1 문의</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
                     <li><a href="#">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
                     <li><a href="#">회원 탈퇴</a></li>
@@ -56,10 +59,8 @@
                             한 번 등록한 문의는 수정이 불가능하므로, 삭제 후 재문의 해 주시기 바랍니다.
                         </p>
                         <div class="write">
-                            <c:if test="${ !empty loginMember }">
-                                <button type="button"
-                                    onclick="location.href='${ pageContext.servletContext.contextPath }/ask/insert'">작성 하기</button>
-                            </c:if>
+                             <button type="button"
+                                 onclick="location.href='${ pageContext.servletContext.contextPath }/ask/insert'">작성 하기</button>
                         </div>
                     </div>
                     <!-- 전체 내역 조회 (=my-ask-list)-->
@@ -91,10 +92,8 @@
                                         <a href="#none" class="url title myQuestion">${ ask.askTitle }</a>
                                     </td>
                                     <td>${ ask.askDate }</td>
-                                    <td>
-                                    	<c:if test="${ ask.ansDate != null }">Y</c:if>
-                                    </td>
-                                    <td><button type="submit" class="btn_delete"><strong style="font-size: large;">X</strong></button></td>
+                                    <td><c:if test="${ ask.ansContents != null }">Y</c:if></td>
+                                    <td><button type="button" class="btn_delete"><strong style="font-size: large;">X</strong></button></td>
                                 </tr>
 
                                 <tr class="answerView">
@@ -145,7 +144,7 @@
             </div>
         </div>
     </div>
-    
+
     <script type="text/javascript">
         $(function() {
             $(".baseTable .myQuestion").click(function() {
@@ -160,7 +159,27 @@
     </script>
     
     <!-- footer import -->
-    
+    <div data-include-path="footer.html"></div>
+
+    <script>
+        window.addEventListener('load', function () {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function (el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+    </script>
 
 </body>
+
 </html>
