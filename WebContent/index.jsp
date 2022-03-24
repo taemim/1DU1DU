@@ -7,11 +7,21 @@
 <title>index</title>
 </head>
 <body>
-	<jsp:forward page="WEB-INF/views/main/main.jsp"/> 
+
+    <jsp:forward page="${ pageContext.servletContext.contextPath }/main"/>
+
 	
-<!--<a href="">메인화면</a><br>
+	<a href="naver.com"> 메인 화면 이동</a><br>
 	<a href=''>화면 이동</a><br>
-	<a href=''>메인 화면 이동</a><br> -->
+	<a href=''>메인 화면 이동</a><br>
+	
+	<%
+		
+	
+	%>
+	
+
+	
 	 
 </body>
 </html>

@@ -27,13 +27,15 @@
 
 <body>
 	
+	<jsp:include page="header.jsp"/>
+	
 	<main>
     <div class="header_hidden">
     </div>
     
     <!-- main image -->
     <div class="display_container center" id="section1">
-        <img src="resources/image/img-bg1.png" style="width: 100%; height: 600px;">
+        <img src="/resources/image/img-bg1.png" style="width: 100%; height: 600px;">
         <div class="display_bottommiddle padding_32">
             <div class="main_white">
                 <h1 class="main_img_margin jumbo">
