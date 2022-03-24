@@ -2,36 +2,43 @@ package com.onedu.mvc.board.model.dto;
 
 import java.sql.Date;
 
-public class AskDTO {
+import com.onedu.mvc.member.model.dto.MemberDTO;
+
+public class AskDTO implements java.io.Serializable {
 
 	private int askNo;
 	private int prodNo;
 	private String userId;
 	private String askTitle;
-	private String askType;
 	private String askContents;
 	private Date askDate;
 	private String ansTitle;
 	private String ansContents;
 	private Date ansDate;
 	private String askStatus;
+	private int askCode;
+	private AskTypeDTO ask;
+	private MemberDTO writer;
 	
 	public AskDTO() {}
 
-	public AskDTO(int askNo, int prodNo, String userId, String askTitle, String askType, String askContents,
-			Date askDate, String ansTitle, String ansContents, Date ansDate, String askStatus) {
+	public AskDTO(int askNo, int prodNo, String userId, String askTitle, String askContents, Date askDate,
+			String ansTitle, String ansContents, Date ansDate, String askStatus, int askCode, AskTypeDTO ask,
+			MemberDTO writer) {
 		super();
 		this.askNo = askNo;
 		this.prodNo = prodNo;
 		this.userId = userId;
 		this.askTitle = askTitle;
-		this.askType = askType;
 		this.askContents = askContents;
 		this.askDate = askDate;
 		this.ansTitle = ansTitle;
 		this.ansContents = ansContents;
 		this.ansDate = ansDate;
 		this.askStatus = askStatus;
+		this.askCode = askCode;
+		this.ask = ask;
+		this.writer = writer;
 	}
 
 	public int getAskNo() {
@@ -64,14 +71,6 @@ public class AskDTO {
 
 	public void setAskTitle(String askTitle) {
 		this.askTitle = askTitle;
-	}
-
-	public String getAskType() {
-		return askType;
-	}
-
-	public void setAskType(String askType) {
-		this.askType = askType;
 	}
 
 	public String getAskContents() {
@@ -122,11 +121,36 @@ public class AskDTO {
 		this.askStatus = askStatus;
 	}
 
+	public int getAskCode() {
+		return askCode;
+	}
+
+	public void setAskCode(int askCode) {
+		this.askCode = askCode;
+	}
+
+	public AskTypeDTO getAsk() {
+		return ask;
+	}
+
+	public void setAsk(AskTypeDTO ask) {
+		this.ask = ask;
+	}
+
+	public MemberDTO getWriter() {
+		return writer;
+	}
+
+	public void setWriter(MemberDTO writer) {
+		this.writer = writer;
+	}
+
 	@Override
 	public String toString() {
 		return "AskDTO [askNo=" + askNo + ", prodNo=" + prodNo + ", userId=" + userId + ", askTitle=" + askTitle
-				+ ", askType=" + askType + ", askContents=" + askContents + ", askDate=" + askDate + ", ansTitle="
-				+ ansTitle + ", ansContents=" + ansContents + ", ansDate=" + ansDate + ", askStatus=" + askStatus + "]";
+				+ ", askContents=" + askContents + ", askDate=" + askDate + ", ansTitle=" + ansTitle + ", ansContents="
+				+ ansContents + ", ansDate=" + ansDate + ", askStatus=" + askStatus + ", askCode=" + askCode + ", ask="
+				+ ask + ", writer=" + writer + "]";
 	}
-	
+
 }
