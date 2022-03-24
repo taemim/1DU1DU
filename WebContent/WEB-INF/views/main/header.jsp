@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- css 외부 링크 -->
-    <link href="resources/css/header.css" rel="stylesheet" type="text/css">
+    <link href="../resources/css/header.css" rel="stylesheet" type="text/css">
 
     <!-- 제이쿼리 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
@@ -32,7 +32,7 @@
     <!-- header 시작 -->
     <header id="header" class="main-header">
     
-    <div id="header_wrap" style="display: blo ck;" >
+    <div id="header_wrap" style=" display: block;" >
         <!-- 상단 top배너 광고 -->
         <div class="top_banner">
            <p>지금 바로 정기구독 9,900원 무료배송</p>
@@ -71,7 +71,7 @@
             <div>
                 <ul class="sub_menu">
                     <li><a href="#">Notice</a></li>
-                    <li><a href="#">Partmership</a></li>
+                    <li><a href="#">Partnership</a></li>
                     <li><a href="#">Best Review</a></li>
                 </ul>
             </div>
@@ -95,28 +95,27 @@
 
             <!-- 로고 -->
             <div class="logo">
-            <a href="#"><img src="resources/image/원두배너_투명.png"></a>
+            <a href="#"><img src="../resources/image/원두배너_투명.png"></a>
             </div> <!-- /logo -->
         
             <!--헤더 오른쪽 메뉴-->
             <div class="right_menu inline">
-                <ul class="right_div inline">
-               
-   				<%-- 로그인이 된 상태와 로그인 되지 않은 상태를 구분하기 위해 if문으로 조건식 추가 --%>
-				<c:if test="${ empty sessionScope.loginMember }">
+                <ul class="right_div inline">               
+   			<%-- 로그인이 된 상태와 로그인 되지 않은 상태를 구분하기 위해 if문으로 조건식 추가 --%>
+			<%-- 	<c:if test="${ empty sessionScope.loginMember }"> --%>
 				<!-- 회원가입/로그인 -->
 				<li><a href="${ pageContext.servletContext.contextPath }/member/login">로그인</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/member/regist">회원가입</a></li>
-				</c:if>
-				<!-- 회원 로그인 -->
+				<!-- </c:if> -->
+<%-- 				<!-- 회원 로그인 -->
 				<c:if test="${ !empty sessionScope.loginMember }">
 				<a href="${ pageContext.servletContext.contextPath }/member/modify">MY PAGE</a>|
 				<a href="${ pageContext.servletContext.contextPath }/member/logout">로그아웃</a>
 				</c:if>
-				<c:if test="${ !empty sessionScope.loginMember } eq "관리자"">
+				<c:if test="${ !empty sessionScope.loginMember } eq "관리자">
 				<a href="${ pageContext.servletContext.contextPath }/member/modify">관리 페이지</a>|
 				<a href="${ pageContext.servletContext.contextPath }/member/logout">로그아웃</a>
-				</c:if>
+				</c:if> --%>
                 <!--장바구니 아이콘-->
                 <li class="cart"><a href="#"><i class="bi bi-cart"></i></a></li>
                 </ul>

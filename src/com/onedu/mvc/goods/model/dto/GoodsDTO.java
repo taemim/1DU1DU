@@ -16,6 +16,7 @@ public class GoodsDTO implements java.io.Serializable {
 	private int totalStock;
 	private int saleVol;
 	private int amount;
+	
 	public GoodsDTO() {
 		super();
 	}

@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderDAO">
 
-	<resultMap type="com.onedu.mvc.goods.model.dto.emberDTO" id="memberResultMap">
+	<resultMap type="com.onedu.mvc.goods.model.dto.OrderDTO" id="orderResultMap">
 		<id property="orderNo" column="ORDER_NO"/>
 		<result property="userId" column="USER_ID"/>
 		<result property="orderDate" column="ORDER_DATE"/>

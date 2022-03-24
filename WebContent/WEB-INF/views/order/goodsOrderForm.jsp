@@ -28,7 +28,7 @@
     
 </head>
 <body>
-
+	<jsp:include page="/WEB-INF/views/main/header.jsp"/>
     <div class="header_hidden">
         <h1> 헤더영역 비워두는 용도 </h1>
     </div>
