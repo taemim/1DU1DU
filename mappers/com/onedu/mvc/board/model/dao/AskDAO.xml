@@ -18,6 +18,7 @@
 		<result property="askCode" column="ASK_CODE"/>
 
 		<association property="ask" resultMap="askTypeResultMap"/> <!-- AskTypeDTO" -->
+		<association property="writer" resultMap="memberResultMap"/> <!-- MemberDTO -->
 	</resultMap>
 	
 	<resultMap type="com.onedu.mvc.board.model.dto.AskTypeDTO" id="askTypeResultMap">
@@ -25,18 +26,38 @@
 		<result property="askName" column="ASK_NAME"/>
 	</resultMap>
 	
+	<resultMap type="com.onedu.mvc.member.model.dto.MemberDTO" id="memberResultMap">
+		<id property="userId" column="USER_ID"/>
+		<result property="userPwd" column="USER_PWD"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="birthday" column="BIRTHDAY"/>
+		<result property="gender" column="GENDER"/>
+		<result property="postal" column="POSTAL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="email" column="EMAIL"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="buyCnt" column="BUY_CNT"/>
+		<result property="userAct" column="USER_ACT"/>
+		<result property="userRole" column="USER_ROLE"/>
+		<result property="gradeNo" column="GRADE_NO"/>
+	</resultMap>
+	
 	<select id="selectAllAskList" resultMap="askResultMap">
 		SELECT
-			   ASK_NO
-			 , ASK_TITLE
-			 , ASK_CODE
-			 , ASK_CONTENTS
-			 , ASK_DATE
-			 , ANS_TITLE
-			 , ANS_CONTENTS
-			 , ANS_DATE
-			 , ASK_STATUS
-		  FROM ASK
+			   A.ASK_NO
+			 , A.ASK_TITLE
+			 , A.ASK_CODE
+			 , A.ASK_CONTENTS
+			 , A.ASK_DATE
+			 , A.ANS_TITLE
+			 , A.ANS_CONTENTS
+			 , A.ANS_DATE
+			 , A.ASK_STATUS
+			 , B.ASK_NAME
+		  FROM ASK A
+		  JOIN ASK_TYPE B ON(A.ASK_CODE = B.ASK_CODE)
 		 WHERE ASK_STATUS = 'Y'
 		 ORDER BY ASK_NO DESC
 	</select>
