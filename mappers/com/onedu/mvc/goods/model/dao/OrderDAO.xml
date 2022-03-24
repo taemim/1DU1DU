@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderDAO">
+
+	<resultMap type="com.onedu.mvc.goods.model.dto.emberDTO" id="memberResultMap">
+		<id property="orderNo" column="ORDER_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="orderDate" column="ORDER_DATE"/>
+		<result property="receiverName" column="RECEIVER"/>
+		<result property="receivePhone" column="PHONE"/>
+		<result property="zipCode" column="POSTAL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="extraAdderess" column="ADDRESS2"/>
+		<result property="shipMemo" column="SHIP_MEMO"/>
+		<result property="Status" column="STATUE"/>
+	</resultMap>
+	
+	<insert id="insertOrder" parameterType="com/onedu/mvc/order/model/dao/OrderDTO" >
+		INSERT 
+		  INTO ORDER 
+		VALUES
+		(
+		   SEQ_ORDER_NO
+		 , #{ userID }
+		 , SYSDATE
+		 , #{ receiverName }
+		 , #{ receivePhone }   
+		 , #{ zipCode }   
+		 , #{ address }   
+		 , #{ extraAdderess }   
+		 , #{ shipMemo }  
+		 , 'Y'
+		)
+			
+	</insert>
+
+</mapper>

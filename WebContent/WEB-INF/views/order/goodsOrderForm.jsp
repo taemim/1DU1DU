@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*" import="com.onedu.mvc.goods.model.dto.GoodsListDTO" %>
+    pageEncoding="UTF-8" import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -34,7 +34,7 @@
     </div>
 
     <div class="container-fluid">
-        <form action="${pageContext.servletContext.contextPath}/goods/order}" method="post">
+        <form id="orderForm" action="${pageContext.servletContext.contextPath}/goods/order}" method="post" onsubmit="importPay();">
             <!-- 레이아웃 2개로 분리-->
             <div class="row wrap">
                 <!--왼쪽 그리드 -->
@@ -51,7 +51,7 @@
                           
                             <c:forEach var="row" items="${ requestScope.goodsList }">
 	                            <div class="goods-img col-lg-4">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="checkGoods" value="${ row.goodsName }">
                                     <img src="../resources/image/1234.png" alt="상품이미지">
                                 </div>
                                 <div class="goods-title col-lg-8">
@@ -79,15 +79,15 @@
                                 <div class="row form-box">
                                     <h3>주문인 정보</h3><br><br>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control-plaintext" id="name" value="김말자" placeholder="이름" readonly>
+                                        <input type="text" class="form-control-plaintext" id="name" name="name" placeholder="이름" readonly >
                                     </div>
                                     <div class="col-sm-7">
-                                        <input type="tel" class="form-control-plaintext" id="phone" value="01012345678" placeholder="연락처" readonly>
+                                        <input type="tel" class="form-control-plaintext" id="phone" name="phone" placeholder="연락처" readonly >
                                     </div>
                                     <br><br>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <input type="email" id="email" value ="dmsb14@gmail.com" class="form-control-plaintext" placeholder="Email" required>
+                                            <input type="email" id="email" name="email" class="form-control-plaintext" placeholder="Email" required>
                                         </div>
                                     </div>
                                 </div>
@@ -107,16 +107,16 @@
                                         </div>
                                     </div><br><br>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control-plaintext" id="input" placeholder="수령인" >
+                                        <input type="text" class="form-control-plaintext" id="receiverName" placeholder="수령인" >
                                     </div>
                                     <div class="col-sm-7">
-                                        <input type="tel" class="form-control-plaintext" id="input" maxlength="11" minlength="9" placeholder="연락처 (-하이픈없이)">
+                                        <input type="tel" class="form-control-plaintext" name="receiverPhone" maxlength="11" minlength="9" placeholder="연락처 (-하이픈없이)">
                                     </div>
 
                                     <br><br>
                                     <div class="col-sm-5">
-                                        <input id="zipCode" type="text" class="form-control-plaintext" id="postcode" placeholder="우편번호" 
-                                            disabled>
+                                        <input id="zipCode" type="text" class="form-control-plaintext" name="zipCode" placeholder="우편번호" 
+                                          required  disabled>
                                     </div>
                                     <div class="col-sm-7">
                                         <input type="button" class="btn btn-dark" 
@@ -125,20 +125,20 @@
                                     <br><br>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <input id="address" type="text" class="form-control-plaintext" id="address" placeholder="도로명 주소"
-                                                disabled>
+                                            <input id="address" type="text" class="form-control-plaintext" name="address" placeholder="도로명 주소"
+                                            required disabled>
                                         </div>
                                     </div>
                                     <br><br>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control-plaintext" id="extraAddress" placeholder="상세주소"
-                                                >
+                                            <input type="text" class="form-control-plaintext" name="extraAddress" placeholder="상세주소"
+                                               required >
                                         </div>
                                     </div>
                                     <br><br>
                                     <div class="input-group mb-3">
-                                          <select class="form-control-plaintext" id="addrMsg">
+                                          <select class="form-control-plaintext" id="shipMemo" name="shipMemo">
 	                                          <option selected disabled>배송 메세지 입력</option>
 	                                          <option value="부재시 경비실에 맡겨주세요">부재시 경비실에 맡겨주세요</option>
 	                                          <option value="배송 전 연락 바랍니다.">배송 전 연락 바랍니다.</option>
@@ -150,7 +150,7 @@
                                     <div class="col-sm-12">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="" value="" > 위 내용을 회원정보에 반영합니다. (우편번호/도로명주소/상세주소)
+                                                <input type="checkbox" id="updateUser" > 위 내용을 회원정보에 반영합니다. (우편번호/도로명주소/상세주소)
                                             </label>
                                         </div>
                                     </div><br>
@@ -243,7 +243,7 @@
                         <fieldset class="form-horizontal needs-validation" novalidate>
                             <div class="row form-box">
                                 <h3>결제 수단</h3><br><br>
-                                <div class="col-sm-5">
+                               <!--  <div class="col-sm-5">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
                                             id="flexRadioDefau1" >
@@ -251,7 +251,7 @@
                                             <h5> 카카오 페이 </h5>
                                         </label>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-sm-5">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
@@ -280,10 +280,10 @@
                             </div>
                         </fieldsetfieldset>
                         <br>
-                        <br>
+                        <br> 
                         <div class="col-sm-12">
                             <div class="d-grid gap-2 col-11 mx-auto">
-                                <input type="button" id="check1" class="btn btn-dark btn-lg" value="결제 진행" />
+                                <input type="submit" id="check1" class="btn btn-dark btn-lg" value="결제 진행" />
                                 <input type="button" id="check2" class="btn btn-outline-dark btn-lg" onclick="back()" value="결제 취소"/>
                         </div><br>
                     </div>
@@ -293,17 +293,26 @@
     </div><!-- /container-fluid-->
     <script>
     
-			$('#check1').click(function(){
-		
+/*     var form = $('#orderForm');
+    
+    form.addEventListner('submit', function(event) {
+      	event.preventDefault(); // 기본 동작인 submit 중단
+      	importPay();	//submit 전에 실행할 이벤트 코드
+    	form.submit();	//이벤트 수행 후, form submit 진행
+      });
+    
+     */
+			function importPay(){
+				
 			 	let goodsName = "<c:out value=" ${ goodsList[0].goodsName }"/>";
 			 	let amount = '${ total }';
 		    	// 여기까지 넘어오는 값
 		    	
 			    let	name = $("#name").val();
-			    let	email = $("#email ").val();
+			    let	email = $("#email").val();
 			    let	address = $("#address").val();
 			    let	phone = $("#phone").val();
-			    let	addrMsg = $("#addrMsg").val();
+			    let	shipMemo = $("#shipMemo").val();
 			    let	zipCode = $("#zipCode").val();
 		    	// 사용자가 입력해야 하는 값 
 		    	
@@ -319,7 +328,7 @@
 		 			IMP.request_pay({
 		 				//name과 amout만있어도 결제 진행가능
 		 				//pg : 'kakao', //pg사 선택 (kakao, kakaopay 둘다 가능)
-		 				pay_method: 'kakao',
+		 				pay_method: 'card',
 		 				merchant_uid : 'merchant_' + new Date().getTime(),
 		 				name : goodsName , // 상품명
 		 				amount : amount,
@@ -330,7 +339,7 @@
 		 				buyer_postcode: zipCode
 		 				//필수항목
 		 				//결제완료후 이동할 페이지 kko나 kkopay는 생략 가능
-		 				//m_redirect_url : 'https://localhost:8001/payments/complete'
+		 				//m_redirect_url : "${ pageContext.servletContext.contextPath }/payment/complete"
 		 			}, function(rsp){
 		 				if(rsp.success){//결제 성공시
 		 				
@@ -340,22 +349,32 @@
 		                        msg += '\결제 금액 : ' + rsp.paid_amount;
 		                        msg += '카드 승인번호 : ' + rsp.apply_num;
 		                        
-
+		 				       alert(msg);
+/*
 		 					$.ajax({
 		 						url : '/goods/order', 
 		 				        type :'POST',
 		 				        data : JSON.stringify({
-		 				        	
-		 				        }),
-
+		 			                imp_uid: rsp.imp_uid,
+		 			                merchant_uid: rsp.merchant_uid,
+		 			               	name : goodsName,
+		 			              	amount : amount,
+		 			 				buyer_email: email,
+		 			 				buyer_name: name,
+		 			 				buyer_tel: phone,
+		 			 				buyer_addr: address,
+		 			 				buyer_postcode: zipCode
+		 			            }),
+		 				        
 		 				        contentType:'application/json;charset=utf-8',
 		 				        dataType: 'json', //서버에서 보내줄 데이터 타입
 		 				        success: function(res){
 		 				        			        	
 		 				          if(res == 1){
-		 				        	 alert(msg);
+		 				        	  
 		 							 
-		 							// location.href = "#"; //결제 성공시 페이지		           
+		 				        	 $("#orderForm").submit();
+		 				         
 		 				          }else{
 		 				        	 alert("디비입력실패"); // 결제 실패
 		 							 return false;
@@ -365,7 +384,7 @@
 		 				          console.log("Insert ajax 통신 실패!!!");
 		 				        }
 		 					}) //ajax
-		 					
+		 					 */
 		 				}
 		 				else{//결제 실패시
 		 					var msg = '결제에 실패했습니다';
@@ -374,7 +393,7 @@
 		 					alert(msg);
 		 			});//pay
 		 			
-		 		}); //check1 클릭 이벤트
+			}; //check1 클릭 이벤트
 
     	
 		 		

@@ -1,45 +1,47 @@
 package com.onedu.mvc.goods.model.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 public class OrderDTO {
 
-	private String orderNo;
+	private int orderNo;
 	private String userId;
+	private List<GoodsDTO> goods;
 	private java.sql.Date orderDate;
-	private String receiver;
-	private String phone;
-	private String postal;
+	private String receiverName;
+	private String receivePhone;
+	private String zipCode;
 	private String address;
 	private String extraAdderess;
 	private String shipMemo;
 	private String Status;
-	
 
 	public OrderDTO() {
 		super();
 	}
 
-	public OrderDTO(String orderNo, String userId, Date orderDate, String receiver, String phone, String postal,
-			String address, String extraAdderess, String shipMemo, String status) {
+	public OrderDTO(int orderNo, String userId, List<GoodsDTO> goods, Date orderDate, String receiverName,
+			String receivePhone, String zipCOde, String address, String extraAdderess, String shipMemo, String status) {
 		super();
 		this.orderNo = orderNo;
 		this.userId = userId;
+		this.goods = goods;
 		this.orderDate = orderDate;
-		this.receiver = receiver;
-		this.phone = phone;
-		this.postal = postal;
+		this.receiverName = receiverName;
+		this.receivePhone = receivePhone;
+		this.zipCode = zipCOde;
 		this.address = address;
 		this.extraAdderess = extraAdderess;
 		this.shipMemo = shipMemo;
 		Status = status;
 	}
 
-	public String getOrderNo() {
+	public int getOrderNo() {
 		return orderNo;
 	}
 
-	public void setOrderNo(String orderNo) {
+	public void setOrderNo(int orderNo) {
 		this.orderNo = orderNo;
 	}
 
@@ -51,6 +53,14 @@ public class OrderDTO {
 		this.userId = userId;
 	}
 
+	public List<GoodsDTO> getGoods() {
+		return goods;
+	}
+
+	public void setGoods(List<GoodsDTO> goods) {
+		this.goods = goods;
+	}
+
 	public java.sql.Date getOrderDate() {
 		return orderDate;
 	}
@@ -59,28 +69,28 @@ public class OrderDTO {
 		this.orderDate = orderDate;
 	}
 
-	public String getReceiver() {
-		return receiver;
+	public String getReceiverName() {
+		return receiverName;
 	}
 
-	public void setReceiver(String receiver) {
-		this.receiver = receiver;
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getReceivePhone() {
+		return receivePhone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setReceivePhone(String receivePhone) {
+		this.receivePhone = receivePhone;
 	}
 
-	public String getPostal() {
-		return postal;
+	public String getZipCode() {
+		return zipCode;
 	}
 
-	public void setPostal(String postal) {
-		this.postal = postal;
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getAddress() {
@@ -117,15 +127,10 @@ public class OrderDTO {
 
 	@Override
 	public String toString() {
-		return "OrderDTO [orderNo=" + orderNo + ", userId=" + userId + ", orderDate=" + orderDate + ", receiver="
-				+ receiver + ", phone=" + phone + ", postal=" + postal + ", address=" + address + ", extraAdderess="
-				+ extraAdderess + ", shipMemo=" + shipMemo + ", Status=" + Status + ", getOrderNo()=" + getOrderNo()
-				+ ", getUserId()=" + getUserId() + ", getOrderDate()=" + getOrderDate() + ", getReceiver()="
-				+ getReceiver() + ", getPhone()=" + getPhone() + ", getPostal()=" + getPostal() + ", getAddress()="
-				+ getAddress() + ", getExtraAdderess()=" + getExtraAdderess() + ", getShipMemo()=" + getShipMemo()
-				+ ", getStatus()=" + getStatus() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "OrderDTO [orderNo=" + orderNo + ", userId=" + userId + ", goods=" + goods + ", orderDate=" + orderDate
+				+ ", receiverName=" + receiverName + ", receivePhone=" + receivePhone + ", zipCOde=" + zipCode
+				+ ", address=" + address + ", extraAdderess=" + extraAdderess + ", shipMemo=" + shipMemo + ", Status="
+				+ Status + "]";
 	}
 
-	
 }
