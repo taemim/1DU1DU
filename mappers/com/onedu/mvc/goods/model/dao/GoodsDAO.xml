@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="GoodsDAO">
+  	  <resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsListResultMap">
+  	  	   <id property="goodsNo" column="PROD_NO"/>
+  	  	   <id property="categoryId" column="CATEGORY_ID"/>
+  	  	   <id property="typeId" column="TYPE_ID"/>
+  	  	   <id property="goodsName" column="PROD_NAME"/>
+  	  	   <id property="goodsNameEn" column="PROD_NAME_EN"/>
+  	  	   <id property="price" column="PROD_PRICE"/>
+  	  	   <id property="goodsExplain" column="PROD_EXPLAIN"/>
+  	  	   <id property="enrollDate" column="ENROLL_DATE"/>
+  	  	   <id property="saleCheck" column="SALE_CHECK"/>
+  	  	   <id property="totalStock" column="TOTAL_STOCK"/>
+  	  	   <id property="saleVol" column="SALE_VOL"/>
+  	  	   
+  	  	   <association property="category" resultMap="categoryResultMap"/>
+  	  	   
+  	  	   <collection property="imgList" resultMap="imgResultMap"/>
+  	  </resultMap>
+  	  
+  	  <resultMap type="com.onedu.mvc.goods.model.dto.CategoryDTO" id="categoryResultMap">
+  	  	   <id property="id" column="CATEGORY_ID"/>
+  	  	   <id property="name" column="CATEGORY_NAME"/>
+  	  </resultMap>
+  	  
+  	  <resultMap type="com.onedu.mvc.goods.model.dto.ImgDTO" id="imgResultMap">
+  	  		<id property="imgId" column="IMG_ID"/>
+  	  		<id property="postNo" column="POST_NO"/>
+  	  		<id property="prodNo" column="PROD_NO"/>
+  	  		<id property="revNo" column="REV_NO"/>
+  	  		<id property="askNo" column="ASK_NO"/>
+  	  		<id property="originalName" column="ORIGIN_FILE_NAME"/>
+  	  		<id property="editedName" column="SAVED_NAME"/>
+  	  		<id property="fileRoot" column="SAVE_PATH"/>
+  	  		<id property="thumbnailPath" column="THUMB_PATH"/>
+  	  		<id property="fileSize" column="FILE_SIZE"/>
+  	  		<id property="status" column="FILE_STATUS"/>
+  	  </resultMap>
+  	  
+  	  <select id="selectGoodsList" resultMap="goodsListResultMap">
+  	  	   SELECT  /* com.onedu.mvc.goods.model.dao.GoodsDAO#selectGoodsList() */
+  	  	          A.PROD_NO
+  	  	        , A.CATEGORY_ID
+  	  	        , B.CATEGORY_NAME
+  	  	        , A.TYPE_ID
+  	  	        , A.PROD_NAME
+  	  	        , A.PROD_NAME_EN
+  	  	        , A.PROD_PRICE
+  	  	        , A.PROD_EXPLAIN
+  	  	        , C.IMG_ID
+  	  	        , C.ORIGIN_FILE_NAME
+  	  	        , C.SAVED_NAME
+  	  	        , C.SAVE_PATH
+  	  	        , C.THUMB_PATH
+  	  	     FROM PROD A
+  	  	     JOIN CATEGORY B ON (A.CATEGORY_ID = B.CATEGORY_ID)
+  	  	     JOIN IMG C ON (A.PROD_NO = C.PROD_NO)
+  	  	    WHERE A.SALE_CHECK = 'Y'
+  	  	    ORDER BY A.ENROLL_DATE DESC
+  	  </select>
+  </mapper>
