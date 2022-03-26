@@ -1,0 +1,354 @@
+@charset "UTF-8";       /* 인코딩 문자 깨짐 방지 */
+
+/* 공통 속성 */
+
+html {
+    /* 사용자 설정 문자 크기 그대로 반영 되도록 */
+    font-size : 100%;
+}
+
+body {
+    line-height: 2.0;
+    color : #432;
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
+
+
+img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, textarea, button {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: block;
+}
+
+dl, ul, ol, li {
+    list-style: none;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* 헤더 영역 비워놓기 */
+.header_hidden{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    visibility: hidden; /*숨김*/
+}
+
+
+/*관리 페이지 시작 사이드바/메인 기본 설정-----------------------------------------------------------------------------------------------------------*/
+/* 박스 모서리 둥글게 border-radius: 25px; */
+
+/* 사이드바 div box 영역 사이즈 */
+.side-box {
+    border: 3px solid #F3EFEF;
+    background: #F3EFEF; /* 배경색 채우기속성*/ 
+    text-align: center;
+    border-radius: 25px;
+    margin: 20px auto;
+    padding: 0%;
+    height: 100%;
+    font-family: 'Nanum Gothic', sans-serif;
+} 
+
+/* 메인 div 영역 사이즈 */
+.main-box{
+    border: 3px solid #F3EFEF;
+    /* background: #F3EFEF; */
+    border-radius: 25px;
+    margin: 20px 0 50px 50px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/* 사이드 바 메뉴 글자 설정 */
+.li-1{
+    font-weight:bolder;
+    letter-spacing: 0.5em;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+}
+
+/* review 페이지 작성 영역 --------------------------------------------------------------------------*/
+
+/* 메인 div 콘텐츠 영역 설정*/
+.mypage{
+    margin: 50px;
+    width: 860px;
+    text-align: center;
+}
+
+/* 테이블 크기 설정 테이블 크기 벗어나면 스크롤 보임*/
+.table-scroll{
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+}
+
+/* 컬럼명 세로쓰기 방지 */
+.table th, td {
+    white-space:nowrap;
+    text-align: center;
+}
+
+/*--------------------------------------------------------------------------------------*/
+.mypage h1 {
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: left;
+}
+
+/* default */
+fieldset, img {
+    border:0;
+}
+
+table {
+    border-collapse:collapse;
+    border:0;
+    empty-cells:show;
+}
+
+textarea {
+    resize:none;
+    border: 1px solid #bbb;
+    color: #666;
+    font-size: 13px;
+    font-weight: normal;
+    outline-style: none;
+    padding: 5px;
+    margin-left: -10px;
+}
+
+.goodsInfo {
+    overflow: hidden;
+}
+
+.goodsInfo .pdtPhoto {
+    float: left;
+    width: 170px;
+}
+
+.pdtPhoto {
+    position: relative;
+}
+
+.goodsInfo .pdfInfo {
+    float: left;
+    width: 510px;
+    font-size: 14px;
+    text-align: left;
+    margin: 30px 0 0 10px;
+}
+
+input, button {
+    border:0;
+}
+
+button {
+    overflow:visible;
+}
+
+.content {
+    width:680px;
+    height:300px;
+}
+
+#idfrm {
+    line-height: 1.6;
+    color: #555;
+    font-size: 12px;
+    text-align: center;
+}
+
+input {
+    border: 1px solid #bbb;
+    outline-style: none;
+    color: black !important;
+}
+
+table {
+    border-collapse: collapse;
+    border: 0;
+    empty-cells: show;
+    width: 100%;
+    border-top: 2px solid #432;
+    border-bottom: 1px solid #ddd;
+    margin-top: 15px;
+}
+
+th {
+    background: #F4F1F1;
+    border-top: 1px solid #ddd;
+    padding: 10px 0 10px 17px;
+    font-size: 13px;
+    padding-left: 0;
+}
+
+td {
+    border-top: 1px solid #ddd;
+    padding: 10px 0 10px 17px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.itemField {
+    text-align: left;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.itemField ul {
+    float: left;
+    width: 580px;
+    margin-top: -6px;
+}
+
+.itemField ul li {
+    float: left;
+    width: 140px;
+    padding: 6px 0 0 5px;
+}
+
+.itemField li input {
+    padding-top: 2px;
+}
+
+#layoutView1 td input,
+#layoutView2 td input,
+#layoutView3 td input,
+#layoutView4 td input {
+    height: 22px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#layoutView1 td a,
+#layoutView2 td a,
+#layoutView3 td a {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 0.9;
+    padding: 5px 10px 4px;
+    vertical-align: top;
+    width: 78px;
+    background: #432;
+    color: #fff;
+    border-radius: 7px;
+}
+
+.fn {
+    line-height: 0.9;
+    font-weight: normal !important;
+}
+
+#subject {
+    height: 22px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 1px solid #bbb;
+    color: #666;
+    vertical-align: middle;
+    font-weight: normal;
+    max-width: 670px;
+}
+
+#message {
+    margin: 0;
+    border: 1px solid #bbb;
+    color: #666;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 5px 10px;
+    max-width: 670px;
+    height: 188px;
+}
+
+.attachFile {
+    line-height: 1.0;
+    text-align: left;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.attachFile input {
+    height: 22px;
+    /* background: #F4F1F1; */
+    float: left;
+    width: 300px;
+    margin-bottom: 5px;
+}
+
+.txtInp {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    height: 24px;
+    padding: 5px 10px;
+}
+
+.btnArea {
+    line-height: 1.6;
+    font-size: 12px;
+    margin: 20px 0;
+    padding-top: 10px !important;
+    display: flex;
+    justify-content: end;
+}
+
+.btnArea .btnRed {
+    vertical-align: middle;
+    line-height: 13px;
+    padding: 9px 10px 10px;
+    width: 120px;
+    color: #fff;
+    background: #432;
+    margin: 0 3px;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 12px;
+}
+
+.btnGry {
+    overflow: visible;
+    vertical-align: middle;
+    line-height: 13px;
+    padding: 9px 10px 10px;
+    width: 120px;
+    border: 1px solid black;
+    color: black;
+    background: white;
+    margin: 0 3px;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 12px;
+}
+
+.back {
+    margin-right: 500px;
+}
+
+.user_padding td {
+    padding-left: 22px;
+}
+
+/* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------*/
+
+/* a 링크 설정 변경 */
+.container a {
+    text-decoration: none;
+    color : #432;
+    line-height: 2.5em;
+}
+
+/* a 링크 호버시 글자 굵게 */
+.container a:hover{
+    font-weight: bolder;
+}
