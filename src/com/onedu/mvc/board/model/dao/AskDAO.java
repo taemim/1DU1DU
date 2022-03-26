@@ -26,4 +26,10 @@ public class AskDAO {
 		return sqlSession.delete("AskDAO.deleteAsk", no);
 	}
 
+	/* 마이페이지 1:1 문의 조회용 메소드 */
+	public AskDTO selectAskDetail(SqlSession sqlSession, int no) {
+		
+		return sqlSession.selectOne("AskDAO.selectAskDetail", no);
+	}
+
 }

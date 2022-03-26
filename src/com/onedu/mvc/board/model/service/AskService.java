@@ -81,5 +81,23 @@ public class AskService {
 		return result;
 	}
 
+	/* 마이페이지 1:1 문의 조회용 메소드 */
+	public AskDTO selectAskDetail(int no) {
+		
+		/* 1. SqlSession 생성 */
+		SqlSession sqlSession = getSqlSession();
+		
+		/* 2. SqlSession과 함께 정보를 전달하여 조회한다. */
+		AskDTO askDetail = askDAO.selectAskDetail(sqlSession, no);
+		
+		/* 3. 트랜잭션 처리 - 조회이기 때문에 생략 */
+		
+		/* 4. SqlSession 닫기 */
+		sqlSession.close();
+		
+		/* 5. 조회 결과 반환 */
+		return askDetail;
+	}
+
 
 }
