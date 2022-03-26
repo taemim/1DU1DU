@@ -90,5 +90,16 @@
 		   SET ASK_STATUS = 'N'
 		 WHERE ASK_NO = #{ no }
 	</delete>
+	
+	<select id="selectAskDetail" resultMap="askResultMap">
+		SELECT
+			   A.ASK_TITLE
+			 , A.ASK_CONTENTS
+			 , B.ASK_NAME
+		  FROM ASK A
+		  JOIN ASK_TYPE B ON(A.ASK_CODE = B.ASK_CODE)
+		 WHERE ASK_STATUS = 'Y'
+		   AND A.ASK_NO = #{ no }
+	</select>
 
 </mapper>

@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +40,7 @@
                     <li><a href="#">구독 내역</a></li>
                     <li><a href="#">주문 내역</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
-                    <li><a href="#">리뷰 관리</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
                     <li><a href="#">회원 탈퇴</a></li>
                 </ul>
@@ -105,7 +104,6 @@
                                                 </div>
                                             </label>
                                         </th>
-                                        <!-- <input type="hidden" name="contents" value=""> -->
                                         <td colspan="3">
                                             <textarea id="askBody" name="askContents" cols="60" rows="8" required></textarea>
                                             <script>
@@ -196,10 +194,6 @@
             });
         });
     </script>
-
-</body>
-
-</html>
 
 </body>
 </html>

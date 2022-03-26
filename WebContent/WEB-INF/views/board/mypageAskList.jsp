@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 구글웹폰트 -->
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <!-- 제이쿼리 -->
@@ -29,6 +28,8 @@
     <div class="header_hidden">
         <h1> 헤더영역 비워두는 용도 </h1>
     </div>
+    
+    <%-- <jsp:include page="../main/header.jsp"/> --%>
 
     <div class="container">
         <div class="row">
@@ -40,7 +41,7 @@
                     <li><a href="#">구독 내역</a></li>
                     <li><a href="#">주문 내역</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
-                    <li><a href="#">리뷰 관리</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
                     <li><a href="#">회원 탈퇴</a></li>
                     <div></div>
@@ -89,7 +90,8 @@
                                     <td>${ ask.askNo }</td>
                                     <td>${ ask.ask.askName }</td>
                                     <td class="rt">
-                                        <a href="#none" class="url title myQuestion">${ ask.askTitle }</a>
+                                    	<span class="url title myQuestion"  onclick="detailView(${ask.askNo})">${ ask.askTitle }</span>
+                                        <%-- <a href="#none" class="url title myQuestion">${ ask.askTitle }</a> --%>
                                     </td>
                                     <td>${ ask.askDate }</td>
                                     <td><c:if test="${ ask.ansContents != null }">Y</c:if></td>
@@ -101,34 +103,6 @@
 										</form>
                                     </td>
                                 </tr>
-
-                                <tr class="answerView">
-									<td colspan="6" style="display:none;">
-										<div class="qnaList">
-											<div class="question">
-												<div class="account">
-													<p>글 내용 <br>
-                                                        <!-- 사진 첨부 예시 -->
-                                                        <a href="상품주소">
-                                                            <div class="pdtPhoto"><img
-                                                                src="../resources/images/5.jpeg"
-                                                                width="150" height="150" alt="과테말라 부에나 비스타 내추럴">
-                                                            </div>
-                                                        </a>
-                                                        <!-- 사진 첨부 예시 -->
-                                                        ${ ask.askContents }
-                                                    </p>
-												</div>
-											</div>
-											<div class="answer">
-												<div class="account">
-                                                    <p style="font-weight: bold; font-size: 22px;">${ ask.ansTitle }</p>
-													<p>${ ask.ansContents }</p>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
                             </tbody>
                         </c:forEach>
                     </table>
@@ -152,19 +126,12 @@
     </div>
 
     <script type="text/javascript">
-        $(function() {
-            $(".baseTable .myQuestion").click(function() {
-                if($(this).parent().parent().next(".answerView").find("td").css("display") == "none") {
-                    $(".baseTable .answerView td").slideUp();
-                    $(this).parent().parent().next(".answerView").find("td").slideDown();
-                } else {
-                    $(this).parent().parent().next(".answerView").find("td").slideUp();
-                }
-            });
-        });
+        function detailView(no){
+			location.href = '${ pageContext.servletContext.contextPath }/ask/detail?no=' + no;
+		}
         
         function deleteAsk(){
-			if(confirm('이 게시글을 삭제하시겠습니까?')){
+			if(confirm('선택하신 문의글을 삭제하시겠습니까?')){
 				document.forms.askForm.action = "${ pageContext.servletContext.contextPath }/ask/delete";
 				document.forms.askForm.submit();
 			}
@@ -172,26 +139,7 @@
     </script>
     
     <!-- footer import -->
-    <div data-include-path="footer.html"></div>
-
-    <script>
-        window.addEventListener('load', function () {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function (el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
-    </script>
+    <jsp:include page="../main/footer.jsp"/>
 
 </body>
 
