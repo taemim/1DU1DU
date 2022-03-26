@@ -34,7 +34,7 @@
     </div>
 
     <div class="container-fluid">
-        <form id="orderForm" action="${pageContext.servletContext.contextPath}/goods/order}" method="post" onsubmit="importPay();">
+        <form id="orderForm" action="${pageContext.servletContext.contextPath}/goods/order}" method="POST" >
             <!-- 레이아웃 2개로 분리-->
             <div class="row wrap">
                 <!--왼쪽 그리드 -->
@@ -110,13 +110,13 @@
                                         <input type="text" class="form-control-plaintext" id="receiverName" placeholder="수령인" >
                                     </div>
                                     <div class="col-sm-7">
-                                        <input type="tel" class="form-control-plaintext" name="receiverPhone" maxlength="11" minlength="9" placeholder="연락처 (-하이픈없이)">
+                                        <input type="tel" class="form-control-plaintext" id="receiverPhone" maxlength="11" minlength="9" placeholder="연락처 (-하이픈없이)">
                                     </div>
 
                                     <br><br>
                                     <div class="col-sm-5">
                                         <input id="zipCode" type="text" class="form-control-plaintext" name="zipCode" placeholder="우편번호" 
-                                          required  disabled>
+                                          required>
                                     </div>
                                     <div class="col-sm-7">
                                         <input type="button" class="btn btn-dark" 
@@ -126,14 +126,14 @@
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <input id="address" type="text" class="form-control-plaintext" name="address" placeholder="도로명 주소"
-                                            required disabled>
+                                            required>
                                         </div>
                                     </div>
                                     <br><br>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control-plaintext" name="extraAddress" placeholder="상세주소"
-                                               required >
+                                            <input type="text" id="extraAdderess"  name="extraAdderess" class="form-control-plaintext" placeholder="상세주소"
+                                               required>
                                         </div>
                                     </div>
                                     <br><br>
@@ -186,9 +186,8 @@
                                 document.getElementById("address").value = addr;
                                 
                                 // 커서를 상세주소 필드로 이동한다.
-                                document.getElementById("extraAddress").focus();
+                                document.getElementById("extraAdderess").focus();
                                 
-
                             }
                         }).open();
                     }
@@ -265,7 +264,7 @@
                         </fieldset>
                         <br>
                         <!-- 4. 주문 동의-->
-                        <fieldsetfieldset class="form-horizontal needs-validation" novalidate>
+                        <fieldset class="form-horizontal needs-validation" novalidate>
                             <div class="row form-box">
 
                                 <h3>주문 동의</h3><br><br>
@@ -278,13 +277,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </fieldsetfieldset>
+                        </fieldset>
                         <br>
                         <br> 
                         <div class="col-sm-12">
                             <div class="d-grid gap-2 col-11 mx-auto">
-                                <input type="submit" id="check1" class="btn btn-dark btn-lg" value="결제 진행" />
-                                <input type="button" id="check2" class="btn btn-outline-dark btn-lg" onclick="back()" value="결제 취소"/>
+                                <button type="button" id="check1" class="btn btn-dark btn-lg" onclick="importPay();" >결제 진행</button>
+                                <button type="button" id="check2" class="btn btn-outline-dark btn-lg" onclick="back();" > 결제 취소</button>
                         </div><br>
                     </div>
                 </div>
@@ -300,24 +299,24 @@
       	importPay();	//submit 전에 실행할 이벤트 코드
     	form.submit();	//이벤트 수행 후, form submit 진행
       });
-    
      */
-			function importPay(){
+ 			function importPay(){ 
 				
 			 	let goodsName = "<c:out value=" ${ goodsList[0].goodsName }"/>";
 			 	let amount = '${ total }';
 		    	// 여기까지 넘어오는 값
 		    	
-			    let	name = $("#name").val();
+			    let	name = $("#receiverName").val();
+			    let	phone = $("#receiverPhone").val();
 			    let	email = $("#email").val();
-			    let	address = $("#address").val();
-			    let	phone = $("#phone").val();
-			    let	shipMemo = $("#shipMemo").val();
 			    let	zipCode = $("#zipCode").val();
+			    let	address = $("#address").val();
+			    let	extraAdderess = $("#extraAdderess").val();
+			    let	shipMemo = $("#shipMemo").val();
+			   			    
 		    	// 사용자가 입력해야 하는 값 
 		    	
-		    	console.log(name);
-		    	console.log(phone);
+		    	console.log(extraAdderess);
 		    	
 		    	//결제 api
 		 		var IMP = window.IMP;
@@ -335,8 +334,9 @@
 		 				buyer_email: email,
 		 				buyer_name: name,
 		 				buyer_tel: phone,
-		 				buyer_addr: address,
-		 				buyer_postcode: zipCode
+		 				buyer_postcode: zipCode,
+		 				buyer_addr: address
+		 				
 		 				//필수항목
 		 				//결제완료후 이동할 페이지 kko나 kkopay는 생략 가능
 		 				//m_redirect_url : "${ pageContext.servletContext.contextPath }/payment/complete"
@@ -348,49 +348,50 @@
 		                        msg += '\n상점 거래ID : ' + rsp.merchant_uid;
 		                        msg += '\결제 금액 : ' + rsp.paid_amount;
 		                        msg += '카드 승인번호 : ' + rsp.apply_num;
-		                        
-		 				       alert(msg);
-/*
+
+		 				      		 				       			
 		 					$.ajax({
-		 						url : '/goods/order', 
-		 				        type :'POST',
-		 				        data : JSON.stringify({
+		 						url : '${ pageContext.servletContext.contextPath }/order/insert', 
+		 				        type :'post',
+		 				        data :{
 		 			                imp_uid: rsp.imp_uid,
 		 			                merchant_uid: rsp.merchant_uid,
+		 			              	amount : rsp.paid_amount,
 		 			               	name : goodsName,
-		 			              	amount : amount,
 		 			 				buyer_email: email,
 		 			 				buyer_name: name,
 		 			 				buyer_tel: phone,
 		 			 				buyer_addr: address,
-		 			 				buyer_postcode: zipCode
-		 			            }),
+		 			 				buyer_addr2 : extraAdderess,
+		 			 				buyer_postcode: zipCode,
+		 			 				shipMemo : shipMemo
+		 			            },
 		 				        
-		 				        contentType:'application/json;charset=utf-8',
-		 				        dataType: 'json', //서버에서 보내줄 데이터 타입
+		 				        dataType: "text", //서버에서 보내줄 데이터 타입
 		 				        success: function(res){
 		 				        			        	
-		 				          if(res == 1){
-		 				        	  
-		 							 
-		 				        	 $("#orderForm").submit();
-		 				         
+		 				          if(res == "y"){
+		 				        	  alert("DB입력성공!");
+		 							  location.herf= '${ pageContext.servletContext.contextPath }/payment/complete';	 //서블릿 링크로 걸기!!
+		 							 	
 		 				          }else{
 		 				        	 alert("디비입력실패"); // 결제 실패
-		 							 return false;
+		 							
 		 				          }
 		 				        },
 		 				        error:function(){
 		 				          console.log("Insert ajax 통신 실패!!!");
 		 				        }
 		 					}) //ajax
-		 					 */
+	
+		 				
 		 				}
 		 				else{//결제 실패시
 		 					var msg = '결제에 실패했습니다';
 		 					msg += '에러 : ' + rsp.error_msg
 		 				}
 		 					alert(msg);
+
 		 			});//pay
 		 			
 			}; //check1 클릭 이벤트

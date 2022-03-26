@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-//@WebServlet("/payment/complete")
+@WebServlet("/payment/complete")
 public class PaymentSuccessServlet extends HttpServlet {
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String path = "/WEB-INF/views/order/paymentComplete.jsp";
 

@@ -1,4 +1,4 @@
-package com.greedy.jsp.common.wrapper;
+package com.onedu.mvc.common.wrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;

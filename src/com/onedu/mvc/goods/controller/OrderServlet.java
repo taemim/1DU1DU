@@ -2,7 +2,9 @@ package com.onedu.mvc.goods.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,17 +39,20 @@ public class OrderServlet extends HttpServlet {
 		GoodsDTO goods1 = new GoodsDTO();
 		GoodsDTO goods2 = new GoodsDTO();
 		
+		Map<String, String> option = new HashMap<>();
+		option.put("용량", "200g");
+		
 		/* 상품 한개를 선택 */
 		goods1.setGoodsNo(123);
-		goods1.setGoodsName("주문테스트용상품");
+		goods1.setGoodsName("주문테스트용상품1");
 		goods1.setPrice(1000);
-		goods1.setOption("핸드드립");
+		goods1.setOption(option);
 		goods1.setAmount(2);
 		
 		goods2.setGoodsNo(124);
 		goods2.setGoodsName("주문테스트용상품2");
 		goods2.setPrice(1000);
-		goods2.setOption("모카포트");
+		goods2.setOption(option);
 		goods2.setAmount(3);
 		
 		List<GoodsDTO> goodsList= new ArrayList<>();
@@ -62,47 +67,5 @@ public class OrderServlet extends HttpServlet {
 		
 	}
 
-	/* 주문서 폼을 작성 후 post 요청을 할 경우 처리하는 역할 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		response.setContentType("application/json; charset=UTF-8");
-		HttpSession session = request.getSession();
-		
-		String userId = (String) session.getAttribute("userId");
-		String receiverName = (String) request.getParameter("receiverName");
-		String receivePhone = (String) request.getParameter("receiverPhone");
-		String zipCode = (String) request.getParameter("zipCode");
-		String address = (String) request.getParameter("address");
-		String extraAdderess = (String) request.getParameter("extraAddress");
-		String shipMemo = (String) request.getParameter("shipMemo");
-		
-		OrderDTO newOrder = new OrderDTO();
-		newOrder.setUserId("userName");
-		newOrder.setReceiverName("receiverName");
-		newOrder.setReceivePhone(receivePhone);
-		newOrder.setZipCode(zipCode);
-		newOrder.setAddress(address);
-		newOrder.setExtraAdderess(extraAdderess);
-		newOrder.setShipMemo(shipMemo);
-		
-		
-		OrderService orderService = new OrderService();
-		int result = orderService.insertOrder(newOrder);
-		
-		String path = "";
-		if(result > 0) {
-			path = "/WEB-INF/views/common/success.jsp";
-			request.setAttribute("successCode", "insertOrder");
-		} else {
-			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "주문 등록에 실패하셨습니다.");
-		}
 
-		request.getRequestDispatcher(path).forward(request, response);
-		
-
-		
-		
-	}
 }

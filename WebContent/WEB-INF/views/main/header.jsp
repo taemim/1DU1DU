@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -106,8 +107,8 @@
 				<!-- 회원가입/로그인 -->
 				<li><a href="${ pageContext.servletContext.contextPath }/member/login">로그인</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/member/regist">회원가입</a></li>
-				<!-- </c:if> -->
-<%-- 				<!-- 회원 로그인 -->
+				<%-- </c:if>  --%> 
+				<%-- 				<!-- 회원 로그인 -->
 				<c:if test="${ !empty sessionScope.loginMember }">
 				<a href="${ pageContext.servletContext.contextPath }/member/modify">MY PAGE</a>|
 				<a href="${ pageContext.servletContext.contextPath }/member/logout">로그아웃</a>
@@ -126,7 +127,5 @@
 <!-- 부트스트랩 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-</body>
-</html>
 </body>
 </html>

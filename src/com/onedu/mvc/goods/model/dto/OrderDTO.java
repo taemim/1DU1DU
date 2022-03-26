@@ -10,12 +10,12 @@ public class OrderDTO {
 	private List<GoodsDTO> goods;
 	private java.sql.Date orderDate;
 	private String receiverName;
-	private String receivePhone;
+	private String receiverPhone;
 	private String zipCode;
 	private String address;
 	private String extraAdderess;
 	private String shipMemo;
-	private String Status;
+	private String status;
 
 	public OrderDTO() {
 		super();
@@ -29,12 +29,12 @@ public class OrderDTO {
 		this.goods = goods;
 		this.orderDate = orderDate;
 		this.receiverName = receiverName;
-		this.receivePhone = receivePhone;
+		this.receiverPhone = receivePhone;
 		this.zipCode = zipCOde;
 		this.address = address;
 		this.extraAdderess = extraAdderess;
 		this.shipMemo = shipMemo;
-		Status = status;
+		this.status = status;
 	}
 
 	public int getOrderNo() {
@@ -77,12 +77,12 @@ public class OrderDTO {
 		this.receiverName = receiverName;
 	}
 
-	public String getReceivePhone() {
-		return receivePhone;
+	public String getReceiverPhone() {
+		return receiverPhone;
 	}
 
-	public void setReceivePhone(String receivePhone) {
-		this.receivePhone = receivePhone;
+	public void setReceiverPhone(String receivePhone) {
+		this.receiverPhone = receivePhone;
 	}
 
 	public String getZipCode() {
@@ -118,19 +118,19 @@ public class OrderDTO {
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		status = status;
 	}
 
 	@Override
 	public String toString() {
 		return "OrderDTO [orderNo=" + orderNo + ", userId=" + userId + ", goods=" + goods + ", orderDate=" + orderDate
-				+ ", receiverName=" + receiverName + ", receivePhone=" + receivePhone + ", zipCOde=" + zipCode
+				+ ", receiverName=" + receiverName + ", receivePhone=" + receivePhone + ", zipCode=" + zipCode
 				+ ", address=" + address + ", extraAdderess=" + extraAdderess + ", shipMemo=" + shipMemo + ", Status="
-				+ Status + "]";
+				+ status + "]";
 	}
 
 }

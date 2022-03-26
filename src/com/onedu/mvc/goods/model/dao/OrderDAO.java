@@ -1,5 +1,7 @@
 package com.onedu.mvc.goods.model.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dto.OrderDTO;
@@ -10,5 +12,6 @@ public class OrderDAO {
 		
 		return session.insert("OrderDAO.insertOrder", newOrder);
 	}
+
 
 }

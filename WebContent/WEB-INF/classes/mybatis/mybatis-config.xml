@@ -17,7 +17,6 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="com/onedu/mvc/member/model/dao/MemberDAO.xml"/>
-		<mapper resource="com/onedu/mvc/order/model/dao/OrderDAO.xml"/>
+		<mapper resource="com/onedu/mvc/goods/model/dao/OrderDAO.xml"/>
 	</mappers>
 </configuration>
