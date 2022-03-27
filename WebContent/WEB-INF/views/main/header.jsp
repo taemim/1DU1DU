@@ -17,7 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- css 외부 링크 -->
-    <link href="../resources/css/header.css" rel="stylesheet" type="text/css">
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/header.css" rel="stylesheet" type="text/css">
 
     <!-- 제이쿼리 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
@@ -96,7 +96,7 @@
 
             <!-- 로고 -->
             <div class="logo">
-            <a href="#"><img src="../resources/image/원두배너_투명.png"></a>
+            <a href="${ pageContext.servletContext.contextPath }"><img src="${ pageContext.servletContext.contextPath}/resources/image/원두배너_투명.png"></a>
             </div> <!-- /logo -->
         
             <!--헤더 오른쪽 메뉴-->

@@ -28,8 +28,8 @@ h1, h2, h3, h4, h5, h6, pre, code,
 form, fieldset, legend, textarea, 
 p, blockquote, th, td, input, select, 
 textarea, button {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 div {
@@ -40,7 +40,6 @@ div {
 dl, ul, ol, li {
     list-style: none;
 }
-
 
 /*--------------------------------------------------------------------------------------------------------------*/
 
@@ -53,6 +52,7 @@ dl, ul, ol, li {
 }
 
 .container-fluid {
+	margin: 0px;
     padding: 100px; 
 }
 
@@ -95,7 +95,6 @@ h3 {
 .checkbox {
     font-size: 1.15em;
 }
-
 
 .col-sm-offset-1 h5{
     text-align: right;

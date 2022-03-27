@@ -19,16 +19,15 @@ public class GoodsDTO implements java.io.Serializable {
 	private int amount;
 	private List<ImgDTO> imgList;
 	private CategoryDTO category;
-	private Map<String, String> option;
+	private List<OptionDTO> option;
 
 	
 	public GoodsDTO() {}
 
 
-
 	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, int price, String goodsExplain,
 			Date enrollDate, String saleCheck, int totalStock, int saleVol, int amount, List<ImgDTO> imgList,
-			CategoryDTO category, Map<String, String> option) {
+			CategoryDTO category, List<OptionDTO> option) {
 		super();
 		this.goodsNo = goodsNo;
 		this.categoryId = categoryId;
@@ -45,7 +44,6 @@ public class GoodsDTO implements java.io.Serializable {
 		this.category = category;
 		this.option = option;
 	}
-
 
 
 	public int getGoodsNo() {
@@ -178,12 +176,12 @@ public class GoodsDTO implements java.io.Serializable {
 	}
 
 
-	public Map<String, String> getOption() {
+	public List<OptionDTO> getOption() {
 		return option;
 	}
 
 
-	public void setOption(Map<String, String> option) {
+	public void setOption(List<OptionDTO> option) {
 		this.option = option;
 	}
 

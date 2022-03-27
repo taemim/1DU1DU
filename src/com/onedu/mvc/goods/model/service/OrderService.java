@@ -2,40 +2,39 @@ package com.onedu.mvc.goods.model.service;
 
 import static com.onedu.mvc.common.mybatis.Template.getSqlSession;
 
-import java.util.Map;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dao.OrderDAO;
+import com.onedu.mvc.goods.model.dto.GoodsDTO;
 import com.onedu.mvc.goods.model.dto.OrderDTO;
+import com.onedu.mvc.goods.model.dto.PaymentDTO;
 
 public class OrderService {
 	
-	private final OrderDTO orderDTO;
-	
-	public OrderService() {
-		orderDTO = new OrderDTO();
-	}
-	/* 신규 주문 등록하기 */
-	public int insertOrder(OrderDTO newOrder) {
-		
-		/* Connection 생성 */
-		
+
+	/* DB에 주문테이블 insert 하기  */
+	public int insertOrder(OrderDTO newOrder, PaymentDTO newPayment, List<GoodsDTO> goodsList ) {
+		int result;
+				
 		SqlSession session = getSqlSession();
 		
-		int result = OrderDAO.insertOrder(session, newOrder);
-		
-		if(result > 0) {
+		int result1 = OrderDAO.insertOrder(session, newOrder);
+		int result2 = OrderDAO.insertPayment(session, newPayment);
+		int result3 = OrderDAO.insertGoodsList(session, goodsList);
+
+		if(result1 > 0 && result2 > 0 && result3 > 0) {
 			session.commit();
+			result = 1;
 		} else {
 			session.rollback();
+			result = 0;
 		}
 		
 		session.close();
 		
 		return result;
 	}
-	
-	
 
 }

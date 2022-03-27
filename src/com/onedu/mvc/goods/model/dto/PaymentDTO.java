@@ -4,16 +4,13 @@ import java.sql.Date;
 
 public class PaymentDTO {
  
-	private int payNo;
+	private String payNo;
 	private int orderNo;
 	private int amount;
 	private java.sql.Date payTime;
-	private java.sql.Date paySuccessTime;
+	private java.sql.Timestamp paySuccessTime;
 	
-	public PaymentDTO() {
-		super();
-	}
-	public PaymentDTO(int payNo, int orderNo, int amount, Date payTime, Date paySuccessTime) {
+	public PaymentDTO(String payNo, int orderNo, int amount, Date payTime, java.sql.Timestamp paySuccessTime) {
 		super();
 		this.payNo = payNo;
 		this.orderNo = orderNo;
@@ -21,10 +18,13 @@ public class PaymentDTO {
 		this.payTime = payTime;
 		this.paySuccessTime = paySuccessTime;
 	}
-	public int getPayNo() {
+	public PaymentDTO() {
+		super();
+	}
+	public String getPayNo() {
 		return payNo;
 	}
-	public void setPayNo(int payNo) {
+	public void setPayNo(String payNo) {
 		this.payNo = payNo;
 	}
 	public int getOrderNo() {
@@ -45,13 +45,12 @@ public class PaymentDTO {
 	public void setPayTime(java.sql.Date payTime) {
 		this.payTime = payTime;
 	}
-	public java.sql.Date getPaySuccessTime() {
+	public java.sql.Timestamp getPaySuccessTime() {
 		return paySuccessTime;
 	}
-	public void setPaySuccessTime(java.sql.Date paySuccessTime) {
+	public void setPaySuccessTime(java.sql.Timestamp paySuccessTime) {
 		this.paySuccessTime = paySuccessTime;
 	}
-	
 	@Override
 	public String toString() {
 		return "PaymentDTO [payNo=" + payNo + ", orderNo=" + orderNo + ", amount=" + amount + ", payTime=" + payTime

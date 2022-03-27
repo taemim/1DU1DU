@@ -12,12 +12,72 @@
 		<result property="receiverPhone" column="PHONE"/>
 		<result property="zipCode" column="POSTAL"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="extraAdderess" column="ADDRESS2"/>
+		<result property="extraAddress" column="ADDRESS2"/>
 		<result property="shipMemo" column="SHIP_MEMO"/>
 		<result property="status" column="STATUE"/>
+		
+		<association property="goods" resultMap="goodsResultMap"/>
+		<association property="payment" resultMap="paymentResultMap"/>
+		
 	</resultMap>
 	
-	<insert id="insertOrder" parameterType="com.onedu.mvc.goods.model.dto.OrderDTO">
+	<resultMap type="com.onedu.mvc.goods.model.dto.PaymentDTO" id="paymentResultMap">
+		<id property="payNo" column="PAY_NO"/>
+		<result property="orderNo" column="ORDER_NO"/>
+		<result property="amount" column="AMOUNT"/>
+		<result property="payTime" column="PAY_TIME"/>
+		<result property="paySuccessTime" column="PAY_SUCC"/>
+	</resultMap>
+	
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
+		<id property="goodsNo" column="PROD_NO"/>
+		<result property="categoryId" column="CATEGORY_ID"/>
+		<result property="typeId" column="TYPE_ID"/>
+		<result property="goodsName" column="PROD_NAME"/>
+		<result property="price" column="PROD_PRICE"/>
+		<result property="goodsExplain" column="PROD_EXPLAIN"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="saleCheck" column="SALE_CHECK"/>
+		<result property="totalStock" column="SALE_CHECK"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		
+		<association property="imgList" resultMap="imgResultMap"/>
+		<association property="category" resultMap="categoryResultMap"/>
+		<association property="option" resultMap="optionResultMap"/>
+		
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.ImgDTO" id="imgResultMap">
+		<id property="imgId" column="IMG_ID"/>
+		<result property="prodNo" column="PROD_NO"/>
+		<result property="originalName" column="SAVED_NAME"/>
+		<result property="editedName" column="SAVED_NAME"/>
+		<result property="fileRoot" column="SAVE_PATH"/>
+		<result property="thumbnailPath" column="THUMB_PATH"/>
+		<result property="fileSize" column="FILE_SIZE"/>
+		<result property="status" column="FILE_STATUS"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.CategoryDTO" id="categoryResultMap">
+		<id property="id" column="CATEGORY_ID"/>
+		<result property="name" column="CATEGORY_NAME"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
+		<id property="optionNO" column="OP_NO"/>
+		<result property="optionName" column="OP_NAME"/>
+		<result property="extraPrice" column="EXTRA_PAY"/>
+		<result property="optionNo2" column="OP_NO2"/>
+		
+	</resultMap>
+	
+	
+	<insert id="insertOrder">
 		INSERT 
 		  INTO ORDERLIST
 		VALUES
@@ -29,11 +89,45 @@
 		 , #{ receiverPhone }   
 		 , #{ zipCode }   
 		 , #{ address }   
-		 , #{ extraAdderess }   
+		 , #{ extraAddress }   
 		 , #{ shipMemo }  
 		 , 'Y'
 		)
 			
 	</insert>
+	
+	<insert id="insertPayment"> 
+		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE"> 
+			SELECT SEQ_ORDER_NO.CURRVAL FROM DUAL
+		</selectKey> 
+		INSERT 
+		  INTO PAYMENT
+		VALUES
+		(
+		   #{ payNo }
+		 , #{ orderNo }
+		 , #{ amount }
+		 , SYSDATE
+		 , TO_DATE(SYSDATE, 'HH24:MI:SS')
+		)
+	</insert>
+	
+	<insert id="insertGoodsList" parameterType="java.util.List"> > 
+		INSERT 
+		  INTO PROD_LIST
+		VALUES
+		 <foreach item="itme" collection="list" open="INSERT ALL" separator=" "
+		  close=" SELECT * FROM DUAL">
+		  (  #{ orderNo }
+		   , #{ item.goodsNo }
+		   , #{ item.amount }
+		   , #{ item.goodsPrice })
+		 </foreach>  
+	</insert>
+	
+	
+	
+	
+	
 
 </mapper>

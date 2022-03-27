@@ -13,16 +13,17 @@ public class OrderDTO {
 	private String receiverPhone;
 	private String zipCode;
 	private String address;
-	private String extraAdderess;
+	private String extraAddress;
 	private String shipMemo;
 	private String status;
+	private PaymentDTO payment;
 
 	public OrderDTO() {
 		super();
 	}
 
 	public OrderDTO(int orderNo, String userId, List<GoodsDTO> goods, Date orderDate, String receiverName,
-			String receivePhone, String zipCOde, String address, String extraAdderess, String shipMemo, String status) {
+			String receivePhone, String zipCOde, String address, String extraAddress, String shipMemo, String status) {
 		super();
 		this.orderNo = orderNo;
 		this.userId = userId;
@@ -32,7 +33,7 @@ public class OrderDTO {
 		this.receiverPhone = receivePhone;
 		this.zipCode = zipCOde;
 		this.address = address;
-		this.extraAdderess = extraAdderess;
+		this.extraAddress = extraAddress;
 		this.shipMemo = shipMemo;
 		this.status = status;
 	}
@@ -101,12 +102,12 @@ public class OrderDTO {
 		this.address = address;
 	}
 
-	public String getExtraAdderess() {
-		return extraAdderess;
+	public String getExtraAddress() {
+		return extraAddress;
 	}
 
-	public void setExtraAdderess(String extraAdderess) {
-		this.extraAdderess = extraAdderess;
+	public void setExtraAddress(String extraAdderess) {
+		this.extraAddress = extraAdderess;
 	}
 
 	public String getShipMemo() {
@@ -128,8 +129,8 @@ public class OrderDTO {
 	@Override
 	public String toString() {
 		return "OrderDTO [orderNo=" + orderNo + ", userId=" + userId + ", goods=" + goods + ", orderDate=" + orderDate
-				+ ", receiverName=" + receiverName + ", receivePhone=" + receivePhone + ", zipCode=" + zipCode
-				+ ", address=" + address + ", extraAdderess=" + extraAdderess + ", shipMemo=" + shipMemo + ", Status="
+				+ ", receiverName=" + receiverName + ", receivePhone=" + receiverPhone + ", zipCode=" + zipCode
+				+ ", address=" + address + ", extraAddress=" + extraAddress + ", shipMemo=" + shipMemo + ", Status="
 				+ status + "]";
 	}
 
