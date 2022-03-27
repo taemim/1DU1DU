@@ -16,6 +16,7 @@ public class GoodsDTO implements java.io.Serializable {
 	private String saleCheck;
 	private int totalStock;
 	private int saleVol;
+	private String goodsExplainDetail;
 	private List<ImgDTO> imgList;
 	private CategoryDTO category;
 	private List<OptionDTO> optionList;
@@ -23,8 +24,8 @@ public class GoodsDTO implements java.io.Serializable {
 	public GoodsDTO() {}
 
 	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, String goodsNameEn, int price,
-			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol, List<ImgDTO> imgList,
-			CategoryDTO category, List<OptionDTO> optionList) {
+			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol,
+			String goodsExplainDetail, List<ImgDTO> imgList, CategoryDTO category, List<OptionDTO> optionList) {
 		super();
 		this.goodsNo = goodsNo;
 		this.categoryId = categoryId;
@@ -37,6 +38,7 @@ public class GoodsDTO implements java.io.Serializable {
 		this.saleCheck = saleCheck;
 		this.totalStock = totalStock;
 		this.saleVol = saleVol;
+		this.goodsExplainDetail = goodsExplainDetail;
 		this.imgList = imgList;
 		this.category = category;
 		this.optionList = optionList;
@@ -130,6 +132,14 @@ public class GoodsDTO implements java.io.Serializable {
 		this.saleVol = saleVol;
 	}
 
+	public String getGoodsExplainDetail() {
+		return goodsExplainDetail;
+	}
+
+	public void setGoodsExplainDetail(String goodsExplainDetail) {
+		this.goodsExplainDetail = goodsExplainDetail;
+	}
+
 	public List<ImgDTO> getImgList() {
 		return imgList;
 	}
@@ -159,8 +169,8 @@ public class GoodsDTO implements java.io.Serializable {
 		return "GoodsDTO [goodsNo=" + goodsNo + ", categoryId=" + categoryId + ", typeId=" + typeId + ", goodsName="
 				+ goodsName + ", goodsNameEn=" + goodsNameEn + ", price=" + price + ", goodsExplain=" + goodsExplain
 				+ ", enrollDate=" + enrollDate + ", saleCheck=" + saleCheck + ", totalStock=" + totalStock
-				+ ", saleVol=" + saleVol + ", imgList=" + imgList + ", category=" + category + ", optionList="
-				+ optionList + "]";
+				+ ", saleVol=" + saleVol + ", goodsExplainDetail=" + goodsExplainDetail + ", imgList=" + imgList
+				+ ", category=" + category + ", optionList=" + optionList + "]";
 	}
 
 	
