@@ -15,6 +15,7 @@
   	  	   <id property="saleCheck" column="SALE_CHECK"/>
   	  	   <id property="totalStock" column="TOTAL_STOCK"/>
   	  	   <id property="saleVol" column="SALE_VOL"/>
+  	  	   <id property="goodsExplainDetail" column="PROD_EXPLAIN_DT"/>
   	  	   
   	  	   <association property="category" resultMap="categoryResultMap"/>
   	  	   
