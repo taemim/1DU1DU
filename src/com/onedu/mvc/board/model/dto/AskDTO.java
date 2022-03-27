@@ -9,6 +9,7 @@ public class AskDTO implements java.io.Serializable {
 	private int askNo;
 	private int prodNo;
 	private String userId;
+	private MemberDTO writer;
 	private String askTitle;
 	private String askContents;
 	private Date askDate;
@@ -18,7 +19,6 @@ public class AskDTO implements java.io.Serializable {
 	private String askStatus;
 	private int askCode;
 	private AskTypeDTO ask;
-	private MemberDTO writer;
 	
 	public AskDTO() {}
 
