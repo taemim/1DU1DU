@@ -13,6 +13,11 @@ public class GoodsDAO {
 		
 		return session.selectList("GoodsDAO.selectGoodsList");
 	}
+
+	public GoodsDTO selectOneGoodsDetail(SqlSession session, int goodsNo) {
+		
+		return session.selectOne("GoodsDAO.selectOneGoodsDetail", goodsNo);
+	}
 	
 	
 

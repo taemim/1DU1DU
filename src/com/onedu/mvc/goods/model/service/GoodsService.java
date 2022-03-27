@@ -28,5 +28,19 @@ public class GoodsService {
 		
 		return goodsList;
 	}
+	
+	/* 일반 상품 상세 페이지 조회용 메소드 */
+	public GoodsDTO selectOneGoodsDetail(int goodsNo) {
+		
+		SqlSession session = getSqlSession();
+		
+		GoodsDTO goods = null;
+		
+		goods = goodsDAO.selectOneGoodsDetail(session, goodsNo);
+			
+		session.close();
+		
+		return goods;
+	}
 
 }
