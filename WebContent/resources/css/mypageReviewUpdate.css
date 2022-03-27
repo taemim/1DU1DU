@@ -10,6 +10,7 @@ html {
 body {
     line-height: 2.0;
     color : #432;
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
 }
 
 
@@ -30,7 +31,6 @@ div {
 dl, ul, ol, li {
     list-style: none;
 }
-
 
 /*----------------------------------------------------------------------------------------------------------*/
 /* 헤더 영역 비워놓기 */
@@ -74,7 +74,7 @@ dl, ul, ol, li {
     text-transform: uppercase;
 }
 
-/* review 페이지 작성 영역 --------------------------------------------------------------------------*/
+/* ask 페이지 작성 영역 --------------------------------------------------------------------------*/
 
 /* 메인 div 콘텐츠 영역 설정*/
 .mypage{
@@ -95,7 +95,7 @@ dl, ul, ol, li {
     text-align: center;
 }
 
-/*---------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/
 .mypage h1 {
     font-weight: bold;
     letter-spacing: 3px;
@@ -110,11 +110,6 @@ table {
     border-collapse:collapse;
     border:0;
     empty-cells:show;
-    width: 100%;
-}
-
-textarea {
-    resize:none;
 }
 
 input, button {
@@ -125,52 +120,42 @@ button {
     overflow:visible;
 }
 
-input {
-    outline-style: none;
-}
-
-fieldset, img {
-    border: 0;
-}
-
-.tMar15 {
-    margin-top: 15px;
-}
-
-.rowTable {
+#idfrm {
+    line-height: 1.6;
+    color: #555;
     font-size: 12px;
-}
-
-.baseTable {
-    border-top: 2px solid #555;
-    border-bottom: 1px solid #ddd;
     text-align: center;
 }
 
-.mySection .docForm tbody th {
-    padding: 10px 0;
+input {
+    border: 1px solid #bbb;
+    outline-style: none;
+    color: black !important;
+}
+
+table {
+    border-collapse: collapse;
+    border: 0;
+    empty-cells: show;
+    width: 100%;
+    border-top: 2px solid #432;
+    border-bottom: 1px solid #ddd;
+    margin-top: 15px;
+}
+
+th {
+    background: #F4F1F1;
+    border-top: 1px solid #ddd;
+    padding: 10px 0 10px 17px;
+    font-size: 13px;
+    padding-left: 0;
+}
+
+td {
+    border-top: 1px solid #ddd;
+    padding: 10px 0 10px 17px;
     text-align: left;
     font-size: 13px;
-    font-weight: bold;
-}
-
-.baseTable tbody th {
-    font-size: 12px;
-    border-top: 1px solid #ddd;
-}
-
-.baseTable th {
-    font-weight: normal;
-    background: #F3EFEF;
-}
-
-.baseTable td {
-    padding: 16px 0px;
-    border-top: 1px solid #ddd;
-}
-
-.ct {
-    text-align: center !important;
 }
 
 .goodsInfo {
@@ -180,7 +165,6 @@ fieldset, img {
 .goodsInfo .pdtPhoto {
     float: left;
     width: 170px;
-    margin-left: 1px;
 }
 
 .pdtPhoto {
@@ -190,121 +174,133 @@ fieldset, img {
 .goodsInfo .pdfInfo {
     float: left;
     width: 510px;
-    font-size: 11px;
+    font-size: 14px;
     text-align: left;
-    margin-left: 10px;
+    margin: 30px 0 0 10px;
 }
 
-.pdtName {
-    color: #555;
-    font-size: 13px;
-    min-height: 32px;
-    padding-bottom: 5px;
-    vertical-align: top;
-    line-height: 18px;
-    word-wrap: break-word;
-    word-break: break-all;
+.asset {
+    text-align: center;
+    padding: 5px 0;
+    margin-right: 60px;
 }
 
-.tPad10 {
-    padding-top: 10px !important;
-}
-
-.pdtPrice {
-    color: #777;
-    font-size: 13px;
-    letter-spacing: -.5px;
-    font-weight: normal;
-}
-
-.finalP {
-    color: #777;
-    font-weight: bold;
-}
-
-textarea {
+#revContents {
+    resize:none;
     border: 1px solid #bbb;
     color: #666;
     font-size: 13px;
     font-weight: normal;
     outline-style: none;
-    padding: 5px;
-    margin-left: -10px;
+    padding: 5px 10px;
+    width: 670px;
 }
 
-.tPad07 {
-    padding-top: 7px;
-}
-
-.fs12 {
-    font-size: 12px !important;
-}
-
-tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
-}
-
-.attachFile {
+.itemField {
+    text-align: left;
+    font-size: 13px;
     overflow: hidden;
-}
-
-.attachFile .inputFile {
-    float: left;
-}
-
-#file1 {
-    margin-left: 10px;
-    width: 300px;
-}
-
-.inputFile {
-    height: 28px;
-    border: 1px solid #ccc;
-}
-
-.attachFile .btnListDel {
-    float: left;
-    vertical-align: middle;
-    margin: 9px 0 0 10px;
-    padding: 0;
-}
-
-.satisfactionList {
-    width: 688px;
-    margin-bottom: -8px;
-}
-
-.satisfactionList .itemField {
-    border-top: 0;
-    padding-top: 8px 0;
 }
 
 .itemField ul {
     float: left;
-    width: 580px;
+    width: 680px;
     margin-top: -6px;
-}
-
-.satisfactionList .itemField ul li {
-    width: 110px;
 }
 
 .itemField ul li {
     float: left;
-    width: 25%;
-    padding: 5px 0;
+    width: 120px;
+    padding: 6px 0 0 5px;
 }
 
-.itemField ul li input {
+.itemField li input {
     vertical-align: middle;
-    margin-top: -1px;
-    margin-left: 5px;
+    margin-top: 1px;
 }
 
-.itemField ul li label {
-    padding-left: 5px;
+#layoutView1 td input {
+    height: 22px;
+    padding: 5px 10px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#layoutView1 td a {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 0.9;
+    padding: 5px 10px 4px;
+    vertical-align: top;
+    width: 78px;
+    background: #432;
+    color: #fff;
+    border-radius: 7px;
+}
+
+.fn {
+    line-height: 0.9;
+    font-weight: normal !important;
+}
+
+#subject {
+    height: 22px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 1px solid #bbb;
+    color: #666;
+    vertical-align: middle;
+    font-weight: normal;
+    max-width: 670px;
+}
+
+#askContents {
+    resize:none;
+    outline-style: none;
+    margin: 0;
+    border: 1px solid #bbb;
+    color: #666;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 5px 10px;
+    height: 188px;
+    width:670px;
+}
+
+.attachFile {
+    line-height: 1.0;
+    text-align: left;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.attachFile input {
+    height: 22px;
+    /* background: #F4F1F1; */
+    float: left;
+    width: 300px;
+    margin-bottom: 5px;
+}
+
+.attachFile button {
+    border: 0;
+    width: 13px;
+    height: 13px;
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: url(//fiximage.10x10.co.kr/web2013/common/btn_delete2.gif) left top no-repeat;
+    float: left;
+    margin: 10px 0 0 10px;
+}
+
+.txtInp {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    height: 24px;
+    padding: 5px 10px;
 }
 
 .btnArea {
@@ -342,6 +338,10 @@ tr {
     font-size: 12px;
     font-weight: normal;
     border-radius: 12px;
+}
+
+.user_padding td {
+    padding-left: 22px;
 }
 
 /* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------*/

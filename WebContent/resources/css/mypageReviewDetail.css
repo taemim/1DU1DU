@@ -74,12 +74,13 @@ dl, ul, ol, li {
     text-transform: uppercase;
 }
 
-/* ask 페이지 작성 영역 --------------------------------------------------------------------------*/
+/* review 페이지 작성 영역 --------------------------------------------------------------------------*/
 
 /* 메인 div 콘텐츠 영역 설정*/
 .mypage{
     margin: 50px;
     width: 860px;
+    text-align: center;
 }
 
 /* 테이블 크기 설정 테이블 크기 벗어나면 스크롤 보임*/
@@ -99,6 +100,7 @@ dl, ul, ol, li {
 .mypage h1 {
     font-weight: bold;
     letter-spacing: 3px;
+    text-align: left;
 }
 
 /* default */
@@ -112,12 +114,49 @@ table {
     empty-cells:show;
 }
 
+textarea {
+    resize:none;
+    border: 1px solid #bbb;
+    color: #666;
+    font-size: 13px;
+    font-weight: normal;
+    outline-style: none;
+    padding: 5px;
+    margin-left: -10px;
+}
+
+.goodsInfo {
+    overflow: hidden;
+}
+
+.goodsInfo .pdtPhoto {
+    float: left;
+    width: 170px;
+}
+
+.pdtPhoto {
+    position: relative;
+}
+
+.goodsInfo .pdfInfo {
+    float: left;
+    width: 510px;
+    font-size: 14px;
+    text-align: left;
+    margin: 30px 0 0 10px;
+}
+
 input, button {
     border:0;
 }
 
 button {
     overflow:visible;
+}
+
+.content {
+    width:680px;
+    height:300px;
 }
 
 #idfrm {
@@ -158,44 +197,6 @@ td {
     font-size: 13px;
 }
 
-.goodsInfo {
-    overflow: hidden;
-}
-
-.goodsInfo .pdtPhoto {
-    float: left;
-    width: 170px;
-}
-
-.pdtPhoto {
-    position: relative;
-}
-
-.goodsInfo .pdfInfo {
-    float: left;
-    width: 510px;
-    font-size: 14px;
-    text-align: left;
-    margin: 30px 0 0 10px;
-}
-
-.asset {
-    text-align: center;
-    padding: 5px 0;
-    margin-right: 60px;
-}
-
-#revContents {
-    resize:none;
-    border: 1px solid #bbb;
-    color: #666;
-    font-size: 13px;
-    font-weight: normal;
-    outline-style: none;
-    padding: 5px 10px;
-    width: 670px;
-}
-
 .itemField {
     text-align: left;
     font-size: 13px;
@@ -204,29 +205,33 @@ td {
 
 .itemField ul {
     float: left;
-    width: 680px;
+    width: 580px;
     margin-top: -6px;
 }
 
 .itemField ul li {
     float: left;
-    width: 120px;
+    width: 140px;
     padding: 6px 0 0 5px;
 }
 
 .itemField li input {
-    vertical-align: middle;
-    margin-top: 1px;
+    padding-top: 2px;
 }
 
-#layoutView1 td input {
+#layoutView1 td input,
+#layoutView2 td input,
+#layoutView3 td input,
+#layoutView4 td input {
     height: 22px;
     padding: 5px 10px;
     vertical-align: middle;
     margin-right: 10px;
 }
 
-#layoutView1 td a {
+#layoutView1 td a,
+#layoutView2 td a,
+#layoutView3 td a {
     display: inline-block;
     cursor: pointer;
     font-size: 12px;
@@ -255,17 +260,15 @@ td {
     max-width: 670px;
 }
 
-#askContents {
-    resize:none;
-    outline-style: none;
+#message {
     margin: 0;
     border: 1px solid #bbb;
     color: #666;
     font-size: 13px;
     font-weight: normal;
     padding: 5px 10px;
+    max-width: 670px;
     height: 188px;
-    width:670px;
 }
 
 .attachFile {
@@ -281,18 +284,6 @@ td {
     float: left;
     width: 300px;
     margin-bottom: 5px;
-}
-
-.attachFile button {
-    border: 0;
-    width: 13px;
-    height: 13px;
-    display: block;
-    text-indent: -9999px;
-    overflow: hidden;
-    background: url(//fiximage.10x10.co.kr/web2013/common/btn_delete2.gif) left top no-repeat;
-    float: left;
-    margin: 10px 0 0 10px;
 }
 
 .txtInp {
@@ -338,6 +329,10 @@ td {
     font-size: 12px;
     font-weight: normal;
     border-radius: 12px;
+}
+
+.back {
+    margin-right: 500px;
 }
 
 .user_padding td {

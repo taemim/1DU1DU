@@ -103,11 +103,11 @@ caption {
 
 .btn_modify {
     border: 1px solid #d0d0d0;
-    height: 13px;
+    height: 21px;
     line-height: 13px;
     background-color: #fff;
     text-align: center;
-    width: 28px;
+    width: 40px;
     display: inline-block;
     padding: 4px 6px;
     margin-top: 5px;
@@ -173,39 +173,35 @@ th {
 }
 
 .amount_div {
-    position: relative;
-    width: 42px;
+    width: 84px;
     height: 25px;
-    text-align: left;
-    margin: 5px auto;		
+    margin: 5px auto;
 }
 
 .amount_input {
-    position: absolute;
-    width: 27px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
     text-align: center;
-    border: 1px solid #c6c6c6;
-    border-right: 0px;
+    outline-style: none;
+    border: 1px solid #ddd;
     line-height: 19px;
     font-size: 12px;
-    color: #4c4848;	
+    color: #432;	
     left: 0;
 }
 
 .amount_btn {
-    position: absolute;
-    border: 1px solid #aaa;
-    color: black;
-    width: 14px;
-    height: 13px;
+    border: 1px solid #ddd;
+    color: #432;
+    width: 18px;
+    height: 18px;
     padding: 0px;
     background-color: #fff;
-    font-weight: bold;
-    font-size: 7px;
+    font-size: 20px;
     line-height: 6px;
     vertical-align: middle;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 .btn_plus {
