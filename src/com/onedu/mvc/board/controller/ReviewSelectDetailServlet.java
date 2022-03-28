@@ -36,8 +36,7 @@ public class ReviewSelectDetailServlet extends HttpServlet {
 			request.setAttribute("message", "리뷰 조회에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }
