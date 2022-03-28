@@ -135,6 +135,7 @@ td {
     border-top: 1px solid #ddd;
     padding-left: 10px;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .baseTable .answerView .qnaList {
@@ -169,7 +170,7 @@ td {
     vertical-align: middle;
     line-height: 13px;
     width: 120px;
-    margin: 0 3px 10px;
+    margin: 0 3px;
 }
 
 .btn_delete {
