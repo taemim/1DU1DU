@@ -37,8 +37,7 @@ public class AskSelectListServlet extends HttpServlet {
 			request.setAttribute("message", "1:1 문의 조회에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }
