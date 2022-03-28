@@ -72,7 +72,6 @@
                                                             title="상품 페이지로 이동">과테말라 부에나 비스타 내추럴</a></p>
                                                     <p class="pdtPrice tPad10"><span class="finalP">19,000원</span>
                                                     </p>
-                                                    <p class="pdtCode tPad10">상품코드: 3882680</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -132,7 +131,7 @@
                                                 <div class="itemField">
                                                     <ul>
                                                         <li>
-                                                            <input type="radio" name="totPnt" value="5" checked="" id="satisfaction15">
+                                                            <input type="radio" name="totPnt" value="♥♥♥♥♥" checked="" id="satisfaction15">
                                                             <label for="satisfaction15">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#bf3f27" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
@@ -152,7 +151,7 @@
                                                             </label>
                                                         </li>
                                                         <li>
-                                                            <input type="radio" name="totPnt" value="4" id="satisfaction11">
+                                                            <input type="radio" name="totPnt" value="♥♥♥♥♡" id="satisfaction11">
                                                             <label for="satisfaction11">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#bf3f27" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
@@ -172,7 +171,7 @@
                                                             </label>
                                                         </li>
                                                         <li>
-                                                            <input type="radio" name="totPnt" value="3" id="satisfaction12">
+                                                            <input type="radio" name="totPnt" value="♥♥♥♡♡" id="satisfaction12">
                                                             <label for="satisfaction12">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#bf3f27" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
@@ -192,7 +191,7 @@
                                                             </label>
                                                         </li>
                                                         <li>
-                                                            <input type="radio" name="totPnt" value="2" id="satisfaction13">
+                                                            <input type="radio" name="totPnt" value="♥♥♡♡♡" id="satisfaction13">
                                                             <label for="satisfaction13">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#bf3f27" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
@@ -212,7 +211,7 @@
                                                             </label>
                                                         </li>
                                                         <li>
-                                                            <input type="radio" name="totPnt" value="1" id="satisfaction14">
+                                                            <input type="radio" name="totPnt" value="♥♡♡♡♡" id="satisfaction14">
                                                             <label for="satisfaction14">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#bf3f27" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>

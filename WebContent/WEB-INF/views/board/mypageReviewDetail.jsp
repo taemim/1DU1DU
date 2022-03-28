@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -63,16 +64,15 @@
 										<div class="goodsInfo">
 											<div class="pdtPhoto">
 												<img src="../resources/images/5.jpeg" width="150"
-													height="150" alt="과테말라 부에나 비스타 내추럴">
+													height="150" alt="${ reviewDetail.goods.goodsName }">
 											</div>
 											<div class="pdfInfo">
 												<p class="pdtName tPad10">
-													<a href="상품주소" title="상품 페이지로 이동">과테말라 부에나 비스타 내추럴</a>
+													<a href="상품주소" title="상품 페이지로 이동">${ reviewDetail.goods.goodsName }</a>
 												</p>
 												<p class="pdtPrice tPad10">
-													<span class="finalP">19,000원</span>
+													<span class="finalP"><fmt:formatNumber value="${ reviewDetail.goods.price }" pattern="#,###,### 원"/></span>
 												</p>
-												<p class="pdtCode tPad10">상품코드: 3882680</p>
 											</div>
 										</div>
 									</td>
@@ -100,8 +100,7 @@
 									onclick="location.href='${ pageContext.servletContext.contextPath }/review/list'">돌아가기</button></span>
 							<button type="button" class="btn btnS1 btnGry btnW160" onclick="deleteReview()">삭제하기</button>
 							<button type="button" class="btn btnS1 btnRed btnW160"
-								onclick="updateReview(${ reviewDetail.revNo })">수정하기</button>
-							<!-- form 태그를 post 방식으로 제출 -->
+								onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ reviewDetail.revNo }'">수정하기</button>
 							<form name="revForm" method="post">
 								<input type="hidden" name="no" value="${ reviewDetail.revNo }">
 							</form>
@@ -113,12 +112,8 @@
 	</div>
 
 	<script>
-		function updateReview(no){
-			location.href = "${ pageContext.servletContext.contextPath }/review/update?no=" + no;
-		}
-		
 		function deleteReview(){
-			if(confirm('리뷰를 삭제하시겠습니까?')){
+			if(confirm('리뷰를 삭제하시겠습니까?')) {
 				document.forms.revForm.action = "${ pageContext.servletContext.contextPath }/review/delete";
 				document.forms.revForm.submit();
 			}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -18,9 +19,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- css 외부 링크 -->
-    <link href="../resources/css/mypageReviewInsert.css" rel="stylesheet" type="text/css">
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/mypageReviewInsert.css" rel="stylesheet" type="text/css">
     <!-- 파비콘 -->
-    <link rel="icon" type="image/x-icon" href="../resources/image/android-icon-48x48.png">
+    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
     <title>사용자 - 리뷰 수정</title>
 </head>
 
@@ -43,6 +44,7 @@
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
                     <li><a href="#">회원 탈퇴</a></li>
+                    <div></div>
                 </ul>
             </div>
             <!-- 마이페이지 메인 영역 -->
@@ -52,7 +54,7 @@
                     <br>
                     <!-- 전체 내역 조회 (=테이블명)-->
                     <form id="idfrm" name="SubmitFrm" action="${ pageContext.servletContext.contextPath }/review/update" method="post">
-                  	  <input type="hidden" name="revNo" value="${ reviewDetail.revNo }">
+                  	  <input type="hidden" name="no" value="${ review.revNo }">
                         <fieldset>
                             <table class="baseTable rowTable docForm tMar15">
                                 <colgroup>
@@ -65,13 +67,11 @@
                                         <td>
                                             <div class="goodsInfo">
                                                 <div class="pdtPhoto"><img src="../resources/images/5.jpeg" width="150"
-                                                        height="150" alt="과테말라 부에나 비스타 내추럴"></div>
+                                                        height="150" alt="${ review.goods.goodsName }"></div>
                                                 <div class="pdfInfo">
-                                                    <p class="pdtName tPad10"><a href="상품주소" title="상품 페이지로 이동">과테말라 부에나
-                                                            비스타 내추럴</a></p>
-                                                    <p class="pdtPrice tPad10"><span class="finalP">19,000원</span>
+                                                    <p class="pdtName tPad10"><a href="상품주소" title="상품 페이지로 이동">${ review.goods.goodsName }</a></p>
+                                                    <span class="finalP"><fmt:formatNumber value="${ review.goods.price }" pattern="#,###,### 원"/></span>
                                                     </p>
-                                                    <p class="pdtCode tPad10">상품코드: 3882680</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -79,7 +79,7 @@
                                     <tr>
                                         <th scope="row" class="ct"><label for="revTitle" required>제목</label></th>
                                         <td colspan="3">
-                                            <input type="text" id="revTitle" name="revTitle" class="txtInp" value="${ reviewDetail.revTitle }"
+                                            <input type="text" id="revTitle" name="revTitle" class="txtInp" value="${ review.revTitle }"
                                                 style="width:670px; height: 24px;">
                                         </td>
                                     </tr>
@@ -93,7 +93,7 @@
                                         </th>
                                         <td colspan="3">
                                             <textarea id="revContents" name="revContents" cols="60" rows="8"
-                                                placeholder="상품평은 최소 10자 이상 입력해주세요." minlength="10" required>${ reviewDetail.revContents }</textarea>
+                                                placeholder="상품평은 최소 10자 이상 입력해주세요." minlength="10" required>${ review.revContents }</textarea>
                                             <script>
                                                 $("textarea").keyup(function () {
                                                     // 현재 요소의 값의 길이 알기
@@ -128,7 +128,7 @@
                             </table>
 
                             <div class="btnArea ct tPad30">
-                                <!-- 취소 하기 누를 시 팝업 적용 하려고 할 떄의 코드 -->
+                                <!-- 취소 하기 누를 시 팝업 적용 하려고 할 때의 코드 -->
                                 <button type="button" class="btn btnS1 btnGry btnW160"
                                     onclick="cancelReview()">취소하기</button>
                                 <button type="submit" class="btn btnS1 btnRed btnW160">수정하기</button>
