@@ -17,7 +17,7 @@ public class ReviewDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		/* 1. 파라미터 꺼내기 */
-		int no = Integer.parseInt(request.getParameter("revNo"));
+		int no = Integer.parseInt(request.getParameter("no"));
 		
 		/* 2. 비즈니스 로직 호출 */
 		int result = new ReviewService().deleteReview(no);
@@ -35,8 +35,7 @@ public class ReviewDeleteServlet extends HttpServlet {
 			request.setAttribute("message", "리뷰 삭제에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);	
 	}
 
 }
