@@ -26,17 +26,17 @@ public class AskInsertServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		/* 1. 파라미터 꺼내기 */
-		int askCode = Integer.parseInt(request.getParameter("ask"));
+		String askType = request.getParameter("askType");
 		int prodNo = Integer.parseInt(request.getParameter("prodNo"));
-//		String userName = request.getParameter("userName");
+//		String userName = ((MemberDTO) request.getSession().getAttribute(""))
 		String userId = request.getParameter("userId");
 		String askTitle = request.getParameter("askTitle");
 		String askContents = request.getParameter("askContents");
 		
 		AskDTO newAsk = new AskDTO();
-		newAsk.setAskCode(askCode);
+		newAsk.setAskType(askType);
 		newAsk.setProdNo(prodNo);
-//		newAsk.setuserName(userName);
+//		newAsk.setWriter(userName);
 		newAsk.setUserId(userId);
 		newAsk.setAskTitle(askTitle);
 		newAsk.setAskContents(askContents);
@@ -57,11 +57,10 @@ public class AskInsertServlet extends HttpServlet {
 		} else {
 			
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "1:1 문의 등록에 실패하셨습니다.");
+			request.setAttribute("message", "1:1 문의 등록에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }

@@ -14,6 +14,8 @@ public class AskDeleteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		/* 1. 파라미터 꺼내기 */
 		int no = Integer.parseInt(request.getParameter("no"));
 		
@@ -30,11 +32,10 @@ public class AskDeleteServlet extends HttpServlet {
 		} else {
 			
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "1:1 문의 삭제에 실패하셨습니다.");
+			request.setAttribute("message", "1:1 문의 삭제에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }

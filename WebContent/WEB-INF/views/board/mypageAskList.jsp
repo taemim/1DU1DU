@@ -61,15 +61,15 @@
                         </p>
                         <div class="write">
                              <button type="button"
-                                 onclick="location.href='${ pageContext.servletContext.contextPath }/ask/insert'">작성 하기</button>
+                                 onclick="location.href='${ pageContext.servletContext.contextPath }/ask/insert'">작성하기</button>
                         </div>
                     </div>
                     <!-- 전체 내역 조회 (=my-ask-list)-->
                     <table class="baseTable">
                         <colgroup>
                             <col width="70">
-                            <col width="100">
-                            <col width="430">
+                            <col width="150">
+                            <col width="380">
                             <col width="120">
                             <col width="70">
                             <col width="70">
@@ -88,7 +88,7 @@
                             <tbody>
                                 <tr>
                                     <td>${ ask.askNo }</td>
-                                    <td>${ ask.ask.askName }</td>
+                                    <td>${ ask.askType }</td>
                                     <td class="rt">
                                     	<span class="url title myQuestion"  onclick="detailView(${ask.askNo})">${ ask.askTitle }</span>
                                         <%-- <a href="#none" class="url title myQuestion">${ ask.askTitle }</a> --%>

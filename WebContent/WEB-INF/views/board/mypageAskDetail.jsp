@@ -42,6 +42,7 @@
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
                     <li><a href="#">회원 탈퇴</a></li>
+                    <div></div>
                 </ul>
             </div>
             <!-- 마이페이지 메인 영역 -->
@@ -62,13 +63,7 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row" rowspan="1" class="ct">문의 분야</th>
-                                        <td colspan="3">${ askDetail.ask.askName }</td>
-                                    </tr>
-                                    <tr class="user_padding">
-                                        <th scope="row" class="ct">주문자</th>
-                                        <td>주문자 이름</td>
-                                        <th scope="row" class="ct">아이디</th>
-                                        <td>주문자 아이디</td>
+                                        <td colspan="3">${ askDetail.askType }</td>
                                     </tr>
                                     <tr>
                                         <th scope="row" class="ct"><label for="subject" required>제목</label></th>
@@ -85,8 +80,7 @@
 
                             <div class="btnArea ct tPad30">
                                 <button type="button" class="btn btnS1 btnGry btnW160" 
-                                onclick="location.href='${ pageContext.servletContext.contextPath }/ask/list'">취소 하기</button>
-                                <%-- <button type="button" class="btn btnS1 btnRed btnW160" onclick="updateNoticeView(${ ask.askNo })">수정 하기</button> --%>
+                               	 	onclick="location.href='${ pageContext.servletContext.contextPath }/ask/list'">돌아가기</button>
                                 <!-- form 태그를 post 방식으로 제출 -->
 								<form name="askForm" method="post">
 									<input type="hidden" name="askNo" value="${ ask.askNo }">
@@ -98,12 +92,6 @@
             </div>
         </div>
     </div>
-    
-    <script>
-		function updateNoticeView(no){
-			location.href = "${ pageContext.servletContext.contextPath }/ask/update?no="+no;
-		}
-	</script>
 
     <!-- footer import -->
     <div data-include-path="footer.html"></div>
