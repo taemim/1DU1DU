@@ -15,14 +15,14 @@ public class OrderService {
 	
 
 	/* DB에 주문테이블 insert 하기  */
-	public int insertOrder(OrderDTO newOrder, PaymentDTO newPayment, List<GoodsDTO> goodsList ) {
+	public int insertOrder(OrderDTO newOrder, PaymentDTO newPayment, GoodsDTO goods ) {
 		int result;
 				
 		SqlSession session = getSqlSession();
 		
 		int result1 = OrderDAO.insertOrder(session, newOrder);
 		int result2 = OrderDAO.insertPayment(session, newPayment);
-		int result3 = OrderDAO.insertGoodsList(session, goodsList);
+		int result3 = OrderDAO.insertGoodsList(session, goods);
 
 		if(result1 > 0 && result2 > 0 && result3 > 0) {
 			session.commit();
