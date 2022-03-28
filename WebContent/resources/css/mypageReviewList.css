@@ -74,7 +74,7 @@ dl, ul, ol, li {
     text-transform: uppercase;
 }
 
-/* review-list 페이지 메인 영역 --------------------------------------------------------------------------*/
+/* ask-list 페이지 메인 영역 --------------------------------------------------------------------------*/
 
 /* 메인 div 콘텐츠 영역 설정*/
 .mypage{
@@ -123,6 +123,11 @@ td {
     letter-spacing: 3px;
 }
 
+.top_menu {
+    display: flex;
+    justify-content: space-between;
+}
+
 .rt {
     border-collapse: collapse;
     empty-cells: show;
@@ -130,6 +135,7 @@ td {
     border-top: 1px solid #ddd;
     padding-left: 10px;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .baseTable .answerView .qnaList {
@@ -148,47 +154,30 @@ td {
     background-color: #fafafa;
 }
 
-.baseTable .answerView .edit {
-    /* border-top: 1px solid #ddd; */
-    margin: 46px 20px 0 20px;
+.write {
+    margin-right: 100px;
 }
 
-.btnArea {
-    line-height: 1.6;
+.write button {
+	height: 35px;
+	border: 0px;
+	color: white;
+	background: #432;
+	cursor: pointer;
     font-size: 12px;
-    margin: 20px 0;
-    padding-top: 10px !important;
-    display: flex;
-    justify-content: end;
-    position: relative;
-}
-
-.btnArea .btnRed {
+    border-radius: 12px;
+    padding: 9px 10px 10px;
     vertical-align: middle;
     line-height: 13px;
-    padding: 9px 10px 10px;
     width: 120px;
-    color: #fff;
-    background: #432;
-    margin: 0 3px;
-    font-size: 12px;
-    font-weight: normal;
-    border-radius: 12px;
+    margin: 0 3px 10px;
 }
 
-.btnGry {
-    overflow: visible;
-    vertical-align: middle;
-    line-height: 13px;
-    padding: 9px 10px 10px;
-    width: 120px;
-    border: 1px solid black;
-    color: black;
-    background: white;
-    margin: 0 3px;
-    font-size: 12px;
-    font-weight: normal;
-    border-radius: 12px;
+.btn_delete {
+    width: 20px;
+    border: 1px solid white;
+    background-color: white;
+    cursor: pointer;
 }
 
 /* 사진 예시 넣어 본 것 */
