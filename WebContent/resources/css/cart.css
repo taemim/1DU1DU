@@ -354,7 +354,7 @@ th {
     display: flex;
     justify-content: end;
     line-height: 1.6;
-    margin: 20px auto 0;
+    margin: 20px auto 100px;
     padding-top: 10px !important;
 }
 
