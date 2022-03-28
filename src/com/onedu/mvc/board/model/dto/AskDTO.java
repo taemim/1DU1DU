@@ -17,18 +17,17 @@ public class AskDTO implements java.io.Serializable {
 	private String ansContents;
 	private Date ansDate;
 	private String askStatus;
-	private int askCode;
-	private AskTypeDTO ask;
+	private String askType;
 	
 	public AskDTO() {}
 
-	public AskDTO(int askNo, int prodNo, String userId, String askTitle, String askContents, Date askDate,
-			String ansTitle, String ansContents, Date ansDate, String askStatus, int askCode, AskTypeDTO ask,
-			MemberDTO writer) {
+	public AskDTO(int askNo, int prodNo, String userId, MemberDTO writer, String askTitle, String askContents,
+			Date askDate, String ansTitle, String ansContents, Date ansDate, String askStatus, String askType) {
 		super();
 		this.askNo = askNo;
 		this.prodNo = prodNo;
 		this.userId = userId;
+		this.writer = writer;
 		this.askTitle = askTitle;
 		this.askContents = askContents;
 		this.askDate = askDate;
@@ -36,9 +35,7 @@ public class AskDTO implements java.io.Serializable {
 		this.ansContents = ansContents;
 		this.ansDate = ansDate;
 		this.askStatus = askStatus;
-		this.askCode = askCode;
-		this.ask = ask;
-		this.writer = writer;
+		this.askType = askType;
 	}
 
 	public int getAskNo() {
@@ -63,6 +60,14 @@ public class AskDTO implements java.io.Serializable {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public MemberDTO getWriter() {
+		return writer;
+	}
+
+	public void setWriter(MemberDTO writer) {
+		this.writer = writer;
 	}
 
 	public String getAskTitle() {
@@ -121,36 +126,20 @@ public class AskDTO implements java.io.Serializable {
 		this.askStatus = askStatus;
 	}
 
-	public int getAskCode() {
-		return askCode;
+	public String getAskType() {
+		return askType;
 	}
 
-	public void setAskCode(int askCode) {
-		this.askCode = askCode;
-	}
-
-	public AskTypeDTO getAsk() {
-		return ask;
-	}
-
-	public void setAsk(AskTypeDTO ask) {
-		this.ask = ask;
-	}
-
-	public MemberDTO getWriter() {
-		return writer;
-	}
-
-	public void setWriter(MemberDTO writer) {
-		this.writer = writer;
+	public void setAskType(String askType) {
+		this.askType = askType;
 	}
 
 	@Override
 	public String toString() {
-		return "AskDTO [askNo=" + askNo + ", prodNo=" + prodNo + ", userId=" + userId + ", askTitle=" + askTitle
-				+ ", askContents=" + askContents + ", askDate=" + askDate + ", ansTitle=" + ansTitle + ", ansContents="
-				+ ansContents + ", ansDate=" + ansDate + ", askStatus=" + askStatus + ", askCode=" + askCode + ", ask="
-				+ ask + ", writer=" + writer + "]";
+		return "AskDTO [askNo=" + askNo + ", prodNo=" + prodNo + ", userId=" + userId + ", writer=" + writer
+				+ ", askTitle=" + askTitle + ", askContents=" + askContents + ", askDate=" + askDate + ", ansTitle="
+				+ ansTitle + ", ansContents=" + ansContents + ", ansDate=" + ansDate + ", askStatus=" + askStatus
+				+ ", askType=" + askType + "]";
 	}
 
 }

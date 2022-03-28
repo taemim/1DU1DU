@@ -23,7 +23,7 @@ public class AskDAO {
 	/* 마이페이지 1:1 문의 삭제용 메소드 */
 	public int deleteAsk(SqlSession sqlSession, int no) {
 		
-		return sqlSession.delete("AskDAO.deleteAsk", no);
+		return sqlSession.update("AskDAO.deleteAsk", no);
 	}
 
 	/* 마이페이지 1:1 문의 조회용 메소드 */

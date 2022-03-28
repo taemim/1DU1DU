@@ -15,15 +15,9 @@
 		<result property="ansContents" column="ANS_CONTENTS"/>
 		<result property="ansDate" column="ANS_DATE"/>
 		<result property="askStatus" column="ASK_STATUS"/>
-		<result property="askCode" column="ASK_CODE"/>
+		<result property="askType" column="ASK_TYPE"/>
 
-		<association property="ask" resultMap="askTypeResultMap"/> <!-- AskTypeDTO" -->
 		<association property="writer" resultMap="memberResultMap"/> <!-- MemberDTO -->
-	</resultMap>
-	
-	<resultMap type="com.onedu.mvc.board.model.dto.AskTypeDTO" id="askTypeResultMap">
-		<id property="askCode" column="ASK_CODE"/>
-		<result property="askName" column="ASK_NAME"/>
 	</resultMap>
 	
 	<resultMap type="com.onedu.mvc.member.model.dto.MemberDTO" id="memberResultMap">
@@ -44,24 +38,24 @@
 		<result property="gradeNo" column="GRADE_NO"/>
 	</resultMap>
 	
+	<!-- 마이페이지 1:1 문의 전체 조회 -->
 	<select id="selectAllAskList" resultMap="askResultMap">
 		SELECT
-			   A.ASK_NO
-			 , A.ASK_TITLE
-			 , A.ASK_CODE
-			 , A.ASK_CONTENTS
-			 , A.ASK_DATE
-			 , A.ANS_TITLE
-			 , A.ANS_CONTENTS
-			 , A.ANS_DATE
-			 , A.ASK_STATUS
-			 , B.ASK_NAME
-		  FROM ASK A
-		  JOIN ASK_TYPE B ON(A.ASK_CODE = B.ASK_CODE)
+			   ASK_NO
+			 , ASK_TITLE
+			 , ASK_TYPE
+			 , ASK_CONTENTS
+			 , ASK_DATE
+			 , ANS_TITLE
+			 , ANS_CONTENTS
+			 , ANS_DATE
+			 , ASK_STATUS
+		  FROM ASK
 		 WHERE ASK_STATUS = 'Y'
 		 ORDER BY ASK_NO DESC
 	</select>
 	
+	<!-- 마이페이지 1:1 문의 등록 -->
 	<insert id="insertAsk">
 		INSERT
 		  INTO ASK
@@ -69,7 +63,7 @@
 		  ASK_NO
 		, PROD_NO
 		, ASK_TITLE
-		, ASK_CODE
+		, ASK_TYPE
 		, USER_ID
 		, ASK_CONTENTS
 		)
@@ -78,28 +72,30 @@
 		  SEQ_ASK_NO.NEXTVAL
 		, #{ prodNo }
 		, #{ askTitle }
-		, #{ askCode }
+		, #{ askType }
 		, 'user01'
 		, #{ askContents }
 		)
 	</insert>
 	
-	<delete id="deleteAsk">
+	<!-- 마이페이지 1:1 문의 조회 -->
+	<select id="selectAskDetail" resultMap="askResultMap">
+		SELECT
+			   ASK_NO
+			 , ASK_TITLE
+			 , ASK_CONTENTS
+			 , ASK_TYPE
+		  FROM ASK
+		 WHERE ASK_STATUS = 'Y'
+		   AND ASK_NO = #{ askNo }
+	</select>
+	
+	<!-- 마이페이지 1:1 문의 삭제 -->
+	<update id="deleteAsk">
 		UPDATE
 			   ASK
 		   SET ASK_STATUS = 'N'
-		 WHERE ASK_NO = #{ no }
-	</delete>
-	
-	<select id="selectAskDetail" resultMap="askResultMap">
-		SELECT
-			   A.ASK_TITLE
-			 , A.ASK_CONTENTS
-			 , B.ASK_NAME
-		  FROM ASK A
-		  JOIN ASK_TYPE B ON(A.ASK_CODE = B.ASK_CODE)
-		 WHERE ASK_STATUS = 'Y'
-		   AND A.ASK_NO = #{ no }
-	</select>
+		 WHERE ASK_NO = #{ askNo }
+	</update>
 
 </mapper>
