@@ -20,14 +20,13 @@ public class GoodsDTO implements java.io.Serializable {
 	private List<ImgDTO> imgList;
 	private CategoryDTO category;
 	private List<OptionDTO> optionList;
-	private OptionDTO option;
 	
 	public GoodsDTO() {}
 
 	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, String goodsNameEn, int price,
 			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol,
-			String goodsExplainDetail, List<ImgDTO> imgList, CategoryDTO category, List<OptionDTO> optionList,
-			OptionDTO option) {
+			String goodsExplainDetail, List<ImgDTO> imgList, CategoryDTO category, List<OptionDTO> optionList) {
+
 		super();
 		this.goodsNo = goodsNo;
 		this.categoryId = categoryId;
@@ -44,7 +43,7 @@ public class GoodsDTO implements java.io.Serializable {
 		this.imgList = imgList;
 		this.category = category;
 		this.optionList = optionList;
-		this.option = option;
+
 	}
 
 	public int getGoodsNo() {
@@ -167,24 +166,15 @@ public class GoodsDTO implements java.io.Serializable {
 		this.optionList = optionList;
 	}
 
-	public OptionDTO getOption() {
-		return option;
-	}
-
-	public void setOption(OptionDTO option) {
-		this.option = option;
-	}
-
 	@Override
 	public String toString() {
 		return "GoodsDTO [goodsNo=" + goodsNo + ", categoryId=" + categoryId + ", typeId=" + typeId + ", goodsName="
 				+ goodsName + ", goodsNameEn=" + goodsNameEn + ", price=" + price + ", goodsExplain=" + goodsExplain
 				+ ", enrollDate=" + enrollDate + ", saleCheck=" + saleCheck + ", totalStock=" + totalStock
 				+ ", saleVol=" + saleVol + ", goodsExplainDetail=" + goodsExplainDetail + ", imgList=" + imgList
-				+ ", category=" + category + ", optionList=" + optionList + ", option=" + option + "]";
+				+ ", category=" + category + ", optionList=" + optionList + "]";
 	}
 
 	
 
-	
 }
