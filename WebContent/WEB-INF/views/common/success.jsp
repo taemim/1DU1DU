@@ -88,6 +88,11 @@
 					movePath = "${ pageContext.servletContext.contextPath }/cart/list";
 
 					break;
+					
+				case "deleteOneCart" : 
+					successMessage = "선택하신 상품이 삭제되었습니다.";
+					movePath = "${ pageContext.servletContext.contextPath }/cart/list";
+					break;
 			}
 
 			alert(successMessage);

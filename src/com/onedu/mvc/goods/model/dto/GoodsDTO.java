@@ -22,6 +22,7 @@ public class GoodsDTO implements java.io.Serializable {
 	private List<OptionDTO> optionList;
 	private int OrderNo;
 	private int Amount;
+  
 	public GoodsDTO() {
 		super();
 	}
@@ -29,6 +30,13 @@ public class GoodsDTO implements java.io.Serializable {
 			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol,
 			String goodsExplainDetail, List<ImgDTO> imgList, CategoryDTO category, List<OptionDTO> optionList,
 			int orderNo, int amount) {
+
+	public GoodsDTO() {}
+
+	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, String goodsNameEn, int price,
+			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol,
+			String goodsExplainDetail, List<ImgDTO> imgList, CategoryDTO category, List<OptionDTO> optionList) {
+
 		super();
 		this.goodsNo = goodsNo;
 		this.categoryId = categoryId;
@@ -47,6 +55,7 @@ public class GoodsDTO implements java.io.Serializable {
 		this.optionList = optionList;
 		OrderNo = orderNo;
 		Amount = amount;
+
 	}
 	public int getGoodsNo() {
 		return goodsNo;
@@ -138,6 +147,7 @@ public class GoodsDTO implements java.io.Serializable {
 	public void setOptionList(List<OptionDTO> optionList) {
 		this.optionList = optionList;
 	}
+
 	public int getOrderNo() {
 		return OrderNo;
 	}
@@ -150,16 +160,21 @@ public class GoodsDTO implements java.io.Serializable {
 	public void setAmount(int amount) {
 		Amount = amount;
 	}
+
+
 	@Override
 	public String toString() {
 		return "GoodsDTO [goodsNo=" + goodsNo + ", categoryId=" + categoryId + ", typeId=" + typeId + ", goodsName="
 				+ goodsName + ", goodsNameEn=" + goodsNameEn + ", price=" + price + ", goodsExplain=" + goodsExplain
 				+ ", enrollDate=" + enrollDate + ", saleCheck=" + saleCheck + ", totalStock=" + totalStock
 				+ ", saleVol=" + saleVol + ", goodsExplainDetail=" + goodsExplainDetail + ", imgList=" + imgList
+
 				+ ", category=" + category + ", optionList=" + optionList + ", OrderNo=" + OrderNo + ", Amount="
 				+ Amount + "]";
+				+ ", category=" + category + ", optionList=" + optionList + "]";
+
 	}
 	
 
-
 }
+
