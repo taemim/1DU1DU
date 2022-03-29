@@ -1,4 +1,5 @@
-@charset "UTF-8";       /* 인코딩 문자 깨짐 방지 */
+/* 인코딩 문자 깨짐 방지 */
+@charset "UTF-8";
 
 /* 공통속성 */
 
@@ -22,6 +23,15 @@ img {
     border: 0 none;
     vertical-align: top;
 }
+/* 기본 요소의 적용되는 margin, padding값 0으로 초기화*/
+body, div, dl, dt, dd, ul, ol, li, 
+h1, h2, h3, h4, h5, h6, pre, code, 
+form, fieldset, legend, textarea, 
+p, blockquote, th, td, input, select, 
+textarea, button {
+    margin: 0;
+    padding: 0;
+}
 
 div {
     display: block;
@@ -30,10 +40,6 @@ div {
 dl, ul, ol, li {
     list-style: none;
 }
-
-
-/*--------------------------------------------------------------------------------------------------------------*/
-
 
 
 /* footer ----------------------------------------------------------------------------------------------------- */
@@ -102,6 +108,11 @@ ul {
 #footer .footer-bottom .footer-info {
     float: left;
     font-size: 0.8em;
+}
+
+
+.footer-info address {
+	margin-bottom: 0px;
 }
 
 #footer p {

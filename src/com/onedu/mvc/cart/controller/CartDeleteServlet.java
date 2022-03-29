@@ -17,10 +17,15 @@ public class CartDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		/* 1. 파라미터 꺼내기 */
-		int no = Integer.parseInt(request.getParameter("no"));
+		/* getParameter로 인자를 꺼내면 첫 번째 것만 넘어 오게 되어 있어, 마지막 상품을 선택해서 삭제하고 싶어도 첫 번째 것이 자동으로 삭제된다.
+		 * => 배열로 처리해서 선택된 상품이 삭제되게 만들자.
+		 * => getParameterValues 이용 */
+		/* cart.jsp에서 65번째 행
+		 * <input type="checkbox" class="individual_cart_checkbox check_input_size" checked="checked" class="chkbox" value="${ prod.cartNo }" name="no"> */
+		String[] noList = request.getParameterValues("no");
 		
 		/* 2. 비즈니스 로직 호출 */	
-		int result = new CartService().deleteCart(no);
+		int result = new CartService().deleteCart(noList);
 		
 		/* 3. 조회 결과 성공 여부에 따른 뷰 결정 */
 		String path = "";
@@ -32,7 +37,7 @@ public class CartDeleteServlet extends HttpServlet {
 		} else {
 			
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("massage", "상품 삭제에 실패하셨습니다.");
+			request.setAttribute("massage", "상품 삭제에 실패하였습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

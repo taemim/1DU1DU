@@ -32,7 +32,10 @@
 	<main>
     <div class="header_hidden">
     </div>
+	
     
+    
+    <main>
     <!-- main image -->
     <div class="display_container center" id="section1">
         <img src="/resources/image/img-bg1.png" style="width: 100%; height: 600px;">
@@ -497,15 +500,12 @@
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
-
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
-
         function currentSlide(n) {
             showSlides(slideIndex = n);
         }
-
         function showSlides(n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");
@@ -527,6 +527,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+        
+
+        
+        
+    <!-- 푸터 -->    
+        
+	<jsp:include page="/WEB-INF/views/main/footer.jsp" />
+ 
+   
+</footer>
+        
+
+        
+        
 </body>
 
 </html>

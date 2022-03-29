@@ -10,7 +10,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.onedu.mvc.common.config.ConfigLocation;
 
-
 public class Template {
 
 	private static SqlSessionFactory sqlSessionFactory;

@@ -16,12 +16,9 @@ public class EncryptRequestWrapper extends HttpServletRequestWrapper {
 	public String getParameter(String key) {
 		
 		String value = "";
-		if("memberPwd".equals(key)) {
-			/* 스프링 시큐리티중 BCrypt 암호화를 제공해주는 라이브러리를 추가한 후 암호화 처리 한다.
-			 * sprint-security-crypto 라이브러리를 다운받아서 사용하면 되는데
-			 * 그냥 저거만 쓰면 의존관계에 있는 다른 라이브러리가 필요해서 ClassNotFoundException이 발생하게 된다.
-			 * commons-logging 라이브러리도 추가해주자. 그럼 서블릿쪽의 출력 내용은 암호화된 패스워드로 변경될 것이다.
-			 * */
+
+		if("userPwd".equals(key)) {
+
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			value = passwordEncoder.encode(super.getParameter(key));
 		} else {
