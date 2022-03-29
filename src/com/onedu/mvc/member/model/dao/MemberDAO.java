@@ -5,9 +5,8 @@ import org.apache.ibatis.session.SqlSession;
 import com.onedu.mvc.member.model.dto.MemberDTO;
 
 public class MemberDAO {
-	
-	
-	
+
+
 	/* MEMBER TABLE 신규 회원 insert용 메소드 */
 	public int insertMember(SqlSession session, MemberDTO requestMember) {
 		
@@ -51,8 +50,11 @@ public class MemberDAO {
 		return session.update("MemberDAO.deleteMember", no);
 	}
 
-
-
+	/* 주문시 회원 주소 수정 메소드 */
+	public static int updateAddress(SqlSession session, MemberDTO member) {
+		
+		return session.update("MemberDAO.updateAddress", member);
+	}
 	
 
 }

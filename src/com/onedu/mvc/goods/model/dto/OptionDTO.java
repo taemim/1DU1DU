@@ -21,12 +21,21 @@ public class OptionDTO {
 		this.extra_pay = extra_pay;
 		this.optionNo2 = optionNo2;
 		this.optionName2 = optionName2;
+
 	}
 
 
 	public int getGoodsNo() {
 		return goodsNo;
 	}
+
+	}
+
+
+	public int getGoodsNo() {
+		return goodsNo;
+	}
+
 
 	public void setGoodsNo(int goodsNo) {
 		this.goodsNo = goodsNo;
@@ -77,4 +86,7 @@ public class OptionDTO {
 		return "OptionDTO [goodsNo=" + goodsNo + ", optionNo=" + optionNo + ", optionName=" + optionName + ", extra_pay=" + extra_pay
 				+ ", optionNo2=" + optionNo2 + ", optionName2=" + optionName2 + "]";
 	}
+
+	
 }
+

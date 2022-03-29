@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS 외부링크 -->
 
+
     <link href="${ pageContext.servletContext.contextPath }/resources/css/footer.css" rel="stylesheet" type="text/css">
     <!-- 구글웹폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">

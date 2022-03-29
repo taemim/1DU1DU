@@ -19,6 +19,8 @@ public class GoodsDetailServlet extends HttpServlet {
 		
 		int goodsNo = Integer.parseInt(request.getParameter("goodsNo"));
 		
+		System.out.println("확인 !!!!! :" +goodsNo);
+		
 		GoodsDTO goods = new GoodsService().selectOneGoodsDetail(goodsNo);
 		
 		String path = "";

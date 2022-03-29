@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderDAO">
+
+	<resultMap type="com.onedu.mvc.goods.model.dto.OrderDTO" id="orderResultMap">
+		<id property="orderNo" column="ORDER_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="orderDate" column="ORDER_DATE"/>
+		<result property="receiverName" column="RECEIVER"/>
+		<result property="receiverPhone" column="PHONE"/>
+		<result property="zipCode" column="POSTAL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="extraAddress" column="ADDRESS2"/>
+		<result property="shipMemo" column="SHIP_MEMO"/>
+		<result property="status" column="STATUE"/>
+		
+		<association property="goods" resultMap="goodsResultMap"/>
+		<association property="payment" resultMap="paymentResultMap"/>
+		
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.PaymentDTO" id="paymentResultMap">
+		<id property="payNo" column="PAY_NO"/>
+		<result property="orderNo" column="ORDER_NO"/>
+		<result property="amount" column="AMOUNT"/>
+		<result property="payTime" column="PAY_TIME"/>
+		<result property="paySuccessTime" column="PAY_SUCC"/>
+	</resultMap>
+	
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
+		<id property="goodsNo" column="PROD_NO"/>
+		<result property="categoryId" column="CATEGORY_ID"/>
+		<result property="typeId" column="TYPE_ID"/>
+		<result property="goodsName" column="PROD_NAME"/>
+		<result property="price" column="PROD_PRICE"/>
+		<result property="goodsExplain" column="PROD_EXPLAIN"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="saleCheck" column="SALE_CHECK"/>
+		<result property="totalStock" column="SALE_CHECK"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		<result property="saleVol" column="SALE_VOL"/>
+		
+		<association property="imgList" resultMap="imgResultMap"/>
+		<association property="category" resultMap="categoryResultMap"/>
+		<association property="option" resultMap="optionResultMap"/>
+		
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.ImgDTO" id="imgResultMap">
+		<id property="imgId" column="IMG_ID"/>
+		<result property="prodNo" column="PROD_NO"/>
+		<result property="originalName" column="SAVED_NAME"/>
+		<result property="editedName" column="SAVED_NAME"/>
+		<result property="fileRoot" column="SAVE_PATH"/>
+		<result property="thumbnailPath" column="THUMB_PATH"/>
+		<result property="fileSize" column="FILE_SIZE"/>
+		<result property="status" column="FILE_STATUS"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.CategoryDTO" id="categoryResultMap">
+		<id property="id" column="CATEGORY_ID"/>
+		<result property="name" column="CATEGORY_NAME"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
+		<id property="optionNo" column="OP_NO"/>
+		<result property="optionName" column="OP_NAME"/>
+		<result property="extraPrice" column="EXTRA_PAY"/>
+		<result property="optionNo2" column="OP_NO2"/>
+		<association property="goodsNo" resultMap="optionGoodsResultMap"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionGoodsResultMap">
+		<id property="optionNo" column="OP_NO"/>
+		<id property="goodsNo" column="PROD_NO"/>	
+	</resultMap>
+
+	
+	<insert id="insertOrder">
+		INSERT 
+		  INTO ORDERLIST
+		VALUES
+		(
+		   SEQ_ORDER_NO.NEXTVAL
+		 , #{ userId }
+		 , SYSDATE
+		 , #{ receiverName }
+		 , #{ receiverPhone }   
+		 , #{ zipCode }   
+		 , #{ address }   
+		 , #{ extraAddress }   
+		 , #{ shipMemo }  
+		 , 'Y'
+		)
+			
+	</insert>
+	
+	<insert id="insertPayment"> 
+		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE"> 
+			SELECT SEQ_ORDER_NO.CURRVAL FROM DUAL
+		</selectKey> 
+		INSERT 
+		  INTO PAYMENT
+		VALUES
+		(
+		   #{ payNo }
+		 , #{ orderNo }
+		 , #{ amount }
+		 , SYSDATE
+		 , TO_TIMESTAMP(SYSDATE,'HH24:MI:SS')
+		)
+	</insert>
+	
+	<insert id="insertGoodsList">
+		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE"> 
+			SELECT SEQ_ORDER_NO.CURRVAL FROM DUAL
+		</selectKey> 
+		INSERT 
+		  INTO PROD_LIST
+		VALUES
+		  ( 
+		  	 #{ orderNo }
+		   , #{ goodsNo }
+		   , #{ amount }
+		   , #{ price } 
+		   , 
+		   ,  
+		   , NULL
+		  )
+	</insert>
+	
+	<select id="selectPayment" resultMap="paymentResultMap">
+		SELECT *
+		  FROM PAYMENT
+		 WHERE PAY_NO = #{ payNo }
+	</select>
+	
+	
+</mapper>

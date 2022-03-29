@@ -17,7 +17,9 @@
 	</environments>
 	
 	<mappers>
+
 		<!-- 임태미 -->
+
  		<mapper resource="com/onedu/mvc/order/model/dao/OrderDAO.xml"/>
 		
 		<!-- 임수연 -->
@@ -25,7 +27,7 @@
 
 		
 		<!-- 유혜원 -->
-		<!-- <mapper resource="com/onedu/mvc/goods/model/dao/GoodsDAO.xml"/> -->
+		<mapper resource="com/onedu/mvc/goods/model/dao/GoodsDAO.xml"/>
 		
 		<!-- 송연지 -->
 
@@ -35,6 +37,6 @@
 				
 		<!-- 김세영 -->
 		
-		
+
 	</mappers>
 </configuration>

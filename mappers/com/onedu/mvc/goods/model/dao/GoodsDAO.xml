@@ -20,7 +20,8 @@
   	  	   <association property="category" resultMap="categoryResultMap"/>
   	  	   
   	  	   <collection property="imgList" resultMap="imgResultMap"/>
-  	  	   <collection property="optionList" resultMap="optionResultMap"/> 
+  	  	   <collection property="optionList" resultMap="optionResultMap"/>  <!-- OP테이블만 연결 해놓은 건데, 중간에 OP_PROD를 넣지 않아서 연결이 안돼요ㅜ -->
+  	
   	  </resultMap>
   	  
   	  <resultMap type="com.onedu.mvc.goods.model.dto.CategoryDTO" id="categoryResultMap">
