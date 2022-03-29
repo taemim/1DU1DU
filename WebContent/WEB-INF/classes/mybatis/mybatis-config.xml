@@ -9,9 +9,9 @@
 			<transactionManager type="JDBC"/>
 			<dataSource type="POOLED">
 				<property name="driver" value="net.sf.log4jdbc.DriverSpy"/>
-				<property name="url" value="jdbc:log4jdbc:oracle:thin:@192.168.123.102:1521:xe"/>
-				<property name="username" value="C##ONEDU"/>
-				<property name="password" value="ONEDU"/>
+        		<property name="url" value="jdbc:log4jdbc:oracle:thin:@oracle_high?TNS_ADMIN=/Users/hyeweonyoo/Downloads/Wallet_oracle"/>
+       		 	<property name="username" value="admin"/>
+        		<property name="password" value="greedyGREEDY11"/>
 			</dataSource>
 		</environment>
 	</environments>
@@ -20,7 +20,7 @@
 
 		<!-- 임태미 -->
 
- 		<mapper resource="com/onedu/mvc/order/model/dao/OrderDAO.xml"/>
+ 		<mapper resource="com/onedu/mvc/goods/model/dao/OrderDAO.xml"/>
 		
 		<!-- 임수연 -->
 		<mapper resource="com/onedu/mvc/member/model/dao/MemberDAO.xml"/>
