@@ -26,9 +26,8 @@
 
 <body>
 
-    <div class="header_hidden">
-        <h1> 헤더영역 비워두는 용도 </h1>
-    </div>
+    <!-- header import -->
+    <jsp:include page="../main/header.jsp"/>
 
     <div class="container">
         <div class="row">
@@ -259,33 +258,7 @@
     </script>
 
     <!-- footer import -->
-    <div data-include-path=" footer.html">
-    </div>
-
-    <script>
-        window.addEventListener('load', function () {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function (el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
-
-        function popMyOrderNo() {
-            var frm = document.SubmitFrm;
-            var url = "/my10x10/orderPopup/popMyOrderNo.asp?frmname=" + frm.name + "&targetname=" + frm.orderserial.name;
-            window.open(url,'popMyOrderNo','width=750,height=565,scrollbars=yes,resizable=yes');
-        }
-    </script>
+    <jsp:include page="../main/footer.jsp"/>
 
 </body>
 
