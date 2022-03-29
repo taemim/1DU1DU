@@ -1,6 +1,8 @@
 package com.onedu.mvc.board.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,10 +30,12 @@ public class ReviewInsertServlet extends HttpServlet {
 		/* 1. 파라미터 꺼내기 */
 		String revTitle = request.getParameter("revTitle");
 		String  revContents = request.getParameter("revContents");
+		String gradeAvg = request.getParameter("totPnt");
 		
 		ReviewDTO newReview = new ReviewDTO();
 		newReview.setRevTitle(revTitle);
 		newReview.setRevContents(revContents);
+		newReview.setGradeAvg(gradeAvg);
 		
 		/* 2. 비즈니스 로직 호출 */
 		ReviewService reviewService = new ReviewService();
@@ -49,11 +53,10 @@ public class ReviewInsertServlet extends HttpServlet {
 		} else {
 			
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "리뷰 등록에 실패하셨습니다.");
+			request.setAttribute("message", "리뷰 등록에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }

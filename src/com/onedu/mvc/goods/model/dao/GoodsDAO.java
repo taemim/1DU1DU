@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
 
 public class GoodsDAO {
 
@@ -19,6 +20,8 @@ public class GoodsDAO {
 		return session.selectOne("GoodsDAO.selectOneGoodsDetail", goodsNo);
 	}
 	
-	
+	public List<OptionDTO> selectOptionList(SqlSession session, int goodsNo){
+		return session.selectList("GoodsDAO.selectOptions", goodsNo);
+	}
 
 }

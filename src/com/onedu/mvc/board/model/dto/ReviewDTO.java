@@ -3,34 +3,32 @@ package com.onedu.mvc.board.model.dto;
 import java.sql.Date;
 
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
-import com.onedu.mvc.member.model.dto.MemberDTO;
 
-public class ReviewDTO {
+public class ReviewDTO implements java.io.Serializable {
 	
 	private int revNo;
 	private int prodNo;
-	private GoodsDTO goods;
 	private String userId;
-	private MemberDTO writer;
 	private String revTitle;
 	private String revContents;
 	private Date writeDate;
 	private String ansTitle;
 	private String ansContents;
 	private Date ansDate;
-	private int gradeAvg;
+	private String gradeAvg;
 	private int revHits;
 	private String revStatus;
+	private GoodsDTO goods;
 	
-	public ReviewDTO(int revNo, int prodNo, GoodsDTO goods, String userId, MemberDTO writer, String revTitle,
-			String revContents, Date writeDate, String ansTitle, String ansContents, Date ansDate, int gradeAvg,
-			int revHits, String revStatus) {
+	public ReviewDTO() {}
+
+	public ReviewDTO(int revNo, int prodNo, String userId, String revTitle, String revContents, Date writeDate,
+			String ansTitle, String ansContents, Date ansDate, String gradeAvg, int revHits, String revStatus,
+			GoodsDTO goods) {
 		super();
 		this.revNo = revNo;
 		this.prodNo = prodNo;
-		this.goods = goods;
 		this.userId = userId;
-		this.writer = writer;
 		this.revTitle = revTitle;
 		this.revContents = revContents;
 		this.writeDate = writeDate;
@@ -40,6 +38,7 @@ public class ReviewDTO {
 		this.gradeAvg = gradeAvg;
 		this.revHits = revHits;
 		this.revStatus = revStatus;
+		this.goods = goods;
 	}
 
 	public int getRevNo() {
@@ -58,28 +57,12 @@ public class ReviewDTO {
 		this.prodNo = prodNo;
 	}
 
-	public GoodsDTO getGoods() {
-		return goods;
-	}
-
-	public void setGoods(GoodsDTO goods) {
-		this.goods = goods;
-	}
-
 	public String getUserId() {
 		return userId;
 	}
 
 	public void setUserId(String userId) {
 		this.userId = userId;
-	}
-
-	public MemberDTO getWriter() {
-		return writer;
-	}
-
-	public void setWriter(MemberDTO writer) {
-		this.writer = writer;
 	}
 
 	public String getRevTitle() {
@@ -130,11 +113,11 @@ public class ReviewDTO {
 		this.ansDate = ansDate;
 	}
 
-	public int getGradeAvg() {
+	public String getGradeAvg() {
 		return gradeAvg;
 	}
 
-	public void setGradeAvg(int gradeAvg) {
+	public void setGradeAvg(String gradeAvg) {
 		this.gradeAvg = gradeAvg;
 	}
 
@@ -154,12 +137,20 @@ public class ReviewDTO {
 		this.revStatus = revStatus;
 	}
 
+	public GoodsDTO getGoods() {
+		return goods;
+	}
+
+	public void setGoods(GoodsDTO goods) {
+		this.goods = goods;
+	}
+
 	@Override
 	public String toString() {
-		return "ReviewDTO [revNo=" + revNo + ", prodNo=" + prodNo + ", goods=" + goods + ", userId=" + userId
-				+ ", writer=" + writer + ", revTitle=" + revTitle + ", revContents=" + revContents + ", writeDate="
-				+ writeDate + ", ansTitle=" + ansTitle + ", ansContents=" + ansContents + ", ansDate=" + ansDate
-				+ ", gradeAvg=" + gradeAvg + ", revHits=" + revHits + ", revStatus=" + revStatus + "]";
+		return "ReviewDTO [revNo=" + revNo + ", prodNo=" + prodNo + ", userId=" + userId + ", revTitle=" + revTitle
+				+ ", revContents=" + revContents + ", writeDate=" + writeDate + ", ansTitle=" + ansTitle
+				+ ", ansContents=" + ansContents + ", ansDate=" + ansDate + ", gradeAvg=" + gradeAvg + ", revHits="
+				+ revHits + ", revStatus=" + revStatus + ", goods=" + goods + "]";
 	}
 	
 }

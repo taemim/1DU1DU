@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onedu.mvc.board.model.dto.AskDTO;
 import com.onedu.mvc.board.model.dto.ReviewDTO;
-import com.onedu.mvc.board.model.service.AskService;
 import com.onedu.mvc.board.model.service.ReviewService;
 
 @WebServlet("/review/list")
@@ -27,7 +25,7 @@ public class ReviewSelectListServlet extends HttpServlet {
 		System.out.println(reviewList);
 		
 		/* 3. 조회 결과 성공 여부에 따른 뷰 결정 */
-		String path ="";
+		String path = "";
 		if(reviewList != null) {
 			
 			path = "/WEB-INF/views/board/mypageReviewList.jsp";
@@ -36,10 +34,10 @@ public class ReviewSelectListServlet extends HttpServlet {
 		} else {
 			
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "Review 조회에 실패하였습니다.");
+			request.setAttribute("message", "리뷰 조회에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }

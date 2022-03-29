@@ -43,6 +43,7 @@
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
                     <li><a href="#">회원 탈퇴</a></li>
+                    <div></div>
                 </ul>
             </div>
             <!-- 마이페이지 메인 영역 -->
@@ -65,13 +66,13 @@
                                         <th scope="row" rowspan="1" class="ct">문의 분야</th>
                                         <td colspan="3">
                                             <div class="itemField">
-                                                <select class="form-select form-select-sm" name="ask" style="width: 300px;">
+                                                <select class="form-select form-select-sm" name="askType" style="width: 300px;">
                                                     <option selected>문의 분야를 선택해 주세요.</option>
-                                                    <option value="1">배송 문의</option>
-                                                    <option value="2">주문 문의</option>
-                                                    <option value="3">교환/반품/환불 문의</option>
-                                                    <option value="4">상품 문의</option>
-                                                    <option value="5">기타 문의</option>
+                                                    <option value="배송 문의">배송 문의</option>
+                                                    <option value="주문 문의">주문 문의</option>
+                                                    <option value="교환/반품/환불 문의">교환/반품/환불 문의</option>
+                                                    <option value="상품 문의">상품 문의</option>
+                                                    <option value="기타 문의">기타 문의</option>
                                                 </select>
                                             </div>
                                         </td>
@@ -85,7 +86,7 @@
                                     </tr>
                                     <tr class="user_padding">
                                         <th scope="row" class="ct">주문자</th>
-                                        <td readonly></td>
+                                        <td readonly>${ askList.writer.userName }</td>
                                         <th scope="row" class="ct">아이디</th>
                                         <td readonly></td>
                                     </tr>
@@ -154,8 +155,8 @@
 
                             <div class="btnArea ct tPad30">
                                 <!-- 취소 하기 누를 시 팝업 적용 하려고 할 떄의 코드 -->
-                                <button type="button" class="btn btnS1 btnGry btnW160" onclick="cancelAsk()">취소 하기</button>
-                                <button type="submit" class="btn btnS1 btnRed btnW160"">문의 하기</button>
+                                <button type="button" class="btn btnS1 btnGry btnW160" onclick="cancelAsk()">취소하기</button>
+                                <button type="submit" class="btn btnS1 btnRed btnW160"">문의하기</button>
                             </div>
                         </fieldset>
                     </form>
@@ -165,11 +166,11 @@
     </div>
     
     <script type="text/javascript">
-    function cancelAsk(){
-		if(confirm('1:1 문의 작성을 취소하시겠습니까?')){
-			location.href = "${ pageContext.servletContext.contextPath }/ask/list";
+	    function cancelAsk(){
+			if(confirm('1:1 문의 작성을 취소하시겠습니까?')){
+				location.href = "${ pageContext.servletContext.contextPath }/ask/list";
+			}
 		}
-	}
     </script>
 
     <!-- footer import -->

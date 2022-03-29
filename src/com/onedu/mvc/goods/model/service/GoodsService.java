@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dao.GoodsDAO;
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
 
 public class GoodsService {
 	
@@ -34,13 +35,14 @@ public class GoodsService {
 		
 		SqlSession session = getSqlSession();
 		
-		GoodsDTO goods = null;
-		
-		goods = goodsDAO.selectOneGoodsDetail(session, goodsNo);
-			
+		GoodsDTO goods = goodsDAO.selectOneGoodsDetail(session, goodsNo);;
+		goods.setOptionList(goodsDAO.selectOptionList(session, goodsNo));
 		session.close();
 		
 		return goods;
 	}
+	
+	
+	
 
 }

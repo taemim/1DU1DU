@@ -15,11 +15,12 @@
   	  	   <id property="saleCheck" column="SALE_CHECK"/>
   	  	   <id property="totalStock" column="TOTAL_STOCK"/>
   	  	   <id property="saleVol" column="SALE_VOL"/>
+  	  	   <id property="goodsExplainDetail" column="PROD_EXPLAIN_DT"/>
   	  	   
   	  	   <association property="category" resultMap="categoryResultMap"/>
   	  	   
   	  	   <collection property="imgList" resultMap="imgResultMap"/>
-  	  	   <collection property="optionList" resultMap="optionResultMap"/>  <!-- OP테이블만 연결 해놓은 건데, 중간에 OP_PROD를 넣지 않아서 연결이 안돼요ㅜ -->
+  	  	   <collection property="optionList" resultMap="optionResultMap"/> 
   	  </resultMap>
   	  
   	  <resultMap type="com.onedu.mvc.goods.model.dto.CategoryDTO" id="categoryResultMap">
@@ -84,12 +85,29 @@
   	            , C.SAVED_NAME
   	            , C.SAVE_PATH
   	            , C.THUMB_PATH
+  	            , E.OP_NAME
+  	            , E.EXTRA_PAY
   	         FROM PROD A
   	  	     JOIN CATEGORY B ON (A.CATEGORY_ID = B.CATEGORY_ID)
   	  	     JOIN IMG C ON (A.PROD_NO = C.PROD_NO)
-  	  	     JOIN OP D ON (A.)
+  	  	     JOIN OP_PROD D ON (A.PROD_NO = D.PROD_NAME)
+  	  	     JOIN OP E ON (D.OP_NO = E.OP_NO)
   	  	    WHERE A.SALE_CHECK = 'Y'
   	  	      AND C.FILE_STATUS = 'Y'
   	  	      AND A.PROD_NO = #{ goodsNo }
+  	  </select>
+  	  
+  	  <select id="selectOptions" resultMap="optionResultMap">
+  	  	   SELECT 
+				  A.OP_NO 
+				, A.OP_NAME 
+				, A.EXTRA_PAY 
+				, A.OP_NO2 
+		     FROM OP A
+		        , (SELECT OD.OP_NO FROM OP_PROD OD, OP 
+		            WHERE OD.OP_NO = OP.OP_NO 
+		              AND PROD_NAME = #{ goodsNo }) B
+		    WHERE A.OP_NO=B.OP_NO 
+		       OR A.OP_NO2 = B.OP_NO
   	  </select>
   </mapper>

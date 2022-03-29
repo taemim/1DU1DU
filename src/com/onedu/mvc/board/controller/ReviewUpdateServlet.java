@@ -18,7 +18,7 @@ public class ReviewUpdateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		/* 1. 파라미터 꺼내기 */
-		int no = Integer.parseInt(request.getParameter("revNo"));
+		int no = Integer.parseInt(request.getParameter("no"));
 		
 		/* 2. 비즈니스 로직 호출 */
 		ReviewService reviewService = new ReviewService();
@@ -34,9 +34,10 @@ public class ReviewUpdateServlet extends HttpServlet {
 		} else {
 			
 			path ="/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "리뷰 수정용 조회하기에 실패하였습니다.");
+			request.setAttribute("message", "작성한 리뷰 조회하기에 실패하였습니다.");
 		}
 		
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	/* update 구현 */
@@ -45,7 +46,7 @@ public class ReviewUpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		/* 1. 파라미터 꺼내기 */
-		int no = Integer.parseInt(request.getParameter("revNo"));
+		int no = Integer.parseInt(request.getParameter("no"));
 		String revTitle = request.getParameter("revTitle");
 		String  revContents = request.getParameter("revContents");
 		
@@ -69,11 +70,10 @@ public class ReviewUpdateServlet extends HttpServlet {
 		} else {
 			
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "리뷰 수정에 실패하셨습니다.");
+			request.setAttribute("message", "리뷰 수정에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }

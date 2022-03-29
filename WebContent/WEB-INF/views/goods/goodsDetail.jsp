@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,16 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="${ pageContext.servletContext.contextPath }/resources/css/goods_list.css" rel="stylesheet" type="text/css">
+<script src="../resources/js/jquery-3.6.0.min.js"></script>
+<style>
+.top_banner {
+    margin :0px;
+}
+
+.top_banner >p {
+    margin :0px;
+}
+</style>
 <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png"> 
 <title>1 D U 1 D U</title>
 </head>
@@ -53,36 +64,83 @@
                 <h1 class="h1 mt-4">${ goods.goodsName }</h1>
                 <p>${ goods.goodsNameEn }</p>
                 <h4 class="text-sm-start mt-5 mb-5">${ goods.goodsExplain }</h4>
-                <h5 class="text-md-start mb-1">용량</h5>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>용량을 선택하세요</option>
-                    <option value="1">200g</option>
-                    <option value="2">500g</option>
-                </select>
-                <h5 class="text-md-start mt-5 mb-1">분쇄도</h5>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>분쇄도를 선택하세요</option>
-                    <option value="1">홀빈(갈지않음)</option>
-                    <option value="2">핸드드립/커피메이커</option>
-                    <option value="3">프렌치프레스</option>
-                    <option value="4">모카포트</option>
-                    <option value="5">에스프레소머신</option>
-                    <option value="6">콜드브루/더치</option>
-                </select>
+                <c:forEach items="${ goods.optionList }" var="rootOption" varStatus="status">
+                	<c:if test="${rootOption.optionNo2 eq 0}">
+                		<h5 class="text-md-start mb-1 mt-3">${ rootOption.optionName }</h5>
+		                <select id="option-${status.count}" class="form-select" name="option" onchange="option(this)">
+		                	<option value="" selected>${ rootOption.optionName }을 선택하세요</option>
+	                		<c:forEach items="${ goods.optionList }" var="option" varStatus="status">
+	                			<c:if test="${rootOption.optionNo eq option.optionNo2}">
+	                				<option value="${option.optionNo }" data-val="${option.extra_pay}">${ option.optionName }</option>
+	                			</c:if>
+	                		</c:forEach>
+	                	</select>
+                	</c:if>
+                </c:forEach>
+                
+                <br>
+                
+                <!-- 옵션 선택 후 나타나는 박스 -->
+              <form method="post" action="${ pageContext.servletContext.contextPath }/goods/order"
+						enctype="multipart/form-data"> 
+                <div class="row bg-secondary bg-opacity-10" style="display:none" id="optionDiv">
+                	<div class="col-5">
+                		<div class="d-grid gap-3">
+                			<p class="text mt-4 ms-3">
+                			<span id='gram'></span>&nbsp / &nbsp<span id='grinder'></span>
+                		</div>
+                		<div class="row">
+                			<div class="col">
+                				<div class="d-grid gap-2" onclick='count("minus")' value='-'>
+                					<a href="#"><i class="bi bi-dash-square ms-3"></i></a>
+                				</div>
+                			</div>
+                			<div class="col mt-0">
+                				<div class="d-grid gap-2">
+                					<div id="result"><p class="text mt-0 ms-3">1</p></div>
+                				</div>
+                			</div>
+                			<div class="col">
+                				<div class="d-grid gap-2" onclick='count("plus")' value='+'>
+                					<a href="#"><i class="bi bi-plus-square ms-3"></i></a>
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                	<div class="col-5">
+                	</div>              	
+                	<div class="col-2">
+                		<button type="button" class="btn-close mt-3 ms-5" aria-label="Close"></button>
+                		<p class="fw-bold mt-4 ms-1 mb-0"><strong id="optionPrice"><fmt:formatNumber value="${goods.price}" type="number"/>원</strong></p>
+                	</div>
+                </div>
+                
+                <div class="row">
+                	<div class="col-4 mt-3">
+                		<h5><strong>총 상품금액</strong></h5>
+                	</div>
+                	<div class="col-5">
+                	</div>
+                	<div class="col-2 mt-3 ms-5">
+                		
+                		<h5><strong id="price"><fmt:formatNumber value="${goods.price}" type="number"/>원</strong></h5>
+                	</div>
+                </div>
+              </form>
                 <div class="row">
                     <div class="col-5">
                         <div class="d-grid gap-2">
                           <br>
-                            <button type="button" class="btn btn-primary btn-lg btn-dark mt-5">구매하기</button>
+                            <button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/goods/order'" class="btn btn-primary btn-lg btn-dark mt-3">구매하기</button>
                         </div>
                     </div>
                     <div class="col-5">
                         <div class="d-grid gap-2">
                           <br>
-                            <button type="button" class="btn btn-lg btn-outline-dark mt-5">장바구니</button>
+                            <button type="button" class="btn btn-lg btn-outline-dark mt-3">장바구니</button>
                         </div>
                     </div>
-                    <div class="col-1 mt-5">
+                    <div class="col-1 mt-3">
                         <div class="d-grid">
                           <br>
                           
@@ -90,10 +148,11 @@
                           <!-- <a href="#"><i class="bi bi-suit-heart-fill" style="font-size: 2rem; color: black;"></i></a> -->
                           <!-- 찜하기 : 빈 하트 -->
                           <a href="#"><i class="bi bi-suit-heart" style="font-size: 2rem; color: black;"></i></a>
+                          
                         </div>
                         <!-- <p class="text" style="font-size: 1px; text-align: center;">153</p> -->
                     </div>
-                    <div class="col-1 mt-5">
+                    <div class="col-1 mt-3">
                         <div class="d-grid">
                           <br>
                             <a href="#" onclick="clipcopy(); return false;"><i class="bi-share" style="font-size: 2rem; color: black;"></i></a>
@@ -325,8 +384,14 @@
           </table>
       </div>
       
+      <!-- footer -->
+      <div style="margin-top:50px;">
+         <jsp:include page="../main/footer.jsp"/>
+      </div>
+      
       <script>
-	      function clipcopy(){
+      	  var extraPrice = 0;
+	      function clipcopy() {
 	    		var url = '';
 	    		var textarea = document.createElement("textarea");
 	    		document.body.appendChild(textarea);
@@ -336,7 +401,79 @@
 	    		document.execCommand("copy");
 	    		document.body.removeChild(textarea);
 	    		alert("클립보드에 URL이 복사되었습니다.")
+	      }
+	      
+	      function onChange() {
+	    	  // 선택된 데이터 가져오기
+	    	  const value = e.value;
+	    	  
+	    	  // 데이터 출력
+	    	  document.getElementById('gram').innerText = value;
 	    	}
+	      
+	      function count(type)  {
+	    	  // 결과를 표시할 element
+	    	  const resultElement = document.querySelector('#result');
+	    	  
+	    	  // 현재 화면에 표시된 값
+	    	  let number = resultElement.innerText;
+	    	  if(number==='0' && type !== 'plus'){
+	    		  return;
+	    	  }
+	    	  // 더하기/빼기
+	    	  if(type === 'plus') {
+	    		  number = parseInt(number) + 1;
+	    	  }else if(type === 'minus')  {
+	    		  number = parseInt(number) - 1;
+	    	  }
+	    	  document.querySelector('#price').innerText=(${goods.price}+extraPrice) * number;
+	    	  document.querySelector('#optionPrice').innerText=(${goods.price}+extraPrice) * number;
+	    	  // 결과 출력
+	    	  resultElement.innerText = number;
+	    	}
+	      
+	      function option(obj) {
+	    	  
+	    	  var options = document.querySelectorAll('select[name=option]');
+	    	  for(var i=1;i<options.length;i++){
+	    		  options[i].disabled = true;
+	    	  }
+	    	  if(obj.value){
+		    	  for(var i=0;i<options.length;i++){
+		    		  if(obj==options[i]){
+		    			  if(options[i+1]){
+		    				  options[i+1].disabled = false;
+		    				  return;
+		    			  }else{
+		    				  options[i].disabled = false;
+		    			  }
+		    		  }
+		    	  }
+	    	  }
+	    	  if(options[options.length-1]==obj){
+	    		  if(obj.value){
+	    	    	  document.getElementById('gram').innerText = options[0].options[options[0].selectedIndex].innerText;  	  
+	    	    	  document.getElementById('grinder').innerText = options[1].options[options[1].selectedIndex].innerText;
+	    	    	  if(options[0].options[options[0].selectedIndex].getAttribute('data-val')!=0){
+	    	    		  extraPrice = parseInt(options[0].options[options[0].selectedIndex].getAttribute('data-val'));
+	    	    	  }else{
+	    	    		  extraPrice = 0;
+	    	    	  }
+    		    	  document.querySelector('#price').innerText = (${goods.price}+extraPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+    		    	  document.querySelector('#optionPrice').innerText = (${goods.price}+extraPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+	    			  document.querySelector('#optionDiv').style.display = 'block';
+	    		  }
+	    	  }  	  
+	      }
+		  
+	      window.addEventListener('load',function(){
+
+	    	  var options = document.querySelectorAll('select[name=option]');
+	    	  for(var i=1;i<options.length;i++){
+	    		  options[i].disabled = true;
+	    	  }
+	      })
+	     
       </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

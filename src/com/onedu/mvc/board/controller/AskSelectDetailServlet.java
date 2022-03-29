@@ -36,7 +36,6 @@ public class AskSelectDetailServlet extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
-		
 	}
 	
 }

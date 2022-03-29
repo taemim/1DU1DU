@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +20,7 @@
     <!-- css 외부 링크 -->
     <link href="${ pageContext.servletContext.contextPath }/resources/css/mypageReviewList.css" rel="stylesheet" type="text/css">
     <!-- 파비콘 -->
-   <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
+    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
     <title>사용자 - 리뷰 조회</title>
 </head>
 
@@ -75,48 +76,15 @@
                             <tbody>
                                 <tr>
                                     <td>${ rev.revNo }</td>
-                                    <td>과테말라 부에나 비스타 내추럴</td>
+                                    <td>${ rev.goods.goodsName }</td>
                                     <td class="rt">
-                                        <a href="#none" class="url title myQuestion">${ rev.revTitle }</a>
+                                    	<span class="url title myQuestion"  onclick="detailView(${rev.revNo})">${ rev.revTitle }</span>
+                                        <!-- <a href="#none" class="url title myQuestion">원두 향이 좋아요</a> -->
                                     </td>
                                     <td>${ rev.writeDate }</td>
                                     <td>${ rev.gradeAvg }</td>
                                     <td>${ rev.revHits }</td>
                                 </tr>
-
-                                <tr class="answerView">
-									<td colspan="6" style="display:none;">
-										<div class="qnaList">
-											<div class="question">
-												<div class="account">
-													<p>글 내용 <br>
-                                                        <!-- 사진 첨부 예시 -->
-                                                        <div class="pdtPhoto"><img
-                                                            src="../resources/images/5.jpeg"
-                                                            width="150" height="150" alt="과테말라 부에나 비스타 내추럴">
-                                                        </div>
-                                                        <!-- 사진 첨부 예시 -->
-                                                        ${ rev.revContents }
-                                                    </p>
-												</div>
-											</div>
-											<div class="answer">
-												<div class="account">
-                                                    <p style="font-weight: bold; font-size: 22px;">${ rev.ansTitle }</p>
-													<p>${ rev.ansContents }</p>
-												</div>
-											</div>
-										</div>
-                                        <div class="edit">
-                                        <c:if test="${ !empty loginMember }">
-                                        	<div class="btnArea ct tPad30">
-                                                <button type="button" class="btn btnS1 btnGry btnW160" onclick="">삭제 하기</button>
-                                                <button type="button" class="btn btnS1 btnRed btnW160" ondblclick="">수정 하기</button>
-                                            </div>
-                                        </c:if>
-                                        </div>
-									</td>
-								</tr>
                             </tbody>
                         </c:forEach>
                     </table>
@@ -134,45 +102,19 @@
                     <a href="#"><small>&gt;</small></a>
                     <a href="#">&raquo;</a>
                 </div>
-                
+
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        $(function() {
-            $(".baseTable .myQuestion").click(function() {
-                if($(this).parent().parent().next(".answerView").find("td").css("display") == "none") {
-                    $(".baseTable .answerView td").slideUp();
-                    $(this).parent().parent().next(".answerView").find("td").slideDown();
-                } else {
-                    $(this).parent().parent().next(".answerView").find("td").slideUp();
-                }
-            });
-        });
-    </script>
+    <script type="text/javascript">	
+		function detailView(no){
+			location.href = '${ pageContext.servletContext.contextPath }/review/detail?no=' + no;
+		}
+	</script>
     
     <!-- footer import -->
-    <div data-include-path="footer.html"></div>
-
-    <script>
-        window.addEventListener('load', function () {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function (el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
-    </script>
+    <jsp:include page="../main/footer.jsp"/>
 
 </body>
 

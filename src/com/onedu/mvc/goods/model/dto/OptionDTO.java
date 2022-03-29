@@ -6,6 +6,7 @@ public class OptionDTO {
 	private String optionName;
 	private int extra_pay;
 	private int optionNo2; //상위옵션 참조
+	
 	public OptionDTO() {
 		super();
 	}
@@ -42,8 +43,10 @@ public class OptionDTO {
 	}
 	@Override
 	public String toString() {
-		return (optionNo2 == 1 ? "용량 | " : "분쇄도 | ") + optionName;
+		return "OptionDTO [optionNo=" + optionNo + ", optionName=" + optionName + ", extra_pay=" + extra_pay
+				+ ", optionNo2=" + optionNo2 + "]";
 	}
+	
 	
 
 }

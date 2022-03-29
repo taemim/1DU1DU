@@ -18,13 +18,38 @@
 			switch(successCode){
 			
 				case "insertAsk" : 
-					successMessage = "1:1 문의 등록에 성공하셨습니다!";
+					successMessage = "1:1 문의가 등록되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/ask/list";
 					break;
 					
 				case "deleteAsk" : 
-					successMessage = "1:1 문의 삭제에 성공하셨습니다!";
+					successMessage = "1:1 문의가 삭제되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/ask/list";
+					break;
+				
+				case "insertReview" : 
+					successMessage = "리뷰가 등록되었습니다.";
+					movePath = "${ pageContext.servletContext.contextPath }/review/list";
+					break;
+					
+				case "deleteReview" : 
+					successMessage = "리뷰가 삭제되었습니다.";
+					movePath = "${ pageContext.servletContext.contextPath }/review/list";
+					break;
+					
+				case "updateReview" : 
+					successMessage = "리뷰가 수정되었습니다.";
+					movePath = "${ pageContext.servletContext.contextPath }/review/list";
+					break;
+					
+				case "updateCart" : 
+					successMessage = "상품 수량이 변경되었습니다.";
+					movePath = "${ pageContext.servletContext.contextPath }/cart/list";
+					break;
+					
+				case "deleteCart" : 
+					successMessage = "선택하신 상품이 삭제되었습니다.";
+					movePath = "${ pageContext.servletContext.contextPath }/cart/list";
 					break;
 			}
 
