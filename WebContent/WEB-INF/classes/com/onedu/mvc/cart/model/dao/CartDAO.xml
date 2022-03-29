@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CartDAO">
+
+	<resultMap type="com.onedu.mvc.cart.model.dto.CartDTO" id="cartResultMap">
+		<id property="cartNo" column="CART_NO"/>
+		<result property="prodNo" column="PROD_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="amount" column="AMOUNT"/>
+		
+		<association property="goods" resultMap="goodsResultMap"/> <!-- GoodsDTO -->
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
+		<id property="goodsNo" column="PROD_NO"/>
+		<result property="categoryId" column="CATEGORY_ID"/>
+		<result property="typeId" column="TYPE_ID"/>
+		<result property="goodsName" column="PROD_NAME"/>
+		<result property="price" column="PROD_PRICE"/>
+		<result property="goodsExplain" column="PROD_EXPLAIN"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="saleCheck" column="SALE_CHECK"/>
+		<result property="totalStock" column="TOTAL_STOCK"/>
+		<result property="saleVol" column="SALE_VOL"/>
+	</resultMap>
+	
+	<!-- 장바구니 전체 조회 -->
+	<select id="selectAllCartList" resultMap="cartResultMap">
+		SELECT
+			   A.CART_NO
+			 , A.PROD_NO
+			 , A.USER_ID
+			 , A.AMOUNT
+			 , B.PROD_NAME
+			 , B.PROD_PRICE
+			 , B.CATEGORY_ID
+			 , B.TYPE_ID
+			 , B.PROD_EXPLAIN
+		  FROM CART A
+		  JOIN PROD B ON(A.PROD_NO = B.PROD_NO)
+ 		 WHERE USER_ID = 'user01'
+	</select>
+	
+	<!-- 장바구니 추가 -->
+	<!-- <insert id="insertCart">
+		INSERT
+		  INTO CART
+		(
+		  CART_NO
+		, PROD_NO
+		, USER_ID
+		, AMOUNT
+		)
+		VALUES
+		(
+		  SEQ_CART_NO.NEXTVAL
+		, 1
+		, 'user01'
+		, 1
+		)
+	</insert> -->
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="deleteCart">
+		DELETE
+			   CART
+		 WHERE CART_NO = #{ cartNo }
+	</delete>
+	
+	<update id="updateCart">
+		UPDATE
+			   CART
+		   SET AMOUNT = #{ amount }
+		 WHERE CART_NO = #{ cartNo }
+	</update>
+	
+	<!-- 장바구니 상품 개별 삭제 -->
+		<delete id="deleteOneCart">
+			DELETE
+				   CART
+			 WHERE CART_NO = #{ cartNo }
+		</delete>
+
+</mapper>

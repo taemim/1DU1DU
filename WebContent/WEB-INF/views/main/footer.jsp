@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS 외부링크 -->
-
-
     <link href="${ pageContext.servletContext.contextPath }/resources/css/footer.css" rel="stylesheet" type="text/css">
     <!-- 구글웹폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
@@ -22,7 +20,6 @@
 <body>
     <!-- footer -->
     <footer id="footer">
-
         <div class="footer-top">
             <div class="footer-inner">
                 <ul class="footer-policy">
@@ -56,5 +53,3 @@
     </footer>
 </body>
 </html>
-</head>
-<body>

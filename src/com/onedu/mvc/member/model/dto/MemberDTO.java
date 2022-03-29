@@ -247,5 +247,3 @@ public class MemberDTO implements java.io.Serializable{
 	
 	
 
-
-}
