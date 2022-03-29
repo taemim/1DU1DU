@@ -9,20 +9,10 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-   <context-param>
-  	<param-name>mybatis-config-location</param-name>
-  	<param-value>mybatis/mybatis-config.xml</param-value>
-  </context-param>
-  
-    <servlet>
-  	<servlet-name>1DU1DU</servlet-name>
-  	<servlet-class>com.onedu.mvc</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>TestServlet</servlet-name>
-  	<url-pattern>/testServlet1.do</url-pattern>
-  </servlet-mapping>
 
- 
+   <context-param>
+      <param-name>mybatis-config-location</param-name>
+      <param-value>mybatis/mybatis-config.xml</param-value>
+  </context-param>
+
 </web-app>

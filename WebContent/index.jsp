@@ -10,14 +10,7 @@
 
   <jsp:forward page="/WEB-INF/views/main/main.jsp"/>
 
-	
-	<a href="naver.com"> 메인 화면 이동</a><br>
-	<a href=''>화면 이동</a><br>
-	<a href=''>메인 화면 이동</a><br>
-	
 
-
-	
 	 
 </body>
 </html>

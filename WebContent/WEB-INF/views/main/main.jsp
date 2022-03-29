@@ -27,18 +27,12 @@
 
 <body>
 	
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="/WEB-INF/views/main/header.jsp"/>
 	
-	<main>
-    <div class="header_hidden">
-    </div>
-	
-    
-    
-    <main>
+
     <!-- main image -->
     <div class="display_container center" id="section1">
-        <img src="/resources/image/img-bg1.png" style="width: 100%; height: 600px;">
+        <img src="${ pageContext.servletContext.contextPath }/resources/image/img-bg1.png" style="width: 100%; height: 600px;">
         <div class="display_bottommiddle padding_32">
             <div class="main_white">
                 <h1 class="main_img_margin jumbo">
@@ -55,96 +49,23 @@
     </div>
     <!-- /main image -->
 
-    <!-- 배너(우측 하단) - a카카오톡 1:1문의, 위로 가기 버튼 -->
-    <!-- display:fiexed로 우측하단에 고정되는 배너입니다. -->
+<!--     배너(우측 하단) - a카카오톡 1:1문의, 위로 가기 버튼
+    display:fiexed로 우측하단에 고정되는 배너입니다.
     <div class="banner-wrap">
         <ul class="banner">
             <li><a href="#"><span>top
-                        <!-- 후에 이미지로 대체하면서 텍스트를 없앨 수 있습니다 -->
+                        후에 이미지로 대체하면서 텍스트를 없앨 수 있습니다
                     </span></a></li>
             <li><a href="#">1:1 문의하기</a></li>
-        </ul> <!-- /banner -->
-    </div><!-- /banner -->
-
-    <!-- 1do1do만의 원두구독 서비스 -->
-    <div class="content2">
-        <!-- 구조가 ul-li가 더 편할 것 같아서 이렇게 작성했는데 div가 정렬하기 좋다고 판단되면 수정해주세요! -->
-        <div class="service-wrap">
-            <ul>
-                <li>
-                    <p>원두 취향 테스트</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-                <li>
-                    <p>매월 정기배송</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-                <li>
-                    <p>정기일 지정</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-                <li>
-                    <p>매달 새로운 커피</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-            </ul>
-        </div> <!-- /service-wrap -->
-        <button>1DU 1DU 구독하러 가기</button>
-    </div> <!-- /content2 -->
+        </ul> /banner
+    </div>/banner
+ -->
 
     <!-- 슬라이드 구간 -->
-    <div class="slideshow-container">
+<%--     <div class="slideshow-container">
         <div class="mySlides fade">
             <div class="white">
-                <img src="resources/image/img-bg1.png" style="width:100%">
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/img-bg1.png" style="width:100%">
                 <div class="text">
                     <p>원두 보관소 KH점</p>
                     <div class="bunder">
@@ -187,7 +108,7 @@
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
+    </div> --%>
     <!-- /슬라이드 구간 -->
 
     <!-- 베스트 리뷰 -->
@@ -494,7 +415,7 @@
 
     </main><!-- /main-->
 
-  	<jsp:include page='footer.jsp'/>
+  	<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 
     <!-- 슬라이드 스크립트 -->
     <script>
@@ -527,20 +448,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-        
 
-        
-        
-    <!-- 푸터 -->    
-        
-	<jsp:include page="/WEB-INF/views/main/footer.jsp" />
- 
-   
-</footer>
-        
 
-        
-        
+
 </body>
 
 </html>
