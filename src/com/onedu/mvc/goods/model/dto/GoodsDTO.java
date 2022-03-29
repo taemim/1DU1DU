@@ -26,6 +26,7 @@ public class GoodsDTO implements java.io.Serializable {
 	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, String goodsNameEn, int price,
 			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol,
 			String goodsExplainDetail, List<ImgDTO> imgList, CategoryDTO category, List<OptionDTO> optionList) {
+
 		super();
 		this.goodsNo = goodsNo;
 		this.categoryId = categoryId;
@@ -42,6 +43,7 @@ public class GoodsDTO implements java.io.Serializable {
 		this.imgList = imgList;
 		this.category = category;
 		this.optionList = optionList;
+
 	}
 
 	public int getGoodsNo() {
@@ -174,4 +176,5 @@ public class GoodsDTO implements java.io.Serializable {
 	}
 
 	
+
 }

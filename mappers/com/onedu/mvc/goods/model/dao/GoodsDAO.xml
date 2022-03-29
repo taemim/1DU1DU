@@ -15,10 +15,12 @@
   	  	   <id property="saleCheck" column="SALE_CHECK"/>
   	  	   <id property="totalStock" column="TOTAL_STOCK"/>
   	  	   <id property="saleVol" column="SALE_VOL"/>
+  	  	   <id property="goodsExplainDetail" column="PROD_EXPLAIN_DT"/>
   	  	   
   	  	   <association property="category" resultMap="categoryResultMap"/>
   	  	   
   	  	   <collection property="imgList" resultMap="imgResultMap"/>
+  	  	   <collection property="optionList" resultMap="optionResultMap"/> 
   	  </resultMap>
   	  
   	  <resultMap type="com.onedu.mvc.goods.model.dto.CategoryDTO" id="categoryResultMap">
@@ -38,6 +40,13 @@
   	  		<id property="thumbnailPath" column="THUMB_PATH"/>
   	  		<id property="fileSize" column="FILE_SIZE"/>
   	  		<id property="status" column="FILE_STATUS"/>
+  	  </resultMap>
+  	  
+  	  <resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
+  	  		<id property="optionNo" column="OP_NO"/>
+  	  		<id property="optionName" column="OP_NAME"/>
+  	  		<id property="extra_pay" column="EXTRA_PAY"/>
+  	  		<id property="optionNo2" column="OP_NO2"/>
   	  </resultMap>
   	  
   	  <select id="selectGoodsList" resultMap="goodsListResultMap">
@@ -62,7 +71,7 @@
   	  	    ORDER BY A.ENROLL_DATE DESC
   	  </select>
   	  
-  	  
+ 
   	  <insert id="insertGoodsDetail" >
   	  	   INSERT  /* com.onedu.mvc.goods.model.dao.GoodsDAO#insertGoodsDetail() */
   	  	     INTO PROD
@@ -126,13 +135,44 @@
   	  </insert>
   	  
   	  
+  	  <select id="selectOneGoodsDetail" resultMap="goodsListResultMap">
+  	       SELECT /* com.onedu.mvc.goods.model.dao.GoodsDAO#selectOneGoodsDetail() */
+  	              A.PROD_NO
+  	            , A.CATEGORY_ID
+  	            , A.TYPE_ID
+  	            , A.PROD_NAME
+  	            , A.PROD_NAME_EN
+  	            , A.PROD_PRICE
+  	            , A.PROD_EXPLAIN
+  	            , C.IMG_ID
+  	            , C.ORIGIN_FILE_NAME
+  	            , C.SAVED_NAME
+  	            , C.SAVE_PATH
+  	            , C.THUMB_PATH
+  	            , E.OP_NAME
+  	            , E.EXTRA_PAY
+  	         FROM PROD A
+  	  	     JOIN CATEGORY B ON (A.CATEGORY_ID = B.CATEGORY_ID)
+  	  	     JOIN IMG C ON (A.PROD_NO = C.PROD_NO)
+  	  	     JOIN OP_PROD D ON (A.PROD_NO = D.PROD_NAME)
+  	  	     JOIN OP E ON (D.OP_NO = E.OP_NO)
+  	  	    WHERE A.SALE_CHECK = 'Y'
+  	  	      AND C.FILE_STATUS = 'Y'
+  	  	      AND A.PROD_NO = #{ goodsNo }
+  	  </select>
   	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
-  	  
+  	  <select id="selectOptions" resultMap="optionResultMap">
+  	  	   SELECT 
+				  A.OP_NO 
+				, A.OP_NAME 
+				, A.EXTRA_PAY 
+				, A.OP_NO2 
+		     FROM OP A
+		        , (SELECT OD.OP_NO FROM OP_PROD OD, OP 
+		            WHERE OD.OP_NO = OP.OP_NO 
+		              AND PROD_NAME = #{ goodsNo }) B
+		    WHERE A.OP_NO=B.OP_NO 
+		       OR A.OP_NO2 = B.OP_NO
+  	  </select>
+
   </mapper>

@@ -27,10 +27,36 @@
 
 <body>
 	
-	<main>
-    <div class="header_hidden">
-    </div>
+	
+	
+<!-- 헤더 -->
+		<jsp:include page="/WEB-INF/views/main/header.jsp" />
+	        <script>
+            window.addEventListener('load', function() {
+                var allElements = document.getElementsByTagName('*');
+                Array.prototype.forEach.call(allElements, function(el) {
+                    var includePath = el.dataset.includePath;
+                    if (includePath) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                el.outerHTML = this.responseText;
+                            }
+                        };
+                        xhttp.open('GET', includePath, true);
+                        xhttp.send();
+                    }
+                });
+            });
+        </script>
+
+
+
     
+    
+    
+    
+    <main>
     <!-- main image -->
     <div class="display_container center" id="section1">
         <img src="resources/image/img-bg1.png" style="width: 100%; height: 600px;">
@@ -495,15 +521,12 @@
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
-
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
-
         function currentSlide(n) {
             showSlides(slideIndex = n);
         }
-
         function showSlides(n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");
@@ -525,6 +548,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    <!-- 푸터 -->    
+        
+    <footer>
+
+	<jsp:include page="/WEB-INF/views/main/footer.jsp" />
+ 
+    <script>
+ 
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+ 
+    </script>
+
+</footer>
+        
+        
+        
+        
+        
+        
+        
 </body>
 
 </html>

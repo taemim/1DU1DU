@@ -5,7 +5,11 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
+
 import com.onedu.mvc.goods.model.dto.ImgDTO;
+
+import com.onedu.mvc.goods.model.dto.OptionDTO;
+
 
 public class GoodsDAO {
 
@@ -13,6 +17,11 @@ public class GoodsDAO {
 	public List<GoodsDTO> selectGoodsList(SqlSession session) {
 		
 		return session.selectList("GoodsDAO.selectGoodsList");
+	}
+
+	public GoodsDTO selectOneGoodsDetail(SqlSession session, int goodsNo) {
+		
+		return session.selectOne("GoodsDAO.selectOneGoodsDetail", goodsNo);
 	}
 	
 	/* 일반 상품 등록 메소드 */
@@ -27,7 +36,8 @@ public class GoodsDAO {
 		return session.insert("GoodsDAO.insertImg", file);
 	}
 	
-	
-	
+	public List<OptionDTO> selectOptionList(SqlSession session, int goodsNo){
+		return session.selectList("GoodsDAO.selectOptions", goodsNo);
+	}
 
 }
