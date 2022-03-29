@@ -24,12 +24,8 @@
 </head>
 <body>
 
-	<!-- header import -->
-    <div class="header_hidden">
-        <h1> 헤더영역 비워두는 용도 </h1>
-    </div>
-    
-    <%-- <jsp:include page="../main/header.jsp"/> --%>
+    <!-- header import -->
+    <jsp:include page="../main/header.jsp"/>
 
     <div class="container">
         <div class="row">
@@ -53,12 +49,12 @@
                     <h1>1:1 문의</h1>
                     <br>
                     <div class="top_menu">
-                        <p style="margin-bottom: 10px;">
+                        <span style="padding-bottom: 20px;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
                                 <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
                             </svg>
                             한 번 등록한 문의는 수정이 불가능하므로, 삭제 후 재문의 해 주시기 바랍니다.
-                        </p>
+                        </span>
                         <div class="write">
                              <button type="button"
                                  onclick="location.href='${ pageContext.servletContext.contextPath }/ask/insert'">작성하기</button>
@@ -91,7 +87,6 @@
                                     <td>${ ask.askType }</td>
                                     <td class="rt">
                                     	<span class="url title myQuestion"  onclick="detailView(${ask.askNo})">${ ask.askTitle }</span>
-                                        <%-- <a href="#none" class="url title myQuestion">${ ask.askTitle }</a> --%>
                                     </td>
                                     <td>${ ask.askDate }</td>
                                     <td><c:if test="${ ask.ansContents != null }">Y</c:if></td>

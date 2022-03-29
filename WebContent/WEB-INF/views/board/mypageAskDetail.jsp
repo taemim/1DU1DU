@@ -25,9 +25,8 @@
 
 <body>
 
-    <div class="header_hidden">
-        <h1> 헤더영역 비워두는 용도 </h1>
-    </div>
+    <!-- header import -->
+    <jsp:include page="../main/header.jsp"/>
 
     <div class="container">
         <div class="row">
@@ -94,26 +93,7 @@
     </div>
 
     <!-- footer import -->
-    <div data-include-path="footer.html"></div>
-
-    <script>
-        window.addEventListener('load', function () {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function (el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
-    </script>
+    <jsp:include page="../main/footer.jsp"/>
 
 </body>
 
