@@ -7,17 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS 외부링크 -->
-    <link href="..\resources\css\footer.css" rel="stylesheet" type="text/css">
-     <!-- 구글웹폰트 -->
-     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-     <!-- 제이쿼리 -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
-     
-    <title>1DU1DU</title>
 
-     <!-- footer -->
-     <footer id="footer">
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/footer.css" rel="stylesheet" type="text/css">
+    <!-- 구글웹폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>1DU1DU</title>
+</head>
+
+<body>
+    <!-- footer -->
+    <footer id="footer">
+
         <div class="footer-top">
             <div class="footer-inner">
                 <ul class="footer-policy">

@@ -9,15 +9,36 @@
 		<result property="prodNo" column="PROD_NO"/>
 		<result property="userId" column="USER_ID"/>
 		<result property="askTitle" column="ASK_TITLE"/>
-		<result property="askType" column="ASK_TYPE"/>
 		<result property="askContents" column="ASK_CONTENTS"/>
 		<result property="askDate" column="ASK_DATE"/>
 		<result property="ansTitle" column="ANS_TITLE"/>
 		<result property="ansContents" column="ANS_CONTENTS"/>
 		<result property="ansDate" column="ANS_DATE"/>
 		<result property="askStatus" column="ASK_STATUS"/>
+		<result property="askType" column="ASK_TYPE"/>
+
+		<association property="writer" resultMap="memberResultMap"/> <!-- MemberDTO -->
 	</resultMap>
 	
+	<resultMap type="com.onedu.mvc.member.model.dto.MemberDTO" id="memberResultMap">
+		<id property="userId" column="USER_ID"/>
+		<result property="userPwd" column="USER_PWD"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="birthday" column="BIRTHDAY"/>
+		<result property="gender" column="GENDER"/>
+		<result property="postal" column="POSTAL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="email" column="EMAIL"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="buyCnt" column="BUY_CNT"/>
+		<result property="userAct" column="USER_ACT"/>
+		<result property="userRole" column="USER_ROLE"/>
+		<result property="gradeNo" column="GRADE_NO"/>
+	</resultMap>
+	
+	<!-- 마이페이지 1:1 문의 전체 조회 -->
 	<select id="selectAllAskList" resultMap="askResultMap">
 		SELECT
 			   ASK_NO
@@ -33,5 +54,48 @@
 		 WHERE ASK_STATUS = 'Y'
 		 ORDER BY ASK_NO DESC
 	</select>
+	
+	<!-- 마이페이지 1:1 문의 등록 -->
+	<insert id="insertAsk">
+		INSERT
+		  INTO ASK
+		(
+		  ASK_NO
+		, PROD_NO
+		, ASK_TITLE
+		, ASK_TYPE
+		, USER_ID
+		, ASK_CONTENTS
+		)
+		VALUES
+		(
+		  SEQ_ASK_NO.NEXTVAL
+		, #{ prodNo }
+		, #{ askTitle }
+		, #{ askType }
+		, 'user01'
+		, #{ askContents }
+		)
+	</insert>
+	
+	<!-- 마이페이지 1:1 문의 조회 -->
+	<select id="selectAskDetail" resultMap="askResultMap">
+		SELECT
+			   ASK_NO
+			 , ASK_TITLE
+			 , ASK_CONTENTS
+			 , ASK_TYPE
+		  FROM ASK
+		 WHERE ASK_STATUS = 'Y'
+		   AND ASK_NO = #{ askNo }
+	</select>
+	
+	<!-- 마이페이지 1:1 문의 삭제 -->
+	<update id="deleteAsk">
+		UPDATE
+			   ASK
+		   SET ASK_STATUS = 'N'
+		 WHERE ASK_NO = #{ askNo }
+	</update>
 
 </mapper>
