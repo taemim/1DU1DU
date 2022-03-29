@@ -32,5 +32,11 @@ public class CartDAO {
 		return sqlSession.update("CartDAO.updateCart", updateCart);
 	}
 	
+	/* 장바구니 상품 개별 삭제용 메소드 */
+	public int deleteOneCart(SqlSession sqlSession, int no) {
+		
+		return sqlSession.delete("CartDAO.deleteOneCart", no);
+	}
+	
 	
 }
