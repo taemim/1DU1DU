@@ -65,7 +65,7 @@
 											<input type="checkbox" class="individual_cart_checkbox check_input_size" checked="checked"
 												class="chkbox" value="${ prod.cartNo }" name="no">
 											<input type="hidden" class="individual_prodPrice_input" name="prodPrice" value="${ prod.goods.price }">
-											<input type="hidden" class="individual_amount_input" name="prodAmount" value="${ prod.amount }">
+											<input type="hidden" class="individual_amount_input" name="amount" value="${ prod.amount }">
 											<input type="hidden" class="individual_totalPrice_input" value="${ prod.goods.price * prod.amount }">
 										</td>
 										<td class="td_width_2">
@@ -104,7 +104,7 @@
 											<fmt:formatNumber value="${ prod.goods.price * prod.amount }" pattern="#,###,### 원"/>
 										</td>
 										<td class="td_width_4 table_text_align_center">
-											<button type="button" class="btn_delete" data-cartid="${ prod.cartNo }" onclick="deleteCart()"><strong style="font-size: large;">X</strong></button>
+											<button type="button" class="btn_delete" onclick="deleteOneCart()"><strong style="font-size: large;">X</strong></button>
 										</td>
 									</tr>
 								</c:otherwise>
@@ -163,14 +163,23 @@
 		</form>
 	</div>
 
-	<form name="cartForm" method="post">
+	<%-- <form name="cartForm" method="post">
 		<input type="hidden" name="no" value="${ prod.cartNo }">
-	</form>
+	</form> --%>
 
 	<script type="text/javascript">
-        function deleteCart(){
+		function deleteCart(){
 			if(confirm('선택하신 상품을 삭제하시겠습니까?')){
 				document.forms.cartForm.action = "${ pageContext.servletContext.contextPath }/cart/delete";
+				document.forms.cartForm.submit();
+			} else {
+				location.href = "${ pageContext.servletContext.contextPath }/cart/list";
+			}
+		}
+		
+        function deleteOneCart(){
+			if(confirm('개별 상품을 삭제하시겠습니까?')){
+				document.forms.cartForm.action = "${ pageContext.servletContext.contextPath }/cart/deleteone";
 				document.forms.cartForm.submit();
 			} else {
 				location.href = "${ pageContext.servletContext.contextPath }/cart/list";
