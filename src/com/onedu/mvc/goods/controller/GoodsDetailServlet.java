@@ -14,8 +14,7 @@ import com.onedu.mvc.goods.model.service.GoodsService;
 
 @WebServlet("/goods/detail")
 public class GoodsDetailServlet extends HttpServlet {
-       
-    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int goodsNo = Integer.parseInt(request.getParameter("goodsNo"));

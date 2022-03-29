@@ -4,10 +4,14 @@ import static com.onedu.mvc.common.mybatis.Template.getSqlSession;
 
 import java.util.List;
 
+import org.apache.commons.io.monitor.FileAlterationListener;
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dao.GoodsDAO;
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
+import com.onedu.mvc.goods.model.dto.ImgDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
+
 
 public class GoodsService {
 	
@@ -34,13 +38,47 @@ public class GoodsService {
 		
 		SqlSession session = getSqlSession();
 		
-		GoodsDTO goods = null;
-		
-		goods = goodsDAO.selectOneGoodsDetail(session, goodsNo);
-			
+		GoodsDTO goods = goodsDAO.selectOneGoodsDetail(session, goodsNo);;
+		goods.setOptionList(goodsDAO.selectOptionList(session, goodsNo));
 		session.close();
 		
 		return goods;
+	}
+	
+	
+	
+
+	public int insertGoodsDetail(GoodsDTO goods) {
+		
+		SqlSession session = getSqlSession();
+		
+		int result = 0;
+		
+		int goodsResult = goodsDAO.insertGoodsDetail(session, goods);
+				
+		System.out.println("goodsResult : " + goods);
+		
+		List<ImgDTO> fileList = goods.getImgList();
+		
+		for(int i = 0; i < fileList.size(); i++) {
+			fileList.get(i).setProdNo(goods.getGoodsNo());
+		}
+		
+		int imgResult = 0;
+		for(int i = 0; i < fileList.size(); i++) {
+			imgResult += goodsDAO.insertImg(session, fileList.get(i));
+		}
+		
+		if(goodsResult > 0 && imgResult == fileList.size()) {
+			session.commit();
+			result = 1;
+		} else {
+			session.rollback();
+		}
+		
+		session.close();
+		
+		return result;
 	}
 
 }

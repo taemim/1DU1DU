@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- css 외부 링크 -->
-    <link href="${ pageContext.servletContext.contextPath }/resources/css/mypageReviewInsert.css" rel="stylesheet" type="text/css">
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/mypageReviewUpdate.css" rel="stylesheet" type="text/css">
     <!-- 파비콘 -->
     <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
     <title>사용자 - 리뷰 수정</title>
@@ -27,9 +27,8 @@
 
 <body>
 
-    <div class="header_hidden">
-        <h1> 헤더영역 비워두는 용도 </h1>
-    </div>
+    <!-- header import -->
+    <jsp:include page="../main/header.jsp"/>
 
     <div class="container">
         <div class="row">
@@ -149,7 +148,7 @@
     </script>
 
     <!-- footer import -->
-    <div data-include-path=" footer.html"></div>
+    <jsp:include page="../main/footer.jsp"/>
 
 </body>
 

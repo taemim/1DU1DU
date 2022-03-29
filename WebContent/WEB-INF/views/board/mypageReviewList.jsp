@@ -27,9 +27,7 @@
 <body>
 
 	<!-- header import -->
-    <div class="header_hidden">
-        <h1> 헤더영역 비워두는 용도 </h1>
-    </div>
+    <jsp:include page="../main/header.jsp"/>
 
     <div class="container">
         <div class="row">
@@ -79,7 +77,6 @@
                                     <td>${ rev.goods.goodsName }</td>
                                     <td class="rt">
                                     	<span class="url title myQuestion"  onclick="detailView(${rev.revNo})">${ rev.revTitle }</span>
-                                        <!-- <a href="#none" class="url title myQuestion">원두 향이 좋아요</a> -->
                                     </td>
                                     <td>${ rev.writeDate }</td>
                                     <td>${ rev.gradeAvg }</td>

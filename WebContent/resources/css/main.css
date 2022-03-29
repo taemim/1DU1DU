@@ -75,6 +75,7 @@ dl, ul, ol, li {
 .display_container {
     position:relative;
     font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 200px;
 }
 
 .display_bottommiddle {
