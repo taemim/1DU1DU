@@ -1,41 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-
-
-    <!--폰트-->
-    <link href="https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap" rel="stylesheet">
-
-    <!--css-->
-    <link href="../resources/css/login.css"  rel="stylesheet" type="text/css">
-    <link href="../resources/font.css" rel="stylesheet" type="text/css">
-
-
-    <!--파비콘-->
-    <link rel="icon" type="image/x-icon" href="../resources/image/android-icon-48x48.png">
-
+    <!-- 구글웹폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <!-- 제이쿼리 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- css 외부 링크 -->
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/login.css" rel="stylesheet" type="text/css">
+    <!-- 파비콘 -->
+	<link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
 
+
+
+
+
+
+<title>로그인</title>
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/login.css" rel="stylesheet" >
 </head>
-
-
 <body>
 
 
-<!-- 헤더 영역 -->
 
-	<jsp:include page="../main/header.html"/>
+<!-- 헤더 -->
+	<jsp:include page="/WEB-INF/views/main/header.jsp" />	
+	        <script>
+            window.addEventListener('load', function() {
+                var allElements = document.getElementsByTagName('*');
+                Array.prototype.forEach.call(allElements, function(el) {
+                    var includePath = el.dataset.includePath;
+                    if (includePath) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                el.outerHTML = this.responseText;
+                            }
+                        };
+                        xhttp.open('GET', includePath, true);
+                        xhttp.send();
+                    }
+                });
+            });
+        </script>
 
 
 
-<!--로그인 영역-->
- 
+
+<!-- 본문 -->
+
 	<div class="wrapper">
 		<div class="outer">
 
@@ -45,12 +66,12 @@
              <h4></h4>
 
             <!--아이디 입력칸-->
-			<span class="input_area"><input type="text" name="memberId" id="memberId"
+			<span class="input_area"><input type="text" name="userId" id="memberId"
 			placeholder="아이디 입력" required></span>
             <h2></h2>
 
              <!--비밀번호 입력칸-->
-			<span class="input_area"><input type="password" name="memberPwd" id="memberPwd"
+			<span class="input_area"><input type="password" name="userPwd" id="memberPwd"
 			placeholder="비밀번호 입력" required></span>
 
             <!--아이디 저장 체크 박스-->
@@ -58,7 +79,9 @@
 			<label for="remember">아이디 저장</label></h5>
 
             <!--로그인 버튼-->
-            <span class="input_area"><input type="submit" id="login" value="로그인"></span>
+            <span class="input_area"><input type="submit" name="requestMember" id="login" value="로그인"></span>
+            
+            
             <br>
             <br>
 
@@ -66,11 +89,11 @@
 			<span class="input_area"><input type="button" id="kakao-login" value="카카오톡으로 로그인"></span>
                 
             <div class="cantlogin">
-                 <a href="../login/find-id.html"><label for="idfind" id="id-find">아이디 찾기</label></a>
+                <a href="${ pageContext.servletContext.contextPath }/member/findId"><label for="idfind" id="id-find">아이디 찾기</label></a>
                  &nbspㅣ&nbsp
-                <a href="../login/find-pwd.html"><label for="pwdfind" id="pwd-find">비밀번호 찾기</label></a>
+                <a href="${ pageContext.servletContext.contextPath }/member/findPwd"><label for="pwdfind" id="pwd-find">비밀번호 찾기</label></a>
                  &nbspㅣ&nbsp
-                <a href="../login/enroll.html"><label for="enroll" id="enrollment">회원가입</label></h5></a>
+                <a href="${ pageContext.servletContext.contextPath }/member/enroll"><label for="enroll" id="enrollment">회원가입</label></h5></a>
             </div>
                 
 
@@ -121,7 +144,7 @@
 
     <footer>
 
-    <div data-include-path="..\main\footer.html"></div>
+	<jsp:include page="/WEB-INF/views/main/footer.jsp" />
  
     <script>
  

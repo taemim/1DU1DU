@@ -1,7 +1,9 @@
+
 /* 인코딩 문자 깨짐 방지 */
 @charset "UTF-8";
 
 /* 공통속성 */
+
 html {
     /* 사용자 설정 문자 크기 그대로 반영 되도록 */
     font-size : 100%;
@@ -39,6 +41,7 @@ div {
 dl, ul, ol, li {
     list-style: none;
 }
+
 
 /* footer ----------------------------------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, address, caption, em, th, p {
@@ -106,6 +109,7 @@ ul {
     float: left;
     font-size: 0.8em;
 }
+
 
 .footer-info address {
 	margin-bottom: 0px;
