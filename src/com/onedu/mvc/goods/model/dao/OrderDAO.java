@@ -24,5 +24,10 @@ public class OrderDAO {
 		return session.insert("OrderDAO.insertGoodsList", goods);
 	}
 
+	public static PaymentDTO selectPaymentResult(SqlSession session, PaymentDTO newPayment) {
+		
+		return session.selectOne("OrderDAO.selectPayment", newPayment);
+	}
+
 
 }

@@ -56,7 +56,7 @@
 	<div class="header_hidden">
 	</div>
 
-	<div class="container-fluid" style="padding:50px 100px 50px 100px;">
+	<div class="container-fluid" style="padding:50px 200px 50px 200px;">
 		<div class="row">
 			<!-- 마이페이지 사이드 영역 -->
 			<div class="col-lg-2 side-box">

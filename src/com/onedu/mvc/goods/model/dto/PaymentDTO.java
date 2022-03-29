@@ -11,7 +11,7 @@ public class PaymentDTO {
 	private java.sql.Timestamp paySuccessTime;
 	
 	public PaymentDTO(String payNo, int orderNo, int amount, Date payTime, java.sql.Timestamp paySuccessTime) {
-		super();
+		super();      
 		this.payNo = payNo;
 		this.orderNo = orderNo;
 		this.amount = amount;

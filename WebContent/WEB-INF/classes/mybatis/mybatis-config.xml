@@ -31,6 +31,7 @@
 		<!-- 송연지 -->
 		<mapper resource="com/onedu/mvc/board/model/dao/AskDAO.xml"/>
 		<mapper resource="com/onedu/mvc/board/model/dao/ReviewDAO.xml"/>
+		<mapper resource="com/onedu/mvc/cart/model/dao/CartDAO.xml"/>
 				
 		<!-- 김세영 -->
 		

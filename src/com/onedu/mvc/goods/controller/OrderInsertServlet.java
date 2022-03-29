@@ -50,29 +50,27 @@ public class OrderInsertServlet extends HttpServlet {
 		// 주문 상품 정보 담기
 		GoodsDTO goods = new GoodsDTO();
 
-		/*
-		 * String[] op = request.getParameterValues("optionNo");
-		 * 
-		 * System.out.println(op);
-		 * 
-		 * List<OptionDTO> optionList = new ArrayList<>(); OptionDTO option = new
-		 * OptionDTO();
-		 * 
-		 * for (int i = 0; i < op.length ; i++) {
-		 * System.out.println("option 배열 확인하기 "+op[i]);
-		 * 
-		 * option.setOptionNo(Integer.parseInt(op[i])); optionList.add(option); }
-		 */
+//		 String[] op = request.getParameterValues("optionNo");
+//		 
+//		 System.out.println(op);
+//		 
+//		 List<OptionDTO> optionList = new ArrayList<>(); OptionDTO option = new
+//		 OptionDTO();
+//		  
+//		 for (int i = 0; i < op.length ; i++) {
+//		 System.out.println("option 배열 확인하기 "+op[i]);
+//		 
+//		 option.setOptionNo(Integer.parseInt(op[i])); optionList.add(option); }
+		
 		goods.setGoodsNo(Integer.parseInt(request.getParameter("goodsNo")));
 		goods.setAmount(Integer.parseInt(request.getParameter("amount")));
 		goods.setPrice(Integer.parseInt(request.getParameter("price")));
-		/*
-		 * goods.setOption(optionList);
-		 * 
-		 * System.out.println(op);
-		 * 
-		 */
-		
+
+//		 goods.setOptionList(optionList);
+//		
+//		 System.out.println(op);
+
+
 		System.out.println(" !!! 상품목록 확인 !!!! :" + goods);
 
 		OrderService orderService = new OrderService();

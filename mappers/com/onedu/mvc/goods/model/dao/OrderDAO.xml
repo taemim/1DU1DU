@@ -45,7 +45,6 @@
 		<result property="saleVol" column="SALE_VOL"/>
 		<result property="saleVol" column="SALE_VOL"/>
 		<result property="saleVol" column="SALE_VOL"/>
-
 		
 		<association property="imgList" resultMap="imgResultMap"/>
 		<association property="category" resultMap="categoryResultMap"/>
@@ -70,7 +69,7 @@
 	</resultMap>
 	
 	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
-		<id property="optionNO" column="OP_NO"/>
+		<id property="optionNo" column="OP_NO"/>
 		<result property="optionName" column="OP_NAME"/>
 		<result property="extraPrice" column="EXTRA_PAY"/>
 		<result property="optionNo2" column="OP_NO2"/>
@@ -78,9 +77,10 @@
 	</resultMap>
 	
 	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionGoodsResultMap">
-		<id property="optionNO" column="OP_NO"/>
-		<id property="goodsNO" column="PROD_NO"/>	
+		<id property="optionNo" column="OP_NO"/>
+		<id property="goodsNo" column="PROD_NO"/>	
 	</resultMap>
+
 	
 	<insert id="insertOrder">
 		INSERT 
@@ -113,7 +113,7 @@
 		 , #{ orderNo }
 		 , #{ amount }
 		 , SYSDATE
-		 , TO_DATE(SYSDATE, 'HH24:MI:SS')
+		 , TO_TIMESTAMP(SYSDATE,'HH24:MI:SS')
 		)
 	</insert>
 	
@@ -129,8 +129,17 @@
 		   , #{ goodsNo }
 		   , #{ amount }
 		   , #{ price } 
-		   , 3
+		   , 
+		   ,  
+		   , NULL
 		  )
 	</insert>
+	
+	<select id="selectPayment" resultMap="paymentResultMap">
+		SELECT *
+		  FROM PAYMENT
+		 WHERE PAY_NO = #{ payNo }
+	</select>
+	
 	
 </mapper>

@@ -13,7 +13,6 @@ import com.onedu.mvc.goods.model.dto.PaymentDTO;
 
 public class OrderService {
 	
-
 	/* DB에 주문테이블 insert 하기  */
 	public int insertOrder(OrderDTO newOrder, PaymentDTO newPayment, GoodsDTO goods ) {
 		int result;
@@ -37,4 +36,14 @@ public class OrderService {
 		return result;
 	}
 
+	public PaymentDTO selsctPayment(PaymentDTO newPayment) {
+
+		SqlSession session = getSqlSession();
+		
+		PaymentDTO payment= OrderDAO.selectPaymentResult(session, newPayment);;
+		
+		session.close();
+		
+		return payment;
+	}
 }

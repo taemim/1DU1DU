@@ -79,7 +79,7 @@
 											<b class="goodsName">상품명 : ${ goods.goodsName }</b>
 										</h5>
 										<p class="option">옵션 : 
-											<c:forEach var="op" items="${ goods.option }">
+											<c:forEach var="op" items="${ goods.optionList }">
 											 ( ${ op.optionName2 }  ${ op.optionName } )&nbsp;
 											</c:forEach>
 										</p>
@@ -94,7 +94,6 @@
 									<br>
 									<c:set var="total"
 										value="${ total + ( goods.price * goods.amount ) }" />
-
 							</div>
 						</div>
 
@@ -147,8 +146,7 @@
 														$('#zipCode').val('${ loginUser.postal }');
 														$('#address').val('${ loginUser.address }');
 														$('#extraAddress').val('${ loginUser.address2 }');
-														$('#shipMemo').focus();
-											        	
+														$('#shipMemo').focus();	
 											        }
 											    });
 											});
@@ -464,7 +462,7 @@
 			    
 /* 			    var optionNo= [];
 			    
-			    <c:forEach var="op" items="${ goods.option }">
+			    <c:forEach var="op" items="${ goods.optionList }">
 			   		 optionNo.push( ${ op.optionNo } );
 				</c:forEach> */
 			  
@@ -523,9 +521,11 @@
 		 				        
 		 				        dataType: "text", //서버에서 보내줄 데이터 타입
 		 				        success: function(res){
-		 				        			        	
-		 				          if(res == "y"){	 				        	  
-		 							  location.href= '${ pageContext.servletContext.contextPath }/payment/complete'; //결제 완료 페이지로 이동
+		 				        		
+		 				         var payNo = rsp.imp_uid;	
+		 				        	
+		 				          if(res == "y"){	
+		 							  location.href= '${ pageContext.servletContext.contextPath }/payment/complete?payNo=' + payNo ; //결제 완료 페이지로 이동
 		 				          }else{
 		 				        	  alert("주문건 입력이 실패하였습니다. 다시 결제해주세요. (결제 환불은 고객센터 문의바랍니다.)"); // 결제 실패
 		 				          }

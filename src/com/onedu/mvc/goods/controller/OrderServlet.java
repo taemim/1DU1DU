@@ -44,13 +44,13 @@ public class OrderServlet extends HttpServlet {
 		OptionDTO option2 = new OptionDTO(1, 3, "400g", 0, 1, "용량");
 		List<OptionDTO> optionList = new ArrayList<>();
 		optionList.add(option1);
-		//optionList.add(option1);
+		optionList.add(option2);
 				
 		/* 상품을 선택 */
 		goods.setGoodsNo(1);
 		goods.setGoodsName("주문테스트용상품1");
 		goods.setPrice(1000);
-		goods.setOption(optionList);
+		goods.setOptionList(optionList);
 		goods.setAmount(2);
 		
 

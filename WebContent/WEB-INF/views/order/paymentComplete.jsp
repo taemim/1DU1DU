@@ -51,16 +51,16 @@
         <!-- 관리페이지 사이드 영역 -->
            <div class="col-lg-7 main-box">
               <div class="admin-page" style="text-align: center;">
-   				 <h1 align="center">주문 완료</h1><br><br>
+   				 <h2 align="center">주문 완료</h2><br><br>
    				 <h3>고객님의 주문이 완료 되었습니다. </h3>
    				 <br>
-   				 <h3> 고객님이 주문하신 주문 번호는 <b Style="color:red;">1112182번</b>입니다.</h3>
+   				 <h4> 고객님이 주문하신 주문 번호는 <b Style="color:red;"> ${ payment.orderNo }</b>입니다.</h4>
    				 <br>
    				 <p >주문내역 및 배송에 관한 안내는 마이페이지의 <i>"주문내역"</i> 에서 하실 수 있습니다.</p>
    				 <hr>
    				 
-   				<h5>결제일자 : </h5><br>
-   				<h5>최종 결제 금액 : </h5>
+   				<h5>결제일자 : ${ payment.payTime } ${ payment.paySuccessTime } </h5><br>
+   				<h5>최종 결제 금액 : ${ payment.amount }원 </h5>
    				
    				<br>
    				
