@@ -25,9 +25,8 @@
 
 <body>
 
-	<div class="header_hidden">
-		<h1>헤더영역 비워두는 용도</h1>
-	</div>
+	<!-- header import -->
+    <jsp:include page="../main/header.jsp"/>
 
 	<div class="container">
 		<div class="row">
@@ -101,6 +100,7 @@
 							<button type="button" class="btn btnS1 btnGry btnW160" onclick="deleteReview()">삭제하기</button>
 							<button type="button" class="btn btnS1 btnRed btnW160"
 								onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ reviewDetail.revNo }'">수정하기</button>
+							<!-- form 태그를 post 방식으로 제출 -->
 							<form name="revForm" method="post">
 								<input type="hidden" name="no" value="${ reviewDetail.revNo }">
 							</form>
@@ -121,7 +121,7 @@
 	</script>
 
 	<!-- footer import -->
-	<div data-include-path="footer.html"></div>
+    <jsp:include page="../main/footer.jsp"/>
 
 </body>
 
