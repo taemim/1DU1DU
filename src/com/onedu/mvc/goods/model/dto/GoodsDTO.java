@@ -19,15 +19,14 @@ public class GoodsDTO implements java.io.Serializable {
 	private String goodsExplainDetail;
 	private List<ImgDTO> imgList;
 	private CategoryDTO category;
-	private List<OptionDTO> optionList;
-	private OptionDTO option;
+	private List<OptionDTO> option;
+	private int OrderNo;
 	
 	public GoodsDTO() {}
 
-	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, String goodsNameEn, int price,
-			String goodsExplain, Date enrollDate, String saleCheck, int totalStock, int saleVol,
-			String goodsExplainDetail, List<ImgDTO> imgList, CategoryDTO category, List<OptionDTO> optionList,
-			OptionDTO option) {
+	public GoodsDTO(int goodsNo, int categoryId, int typeId, String goodsName, int price, String goodsExplain,
+			Date enrollDate, String saleCheck, int totalStock, int saleVol, int amount, List<ImgDTO> imgList,
+			CategoryDTO category, List<OptionDTO> option, int orderNo) {
 		super();
 		this.goodsNo = goodsNo;
 		this.categoryId = categoryId;
@@ -45,6 +44,7 @@ public class GoodsDTO implements java.io.Serializable {
 		this.category = category;
 		this.optionList = optionList;
 		this.option = option;
+		OrderNo = orderNo;
 	}
 
 	public int getGoodsNo() {
@@ -141,6 +141,12 @@ public class GoodsDTO implements java.io.Serializable {
 
 	public void setGoodsExplainDetail(String goodsExplainDetail) {
 		this.goodsExplainDetail = goodsExplainDetail;
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	public List<ImgDTO> getImgList() {
@@ -159,29 +165,29 @@ public class GoodsDTO implements java.io.Serializable {
 		this.category = category;
 	}
 
-	public List<OptionDTO> getOptionList() {
-		return optionList;
-	}
-
-	public void setOptionList(List<OptionDTO> optionList) {
-		this.optionList = optionList;
-	}
-
-	public OptionDTO getOption() {
+	public List<OptionDTO> getOption() {
 		return option;
 	}
 
-	public void setOption(OptionDTO option) {
+	public void setOption(List<OptionDTO> option) {
 		this.option = option;
+	}
+
+	public int getOrderNo() {
+		return OrderNo;
+	}
+
+	public void setOrderNo(int orderNo) {
+		OrderNo = orderNo;
 	}
 
 	@Override
 	public String toString() {
 		return "GoodsDTO [goodsNo=" + goodsNo + ", categoryId=" + categoryId + ", typeId=" + typeId + ", goodsName="
-				+ goodsName + ", goodsNameEn=" + goodsNameEn + ", price=" + price + ", goodsExplain=" + goodsExplain
-				+ ", enrollDate=" + enrollDate + ", saleCheck=" + saleCheck + ", totalStock=" + totalStock
-				+ ", saleVol=" + saleVol + ", goodsExplainDetail=" + goodsExplainDetail + ", imgList=" + imgList
-				+ ", category=" + category + ", optionList=" + optionList + ", option=" + option + "]";
+				+ goodsName + ", price=" + price + ", goodsExplain=" + goodsExplain + ", enrollDate=" + enrollDate
+				+ ", saleCheck=" + saleCheck + ", totalStock=" + totalStock + ", saleVol=" + saleVol + ", amount="
+				+ amount + ", imgList=" + imgList + ", category=" + category + ", option=" + option + ", OrderNo="
+				+ OrderNo + "]";
 	}
 
 	

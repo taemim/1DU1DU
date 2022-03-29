@@ -65,38 +65,80 @@
 					<div class="box">
 						<div class="form-box box">
 							<h3>주문 상품 정보</h3>
-							<h5 style="text-align: right;">상품 총 수량 ( ${ goods.amount } )개</h5>
+							<h5 style="text-align: right;">상품 목록 ( ${ goodsList.size() } )개</h5>
 							<br>
 							<div class="row" id="selectGoods">
 
 								<c:set var="total" value="0" />
+
+								<c:forEach var="row" items="${ requestScope.goodsList }">
 								
-								<div class="goods-img col-lg-4">
-										<img src="../resources/image/1234.png" alt="상품이미지">
+									<div class="goods-img col-lg-4">
+										<input type="checkbox" id="checkGoods" name="checkGoods"
+											value="${ row.goodsNo }"> <img
+											src="../resources/image/1234.png" alt="상품이미지">
 									</div>
 									<div class="goods-title col-lg-8">
 										<h5>
-											<b class="goodsName">상품명 : ${ goods.goodsName }</b>
+											<b class="goodsName">상품명 : ${ row.goodsName }</b>
 										</h5>
-										<p class="option">옵션 : 
-											<c:forEach var="op" items="${ goods.option }">
-											 ( ${ op.optionName2 }  ${ op.optionName } )&nbsp;
-											</c:forEach>
-										</p>
-										<p class="amount">수량 : ${ goods.amount } 개</p>
+										<p class="option">옵션 : ${ row.option } </p>
+										<p class="amount">수량 : ${ row.amount } 개</p>
 										<br>
 										<h5>
-											<b class="price">Total : <fmt:formatNumber value="${ goods.price * goods.amount }" pattern="#,###" /> 원
+											<b class="price">Total : <fmt:formatNumber value="${ row.price * row.amount }" pattern="#,###" /> 원
 											</b>
 										</h5>
 									</div>
 									<hr>
 									<br>
 									<c:set var="total"
-										value="${ total + ( goods.price * goods.amount ) }" />
+										value="${ total + (row.price * row.amount) }" />
+								</c:forEach>
 
 							</div>
+							<input type="button" class="btn btn-light" value="선택 상품 삭제" id="del">
 						</div>
+
+<script>
+
+if(confirm("선택하신 항목을 삭제하시겠습니까?")){
+
+    var chkCnt = 0;
+
+    varTable.find('>tbody input:checkbox').each(function(idx){
+
+          if(this.checked){
+
+                var nowRowSize = varTable.find('>tbody >tr').size();
+
+                var choiceRow = $(this).parent().parent();
+
+                if(nowRowSize == 1){
+
+                      // 마지막 row 값 초기화
+
+                      fncRowReset(choiceRow);     
+
+                } else {
+
+                      // 행삭제
+
+                      choiceRow.remove();
+
+                }
+
+                chkCnt++;
+
+          }
+
+    });
+
+
+
+출처: https://dev-gabriel.tistory.com/9 [애매한 잡학사전]
+
+</script>
 
 
 						<!-- 결제 폼 박스 1-->
@@ -142,12 +184,12 @@
 											    $("#inputUserInfo").change(function(){
 											        if($("#inputUserInfo").is(":checked")){
 											        
-														$('#receiverName').val('${ loginUser.userName }');
-														$('#receiverPhone').val('${ loginUser.phone }');
-														$('#zipCode').val('${ loginUser.postal }');
-														$('#address').val('${ loginUser.address }');
-														$('#extraAddress').val('${ loginUser.address2 }');
-														$('#shipMemo').focus();
+													$('#receiverName').val('${ loginUser.userName }');
+													$('#receiverPhone').val('${ loginUser.phone }');
+													$('#zipCode').val('${ loginUser.postal }');
+													$('#address').val('${ loginUser.address }');
+													$('#extraAddress').val('${ loginUser.address2 }');
+													$('#shipMemo').focus();
 											        	
 											        }
 											    });
@@ -377,8 +419,10 @@
 	</div>
 
 	<script>
+	
+	
 
-    /* 결제하기 버튼 클릭시 form 필수입력 체크*/
+    /* form 입력 체크*/
     function checkform() {
     	if( frm.receiverName.value == "" ) { 
     		frm.receiverName.focus(); 
@@ -413,19 +457,23 @@
     		alert("(필수) 구매 진행에 동의해 주세요."); 
     		$('#order-check').focus(); return false; 
     	}
+		
     	
     	//회원정보 수정 체크 시 ajax로 회원 정보 수정
     	if( frm.updateUser.checked == true){
+    		
+    		alert("주소 수정");
     		
     		$.ajax({
 					url : '${ pageContext.servletContext.contextPath }/member/addressUpdate', 
 			        type :'post',
 			        data :{
-		               userId : "${ loginUser.userId }",
+		               userId : ${ loginUser.userId },
 		               address : $("#address").val(),
 		               extraAddress : $("#extraAddress").val(),
 		               zipCode : $('#zipCode').val()   
 		            },
+			        
 			        dataType: "text", //서버에서 보내줄 데이터 타입
 			        success: function(res){
 			        			        	
@@ -439,8 +487,10 @@
 			          console.log("Insert ajax 통신 실패!!!");
 			        }
 				}) //ajax
-
+    		
+    		
     	}
+    	
     	
     	
     	/* 모든 입력폼 작성이 된 경우 import 결제 API 실행 */
@@ -451,8 +501,7 @@
  			function importPay(){ 
 				
     			/* 사용자 입력한 주문정보 */
-			 	let goodsNo = "${ goods.goodsNo }";
-			 	let goodsName = "${ goods.goodsName }";
+			 	let goodsName = "<c:out value=" ${ goodsList[0].goodsName }"/>";
 			 	let amount = '${ total }';
 		    	let	name = $("#receiverName").val();
 			    let	phone = $("#receiverPhone").val();
@@ -462,12 +511,13 @@
 			    let	extraAddress = $("#extraAddress").val();
 			    let	shipMemo = $("#shipMemo").val();
 			    
-/* 			    var optionNo= [];
 			    
-			    <c:forEach var="op" items="${ goods.option }">
-			   		 optionNo.push( ${ op.optionNo } );
-				</c:forEach> */
-			  
+			    let goodsList =[];
+			    for (i=0; i < ${ goodsList.size() }; i++){
+			   		 goodsList.push( ${ goodsList[i].goodsNo } );
+			   		 console.log(goodsList[i]);
+			 	}
+			   			    
 		    	//결제 api
 		 		var code = "imp68097050"; //가맹점 식별코드
 		 		IMP.init(code);
@@ -507,8 +557,7 @@
 		 				        data :{
 		 			                imp_uid: rsp.imp_uid,
 		 			                merchant_uid: rsp.merchant_uid,
-		 			                amount : amount,
-		 			              	price : rsp.paid_amount,
+		 			              	amount : rsp.paid_amount,
 		 			               	name : goodsName,
 		 			 				buyer_email: email,
 		 			 				buyer_name: name,
@@ -517,9 +566,8 @@
 		 			 				buyer_addr2 : extraAddress,
 		 			 				buyer_postcode: zipCode,
 		 			 				shipMemo : shipMemo, 
-		 			 				goodsNo : goodsNo/* ,
-		 			 				optionNo : optionNo */
-		 			 			},
+				 					goodsList : goodsList
+		 			            },
 		 				        
 		 				        dataType: "text", //서버에서 보내줄 데이터 타입
 		 				        success: function(res){

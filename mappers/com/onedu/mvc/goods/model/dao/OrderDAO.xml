@@ -45,6 +45,7 @@
 		<result property="saleVol" column="SALE_VOL"/>
 		<result property="saleVol" column="SALE_VOL"/>
 		<result property="saleVol" column="SALE_VOL"/>
+
 		
 		<association property="imgList" resultMap="imgResultMap"/>
 		<association property="category" resultMap="categoryResultMap"/>
@@ -73,9 +74,13 @@
 		<result property="optionName" column="OP_NAME"/>
 		<result property="extraPrice" column="EXTRA_PAY"/>
 		<result property="optionNo2" column="OP_NO2"/>
-		
+		<association property="goodsNo" resultMap="optionGoodsResultMap"/>
 	</resultMap>
 	
+	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionGoodsResultMap">
+		<id property="optionNO" column="OP_NO"/>
+		<id property="goodsNO" column="PROD_NO"/>	
+	</resultMap>
 	
 	<insert id="insertOrder">
 		INSERT 
@@ -112,22 +117,20 @@
 		)
 	</insert>
 	
-	<insert id="insertGoodsList" parameterType="java.util.List"> > 
+	<insert id="insertGoodsList">
+		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE"> 
+			SELECT SEQ_ORDER_NO.CURRVAL FROM DUAL
+		</selectKey> 
 		INSERT 
 		  INTO PROD_LIST
 		VALUES
-		 <foreach item="itme" collection="list" open="INSERT ALL" separator=" "
-		  close=" SELECT * FROM DUAL">
-		  (  #{ orderNo }
-		   , #{ item.goodsNo }
-		   , #{ item.amount }
-		   , #{ item.goodsPrice })
-		 </foreach>  
+		  ( 
+		  	 #{ orderNo }
+		   , #{ goodsNo }
+		   , #{ amount }
+		   , #{ price } 
+		   , 3
+		  )
 	</insert>
 	
-	
-	
-	
-	
-
 </mapper>

@@ -14,7 +14,7 @@ import com.onedu.mvc.member.model.dto.MemberDTO;
 import com.onedu.mvc.member.service.MemberService;
 
 
-@WebServlet("/member/updateAdrress")
+@WebServlet("/member/addressUpdate")
 public class MemberAddressUpdateServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +26,6 @@ public class MemberAddressUpdateServlet extends HttpServlet {
 		member.setPostal(request.getParameter("zipCode"));
 		
 		/* 주문 폼에서 입력한 주소값으로 회원 정보 수정하기 */
-		
 		MemberService memberService = new MemberService();
 		
 		int result = memberService.updateAddress(member);

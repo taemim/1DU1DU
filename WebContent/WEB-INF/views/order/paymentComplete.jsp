@@ -65,9 +65,9 @@
    				<br>
    				
    				<button type="button" class="btn btn-outline-dark btn-lg"
-				onclick="location.href= '${ pageContext.servletContext.contextPath }';">&nbsp;쇼핑 계속하기&nbsp;  </button>&nbsp;
+				onclick="location.href= '${ pageContext.servletContext.contextPath }'">&nbsp;쇼핑 계속하기&nbsp;  </button>&nbsp;
 				<button type="button" class="btn btn-outline-dark btn-lg" 
-				onclick="location.href= '${ pageContext.servletContext.contextPath }/goods/order';">&nbsp;주문 확인하기&nbsp; </button>
+				onclick="location.href= '${ pageContext.servletContext.contextPath }/goods/order'">&nbsp;주문 확인하기&nbsp; </button>
    				 
          	</div>
          	

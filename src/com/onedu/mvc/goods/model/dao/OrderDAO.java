@@ -20,8 +20,8 @@ public class OrderDAO {
 		return session.insert("OrderDAO.insertPayment", newPayment);
 	}
 
-	public static int insertGoodsList(SqlSession session, List<GoodsDTO> goodsList) {
-		return session.insert("OrderDAO.insertGoodsList", goodsList);
+	public static int insertGoodsList(SqlSession session, GoodsDTO goods) {
+		return session.insert("OrderDAO.insertGoodsList", goods);
 	}
 
 
