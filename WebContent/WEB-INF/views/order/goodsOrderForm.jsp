@@ -82,18 +82,18 @@
 										<p class="option">옵션 : 
 											<c:forEach var="op" items="${ goods.optionList }">
 												 <c:set var="extra" value="${ extra + op.extra_pay }"/>
-												 [ ${ op.optionName2 } ] <b> ${ op.optionName } </b> 
+												 [ ${ op.optionName2 } ] ${ op.optionName } 
 												 <c:if test="${ op.extra_pay } ne 0"> ( ${ op.extra_pay } ) </c:if>&nbsp;
 											</c:forEach>
 										</p>				
 										<p class="amount">수량 : ${ goods.amount }개</p>
-										<br>
+										
 										<h5>
 											<b class="price">Total : <fmt:formatNumber value="${ ( goods.price + extra )* goods.amount }" pattern="#,###" /> 원
 											</b>
 										</h5>
 									</div>
-									<hr>
+									
 									<br>
 									<c:set var="total"
 										value="${ total + ( goods.price + extra )* goods.amount }" />
@@ -454,7 +454,8 @@
     			/* 사용자 입력한 주문정보 */
 			 	let goodsNo = "${ goods.goodsNo }";
 			 	let goodsName = "${ goods.goodsName }";
-			 	let amount = '${ total }';
+			 	let amount = "${ goods.amount }";
+			 	let price = "${ total }";
 		    	let	name = $("#receiverName").val();
 			    let	phone = $("#receiverPhone").val();
 			    let	email = $("#email").val();
@@ -485,7 +486,7 @@
 		 				pay_method: 'card',
 		 				merchant_uid : 'merchant_' + new Date().getTime(),
 		 				name : goodsName , // 상품명
-		 				amount : amount,
+		 				amount : price,
 		 				buyer_email: email,
 		 				buyer_name: name,
 		 				buyer_tel: phone,

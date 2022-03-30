@@ -486,7 +486,7 @@
 	    			  
 	    			  document.querySelector('input[name=option1]').value = document.getElementById('gram').innerText;
 	    			  document.querySelector('input[name=option2]').value = document.getElementById('grinder').innerText;
-	    			  document.querySelector('input[name=price]').value = document.querySelector('#Price').innerText;
+	    			  document.querySelector('input[name=price]').value = document.querySelector('#price').innerText;
 	    			  
 	    		  }
 	    	  }  	  

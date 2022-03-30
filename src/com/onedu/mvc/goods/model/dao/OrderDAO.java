@@ -31,7 +31,6 @@ public class OrderDAO {
 		return session.selectOne("OrderDAO.selectPayment", newPayment);
 	}
 
-
 	public static ImgDTO selectImg(SqlSession session, GoodsDTO goods) {
 	
 		return session.selectOne("OrderDAO.selectImg",  goods);
@@ -39,6 +38,10 @@ public class OrderDAO {
 
 	public static OptionDTO selectOption(SqlSession session, String op) {
 		return session.selectOne("OrderDAO.selectOption",  op);
+	}
+
+	public static int insertOrderOp(SqlSession session, GoodsDTO goods) {
+		return session.insert("OrderDAO.insertOrderOp", goods);
 	}
 
 

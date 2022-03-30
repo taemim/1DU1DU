@@ -46,17 +46,16 @@
     <div class="header_hidden">
         <h1> 헤더영역 비워두는 용도 </h1>
     </div>
-    <div class="container-fluid" style="padding:0px; margin-top: 50px;">
+    <div class="container-fluid" style="padding:0px; margin-bottom:20px;">
      <div class="row">
         <!-- 관리페이지 사이드 영역 -->
-           <div class="col-lg-7 main-box">
+           <div class="col-lg-5 main-box">
               <div class="admin-page" style="text-align: center;">
-   				 <h2 align="center">주문 완료</h2><br><br>
-   				 <h3>고객님의 주문이 완료 되었습니다. </h3>
+   				 <h2 align="center">주문 완료</h2><br>
+   				 <h5>고객님의 주문이 완료 되었습니다.</h5>
+   				 <h5> 고객님이 주문하신 주문 번호는 <b Style="color:red;"> ${ payment.orderNo }</b>입니다.</h5>
    				 <br>
-   				 <h4> 고객님이 주문하신 주문 번호는 <b Style="color:red;"> ${ payment.orderNo }</b>입니다.</h4>
-   				 <br>
-   				 <p >주문내역 및 배송에 관한 안내는 마이페이지의 <i>"주문내역"</i> 에서 하실 수 있습니다.</p>
+   				 <p>주문내역 및 배송에 관한 안내는 마이페이지의 <i>"주문내역"</i> 에서 하실 수 있습니다.</p>
    				 <hr>
    				 
    				<h5>결제일자 : ${ payment.payTime } ${ payment.paySuccessTime } </h5><br>
@@ -75,7 +74,6 @@
           </div>
     </div>
     
-
     <jsp:include page="/WEB-INF/views/main/footer.jsp"/>
     
     
