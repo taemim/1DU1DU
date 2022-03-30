@@ -29,7 +29,6 @@
 	
 	<jsp:include page="/WEB-INF/views/main/header.jsp"/>
 	
-
     <!-- main image -->
     <div class="display_container center" id="section1">
         <img src="${ pageContext.servletContext.contextPath }/resources/image/img-bg1.png" style="width: 100%; height: 600px;">

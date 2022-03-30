@@ -1,6 +1,7 @@
 package com.onedu.mvc.goods.controller;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,20 +28,19 @@ public class OrderServlet extends HttpServlet {
 		OrderService orderService = new OrderService();
 		
 		String path = "/WEB-INF/views/order/goodsOrderForm.jsp";
-		
-		MemberDTO loginUser = new MemberDTO();
-		loginUser.setUserId("user01");
-		loginUser.setUserName("홍길동");
-		loginUser.setPhone("010-1234-5678");
-		loginUser.setAddress("서울시 강남구 역삼2동");
-		loginUser.setAddress2("202호");
-		loginUser.setPostal("23456");
-		loginUser.setEmail("hong123@gmail.com");
-		
-		//로그인 유저 정보를 세션에 담기
-		HttpSession session = request.getSession();
-		session.setAttribute("loginUser", loginUser);
-				
+//		
+//		//로그인 유저 정보를 세션에 담기
+//		HttpSession session = request.getSession();
+//		session = request.getSession();
+//		
+//		MemberDTO loginMember = new MemberDTO();
+//		loginMember = (MemberDTO) session.getAttribute("loginMember");
+//		
+//		if(loginMember == null) {
+//			System.out.println("로그인이 필요합니다.");
+//		}
+//		
+//		System.out.println("로그인 회원 확인 !!!!" + loginMember);
 
 		List<OptionDTO> optionList = new ArrayList<>();
 		
@@ -84,11 +84,9 @@ public class OrderServlet extends HttpServlet {
 		imgList.add(img);
 		
 		goods.setImgList(imgList);
-		
-		
 
 		request.setAttribute("goods", goods);
-		
+
 		request.getRequestDispatcher(path).forward(request, response);
 
 	}
