@@ -13,9 +13,38 @@
 <title>1 D U 1 D U</title>
 </head>
 <body>
-    <div class="header_hidden">
-        <h1> 헤더영역 비워두는 용도 </h1>
+    <div class="header_hidden" >
+        <jsp:include page="../main/header.jsp" />
     </div>
+
+		<!-- menu bar-->
+        <nav class="navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" >
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <ul class="navbar-nav me-auto mb-2 mt-lg-2 mb-lg-2" >
+                  <li class="nav-item ms-5 me-4">
+                    <a class="nav-link fs-5" href="#">NEW</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">BEST</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">원두</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">드립백</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">콜드브루</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">커피용품</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
     <div class="container">
         <div class="row">
@@ -26,7 +55,7 @@
                     <h3>어떤 커피를 즐기세요?</h3><br>
                     <div class="row">
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" onClick="location.href='testDecaffeine.jsp'">
+                            <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/black.png">
                                 <h5>블랙 그대로</h5>
@@ -34,7 +63,7 @@
 
                         </div>
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" onClick="location.href='testDecaffeine.jsp'">
+                            <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/latte.png">
                                 <h5>우유를 더한 라떼</h5>
@@ -42,7 +71,7 @@
                         </div>
 
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" onClick="location.href='testDecaffeine.jsp'">
+                            <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/sugar.png">
                                 <h5>설탕을 넣은 커피</h5>
@@ -50,7 +79,7 @@
                         </div>
 
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" onClick="location.href='testDecaffeine.jsp'">
+                            <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/syrup.png">
                                 <h5>시럽을 넣은 커피</h5>
@@ -59,8 +88,8 @@
                     </div> <!-- /side-box -->
 
                     <div class="pre-box">
-                        <button type="button" class="pre-button" onClick="location.href='testTools.jsp'">
-                            <img src="/resources/image/arrow_pre.png" alt="">
+                        <button type="button" class="pre-button" onclick="preTest(${ taste.testTools });">
+                            <img src="../resources/image/arrow_pre.png" alt="">
                         </button> <!-- /pre-button -->
                     </div> <!-- /pre-box -->
 
@@ -87,6 +116,14 @@
 
     <script>
 
+	    function nextTest(testDeccafeine) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testDecaffeine';
+	    }
+	    
+	    function preTest(testTools) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testTools';
+	    }
+    
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');
             Array.prototype.forEach.call(allElements, function (el) {

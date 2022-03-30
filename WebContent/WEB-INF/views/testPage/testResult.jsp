@@ -13,9 +13,38 @@
 <title>1 D U 1 D U</title>
 </head>
 <body>
-    <div class="header_hidden">
-        <h1> 헤더영역 비워두는 용도 </h1>
+    <div class="header_hidden" >
+        <jsp:include page="../main/header.jsp" />
     </div>
+
+		<!-- menu bar-->
+        <nav class="navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" >
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <ul class="navbar-nav me-auto mb-2 mt-lg-2 mb-lg-2" >
+                  <li class="nav-item ms-5 me-4">
+                    <a class="nav-link fs-5" href="#">NEW</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">BEST</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">원두</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">드립백</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">콜드브루</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">커피용품</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
     <div class="container">
         <div class="row">
@@ -86,7 +115,7 @@
                                 <h5>정기 구독하러 가기</h5>
                                 <p>이 옵션으로 구독할래요!</p>
                             </button> <!-- /subs-button -->
-                            <button type="button" class="another-button">
+                            <button type="button" class="another-button" onclick="goodsList(${ goods.goodsList });">
                                 <h5>다른 상품 둘러보기</h5>
                                 <p>좀 더 둘러볼래요!</p>
                             </button> <!-- /another-button -->
@@ -112,6 +141,10 @@
                     con.style.display = "none";
                 }
             });
+            
+            function goodsList(goodsList) {
+                location.href = '${ pageContext.servletContext.contextPath }/goods/goodsList';
+            }
 
             window.addEventListener('load', function () {
                 var allElements = document.getElementsByTagName('*');

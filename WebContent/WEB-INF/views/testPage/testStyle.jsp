@@ -26,7 +26,7 @@
                     <h3>커피를 어떻게 내려드세요?</h3><br>
                     <div class="row">
                         <div class="col-4 box">
-                            <button type="button" class="inner-box" value="원두본연의특색" onClick="location.href='testFlavor.jsp'">
+                            <button type="button" class="inner-box" value="원두본연의특색" onclick="nextTest(${ taste.testFlavor });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>원두 본연의 특색을 즐겨요</h5>
                                 <span>과일, 꽃, 허브 등의 향미를 즐기고 싶어요. <br>
@@ -34,7 +34,7 @@
                             </button>
                         </div>
                         <div class="col-4 box">
-                            <button type="button" class="inner-box" value="커피스러운커피" onClick="location.href='testFlavor.jsp'">
+                            <button type="button" class="inner-box" value="커피스러운커피" onclick="nextTest(${ taste.testFlavor });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>커피스러운 커피 맛을 즐겨요</h5>
                                 <span>우리가 잘 알고 있는 전형적인 그 커피예요. <br>
@@ -42,7 +42,7 @@
                             </button>
                         </div>
                         <div class="col-4 box">
-                            <button type="button" class="inner-box" value="조화로운맛" onClick="location.href='testFlavor.jsp'">
+                            <button type="button" class="inner-box" value="조화로운맛" onclick="nextTest(${ taste.testFlavor });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>조화로운 맛을 즐겨요</h5>
                                 <span>익숙한 커피 맛과 원두 본연의 다채로운 향미를 <br>
@@ -53,8 +53,8 @@
                     </div> <!-- /row -->
 
                     <div class="pre-box">
-                        <button type="button" class="pre-button" onClick="location.href='testDecaffeine.jsp'">
-                            <img src="/resources/image/arrow_pre.png" alt="">
+                        <button type="button" class="pre-button" onclick="preTest(${ taste.testDecaffeine });">
+                            <img src="../resources/image/arrow_pre.png" alt="">
                         </button> <!-- /pre-button -->
                     </div> <!-- /pre-box -->
 
@@ -78,6 +78,14 @@
                 con.style.display = "none";
             }
         });
+        
+	    function nextTest(testFlavor) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testFlavor';
+	    }
+	    
+	    function preTest(testDecaffeine) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testDecaffeine';
+	    }
 
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');

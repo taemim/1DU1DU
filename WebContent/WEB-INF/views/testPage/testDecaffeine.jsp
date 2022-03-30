@@ -27,13 +27,13 @@
                     <div class="row">
                         <div class="col-5 box">
 
-                            <button type="button" class="inner-box" value="카페인" onClick="location.href='testStyle.jsp'">
+                            <button type="button" class="inner-box" value="카페인" onclick="nextTest(${ taste.testStyle });">
                                 <h5>카페인으로 주세요</h5>
                             </button>
 
                         </div>
                         <div class="col-5 box">
-                            <button type="button" class="inner-box" value="디카페인" onClick="location.href='testStyle.jsp'">
+                            <button type="button" class="inner-box" value="디카페인" onclick="nextTest(${ taste.testStyle });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>디카페인으로 주세요</h5>
                             </button>
@@ -42,9 +42,9 @@
                     </div> <!-- /row -->
 
                     <div class="pre-box">
-                        <button type="button" class="pre-button" onClick="location.href='testTopping.jsp'">
+                        <button type="button" class="pre-button" onclick="preTest(${ taste.testTopping });">
                             <i id="bi" class="bi bi-check-lg"></i>
-                            <img src="/resources/image/arrow_pre.png" alt="">
+                            <img src="../resources/image/arrow_pre.png" alt="">
                         </button> <!-- /pre-button -->
                     </div> <!-- /pre-box -->
 
@@ -69,6 +69,14 @@
             }
         });
 
+	    function nextTest(testStyle) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testStyle';
+	    }
+	    
+	    function preTest(testTopping) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testTopping';
+	    }
+        
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');
             Array.prototype.forEach.call(allElements, function (el) {

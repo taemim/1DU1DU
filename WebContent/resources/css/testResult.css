@@ -39,8 +39,8 @@ dl, ul, ol, li {
 .header_hidden{
     width: 100%;
     height: 150px;
-    text-align: center;
-    visibility: hidden; /*숨김*/
+    /* text-align: center;
+    visibility: hidden; 숨김 */
 }
 
 .container-fluid {

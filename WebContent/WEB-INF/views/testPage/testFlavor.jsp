@@ -27,26 +27,26 @@
                     <div class="row">
                         <div class="col-sm-3 box">
 
-                            <button type="button" class="inner-box" value="커피메이커" onClick="location.href='testGrind.jsp'">
+                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>상큼한 과일과 <br> 꽃향기의 <br> 깔끔한 느낌</h5>
                             </button>
 
                         </div>
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" value="커피메이커" onClick="location.href='testGrind.jsp'">
+                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>달콤한 과일과 <br> 농후한 느낌</h5>
                             </button>
                         </div>
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" value="커피메이커" onClick="location.href='testGrind.jsp'">
+                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>고소하고 달콤하고 <br> 향긋한 <br> 균형잡힌 느낌</h5>
                             </button>
                         </div>
                         <div class="col-sm-3 box">
-                            <button type="button" class="inner-box" value="커피메이커" onClick="location.href='testGrind.jsp'">
+                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>다크초콜릿 같은 <br> 쌉쌀함이 <br> 묵직한 느낌</h5>
                             </button>
@@ -54,8 +54,8 @@
                     </div>
 
                     <div class="pre-box">
-                        <button type="button" class="pre-button" onClick="location.href='testStyle.jsp'">
-                            <img src="/resources/image/arrow_pre.png" alt="">
+                        <button type="button" class="pre-button" onClick="preTest(${ taste.testStyle });">
+                            <img src="../resources/image/arrow_pre.png" alt="">
                         </button> <!-- /pre-button -->
                     </div> <!-- /pre-box -->
 
@@ -79,6 +79,14 @@
                 con.style.display = "none";
             }
         });
+        
+	    function nextTest(testGrind) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testGrind';
+	    }
+	    
+	    function preTest(testStyle) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testStyle';
+	    }
 
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');

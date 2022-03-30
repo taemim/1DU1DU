@@ -13,91 +13,38 @@
 <title>1 D U 1 D U</title>
 </head>
 <body>
-	<div class="header_hidden">
-        <!-- header 시작 -->
-	    <header id="header" class="main-header">
-	    
-	    <div id="header_wrap" style="display: blo ck;" >
-	        <!-- 상단 top배너 광고 -->
-	        <div class="top_banner">
-	           <p>지금 바로 정기구독 9,900원 무료배송</p>
-	       </div>
-	       <!-- 헤더 왼쪽 메인메뉴 nav -->
-	        <nav class="h_cate inline">
-	            <ul class="main-nav inline">
-	                <li>
-	                    <a href="#">구독하기</a>
-	                </li>
-	                <li>
-	                    <a href="#">Shop</a>
-	                </li>
-	                <li>
-	                    <a href="#">About</a>
-	                </li>
-	            </ul>
-	        </nav><!-- 하위 카테고리 -->
-	        <div class="h_cate_all inline">                      
-	            <div>  
-	                <ul class="sub_menu">
-	                    <li><a href="#">정기구독</a></li>
-	                    <li><a href="#">취향테스트</a></li>
-	                </ul>
-	            </div>
-	            <div>
-	                <ul class="sub_menu">
-	                    <li><a href="#">new</a></li>
-	                    <li><a href="#">best</a></li>
-	                    <li><a href="#">원두</a></li>
-	                    <li><a href="#">드립백</a></li>
-	                    <li><a href="#">캡슐</a></li>
-	                    <li><a href="#">커피용품</a></li>
-	                </ul> 
-	            </div>
-	            <div>
-	                <ul class="sub_menu">
-	                    <li><a href="#">Notice</a></li>
-	                    <li><a href="#">Partnership</a></li>
-	                    <li><a href="#">Best Review</a></li>
-	                </ul>
-	            </div>
-	        </div>
-	        <!-- 메뉴 하위카테고리 호버 슬라이드다운 효과  -->
-	        <script>
-	            $(document).ready(function(){
-	
-	                 $('.h_cate_all').hide();
-	
-	                 $('.h_cate').mouseover(function(){
-	                     $('.h_cate_all').slideDown();
-	                });
-	            
-	                $('.h_cate_all').mouseleave(function(){
-	                    $('.h_cate_all').fadeOut();
-	                });
-	            });
-	
-	        </script>
-	
-	            <!-- 로고 -->
-	            <div class="logo">
-	            <a href="#"><img src="${ pageContext.servletContext.contextPath }/resources/image/원두배너_투명.png"></a>
-	            </div> <!-- /logo -->
-	        
-	            <!--헤더 오른쪽 메뉴-->
-	            <div class="right_menu inline">
-	                <ul class="right_div inline">
-	                    <!-- 로그인시 회원/관리자에 따라 마이/관리 페이지 나타나기-->
-	                    <li class="hidden-menu"><a href="#">관리페이지</a></li>
-	                    <li class="hidden-menu"><a href="#">마이페이지</a></li>
-	
-	                    <li><a href="#">로그인</a></li>
-	                    <!--장바구니 아이콘-->
-	                    <li class="cart"><a href="#"><i class="bi bi-cart"></i></a></li>
-	                </ul>
-	            </div> 
-	    </div>    
-	    </header><!-- /header -->
+	<div class="header_hidden" >
+        <jsp:include page="../main/header.jsp" />
     </div>
+
+		<!-- menu bar-->
+        <nav class="navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" >
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <ul class="navbar-nav me-auto mb-2 mt-lg-2 mb-lg-2" >
+                  <li class="nav-item ms-5 me-4">
+                    <a class="nav-link fs-5" href="#">NEW</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">BEST</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">원두</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">드립백</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">콜드브루</a>
+                  </li>
+                  <li class="nav-item me-4">
+                    <a class="nav-link fs-5" href="#">커피용품</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
     <div class="container">
         <div class="row">
@@ -112,8 +59,8 @@
                             <input class="name-box" type="text" name="userName" placeholder="이름을 입력해주세요.">
                         </div> <!-- /box -->
 
-                        <div class="start-box">
-                            <button type="button" class="start" value="submit" onClick="location.href='testTools.jsp'">테스트 시작하기</button>
+                        <div class="start-box" onclick="nextTest(${ taste.testTools });">
+                            <button type="button" class="start" value="submit" >테스트 시작하기</button>
                         </div> <!-- /start-box -->
                     </div><!-- row -->
 
@@ -128,6 +75,10 @@
 
         <script>
 
+        function nextTest(testTools) {
+            location.href = '${ pageContext.servletContext.contextPath }/taste/testTools';
+        }
+        
             window.addEventListener('load', function () {
                 var allElements = document.getElementsByTagName('*');
                 Array.prototype.forEach.call(allElements, function (el) {

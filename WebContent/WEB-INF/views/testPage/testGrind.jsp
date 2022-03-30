@@ -12,9 +12,9 @@
 <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png"> 
 <title>1 D U 1 D U</title>
 <body>
-    <div class="header_hidden">
+<div class="header_hidden">
         <h1> 헤더영역 비워두는 용도 </h1>
-    </div>
+</div>
 
     <div class="container">
         <div class="row">
@@ -26,14 +26,14 @@
                     <div class="row">
                         <div class="col-2 box">
 
-                            <button type="button" class="inner-box" value="커피메이커" onClick="location.href='testFlavor.jsp'">
+                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>갈지 않고 받을래요</h5>
                             </button>
                         </div>
 
                         <div class="col-2 box">
-                            <button type="button" class="inner-box" value="커피메이커" onClick="location.href='testFlavor.jsp'">
+                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <h5>도구에 맞게 갈아주세요</h5>
                             </button>
@@ -41,8 +41,8 @@
                     </div> <!-- /row -->
 
                     <div class="pre-box">
-                        <button type="button" class="pre-button" onClick="location.href='testFlavor.jsp'">
-                            <img src="/resources/image/arrow_pre.png" alt="">
+                        <button type="button" class="pre-button" onClick="preTest(${ taste.testFlavor });">
+                            <img src="../resources/image/arrow_pre.png" alt="">
                         </button> <!-- /pre-button -->
                     </div> <!-- /pre-box -->
 
@@ -66,6 +66,14 @@
                 con.style.display = "none";
             }
         });
+        
+	    function nextTest(testResult) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testResult';
+	    }
+	    
+	    function preTest(testFlavor) {
+	        location.href = '${ pageContext.servletContext.contextPath }/taste/testFlavor';
+	    }
 
         window.addEventListener('load', function () {
             var allElements = document.getElementsByTagName('*');
