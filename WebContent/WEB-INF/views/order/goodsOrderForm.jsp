@@ -70,9 +70,10 @@
 							<div class="row" id="selectGoods">
 
 								<c:set var="total" value="0" />
+								<c:set var="extra" value="0" />
 								
 								<div class="goods-img col-lg-4">
-										<img src="../resources/image/1234.png" alt="상품이미지">
+										<img src="${ pageContext.servletContext.contextPath }${ goods.imgList[0].thumbnailPath }" alt="상품이미지">
 									</div>
 									<div class="goods-title col-lg-8">
 										<h5>
@@ -80,20 +81,22 @@
 										</h5>
 										<p class="option">옵션 : 
 											<c:forEach var="op" items="${ goods.optionList }">
-											 ( ${ op.optionName2 }  ${ op.optionName } )&nbsp;
+												 <c:set var="extra" value="${ extra + op.extra_pay }"/>
+												 [ ${ op.optionName2 } ] <b> ${ op.optionName } </b> 
+												 <c:if test="${ op.extra_pay } ne 0"> ( ${ op.extra_pay } ) </c:if>&nbsp;
 											</c:forEach>
-										</p>
-										<p class="amount">수량 : ${ goods.amount } 개</p>
+										</p>				
+										<p class="amount">수량 : ${ goods.amount }개</p>
 										<br>
 										<h5>
-											<b class="price">Total : <fmt:formatNumber value="${ goods.price * goods.amount }" pattern="#,###" /> 원
+											<b class="price">Total : <fmt:formatNumber value="${ ( goods.price + extra )* goods.amount }" pattern="#,###" /> 원
 											</b>
 										</h5>
 									</div>
 									<hr>
 									<br>
 									<c:set var="total"
-										value="${ total + ( goods.price * goods.amount ) }" />
+										value="${ total + ( goods.price + extra )* goods.amount }" />
 							</div>
 						</div>
 
@@ -460,12 +463,14 @@
 			    let	extraAddress = $("#extraAddress").val();
 			    let	shipMemo = $("#shipMemo").val();
 			    
-/* 			    var optionNo= [];
+			    let optionNo= [];
 			    
 			    <c:forEach var="op" items="${ goods.optionList }">
 			   		 optionNo.push( ${ op.optionNo } );
-				</c:forEach> */
-			  
+			   		 console.log(optionNo);
+				</c:forEach> 
+				
+
 		    	//결제 api
 		 		var code = "imp68097050"; //가맹점 식별코드
 		 		IMP.init(code);
@@ -486,7 +491,6 @@
 		 				buyer_tel: phone,
 		 				buyer_postcode: zipCode,
 		 				buyer_addr: address
-		 				
 		 				//필수항목
 		 				//결제완료후 이동할 페이지 kko나 kkopay는 생략 가능
 		 				//m_redirect_url : "${ pageContext.servletContext.contextPath }/payment/complete"
@@ -515,8 +519,8 @@
 		 			 				buyer_addr2 : extraAddress,
 		 			 				buyer_postcode: zipCode,
 		 			 				shipMemo : shipMemo, 
-		 			 				goodsNo : goodsNo/* ,
-		 			 				optionNo : optionNo */
+		 			 				goodsNo : goodsNo ,
+		 			 				optionNo : optionNo 
 		 			 			},
 		 				        
 		 				        dataType: "text", //서버에서 보내줄 데이터 타입
