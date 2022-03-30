@@ -165,6 +165,5 @@ public class GoodsDTO implements java.io.Serializable {
 	}
 
 
-
 }
 

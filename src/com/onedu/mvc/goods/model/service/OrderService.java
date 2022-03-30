@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dao.OrderDAO;
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
+import com.onedu.mvc.goods.model.dto.ImgDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
 import com.onedu.mvc.goods.model.dto.OrderDTO;
 import com.onedu.mvc.goods.model.dto.PaymentDTO;
 
@@ -22,7 +24,10 @@ public class OrderService {
 		int result1 = OrderDAO.insertOrder(session, newOrder);
 		int result2 = OrderDAO.insertPayment(session, newPayment);
 		int result3 = OrderDAO.insertGoodsList(session, goods);
-
+		int result3 = OrderDAO.insertGoodsList(session, goods);
+		
+		
+		
 		if(result1 > 0 && result2 > 0 && result3 > 0) {
 			session.commit();
 			result = 1;
@@ -40,10 +45,33 @@ public class OrderService {
 
 		SqlSession session = getSqlSession();
 		
-		PaymentDTO payment= OrderDAO.selectPaymentResult(session, newPayment);;
+		PaymentDTO payment= OrderDAO.selectPaymentResult(session, newPayment);
+		
 		
 		session.close();
 		
 		return payment;
+	}
+
+	public ImgDTO selectImg(GoodsDTO goods) {
+
+		SqlSession session = getSqlSession();
+		
+		ImgDTO img = OrderDAO.selectImg(session, goods);
+		
+		session.close();
+		
+		return img;
+	}
+
+	public OptionDTO selectOption(String op) {
+		
+		SqlSession session = getSqlSession();
+		
+		OptionDTO option = OrderDAO.selectOption(session, op);
+		
+		session.close();
+		
+		return option;
 	}
 }

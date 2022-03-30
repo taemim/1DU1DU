@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -9,9 +10,9 @@
 			<transactionManager type="JDBC"/>
 			<dataSource type="POOLED">
 				<property name="driver" value="net.sf.log4jdbc.DriverSpy"/>
-        		<property name="url" value="jdbc:log4jdbc:oracle:thin:@oracle_high?TNS_ADMIN=/Users/hyeweonyoo/Downloads/Wallet_oracle"/>
-       		 	<property name="username" value="admin"/>
-        		<property name="password" value="greedyGREEDY11"/>
+				<property name="url" value="jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
+				<property name="username" value="C##ONEDU"/>
+				<property name="password" value="ONEDU"/>
 			</dataSource>
 		</environment>
 	</environments>
@@ -19,7 +20,6 @@
 	<mappers>
 
 		<!-- 임태미 -->
-
  		<mapper resource="com/onedu/mvc/goods/model/dao/OrderDAO.xml"/>
 		
 		<!-- 임수연 -->
@@ -39,4 +39,5 @@
 		
 
 	</mappers>
+
 </configuration>
