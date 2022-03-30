@@ -115,7 +115,7 @@
 					
                     
                     <!--장바구니 아이콘-->
-                    <li class="cart"><a href="#"><i class="bi bi-cart"></i></a></li>
+                    <li class="cart"><a href="${ pageContext.servletContext.contextPath }/cart/list"><i class="bi bi-cart"></i></a></li>
                 </ul>
             </div> 
     </div>    
