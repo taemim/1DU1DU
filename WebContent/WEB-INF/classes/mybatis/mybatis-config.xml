@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -19,7 +20,6 @@
 	<mappers>
 
 		<!-- 임태미 -->
-
  		<mapper resource="com/onedu/mvc/goods/model/dao/OrderDAO.xml"/>
 		
 		<!-- 임수연 -->
@@ -39,4 +39,5 @@
 		
 
 	</mappers>
+
 </configuration>
