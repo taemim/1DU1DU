@@ -108,7 +108,7 @@
 		 , #{ orderNo }
 		 , #{ amount }
 		 , SYSDATE
-		 , TO_CHAR(SYSDATE, 'HH24:MI:SS');
+		 , SYSTIMESTAMP
 		)
 	</insert>
 	
@@ -145,16 +145,14 @@
 	
 	</insert>
 	
-	
-	
+
 	
 	<select id="selectPayment" resultMap="paymentResultMap">
-		SELECT 
-			  PAY_NO
-			, ORDER_NO
-			, AMOUNT
-			, PAY_TIME
-		    , TO_CHAR(SUCC_PAY, 'HH24:MI:SS');
+		SELECT PAY_NO
+			 , ORDER_NO
+			 , AMOUNT
+			 , PAY_TIME
+		     , TO_CHAR( PAY_SUCC, 'HH24:MI:SS')
 		  FROM PAYMENT
 		 WHERE PAY_NO = #{ payNo }
 	</select>

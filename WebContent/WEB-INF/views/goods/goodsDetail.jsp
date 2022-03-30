@@ -83,8 +83,8 @@
 
 						
                 <!-- 옵션 선택 후 나타나는 박스 -->
-              <form method="get" action="${ pageContext.servletContext.contextPath }/goods/order"
-						enctype="multipart/form-data"> 
+<form method="get" action="${ pageContext.servletContext.contextPath }/goods/order"
+						enctype="multipart/form-data" name="orderForm" onsubmit="return checkOp();"> 
 						
                 <div class="row bg-secondary bg-opacity-10" style="display:none" id="optionDiv">
                 	<div class="col-5">
@@ -181,7 +181,7 @@
             </div>
             </c:forEach>
         </div>
-              </form>             
+  </form>             
       </div>
       <div class="container">
         <br><br><br>
@@ -403,6 +403,16 @@
       </div>
       
       <script>
+      
+      function checkOp() {
+    	  if(document.querySelector('input[name=option1]').value == ''){
+    		  alert("옵션을 선택해주세요");
+    	 	 return false;
+    	  } 
+    	  return true;
+      }
+      
+      
       	  var extraPrice = 0;
 	      function clipcopy() {
 	    		var url = '';
@@ -447,8 +457,7 @@
 	    	  
 	    	  // input값에도 금액 대입
 	    	  document.querySelector('input[name=amount]').value = number;
-	    	  
-	    	  
+
 
 	    	}
 	      
@@ -456,6 +465,7 @@
 	    	  
 	    	  var options = document.querySelectorAll('select[name=option]');
 	    	  for(var i=1;i<options.length;i++){
+	    		  options[i].disabled = true;
 	    		options[i].disabled = true;
 	    	  }
 	    	  if(obj.value){
@@ -486,7 +496,7 @@
 	    			  
 	    			  document.querySelector('input[name=option1]').value = document.getElementById('gram').innerText;
 	    			  document.querySelector('input[name=option2]').value = document.getElementById('grinder').innerText;
-	    			  document.querySelector('input[name=price]').value = document.querySelector('#price').innerText;
+	    			  document.querySelector('input[name=price]').value = document.querySelector('#Price').innerText;
 	    			  
 	    		  }
 	    	  }  	  
@@ -499,10 +509,10 @@
 	    		  options[i].disabled = true;
 	    	  }
 	      })
+	     
 	      
       </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   </body>
 </html>

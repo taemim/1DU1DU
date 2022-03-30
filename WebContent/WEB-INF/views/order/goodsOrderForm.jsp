@@ -1,8 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*"%>
+	pageEncoding="UTF-8" import="java.util.*" import="com.onedu.mvc.member.model.dto.MemberDTO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<%
+	MemberDTO loginMember = new MemberDTO();
+	loginMember = (MemberDTO) session.getAttribute("loginMember");
+
+%>
+
+<script>
+	
+	if( <%=loginMember %> == null){
+		alert("로그인이 필요합니다.");
+		location.href="${ pageContext.servletContext.contextPath }/member/login"
+	}
+	
+</script>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -50,6 +64,7 @@
 	<div class="header_hidden">
 		<h1>헤더영역 비워두는 용도</h1>
 	</div>
+
 
 	<div class="container-fluid" style="padding:0px; margin-top:50px">
 		<form name="frm"
@@ -109,17 +124,17 @@
 									<br> <br>
 									<div class="col-sm-5">
 										<input type="text" class="form-control-plaintext" id="name"
-											name="name" placeholder="이름" value="${ loginUser.userName }" readonly>
+											name="name" placeholder="이름" value="${ loginMember.userName }" readonly>
 									</div>
 									<div class="col-sm-7">
 										<input type="tel" class="form-control-plaintext" id="phone"
-											name="phone" placeholder="연락처" value="${ loginUser.phone }" readonly>
+											name="phone" placeholder="연락처" value="${ loginMember.phone }" readonly>
 									</div>
 									<br> <br>
 									<div class="form-group">
 										<div class="col-sm-12">
 											<input type="email" id="email"
-												class="form-control-plaintext" placeholder="Email" value="${ loginUser.email }" readonly>
+												class="form-control-plaintext" placeholder="Email" value="${ loginMember.email }" readonly>
 										</div>
 									</div>
 								</div>
@@ -144,11 +159,11 @@
 											    $("#inputUserInfo").change(function(){
 											        if($("#inputUserInfo").is(":checked")){
 											        
-														$('#receiverName').val('${ loginUser.userName }');
-														$('#receiverPhone').val('${ loginUser.phone }');
-														$('#zipCode').val('${ loginUser.postal }');
-														$('#address').val('${ loginUser.address }');
-														$('#extraAddress').val('${ loginUser.address2 }');
+														$('#receiverName').val('${ loginMember.userName }');
+														$('#receiverPhone').val('${ loginMember.phone }');
+														$('#zipCode').val('${ loginMember.postal }');
+														$('#address').val('${ loginMember.address }');
+														$('#extraAddress').val('${ loginMember.address2 }');
 														$('#shipMemo').focus();	
 											        }
 											    });
@@ -220,6 +235,8 @@
 					</div>
 				</div>
 				<!-- 왼쪽 그리드 끝-->
+
+
 
 				<!-- 다음 주소 api-->
 				<script
@@ -415,14 +432,15 @@
     		$('#order-check').focus(); return false; 
     	}
     	
-    	//회원정보 수정 체크 시 ajax로 회원 정보 수정
-    	if( frm.updateUser.checked == true){
+	
+		//회원정보 수정 체크 시 ajax로 회원 정보 수정
+    	if( $('#updateUser').is(':checked') == true){
     		
     		$.ajax({
 					url : '${ pageContext.servletContext.contextPath }/member/addressUpdate', 
-			        type :'post',
+			        type :'get',
 			        data :{
-		               userId : "${ loginUser.userId }",
+		               userId : '${ loginMember.userId }',
 		               address : $("#address").val(),
 		               extraAddress : $("#extraAddress").val(),
 		               zipCode : $('#zipCode').val()   
@@ -440,10 +458,8 @@
 			          console.log("Insert ajax 통신 실패!!!");
 			        }
 				}) //ajax
-
     	}
-    	
-    	
+
     	/* 모든 입력폼 작성이 된 경우 import 결제 API 실행 */
     	importPay();
 
