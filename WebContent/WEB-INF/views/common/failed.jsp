@@ -13,7 +13,7 @@
 		<img id="errorImage" src="${ pageContext.servletContext.contextPath }/resources/images/error.png">
 	</div>
 	<h1 align="center">${ requestScope.message }</h1>
-
+	
 		
     <script>
         alert('잘못된 접근입니다.');

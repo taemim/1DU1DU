@@ -44,7 +44,6 @@ public class AuthenticationFilter implements Filter {
 			boolean isPermitAdmin = permitURIList.get("adminPermitList").contains(intent);
 			boolean isPermitMember = permitURIList.get("memberPermitList").contains(intent);
 			boolean isPermitAll = permitURIList.get("allPermitList").contains(intent);
-			
 			if("ADMIN".equals(loginMember.getUserRole())) {
 				
 				if(isPermitAdmin || isPermitMember || isPermitAll) {
@@ -62,7 +61,7 @@ public class AuthenticationFilter implements Filter {
 			if(isAuthorized) {
 				chain.doFilter(request, response);
 			} else {
-				//((HttpServletResponse) response).sendError(403);
+				((HttpServletResponse) response).sendError(403);
 			}
 			
 		} else {
@@ -84,13 +83,22 @@ public class AuthenticationFilter implements Filter {
 		List<String> memberPermitList = new ArrayList<>();
 		List<String> allPermitList = new ArrayList<>();
 		
-		adminPermitList.add("/admin/ "); //관리자
+		adminPermitList.add("/notice/insert");
+		adminPermitList.add("/notice/update");
+		adminPermitList.add("/notice/delete");
 		
 		memberPermitList.add("/member/modify");
 		memberPermitList.add("/member/modifyPassword");
 		memberPermitList.add("/member/my-modify");
 		memberPermitList.add("/member/my-drop");
-		memberPermitList.add("/member/addressUpdate");
+		memberPermitList.add("/notice/list");
+		memberPermitList.add("/notice/detail");
+		memberPermitList.add("/board/list");
+		memberPermitList.add("/board/insert");
+		memberPermitList.add("/board/search");
+		memberPermitList.add("/thumbnail/list");
+		memberPermitList.add("/thumbnail/insert");
+		memberPermitList.add("/thumbnail/detail");
 
 		allPermitList.add("/member/idCheck");
 		allPermitList.add("/member/enroll");
@@ -99,7 +107,7 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/member/findId");
 		allPermitList.add("/member/findPwd");
 		
-
+		
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);
 		permitURIList.put("allPermitList", allPermitList);
