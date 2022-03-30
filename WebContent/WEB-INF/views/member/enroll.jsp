@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
+
     
     
 <!DOCTYPE html>
@@ -23,6 +24,12 @@
 </head>
 <body>
 	
+	
+	<!-- 한글처리 -->
+	<%
+	// 인코딩
+	 request.setCharacterEncoding("UTF-8");
+	%>
 
 <!-- 헤더 -->
 	<jsp:include page="/WEB-INF/views/main/header.jsp" />	
@@ -65,6 +72,7 @@
 				<button id="idCheck" type="button">중복확인</button>
 				<input type="hidden" name="idDuplication" value="idUncheck" >
 				
+				
 				<!--비밀번호-->
                 <h4></h4>
 				<span class="input_area"><input type="password"  placeholder="비밀번호 입력 &nbsp (영문 대소문자/숫자 4~16자)" maxlength="16" name="userPwd" id="memberPwd1" required></span>
@@ -74,7 +82,8 @@
 
 				<span class="input_area"><input type="password"  placeholder="비밀번호 확인" maxlength="16" name="userPwd2" id="memberPwd2" required></span>
 				<label id="pwdResult"></label>
-				
+			
+			
                 <!--이름-->
 				<h4></h4>
 				<span class="input_area"><input type="text" maxlength="10" name="userName" id="name"  placeholder="이름" required></span>

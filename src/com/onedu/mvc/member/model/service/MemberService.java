@@ -138,6 +138,30 @@ public class MemberService {
 		
 		return result;
 	}
+	
+	
+	
+	/* 아이디 찾기용 메소드 */
+	public String memberFindId(MemberDTO requestMember) {
+		
+		SqlSession session = getSqlSession();
+		
+		String userId = memberDAO.selectFindId(session, requestMember);
+		
+		session.close();
+		
+		return userId;
+		
+		
+	}
+
+
+	
+	
+	
+	
+	
+	
 
 
 }
