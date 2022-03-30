@@ -19,12 +19,14 @@ public class CartUpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		/* 1. 파라미터 꺼내기 */
-		int cartNo = Integer.parseInt(request.getParameter("no"));
+		int no = Integer.parseInt(request.getParameter("no"));
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		
 		CartDTO updateCart = new CartDTO();
-		updateCart.setCartNo(cartNo);
+		updateCart.setCartNo(no);
 		updateCart.setAmount(amount);
+		
+		System.out.println(updateCart);
 		
 		/* 2. 비즈니스 로직 호출 */
 		CartService cartService = new CartService();
@@ -36,7 +38,6 @@ public class CartUpdateServlet extends HttpServlet {
 			
 			path ="/WEB-INF/views/common/success.jsp";
 			request.setAttribute("successCode", "updateCart");
-			request.setAttribute("cartNo", cartNo);
 			
 		} else {
 			

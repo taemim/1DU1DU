@@ -66,17 +66,21 @@
 												class="chkbox" value="${ prod.cartNo }" name="no">
 											<input type="hidden" class="individual_prodPrice_input" name="prodPrice" value="${ prod.goods.price }">
 											<input type="hidden" class="individual_amount_input" name="amount" value="${ prod.amount }">
-											<input type="hidden" class="individual_totalPrice_input" value="${ prod.goods.price * prod.amount }">
+											<input type="hidden" class="individual_totalPrice_input" name="totalPrice" value="${ prod.goods.price * prod.amount }">
 										</td>
 										<td class="td_width_2">
-											<%-- <div class="image_wrap" data-prodid="${ prod.imageList[0].prodNo }" data-path="${ prod.imageList[0].fileRoot }" data-uuid="${ prod.imageList[0].imgId }" data-filename="${ prod.imageList[0].originFileName }">
-												<!-- <img> 이미지 사용 예시 -->
-												<div class="pdtPhoto"><img
-													src="../resources/images/5.jpeg"
-													width="150" height="150" alt="">
+											<c:forEach var="goods" items="${ goodsList }">
+												<div class="image_wrap">
+													<img src="${ pageContext.servletContext.contextPath }${ prod.imgList[0].thumbnailPath }" width="100" alt="원두1" title="원두1" class="middle">
+													<%-- <img src="${ pageContext.servletContext.contextPath }${ goods.imgList[0].thumbnailPath }" width="150" height="150"> --%>
+													<!-- <img> 이미지 사용 예시 -->
+													<!-- <div class="pdtPhoto"><img
+														src="../resources/images/5.jpeg"
+														width="150" height="150" alt="">
+													</div> -->
+													<!-- 이미지 사용 예시 -->
 												</div>
-												<!-- 이미지 사용 예시 -->
-											</div> --%>
+											</c:forEach>
 										</td>
 										<td class="td_width_3">
 											<div class="detail">
@@ -87,13 +91,15 @@
 												</div>
 											</div>
 										</td>
-										<td class="td_width_4 table_text_align_center">
-											<div class="table_text_align_center amount_div">
+										<td class="td_width_4 table_text_align_center amount">
+											<div class="table_text_align_center amount_div" id="modify">
 												<button type="button" class="amount_btn btn_minus" name="minus">-</button>
-												<input type="text" value="1" name="amount" class="amount_input">
+												<input type="text" value="${ prod.amount }" name="amount" class="amount_input">
 												<button type="button" class="amount_btn btn_plus" name="plus">+</button>
 											</div>
-											<button class="btn_modify" onclick="updateCart(${ prod.cartNo })">변경</button>
+											<!-- 쿼리 수행 결과 result = 1이 나왔지만, 실제로 바뀌지는 않았다.
+												 => element를 찾아가서 그 행만 변경되게 만들자. -->
+											<button class="btn_modify" type="button" onclick="updateCart(this, ${ prod.cartNo })">변경</button>
 										</td>
 										<td class="td_width_4 price_td">
 											<sapn>
@@ -142,12 +148,15 @@
 										<td>합계</td>
 									</tr>
 									<tr>
-										<td><span class="total_price"></span> 원</td>
+										<td><span class="total_price" id="total_price"></span> 원</td>
 										<td><span class="total_cnt"></span>개</td>
 										<td><strong style="font-size: x-large;">+</strong></td>
 										<td><span class="delivery"></span> 원</td>
 										<td><strong style="font-size: x-large;">=</strong></td>
-										<td><span class="total_cal"></span> 원</td>
+										<td>
+											<%-- <fmt:formatNumber value="${ prod.goods.price * prod.amount }" pattern="#,###,### 원"/> --%>
+											<span class="total_cal" id="total_cal"></span> 원
+										</td>
 									</tr>
 								</table>
 							</td>
@@ -163,9 +172,11 @@
 		</form>
 	</div>
 
-	<%-- <form name="cartForm" method="post">
-		<input type="hidden" name="no" value="${ prod.cartNo }">
-	</form> --%>
+	<!-- update를 위한 form -->
+	<form name="updateForm" method="post">
+		<input type="hidden" name="no" id="updateCartNo">
+		<input type="hidden" name="amount" id="updateAmount">
+	</form>
 
 	<script type="text/javascript">
 		function deleteCart(){
@@ -186,9 +197,16 @@
 			}
 		}
         
-        function updateCart(cartNo) {
-        	document.forms.cartForm.action = "${ pageContext.servletContext.contextPath }/cart/update";
-        	document.forms.cartForm.submit();
+        /* onclick="updateCart(this, ${ prod.cartNo })"
+           updateForm의 id : updateCartNo & updateAmount
+           <td class="td_width_4 table_text_align_center amount">의 amount 클래스
+           elem(<td>)의 가장 가까운 amount라는 이름을 가진 class를 찾고, querySelector로 amount_input이라는 이름을 가진 class를 찾아서 value를 가져온다. */
+        function updateCart(elem, cartNo) {
+        	document.getElementById('updateCartNo').value = cartNo;
+        	document.getElementById('updateAmount').value = elem.closest('.amount').querySelector('.amount_input').value;
+        	
+        	document.forms.updateForm.action = "${ pageContext.servletContext.contextPath }/cart/update";
+        	document.forms.updateForm.submit();
         }
     </script>
 
@@ -208,7 +226,8 @@
 		});
 		
 		// 수량 조절 버튼 +, -
-		let quantity = $(".amount_input").val();
+		// 이거는 모든 cartNo가 전부 동작함
+		/* let quantity = $(".amount_input").val();
 		$(".btn_plus").on("click", function(){
 		    $(".amount_input").val(++quantity);
 		});
@@ -216,7 +235,20 @@
 			if(quantity > 1){
 		        $(".amount_input").val(--quantity);	
 		    }
+		}); */
+		
+		// 선택한 cartNo만 동작
+		$(".btn_plus").on("click", function(){
+			let quantity = $(this).parent("div").find("input").val();
+			$(this).parent("div").find("input").val(++quantity);
 		});
+		$(".btn_minus").on("click", function(){
+			let quantity = $(this).parent("div").find("input").val();
+			if(quantity > 1){
+				$(this).parent("div").find("input").val(--quantity);		
+			}
+		});
+		
 	</script>
 	
 	<%-- <script src="${ pageContext.servletContext.contextPath }/resources/js/cart.js"></script> --%>
