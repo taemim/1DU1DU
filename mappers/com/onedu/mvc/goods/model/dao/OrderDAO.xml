@@ -30,23 +30,26 @@
 	</resultMap>
 	
 	
-	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
-		<id property="goodsNo" column="PROD_NO"/>
-		<result property="categoryId" column="CATEGORY_ID"/>
-		<result property="typeId" column="TYPE_ID"/>
-		<result property="goodsName" column="PROD_NAME"/>
-		<result property="price" column="PROD_PRICE"/>
-		<result property="goodsExplain" column="PROD_EXPLAIN"/>
-		<result property="enrollDate" column="ENROLL_DATE"/>
-		<result property="saleCheck" column="SALE_CHECK"/>
-		<result property="totalStock" column="SALE_CHECK"/>
-		<result property="saleVol" column="SALE_VOL"/>
-		
-		<association property="imgList" resultMap="imgResultMap"/>
-		<association property="category" resultMap="categoryResultMap"/>
-		<association property="option" resultMap="optionResultMap"/>
-		
-	</resultMap>
+	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsListResultMap">
+  	  	   <id property="goodsNo" column="PROD_NO"/>
+  	  	   <id property="categoryId" column="CATEGORY_ID"/>
+  	  	   <id property="typeId" column="TYPE_ID"/>
+  	  	   <id property="goodsName" column="PROD_NAME"/>
+  	  	   <id property="goodsNameEn" column="PROD_NAME_EN"/>
+  	  	   <id property="price" column="PROD_PRICE"/>
+  	  	   <id property="goodsExplain" column="PROD_EXPLAIN"/>
+  	  	   <id property="enrollDate" column="ENROLL_DATE"/>
+  	  	   <id property="saleCheck" column="SALE_CHECK"/>
+  	  	   <id property="totalStock" column="TOTAL_STOCK"/>
+  	  	   <id property="saleVol" column="SALE_VOL"/>
+  	  	   <id property="goodsExplainDetail" column="PROD_EXPLAIN_DT"/>
+  	  	   
+  	  	   <association property="category" resultMap="categoryResultMap"/>
+  	  	   
+  	  	   <collection property="imgList" resultMap="imgResultMap"/>
+  	  	   <collection property="optionList" resultMap="optionResultMap"/> 
+  	
+  	  </resultMap>
 	
 	<resultMap type="com.onedu.mvc.goods.model.dto.ImgDTO" id="imgResultMap">
 		<id property="imgId" column="IMG_ID"/>
@@ -67,15 +70,11 @@
 	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
 		<id property="optionNo" column="OP_NO"/>
 		<result property="optionName" column="OP_NAME"/>
-		<result property="extraPrice" column="EXTRA_PAY"/>
+		<result property="extra_pay" column="EXTRA_PAY"/>
 		<result property="optionNo2" column="OP_NO2"/>
-		<association property="goodsNo" resultMap="optionGoodsResultMap"/>
+		<result property="optionName2" column="OP_NAME2"/>
 	</resultMap>
 	
-	<resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionGoodsResultMap">
-		<id property="optionNo" column="OP_NO"/>
-		<id property="goodsNo" column="PROD_NO"/>	
-	</resultMap>
 
 	
 	<insert id="insertOrder">
@@ -124,10 +123,14 @@
 		  	 #{ orderNo }
 		   , #{ goodsNo }
 		   , #{ amount }
-		   , #{ price } 
-		   , 
-		   ,  
-		   , NULL
+		   , #{ price }
+		   <choose>
+		   <when test="optionList != null">
+		   	<foreach collection="optionList" separator=",">
+		   		#{ optionList.optionNo }
+		   	</foreach>
+		   </when>
+		   </choose>
 		  )
 	</insert>
 	
@@ -138,4 +141,31 @@
 	</select>
 	
 	
+	<select id="selectImg" resultMap="imgResultMap">
+		SELECT *
+		  FROM IMG
+		 WHERE PROD_NO = #{ goodsNo }
+	
+	</select>
+	
+	<select id="selectOption" resultMap="optionResultMap">
+		SELECT A.OP_NO
+			 , A.OP_NAME
+			 , A.EXTRA_PAY
+			 , A.OP_NO2
+			 , (SELECT OP_NAME FROM OP B WHERE A.OP_NO2 = B.OP_NO) AS OP_NAME2
+		  FROM OP A
+		 WHERE OP_NAME = #{ op }
+	</select>
+	
+
+	<select id="selectOption" resultMap="optionResultMap">
+		SELECT A.OP_NO
+			 , A.OP_NAME
+			 , A.EXTRA_PAY
+			 , A.OP_NO2
+			 , (SELECT OP_NAME FROM OP B WHERE A.OP_NO2 = B.OP_NO) AS OP_NAME2
+		  FROM OP A
+		 WHERE OP_NO2 IN (SELECT OP_NO FROM OP_PROD WHER PROD_NO = #{ goodsNo } )
+	</select>
 </mapper>

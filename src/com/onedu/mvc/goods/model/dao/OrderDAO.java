@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
+import com.onedu.mvc.goods.model.dto.ImgDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
 import com.onedu.mvc.goods.model.dto.OrderDTO;
 import com.onedu.mvc.goods.model.dto.PaymentDTO;
 
@@ -27,6 +29,16 @@ public class OrderDAO {
 	public static PaymentDTO selectPaymentResult(SqlSession session, PaymentDTO newPayment) {
 		
 		return session.selectOne("OrderDAO.selectPayment", newPayment);
+	}
+
+
+	public static ImgDTO selectImg(SqlSession session, GoodsDTO goods) {
+	
+		return session.selectOne("OrderDAO.selectImg",  goods);
+	}
+
+	public static OptionDTO selectOption(SqlSession session, String op) {
+		return session.selectOne("OrderDAO.selectOption",  op);
 	}
 
 
