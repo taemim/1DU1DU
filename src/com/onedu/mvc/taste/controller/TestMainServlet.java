@@ -22,7 +22,7 @@ public class TestMainServlet extends HttpServlet {
 		 * request, response);
 		 */
 		
-		request.getRequestDispatcher("/WEB-INF/views/testPage/taste.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/taste/taste.jsp").forward(request, response);
 		
 	}
 	

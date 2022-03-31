@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS 외부링크 -->
-    <link href="resources\css\main.css" rel="stylesheet" type="text/css">
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/main.css" rel="stylesheet" type="text/css">
     <!-- 구글웹폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
@@ -31,7 +31,8 @@
 	
 
     <!-- main image -->
-    <div class="display_container center" id="section1">
+    <div class="display_container center" style="margin-top: 0;" id="section1">
+
         <img src="${ pageContext.servletContext.contextPath }/resources/image/img-bg1.png" style="width: 100%; height: 600px;">
         <div class="display_bottommiddle padding_32">
             <div class="main_white">
@@ -39,7 +40,7 @@
                     내 취향에 <span>꼭</span> 맞는 커피로<br>추천 받고 <span>구독</span>하세요
                 </h1>
             </div>
-            <button class="main_img_button btn_recomm padding_large main_large margin_top"  onclick="gotest(${ taste.testMain });">원두 취향 테스트</button>
+            <button class="main_img_button btn_recomm padding_large main_large margin_top">원두 취향 테스트</button>
             <div class="recomm">
                 <p>|</p>
                 <p>내 취향에 딱 맞는 원두를 추천해요</p>
@@ -110,22 +111,84 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div> --%>
     <!-- /슬라이드 구간 -->
-
+	
     <!-- 베스트 리뷰 -->
     <div class="content4">
         <div class="review_title">
             <h1>
-                <img src="../resources/image/iconbrown.png" alt="1DU1DU로고">
-                지금 1DU1DU를 즐기고 있는 사람들
-                <img src="../resources/image/iconbrown.png" alt="1DU1DU로고">
+            	<br><br>
+                <span class="fs-4 mt-2">S E A S O N A L</span><br>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <span class="fs-3 mt-2">매월 새롭게 소개하는 시즈널 커피</span>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <br>
             </h1>
         </div>
-
+		
+  		
+    	
         <!-- 베스트 리뷰 -->
         <div class="main_review">
             <div class="image_three">
                 <div class="review_img">
-                    <img src="../resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <div class="review_txt">
+                        <h2 class="txt1">
+                            <br>
+                            <p class="fs-4">케냐룽게토 AB</p>
+                            케냐 특유의 과일 향미를 느껴보세요!                            
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image_three">
+                <div class="review_img">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트5.jpeg" alt="Car" style="width:100%">
+                    <div class="review_txt">
+                        <h2>
+                        	<br>
+                            
+                            <br>
+                            <p class="fs-4" style="text-style: bold;">페루 리마 디카페인</p>
+                            숙면이 소중한 당신에게 소개합니다
+                            
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image_three">
+                <div class="review_img">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트원두3.jpeg" alt="Car" width="100%">
+                    <div class="review_txt">
+                        <h2>
+                        <br>
+                            
+                            <br>
+                            <p class="fs-4" style="text-style: bold;">에티오피아 봄베 테스티 내추럴</p>
+                            보랏빛 짙은 라벤더 향이 매력적이에요! <br>
+                           
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="review_title">
+            <h1>
+            	<br><br>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <span class="fs-4">지금 1DU1DU를 즐기고 있는 사람들</span>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <br>
+            </h1>
+        </div>
+        <!-- 2번째 줄  -->
+        <div class="main_review">
+            <div class="image_three">
+                <div class="review_img">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/후기1.png" alt="Car" style="width:100%">
                     <div class="review_txt">
                         <h2 class="txt1">
                             <p class="star">
@@ -177,9 +240,10 @@
 
             <div class="image_three">
                 <div class="review_img">
-                    <img src="../resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/후기2.png" alt="Car" style="width:100%">
                     <div class="review_txt">
                         <h2>
+                        	<br>
                             <p class="star">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#bf3f27"
                                     class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -207,7 +271,7 @@
                                         d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                 </svg>
                             </p>
-                            3개월째 구독중입니다.<br>
+                            
                             랜덤하게 보내주는 원두 덕분에<br>
                             제 취향을 알아가는 게 너무 좋아요!
                             <p>김
@@ -227,12 +291,13 @@
                     </div>
                 </div>
             </div>
-
+	
             <div class="image_three">
                 <div class="review_img">
-                    <img src="../resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/후기3.png" alt="Car" style="width:100%">
                     <div class="review_txt">
                         <h2>
+                        <br>
                             <p class="star">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#bf3f27"
                                     class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -261,8 +326,8 @@
                                 </svg>
                             </p>
                             원두는 처음인데 모카포트도 사고<br>
-                            매일 커피 마시는 시간을<br>
-                            즐기고 있어요!
+                            매일 커피 마시는 시간을 즐기고 있어요! <br>
+                           
                             <p>송
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor"
                                     class="bi bi-asterisk" viewBox="0 0 16 16">
@@ -282,10 +347,8 @@
             </div>
         </div>
         <!-- /베스트 리뷰 -->
-
-        <button class="sub-button"><a href="#">1DO 1DO 구독하러 가기</a></button>
     </div> <!-- /content4 -->
-
+	<br><br>
     <!-- FAQ -->
     <div class="container">
         <br><br>
@@ -419,11 +482,6 @@
 
     <!-- 슬라이드 스크립트 -->
     <script>
-    
-    function gotest(testMain) {
-        location.href = '${ pageContext.servletContext.contextPath }/taste/testMain';
-    }
-    
         var slideIndex = 1;
         showSlides(slideIndex);
         function plusSlides(n) {
