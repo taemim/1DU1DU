@@ -10,6 +10,8 @@ import com.onedu.mvc.goods.model.dto.ImgDTO;
 import com.onedu.mvc.goods.model.dto.OptionDTO;
 import com.onedu.mvc.goods.model.dto.OrderDTO;
 import com.onedu.mvc.goods.model.dto.PaymentDTO;
+import com.onedu.mvc.member.model.dto.MemberDTO;
+import com.onedu.mvc.member.model.dto.MyorderDTO;
 
 public class OrderDAO {
 
@@ -31,7 +33,6 @@ public class OrderDAO {
 		return session.selectOne("OrderDAO.selectPayment", newPayment);
 	}
 
-
 	public static ImgDTO selectImg(SqlSession session, GoodsDTO goods) {
 	
 		return session.selectOne("OrderDAO.selectImg",  goods);
@@ -41,5 +42,12 @@ public class OrderDAO {
 		return session.selectOne("OrderDAO.selectOption",  op);
 	}
 
+	public static int insertOrderOp(SqlSession session, GoodsDTO goods) {
+		return session.insert("OrderDAO.insertOrderOp", goods);
+	}
+
+	public List<MyorderDTO> selectMyOrder(SqlSession session, String userId) {
+		return session.selectList("OrderDAO.selectMyOrder", userId);
+	}
 
 }

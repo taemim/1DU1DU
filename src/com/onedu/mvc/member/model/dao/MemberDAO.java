@@ -3,6 +3,7 @@ package com.onedu.mvc.member.model.dao;
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.member.model.dto.MemberDTO;
+import com.onedu.mvc.member.model.dto.MyorderDTO;
 
 public class MemberDAO {
 
@@ -55,6 +56,6 @@ public class MemberDAO {
 		
 		return session.update("MemberDAO.updateAddress", member);
 	}
-	
 
+	
 }

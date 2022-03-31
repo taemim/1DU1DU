@@ -27,11 +27,11 @@ public class OrderInsertServlet extends HttpServlet {
 
 		// 세션 로그인 정보 담기
 		HttpSession session = request.getSession();
-		MemberDTO loginUser = (MemberDTO) session.getAttribute("loginUser");
+		MemberDTO loginMember = (MemberDTO) session.getAttribute("loginMember");
 
 		// 주문 입력폼 정보 담기
 		OrderDTO newOrder = new OrderDTO();
-		newOrder.setUserId(loginUser.getUserId());
+		newOrder.setUserId(loginMember.getUserId());
 		newOrder.setReceiverName(request.getParameter("buyer_tel"));
 		newOrder.setReceiverPhone(request.getParameter("buyer_tel"));
 		newOrder.setZipCode(request.getParameter("buyer_postcode"));
@@ -47,14 +47,14 @@ public class OrderInsertServlet extends HttpServlet {
 		newPayment.setPayNo(request.getParameter("imp_uid"));
 		newPayment.setAmount(Integer.parseInt(request.getParameter("price")));
 
-		// 주문 상품 정보 담기
-		GoodsDTO goods = new GoodsDTO();
-
-		 String[] op = request.getParameterValues("optionNo");
+		// 옵션 정보 담기
+		OptionDTO option = new OptionDTO();
 		 
-		 List<OptionDTO> optionList = new ArrayList<>(); 
+		List<OptionDTO> optionList = new ArrayList<>(); 
 		 
-		 OptionDTO option = new OptionDTO();
+		String[] op = request.getParameterValues("optionNo");
+		System.out.println("op확인!!!!!!!!!!" + op[0]);
+		
 		  if(op != null) {
 			  
 			  for (int i = 0; i < op.length ; i++) {
@@ -64,14 +64,14 @@ public class OrderInsertServlet extends HttpServlet {
 				  optionList.add(option); 
 			  }
 		  }
+		  
+		// 주문 상품 정보 담기
+		GoodsDTO goods = new GoodsDTO();
+		  
 		
 		goods.setGoodsNo(Integer.parseInt(request.getParameter("goodsNo")));
 		goods.setAmount(Integer.parseInt(request.getParameter("amount")));
 		goods.setPrice(Integer.parseInt(request.getParameter("price")));
-
-//		 goods.setOptionList(optionList);
-//		
-//		 System.out.println(op);
 
 
 		System.out.println(" !!! 상품목록 확인 !!!! :" + goods);

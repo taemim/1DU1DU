@@ -112,4 +112,27 @@ public class CartService {
 		return result;
 	}
 
+	/* 장바구니 추가용 메소드 */
+	public int insertCart(CartDTO insertCart) {
+		
+		/* 1. SqlSession 생성 */
+		SqlSession sqlSession = getSqlSession();
+		
+		/* 2. SqlSession과 함께 정보를 전달하여 조회한다. */
+		int result = cartDAO.insertCart(sqlSession, insertCart);
+		
+		/* 3. 트랜잭션 처리 */
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		/* 4. SqlSession 닫기 */
+		sqlSession.close();
+		
+		/* 5. 조회 결과 반환 */
+		return result;
+	}
+
 }

@@ -28,6 +28,15 @@
 	<!-- header import -->
     <jsp:include page="../main/header.jsp"/>
 
+	<c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
     <div class="container">
         <div class="row">
             <!-- 마이페이지 사이드 영역 -->
@@ -36,7 +45,7 @@
                     <li class="li-1"><a href="mypage.html">mypage</a></li>
                     <li><a href="#">내 정보 확인</a></li>
                     <li><a href="#">구독 내역</a></li>
-                    <li><a href="#">주문 내역</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
@@ -82,12 +91,12 @@
                                                 class="txtInp rMar05 crRed fb" style="width:120px; height: 24px;">
                                         </td>
                                     </tr>
-                                    <tr class="user_padding">
+                                    <%-- <tr class="user_padding">
                                         <th scope="row" class="ct">주문자</th>
                                         <td readonly>${ askList.writer.userName }</td>
                                         <th scope="row" class="ct">아이디</th>
-                                        <td readonly></td>
-                                    </tr>
+                                        <td readonly>${ askList.userId }</td>
+                                    </tr> --%>
                                     <tr>
                                         <th scope="row" class="ct"><label for="askTitle" required>제목</label></th>
                                         <td colspan="3">
@@ -123,7 +132,7 @@
                                             </script>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <th scope="row" class="ct">사진 첨부</th>
                                         <td colspan="3">
                                             <div class="attachFile" id="idDivInputFile">
@@ -131,9 +140,9 @@
                                                     class="inputFile form-control form-control-sm">
                                                 <button type="button" class="btnListDel" onclick="">삭제</button>
                                             </div>
-                                            <!-- <p class="tMar07 fs12">파일크기는 3MB이하, JPG, PNG 또는 GIF형식의 파일만 가능합니다.</p> -->
+                                            <p class="tMar07 fs12">파일크기는 3MB이하, JPG, PNG 또는 GIF형식의 파일만 가능합니다.</p>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <th scope="row" class="ct"><label for="email">이메일</label></th>
                                         <td colspan="3">
@@ -152,7 +161,7 @@
                             </table>
 
                             <div class="btnArea ct tPad30">
-                                <!-- 취소 하기 누를 시 팝업 적용 하려고 할 떄의 코드 -->
+                                <!-- 취소 하기 누를 시 팝업 적용 하려고 할 때의 코드 -->
                                 <button type="button" class="btn btnS1 btnGry btnW160" onclick="cancelAsk()">취소하기</button>
                                 <button type="submit" class="btn btnS1 btnRed btnW160"">문의하기</button>
                             </div>
@@ -162,6 +171,7 @@
             </div>
         </div>
     </div>
+    </c:if>
     
     <script type="text/javascript">
 	    function cancelAsk(){

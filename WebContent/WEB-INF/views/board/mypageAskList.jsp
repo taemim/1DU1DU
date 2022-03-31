@@ -27,6 +27,15 @@
     <!-- header import -->
     <jsp:include page="../main/header.jsp"/>
 
+	<c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
     <div class="container">
         <div class="row">
             <!-- 마이페이지 사이드 영역 -->
@@ -35,7 +44,7 @@
                     <li class="li-1"><a href="mypage.html">mypage</a></li>
                     <li><a href="#">내 정보 확인</a></li>
                     <li><a href="#">구독 내역</a></li>
-                    <li><a href="#">주문 내역</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
@@ -119,6 +128,7 @@
             </div>
         </div>
     </div>
+    </c:if>
 
     <script type="text/javascript">
         function detailView(no){

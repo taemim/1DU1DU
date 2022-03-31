@@ -29,6 +29,15 @@
     <!-- header import -->
     <jsp:include page="../main/header.jsp"/>
 
+	<c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
     <div class="container">
         <div class="row">
             <!-- 마이페이지 사이드 영역 -->
@@ -37,7 +46,7 @@
                     <li class="li-1"><a href="mypage.html">mypage</a></li>
                     <li><a href="#">내 정보 확인</a></li>
                     <li><a href="#">구독 내역</a></li>
-                    <li><a href="#">주문 내역</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
@@ -63,12 +72,10 @@
                                         <td>
                                             <div class="goodsInfo">
                                                 <div class="pdtPhoto"><img
-                                                        src="../resources/images/5.jpeg"
-                                                        width="150" height="150" alt="과테말라 부에나 비스타 내추럴"></div>
+                                                        src="${ pageContext.servletContext.contextPath }${ reviewDetail.imgList[0].thumbnailPath }"
+                                                        width="150" height="150"></div>
                                                 <div class="pdfInfo">
-                                                    <p class="pdtName tPad10"><a
-                                                            href="상품주소"
-                                                            title="상품 페이지로 이동">과테말라 부에나 비스타 내추럴</a></p>
+                                                    <p class="pdtName tPad10"><a href="#">과테말라 부에나 비스타 내추럴</a></p>
                                                     <p class="pdtPrice tPad10"><span class="finalP">19,000원</span>
                                                     </p>
                                                 </div>
@@ -112,7 +119,7 @@
                                             <p class="asset">고객님의 소중한 상품평은 1DU1DU의 큰 자산이 됩니다.</p>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <th scope="row" class="ct">첨부 이미지</th>
                                         <td colspan="3">
                                             <div class="attachFile" id="idDivInputFile">
@@ -120,9 +127,9 @@
                                                     class="inputFile form-control form-control-sm">
                                                 <button type="button" class="btnListDel" onclick="">삭제</button>
                                             </div>
-                                            <!-- <p class="tMar07 fs12">파일크기는 3MB이하, JPG, PNG 또는 GIF형식의 파일만 가능합니다.</p> -->
+                                            <p class="tMar07 fs12">파일크기는 3MB이하, JPG, PNG 또는 GIF형식의 파일만 가능합니다.</p>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <th scope="row" class="ct">만족도</th>
                                         <td>
@@ -248,6 +255,7 @@
             </div>
         </div>
     </div>
+    </c:if>
     
     <script type="text/javascript">
     function cancelReview(){

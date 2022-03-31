@@ -22,9 +22,6 @@
 		<result property="gradeNo" column="GRADE_NO"/>				
 	</resultMap>
 
-
-
-
 	<insert id="insertMember" parameterType="com.onedu.mvc.member.model.dto.MemberDTO">
         INSERT /* com.onedu.mvc.member.model.dao.MemberDAO#insertMember() */
           INTO MEMBER 
@@ -136,14 +133,12 @@
 		
 	<!-- 회원 주문시 입력한 배송주소로 수정 -->
 	<update id="updateAddress">
-	UPDATE MEMBER
-	SET POSTAL = #{ postal }
-		, ADDRESS = #{ address }
-		, ADDRESS2 =  #{ address2 }
-	WHERE USER_ID = #{ userId }
+		UPDATE MEMBER
+		  SET POSTAL = #{ postal }
+			, ADDRESS = #{ address }
+			, ADDRESS2 =  #{ address2 }
+		WHERE USER_ID = #{ userId }
 	</update>
-
-
 
 
 </mapper>

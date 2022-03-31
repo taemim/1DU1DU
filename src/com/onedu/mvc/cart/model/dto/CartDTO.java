@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
 import com.onedu.mvc.goods.model.dto.ImgDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
 import com.onedu.mvc.member.model.dto.MemberDTO;
 
 public class CartDTO implements java.io.Serializable {
@@ -15,11 +16,12 @@ public class CartDTO implements java.io.Serializable {
 	private GoodsDTO goods;
 	private MemberDTO user;
 	private List<ImgDTO> imgList;
+	private List<OptionDTO> optionList;
 	
 	public CartDTO() {}
 
 	public CartDTO(int cartNo, int prodNo, String userId, int amount, GoodsDTO goods, MemberDTO user,
-			List<ImgDTO> imgList) {
+			List<ImgDTO> imgList, List<OptionDTO> optionList) {
 		super();
 		this.cartNo = cartNo;
 		this.prodNo = prodNo;
@@ -28,6 +30,7 @@ public class CartDTO implements java.io.Serializable {
 		this.goods = goods;
 		this.user = user;
 		this.imgList = imgList;
+		this.optionList = optionList;
 	}
 
 	public int getCartNo() {
@@ -86,10 +89,18 @@ public class CartDTO implements java.io.Serializable {
 		this.imgList = imgList;
 	}
 
+	public List<OptionDTO> getOptionList() {
+		return optionList;
+	}
+
+	public void setOptionList(List<OptionDTO> optionList) {
+		this.optionList = optionList;
+	}
+
 	@Override
 	public String toString() {
 		return "CartDTO [cartNo=" + cartNo + ", prodNo=" + prodNo + ", userId=" + userId + ", amount=" + amount
-				+ ", goods=" + goods + ", user=" + user + ", imgList=" + imgList + "]";
+				+ ", goods=" + goods + ", user=" + user + ", imgList=" + imgList + ", optionList=" + optionList + "]";
 	}
 	
 }

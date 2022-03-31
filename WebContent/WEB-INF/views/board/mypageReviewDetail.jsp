@@ -28,6 +28,15 @@
 	<!-- header import -->
     <jsp:include page="../main/header.jsp"/>
 
+	<c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
 	<div class="container">
 		<div class="row">
 			<!-- 마이페이지 사이드 영역 -->
@@ -36,7 +45,7 @@
 					<li class="li-1"><a href="mypage.html">mypage</a></li>
 					<li><a href="#">내 정보 확인</a></li>
 					<li><a href="#">구독 내역</a></li>
-					<li><a href="#">주문 내역</a></li>
+					<li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
 					<li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
 					<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
 					<li><a href="#">위시리스트 조회</a></li>
@@ -62,12 +71,12 @@
 									<td>
 										<div class="goodsInfo">
 											<div class="pdtPhoto">
-												<img src="../resources/images/5.jpeg" width="150"
+												<img src="${ pageContext.servletContext.contextPath }${ reviewDetail.imgList[0].thumbnailPath }" width="150"
 													height="150" alt="${ reviewDetail.goods.goodsName }">
 											</div>
 											<div class="pdfInfo">
 												<p class="pdtName tPad10">
-													<a href="상품주소" title="상품 페이지로 이동">${ reviewDetail.goods.goodsName }</a>
+													<a href="#" title="상품 페이지로 이동">${ reviewDetail.goods.goodsName }</a>
 												</p>
 												<p class="pdtPrice tPad10">
 													<span class="finalP"><fmt:formatNumber value="${ reviewDetail.goods.price }" pattern="#,###,### 원"/></span>
@@ -87,10 +96,10 @@
 										<p class="content">${ reviewDetail.revContents }</p>
 									</td>
 								</tr>
-								<tr>
+								<!-- <tr>
 									<th scope="row" class="ct">첨부 이미지</th>
 									<td>첨부한 이미지</td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 
@@ -110,7 +119,8 @@
 			</div>
 		</div>
 	</div>
-
+	</c:if>
+	
 	<script>
 		function deleteReview(){
 			if(confirm('리뷰를 삭제하시겠습니까?')) {

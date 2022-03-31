@@ -31,6 +31,32 @@ dl, ul, ol, li {
     list-style: none;
 }
 
+.top_banner {
+    margin :0px;
+}
+
+.top_banner >p {
+    margin :0px;
+}
+
+/* 회원만 접근 권한 부여 */
+.error {
+	max-width: 1300px;
+	display : flex;
+	justify-content : center;
+	margin: 0 auto;
+}
+
+.error p {
+	text-align: center;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size : 30px;
+}
+
+.error a:hover {
+	color: #432;
+}
+
 
 /*----------------------------------------------------------------------------------------------------------*/
 /* 헤더 영역 비워놓기 */
@@ -80,6 +106,10 @@ dl, ul, ol, li {
 .mypage{
     margin: 50px;
     width: 860px;
+}
+
+.row {
+	padding: 100px 0 70px;
 }
 
 /* 테이블 크기 설정 테이블 크기 벗어나면 스크롤 보임*/

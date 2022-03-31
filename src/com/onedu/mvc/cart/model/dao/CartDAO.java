@@ -14,12 +14,6 @@ public class CartDAO {
 		return sqlSession.selectList("CartDAO.selectAllCartList");
 	}
 	
-//	/* 장바구니 추가용 메소드 */
-//	public int insertCart(SqlSession sqlSession, CartDTO newCart) {
-//		
-//		return sqlSession.insert("CartDAO.insertCart", newCart);
-//	}
-	
 	/* 장바구니 삭제용 메소드 */
 	public int deleteCart(SqlSession sqlSession, int no) {
 		
@@ -37,6 +31,11 @@ public class CartDAO {
 		
 		return sqlSession.delete("CartDAO.deleteOneCart", no);
 	}
-	
+
+	/* 장바구니 추가용 메소드 */
+	public int insertCart(SqlSession sqlSession, CartDTO insertCart) {
+		
+		return sqlSession.insert("CartDAO.insertCart", insertCart);
+	}
 	
 }
