@@ -69,11 +69,11 @@
 				</span>
 				<h4>변경할 비밀번호</h4>
 				<span class="input_area">
-				<input type="password" name="memberPwd" id="memberPwd" maxlength="15">
+				<input type="password" name="userPwd" id="memberPwd" maxlength="15">
 				</span>
 				<h4>변경할 비밀번호 확인</h4>
 				<span class="input_area">
-				<input type="password" name="memberPwd2" id="memberPwd2" maxlength="15">
+				<input type="password" name="userPwd2" id="memberPwd2" maxlength="15">
 				</span>
 			<div class="btnArea">
 				<button id="updatePwdBtn">변경하기</button>
@@ -84,8 +84,8 @@
 	
 		function checkPassword(){
 			const checkPwd = document.getElementById('checkPwd');
-			const memberPwd = document.getElementById('memberPwd');
-			const memberPwd2 = document.getElementById('memberPwd2');
+			const memberPwd = document.getElementById('userPwd');
+			const memberPwd2 = document.getElementById('userPwd2');
 			
 			if(checkPwd.value == "" || memberPwd.value == "" || memberPwd2.value == ""){
 				alert("비밀번호를 입력해주세요.");

@@ -23,7 +23,7 @@
 					break;
 				case "updateMember" : 
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }/member/modify";
+					movePath = "${ pageContext.servletContext.contextPath }/mypage/my-modify";
 					break;
 				case "updateMemberPassword" : 
 					successMessage = "회원 비밀번호 변경에 성공하셨습니다!";
@@ -98,6 +98,11 @@
 					successMessage = "선택하신 상품을 장바구니에 담았습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/cart/list";
 					break;
+				case "findId" :
+					successMessage = "${ message }";
+					movePath = "${ pageContext.servletContext.contextPath }/member/login";
+					break;
+					
 			}
 
 			alert(successMessage);

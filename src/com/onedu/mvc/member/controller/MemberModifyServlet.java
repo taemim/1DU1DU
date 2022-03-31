@@ -24,20 +24,32 @@ public class MemberModifyServlet extends HttpServlet {
 	/* 정보 수정 폼을 작성 후 post 요청을 할 경우 처리하는 역할 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int no = ((MemberDTO)request.getSession().getAttribute("loginMember")).getGradeNo();
-		String userName = request.getParameter("userName");
-		/*사용자가 '-'기호를 이용하여 전화번호를 입력하는 경우 통일시키기 위해서 replace 이용함 */
+		request.setCharacterEncoding("UTF-8");
+		
+		
+		
+		 String userId =
+		 ((MemberDTO)request.getSession().getAttribute("loginMember")).getUserId();
+		 
 		String phone = request.getParameter("phone").replace("-", "");
 		String email = request.getParameter("email");
-		/* 우편번호와 주소, 상세주소를 하나의 문자열로 저장하는데 주소에 보통 사용하지 않는 문자를 기준으로 합치기를 해야 나중에 split 할 수 있다. */
-		String address = request.getParameter("zipCode") + "$" + request.getParameter("address1") + "$" + request.getParameter("address2");
+		
+		String postal = request.getParameter("postal");
+		String address = request.getParameter("address");
+		String address2 = request.getParameter("address2");
+		
+		
+		
+		
 		
 		MemberDTO requestMember = new MemberDTO();
-		requestMember.setGradeNo(no);
-		requestMember.setUserName(userName);
+
+		requestMember.setUserId(userId);
 		requestMember.setPhone(phone);
 		requestMember.setEmail(email);
+		requestMember.setPostal(postal);
 		requestMember.setAddress(address);
+		requestMember.setAddress2(address2);
 		
 		System.out.println("memberController requestMember : " + requestMember);
 		
@@ -53,7 +65,7 @@ public class MemberModifyServlet extends HttpServlet {
 			request.setAttribute("successCode", "updateMember");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "회원 비밀번호 수정 실패!");
+			request.setAttribute("message", "회원 정보 수정 실패!");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);

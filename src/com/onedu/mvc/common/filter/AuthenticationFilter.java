@@ -87,19 +87,18 @@ public class AuthenticationFilter implements Filter {
 		adminPermitList.add("/admin/ "); //관리자
 		
 		memberPermitList.add("/member/modify");
+		memberPermitList.add("/member/logout");
 		memberPermitList.add("/member/modifyPassword");
-		memberPermitList.add("/member/my-modify");
+		memberPermitList.add("/mypage/my-modify");
 		memberPermitList.add("/member/my-drop");
 		memberPermitList.add("/member/addressUpdate");
 
 		allPermitList.add("/member/idCheck");
 		allPermitList.add("/member/enroll");
 		allPermitList.add("/member/login");
-		allPermitList.add("/member/logout");
 		allPermitList.add("/member/findId");
 		allPermitList.add("/member/findPwd");
 		
-
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);
 		permitURIList.put("allPermitList", allPermitList);

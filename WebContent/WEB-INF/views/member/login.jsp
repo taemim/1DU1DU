@@ -18,21 +18,23 @@
     <link href="${ pageContext.servletContext.contextPath }/resources/css/login.css" rel="stylesheet" type="text/css">
     <!-- 파비콘 -->
 	<link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
-
+    <!-- 슬라이드랑 충돌 나는 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
 
 
 
 
 
 <title>로그인</title>
-    <link href="${ pageContext.servletContext.contextPath }/resources/css/login.css" rel="stylesheet" >
+  
 </head>
 <body>
 
 
-
+	
 <!-- 헤더 -->
-	<jsp:include page="/WEB-INF/views/main/header.jsp" />	
+		<jsp:include page="/WEB-INF/views/main/header.jsp" />
 	        <script>
             window.addEventListener('load', function() {
                 var allElements = document.getElementsByTagName('*');

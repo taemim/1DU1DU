@@ -70,7 +70,7 @@ dl, ul, ol, li {
 
     width: 1200px;
     min-width: 1000px;
-    height: 1050px;
+    height: 1200px;
 }
 
 /* 메인 div 콘텐츠 영역 설정*/
@@ -133,9 +133,9 @@ label {
     text-align: center;
     margin-right: 50px;
     margin-bottom: 0px;
-    border-radius: 20px;
-    padding : 10px 20px;
-    font-size: 20px;
+    border-radius: 100px;
+    padding : 10px 40px;
+    font-size: 17px;
     float : right;
 
 }
@@ -146,9 +146,9 @@ label {
     margin-top: -140px;
     margin-right: 50px;
     margin-bottom: 0px;
-    border-radius: 20px;
-    padding : 10px 20px;
-    font-size: 20px;
+    border-radius: 30px;
+    padding : 10px 60px;
+    font-size: 17px;
     float : right;
 
 }
@@ -295,13 +295,13 @@ label {
 
 /* 중복확인, 검색 버튼 */
 button {
-	width: 90px;
-	height: 45px;
+	width: 150px;
+	height: 50px;
 	border: 0px;
 	color: white;
 	background: #282A35;
 	cursor: pointer;
-    border-radius: 20px;
+    border-radius: 30px;
 
 }
 
@@ -322,7 +322,7 @@ button {
 /*모달 설정 !!------------------------------------------------------------------------------*/
 
 /* 모달 팝업시 뒷 배경 어둡게 처리 */
-#modal{
+/* #modal{
   display:none;
   position:fixed; 
   width:100%; height:100%;
@@ -330,7 +330,7 @@ button {
   background:rgba(0,0,0,0.2);
 }
 
-/* 모달 박스 크기 */
+모달 박스 크기
 .modal-con{
   display:none;
   position:fixed;
@@ -344,7 +344,7 @@ button {
   width: 700px;
 }
 
-/* 모달 제목 */
+모달 제목
 .modal-con .title{
   font-size:1.5em;
   text-align: center;
@@ -353,14 +353,14 @@ button {
   font-weight: bolder;
 }
 
-/* 모달 컨텐츠 내용 */
+모달 컨텐츠 내용
 .modal-con .con{
   font-size:1.25em;
   line-height:1.3;
   text-align: center;
 }
 
-/* 모달 내부 버튼(닫기/저장) 정렬 */
+모달 내부 버튼(닫기/저장) 정렬
 .modal-btn{
     display:block;
     position:absolute;
@@ -370,7 +370,7 @@ button {
     text-align:center;
     float: center;
     transform: translate(-50%, 70px);
-}
+} */
 
 /* 모달 내부 p 상단 여유주기*/
 .con p{

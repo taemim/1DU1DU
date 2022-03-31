@@ -2,7 +2,7 @@ package com.onedu.mvc.member.controller;
 
 import java.io.IOException;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +49,13 @@ public class MemberLoginServlet extends HttpServlet {
 			
 		} else {
 			request.setAttribute("message", "로그인 실패!");
-			request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);
+			
+			request.setAttribute("failedCode", "loginfail");
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp");
+			dispatcher.forward(request, response);
+			
+		
 		}
 		
 	}
