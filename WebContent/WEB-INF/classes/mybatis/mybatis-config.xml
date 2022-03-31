@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -17,6 +18,26 @@
 	</environments>
 	
 	<mappers>
+
+		<!-- 임태미 -->
+ 		<mapper resource="com/onedu/mvc/goods/model/dao/OrderDAO.xml"/>
+		
+		<!-- 임수연 -->
 		<mapper resource="com/onedu/mvc/member/model/dao/MemberDAO.xml"/>
+
+		
+		<!-- 유혜원 -->
+		<mapper resource="com/onedu/mvc/goods/model/dao/GoodsDAO.xml"/>
+		
+		<!-- 송연지 -->
+
+		<mapper resource="com/onedu/mvc/board/model/dao/AskDAO.xml"/>
+		<mapper resource="com/onedu/mvc/board/model/dao/ReviewDAO.xml"/>
+		<mapper resource="com/onedu/mvc/cart/model/dao/CartDAO.xml"/>
+				
+		<!-- 김세영 -->
+		
+
 	</mappers>
+
 </configuration>
