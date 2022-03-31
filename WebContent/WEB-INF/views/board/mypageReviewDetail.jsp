@@ -45,7 +45,7 @@
 					<li class="li-1"><a href="mypage.html">mypage</a></li>
 					<li><a href="#">내 정보 확인</a></li>
 					<li><a href="#">구독 내역</a></li>
-					<li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
+					<li><a href="${ pageContext.servletContext.contextPath }/mypage/myOrder">주문 내역</a></li>
 					<li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
 					<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
 					<li><a href="#">위시리스트 조회</a></li>
