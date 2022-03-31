@@ -37,7 +37,7 @@
                     <li class="li-1"><a href="mypage.html">mypage</a></li>
                     <li><a href="#">내 정보 확인</a></li>
                     <li><a href="#">구독 내역</a></li>
-                    <li><a href="#">주문 내역</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
@@ -63,7 +63,7 @@
                                         <td>
                                             <div class="goodsInfo">
                                                 <div class="pdtPhoto"><img
-                                                        src="../resources/images/5.jpeg"
+                                                        src="${ pageContext.servletContext.contextPath }${ reviewDetail.imgList[0].thumbnailPath }"
                                                         width="150" height="150" alt="과테말라 부에나 비스타 내추럴"></div>
                                                 <div class="pdfInfo">
                                                     <p class="pdtName tPad10"><a

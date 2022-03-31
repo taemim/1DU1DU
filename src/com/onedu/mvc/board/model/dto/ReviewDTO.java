@@ -1,8 +1,10 @@
 package com.onedu.mvc.board.model.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.onedu.mvc.goods.model.dto.GoodsDTO;
+import com.onedu.mvc.goods.model.dto.ImgDTO;
 
 public class ReviewDTO implements java.io.Serializable {
 	
@@ -19,12 +21,13 @@ public class ReviewDTO implements java.io.Serializable {
 	private int revHits;
 	private String revStatus;
 	private GoodsDTO goods;
+	private List<ImgDTO> imgList;
 	
 	public ReviewDTO() {}
 
 	public ReviewDTO(int revNo, int prodNo, String userId, String revTitle, String revContents, Date writeDate,
 			String ansTitle, String ansContents, Date ansDate, String gradeAvg, int revHits, String revStatus,
-			GoodsDTO goods) {
+			GoodsDTO goods, List<ImgDTO> imgList) {
 		super();
 		this.revNo = revNo;
 		this.prodNo = prodNo;
@@ -39,6 +42,7 @@ public class ReviewDTO implements java.io.Serializable {
 		this.revHits = revHits;
 		this.revStatus = revStatus;
 		this.goods = goods;
+		this.imgList = imgList;
 	}
 
 	public int getRevNo() {
@@ -145,12 +149,20 @@ public class ReviewDTO implements java.io.Serializable {
 		this.goods = goods;
 	}
 
+	public List<ImgDTO> getImgList() {
+		return imgList;
+	}
+
+	public void setImgList(List<ImgDTO> imgList) {
+		this.imgList = imgList;
+	}
+
 	@Override
 	public String toString() {
 		return "ReviewDTO [revNo=" + revNo + ", prodNo=" + prodNo + ", userId=" + userId + ", revTitle=" + revTitle
 				+ ", revContents=" + revContents + ", writeDate=" + writeDate + ", ansTitle=" + ansTitle
 				+ ", ansContents=" + ansContents + ", ansDate=" + ansDate + ", gradeAvg=" + gradeAvg + ", revHits="
-				+ revHits + ", revStatus=" + revStatus + ", goods=" + goods + "]";
+				+ revHits + ", revStatus=" + revStatus + ", goods=" + goods + ", imgList=" + imgList + "]";
 	}
 	
 }

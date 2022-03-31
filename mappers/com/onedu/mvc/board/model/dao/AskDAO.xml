@@ -73,7 +73,7 @@
 		, #{ prodNo }
 		, #{ askTitle }
 		, #{ askType }
-		, 'user01'
+		, #{ userId }
 		, #{ askContents }
 		)
 	</insert>

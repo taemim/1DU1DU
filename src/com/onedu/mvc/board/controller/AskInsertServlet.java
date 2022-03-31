@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onedu.mvc.board.model.dto.AskDTO;
 import com.onedu.mvc.board.model.service.AskService;
+import com.onedu.mvc.member.model.dto.MemberDTO;
 
 @WebServlet("/ask/insert")
 public class AskInsertServlet extends HttpServlet {
@@ -27,16 +28,15 @@ public class AskInsertServlet extends HttpServlet {
 		
 		/* 1. 파라미터 꺼내기 */
 		String askType = request.getParameter("askType");
-		int prodNo = Integer.parseInt(request.getParameter("prodNo"));
-//		String userName = ((MemberDTO) request.getSession().getAttribute(""))
-		String userId = request.getParameter("userId");
+//		int prodNo = Integer.parseInt(request.getParameter("prodNo"));
+//		String userName = ((MemberDTO) request.getSession().getAttribute("loginMember")).getUserName();
+		String userId = ((MemberDTO) request.getSession().getAttribute("loginMember")).getUserId();
 		String askTitle = request.getParameter("askTitle");
 		String askContents = request.getParameter("askContents");
 		
 		AskDTO newAsk = new AskDTO();
 		newAsk.setAskType(askType);
-		newAsk.setProdNo(prodNo);
-//		newAsk.setWriter(userName);
+//		newAsk.setProdNo(prodNo);
 		newAsk.setUserId(userId);
 		newAsk.setAskTitle(askTitle);
 		newAsk.setAskContents(askContents);

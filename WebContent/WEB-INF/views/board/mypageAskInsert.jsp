@@ -36,7 +36,7 @@
                     <li class="li-1"><a href="mypage.html">mypage</a></li>
                     <li><a href="#">내 정보 확인</a></li>
                     <li><a href="#">구독 내역</a></li>
-                    <li><a href="#">주문 내역</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
                     <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
                     <li><a href="#">위시리스트 조회</a></li>
@@ -86,7 +86,7 @@
                                         <th scope="row" class="ct">주문자</th>
                                         <td readonly>${ askList.writer.userName }</td>
                                         <th scope="row" class="ct">아이디</th>
-                                        <td readonly></td>
+                                        <td readonly>${ askList.userId }</td>
                                     </tr>
                                     <tr>
                                         <th scope="row" class="ct"><label for="askTitle" required>제목</label></th>
