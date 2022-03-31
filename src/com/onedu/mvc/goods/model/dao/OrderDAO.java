@@ -46,8 +46,8 @@ public class OrderDAO {
 		return session.insert("OrderDAO.insertOrderOp", goods);
 	}
 
-	public MyorderDTO selectMyOrder(SqlSession session, MemberDTO member) {
-		return session.selectOne("OrderDAO.selectMyOrder", member);
+	public List<MyorderDTO> selectMyOrder(SqlSession session, String userId) {
+		return session.selectList("OrderDAO.selectMyOrder", userId);
 	}
 
 }

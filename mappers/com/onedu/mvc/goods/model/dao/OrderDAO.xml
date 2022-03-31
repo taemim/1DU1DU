@@ -77,12 +77,14 @@
 	
 	<resultMap type="com.onedu.mvc.member.model.dto.MyorderDTO" id="myOrderResultMap">
 		<id property="orderNo" column="ORDER_NO"/>
+		<result property="payDate" column="PAY_TIME"/>
 		<result property="goodsNo" column="PROD_NO"/>
+		<result property="goodsName" column="PROD_NAME"/>
+		<result property="amount" column="AMOUNT"/>
+		<result property="price" column="PRICE"/>
+		<result property="status" column="STATUE"/>
 		<result property="invoice" column="INVOICE"/>
-		<association property="order" resultMap="orderResultMap"/>
-		<collection property="goodsList" resultMap="goodsListResultMap"/>
-		<collection property="goodsImg" resultMap="imgResultMap"/>
-		<collection property="optionList" resultMap="optionResultMap"/> 
+		<association property="goodsImg" resultMap="imgResultMap"/>
 	</resultMap>
 	
 	<insert id="insertOrder">
@@ -149,11 +151,8 @@
 		, #{ optionList.optionNo }
 		)
 		</foreach>
-		
-	
-	</insert>
-	
 
+	</insert>
 	
 	<select id="selectPayment" resultMap="paymentResultMap">
 		SELECT PAY_NO
@@ -183,21 +182,24 @@
 		 WHERE OP_NAME = #{ op }
 	</select>
 	
-	<select id="selectMyOrder"  resultMap="myOrderResultMap">
+	<select id="selectMyOrder" resultMap="myOrderResultMap">
 		 SELECT
-			  A.*
-			, B.*
-			, C.*
-			, NVL(D.INVOICE, '운송장 정보 없음(배송전)')
+			  A.ORDER_NO
+			, A.STATUE
+			, B.AMOUNT
+			, B.PRICE
+			, C.PROD_NO
+			, C.PROD_NAME
+			, D.INVOICE
 			, E.*
-			, F.*
+			, J.PAY_TIME
 		  FROM ORDERLIST A
 		  LEFT JOIN PROD_LIST B ON (A.ORDER_NO = B.ORDER_NO )
           LEFT JOIN PROD C ON( B.PROD_NO = C.PROD_NO)
           LEFT JOIN SHIP_INFO D ON( A.ORDER_NO = D.ORDER_NO )
 		  LEFT JOIN IMG E ON( C.PROD_NO = E.PROD_NO)
-		  LEFT JOIN ORDER_OP F ON ( A.ORDER_NO = F.ORDER_NO )
-		 WHERE USER_ID = { member.userId } 
+		  LEFT JOIN PAYMENT J ON (A.ORDER_NO = J.ORDER_NO)
+		 WHERE A.USER_ID = #{ userId } 
 	</select>
 
 </mapper>

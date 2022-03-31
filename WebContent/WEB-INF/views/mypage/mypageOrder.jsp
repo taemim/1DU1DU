@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.*" import="com.onedu.mvc.member.model.dto.MemberDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	MemberDTO loginMember = new MemberDTO();
+	loginMember = (MemberDTO) session.getAttribute("loginMember");
+
+	request.setCharacterEncoding("UTF-8");
+%>
+<script>
+	
+	if( <%= loginMember %> == null){
+		alert("로그인이 필요합니다.");
+		location.href="${ pageContext.servletContext.contextPath }/member/login"
+	}
+	
+</script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,31 +119,38 @@
 								</thead>
 								<tbody>
 								
-									<!-- 주문건 c:forEach로 추가하기-->
-									<tr>
-									<c:forEach var="order" items="${ orderList }">
-									
-										<td scope="row"><input type="checkbox" class="checkbox"
-											name="order_no" value=""></td>
-										<td scope="col">2022-03-22<br> 3443512
-										</td>
-										<td><img src="..\resources\image\1234.png"></td>
-										<td><a href="#">콜롬비아 카우카 엘 파라이소 디카페인 무산소 </a></td>
-										<td>12,000원<br>1개
-										</td>
-										<td>상품준비중</td>
-										<td>123456789</td>
-										
-									</c:forEach>	
+								<!-- 주문건 c:forEach로 추가하기-->
+								<c:forEach var="order" items="${ myOrder }">
+								<tr>
+									<td scope="row"><input type="checkbox" class="checkbox"
+										name="order_no" value="${ order.orderNo }"></td>
+									<td scope="col">${ order.payDate } <br> ${ order.orderNo }</td>
+									<td><img src="${ pageContext.servletContext.contextPath }${ order.goodsImg.thumbnailPath }"></td>
+									<td><a href="${ pageContext.servletContext.contextPath }/goods/detail?goodsNo=${order.goodsNo}">
+									${ order.goodsName }</a>
+									</td>
+									<td>${ order.price }원<br>${ order.amount }개</td>
+									<td>
+									<c:choose>
+										<c:when test="${ order.status eq 'Y' }">결제완료</c:when>
+										<c:when test="${ order.status ne 'Y'}"> ${ order.status }</c:when>
+									</c:choose>
+				
+									<td>
+										<c:choose>
+										<c:when test="${ empty order.invoice }"> 배송준비중</c:when>
+										<c:when test="${ not empty order.invoice }"> ${ order.invoice }</c:when>
+										</c:choose>
+									</td>
 									</tr>
-
+								   </c:forEach>	
 								</tbody>
 								<tfoot>
 									<tr></tr>
 								</tfoot>
 							</table>
 						</div>
-						</form>
+					  </form>
 					</div>
 					<br>
 
@@ -152,10 +176,10 @@
 				<div id="modal">
 					<div class="modal-con modal1">
 						<!-- 모달 제목 -->
-						<p class="title">비밀번호 변경</p>
+						<p class="title">주문 상세보기</p>
 						<!-- 모달 콘텐츠 영역-->
 						<div class="con">
-							<p>비밀번호를 변경 하시겠습니까?</p>
+							<p> 주문 상품 정보<p>
 						</div>
 						<!-- 모달창 버튼 영역-->
 						<div class="modal-btn">

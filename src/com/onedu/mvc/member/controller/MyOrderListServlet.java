@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.onedu.mvc.goods.model.service.OrderService;
 import com.onedu.mvc.member.model.dto.MemberDTO;
 import com.onedu.mvc.member.model.dto.MyorderDTO;
-import com.onedu.mvc.member.model.service.MemberService;
+import java.util.*;
 
 
-@WebServlet("/mypage/orderList")
+@WebServlet("/mypage/myOrder")
 public class MyOrderListServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,15 +24,23 @@ public class MyOrderListServlet extends HttpServlet {
 		
 		// 세션 로그인 정보 담기
 		HttpSession session = request.getSession();
-		MemberDTO loginMember = (MemberDTO) session.getAttribute("loginMember");
-
-		MyorderDTO myOrder = new MyorderDTO();
 		
-		MemberService memberService = new MemberService();
+		MemberDTO loginMember = (MemberDTO)session.getAttribute("loginMember");
+		String userId = loginMember.getUserId();
 		
-		myOrder = memberService.selectMyOrder(loginMember);
+	    System.out.println("로그인 확인" + loginMember);
+	    
+		List<MyorderDTO> myOrder = new ArrayList();
 		
-		System.out.println("주문내역 조회 확인 !!! " + myOrder);
+		OrderService orderService = new OrderService();
+		
+		if( userId !=null) {
+			
+			myOrder = orderService.selectMyOrder(userId);
+			
+			System.out.println("주문내역 조회 확인 !!! " + myOrder);
+		}
+		
 		
 		if(myOrder != null) {
 			path = "/WEB-INF/views/mypage/mypageOrder.jsp";

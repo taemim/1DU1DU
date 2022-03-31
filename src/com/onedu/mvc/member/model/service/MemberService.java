@@ -156,26 +156,4 @@ public class MemberService {
 
 	}
 
-	/* 회원 주문내역 조회 */
-	public MyorderDTO selectMyOrder(MemberDTO member) {
-		
-		SqlSession session = getSqlSession();
-		
-		MyorderDTO myOrder = new MyorderDTO();
-		
-		OrderDAO orderDAO = new OrderDAO();
-		
-		myOrder = orderDAO.selectMyOrder(session, member);
-		
-		if(myOrder != null ) {
-			session.commit();
-		} else {
-			session.rollback();
-		}
-		
-		session.close();
-		
-		return  myOrder;
-	}
-
 }

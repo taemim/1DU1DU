@@ -98,7 +98,7 @@
 											<c:forEach var="op" items="${ goods.optionList }">
 												 <c:set var="extra" value="${ extra + op.extra_pay }"/>
 												 [ ${ op.optionName2 } ] ${ op.optionName } 
-												 <c:if test="${ op.extra_pay } ne 0"> ( ${ op.extra_pay } ) </c:if>&nbsp;
+												 <c:if test="${ op.extra_pay } > 0"> ( ${ op.extra_pay } ) </c:if>&nbsp;
 											</c:forEach>
 										</p>				
 										<p class="amount">수량 : ${ goods.amount }개</p>
@@ -484,9 +484,9 @@
 			    
 			    <c:forEach var="op" items="${ goods.optionList }">
 			   		 optionNo.push( ${ op.optionNo } );
-			   		 console.log(optionNo);
 				</c:forEach> 
 				
+			   console.log(optionNo);
 
 		    	//결제 api
 		 		var code = "imp68097050"; //가맹점 식별코드
@@ -537,7 +537,7 @@
 		 			 				buyer_postcode: zipCode,
 		 			 				shipMemo : shipMemo, 
 		 			 				goodsNo : goodsNo ,
-		 			 				optionNo : optionNo 
+		 			 				optionNo : optionNo
 		 			 			},
 		 				        
 		 				        dataType: "text", //서버에서 보내줄 데이터 타입
