@@ -13,7 +13,6 @@ import java.sql.Connection;
 
 
 public class MemberService {
-
 	
 	
 	/* 의존 관계에 있는 객체가 불변을 유지할 수 있도록 final 필드로 선언한다. */
@@ -139,5 +138,24 @@ public class MemberService {
 		return result;
 	}
 
+	/*주문시 입력한 주소로 회원 정보 수정 메소드 */
+	public int updateAddress(MemberDTO member) {
+		
+		
+		SqlSession session = getSqlSession();
+		
+		int result = memberDAO.updateAddress(session, member);
+
+		if(result > 0 ) {
+			session.commit();
+		} else {
+			session.rollback();
+		}
+		
+		session.close();
+		
+		return result;
+
+	}
 
 }

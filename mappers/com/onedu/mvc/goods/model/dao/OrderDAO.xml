@@ -108,7 +108,7 @@
 		 , #{ orderNo }
 		 , #{ amount }
 		 , SYSDATE
-		 , TO_TIMESTAMP(SYSDATE,'HH24:MI:SS')
+		 , SYSTIMESTAMP
 		)
 	</insert>
 	
@@ -124,18 +124,35 @@
 		   , #{ goodsNo }
 		   , #{ amount }
 		   , #{ price }
-		   <choose>
-		   <when test="optionList != null">
-		   	<foreach collection="optionList" separator=",">
-		   		#{ optionList.optionNo }
-		   	</foreach>
-		   </when>
-		   </choose>
 		  )
 	</insert>
+		
+	<insert id="insertOrderOp">
+		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE"> 
+			SELECT SEQ_ORDER_NO.CURRVAL FROM DUAL
+		</selectKey> 
+		INSERT 
+		  INTO ORDER_OP
+		VALUES
+		(
+		  #{ orderNo }
+		, #{ goodsNo }
+		<foreach collection="OptionDTO" separator=",">
+			#{ optionList.optionNo }
+		</foreach>
+		)
+		
+	
+	</insert>
+	
+
 	
 	<select id="selectPayment" resultMap="paymentResultMap">
-		SELECT *
+		SELECT PAY_NO
+			 , ORDER_NO
+			 , AMOUNT
+			 , PAY_TIME
+		     , TO_CHAR( PAY_SUCC, 'HH24:MI:SS')
 		  FROM PAYMENT
 		 WHERE PAY_NO = #{ payNo }
 	</select>
@@ -159,13 +176,4 @@
 	</select>
 	
 
-	<select id="selectOption" resultMap="optionResultMap">
-		SELECT A.OP_NO
-			 , A.OP_NAME
-			 , A.EXTRA_PAY
-			 , A.OP_NO2
-			 , (SELECT OP_NAME FROM OP B WHERE A.OP_NO2 = B.OP_NO) AS OP_NAME2
-		  FROM OP A
-		 WHERE OP_NO2 IN (SELECT OP_NO FROM OP_PROD WHER PROD_NO = #{ goodsNo } )
-	</select>
 </mapper>
