@@ -83,41 +83,51 @@
 
 						
                 <!-- 옵션 선택 후 나타나는 박스 -->
-<form method="get" action="${ pageContext.servletContext.contextPath }/goods/order"
+				<form method="get" action="${ pageContext.servletContext.contextPath }/goods/order"
 						enctype="multipart/form-data" name="orderForm" onsubmit="return checkOp();"> 
 						
-                <div class="row bg-secondary bg-opacity-10" style="display:none" id="optionDiv">
-                	<div class="col-5">
-                		<div class="d-grid gap-3">
-                			<p class="text mt-4 ms-3">
-                			<span id='gram'></span>&nbsp; / &nbsp;<span id='grinder'></span>
-                		</div>
-                		<div class="row">
-                			<div class="col">
+                <!-- 옵션 위치 수정 부분 -->
+				<table class="row bg-secondary bg-opacity-10" style="display:none" id="optionDiv">
+                	<thead>
+                	<tr>
+                		<th class="col-4" colspan="3" >
+                			<p class="text mt-4 ms-4">
+                			<span id='gram'></span>&nbsp / &nbsp<span id='grinder'></span>
+                			</p>
+                		</th>
+                		<td width="col-4">
+                		</td>
+                		<td width="col-1">
+                		</td>
+                		<td class="col-1">
+                			<button type="button" class="btn-close mt-3 ms-4" aria-label="Close"></button>
+                		</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                	<tr>
+                		<td class="col-4" colspan="3">
+                			<span class="minus" onclick='count("minus")' value='-'>
+                				<a href="#"><i class="bi bi-dash-square ms-4 "></i></a>
+                			</span>
+                			<span id="result"><span class="text mt-0 ms-3">1</span></span>
+                			<span class="plus" onclick='count("plus")' value='+'>
+                				<a href="#"><i class="bi bi-plus-square ms-3"></i></a>
+                		   	</span>
+                		</td>
+                		<td class="col-4">
                 			
-                				<div class="d-grid gap-2" onclick='count("minus")' value='-'>
-                					<a href="#"><i class="bi bi-dash-square ms-3"></i></a>
-                				</div>
-                			</div>
-                			<div class="col mt-0">
-                				<div class="d-grid gap-2">
-                					<div id="result"><p class="text mt-0 ms-3">1</p></div>
-                				</div>
-                			</div>
-                			<div class="col">
-                				<div class="d-grid gap-2" onclick='count("plus")' value='+'>
-                					<a href="#"><i class="bi bi-plus-square ms-3"></i></a>
-                				</div>
-                			</div>
-                		</div>
-                	</div>
-                	<div class="col-5">
-                	</div>              	
-                	<div class="col-2">
-                		<button type="button" class="btn-close mt-3 ms-5" aria-label="Close"></button>
-                		<p class="fw-bold mt-4 ms-1 mb-0"><strong id="optionPrice"></strong></p>
-                	</div>
-                </div>
+                		</td>
+                		
+                		<td class="col-1" colspan="2">
+                			<p class="text-end ms-5 me-0 pe-0"><strong id="optionPrice"></strong></p>
+                		</td>
+                	</tr>
+                	</tbody>
+                		
+                </table>
+                	
+				<!-- 옵션 위치 수정 부분 끝 -->
                 
                 <div class="row">
                 	<div class="col-4 mt-3">
@@ -472,8 +482,8 @@
 	    	  }else if(type === 'minus')  {
 	    		  number = parseInt(number) - 1;
 	    	  }
-	    	  document.querySelector('#price').innerText=(${goods.price}+extraPrice) * number;
-	    	  document.querySelector('#optionPrice').innerText=(${goods.price}+extraPrice) * number;
+	    	  document.querySelector('#price').innerText = ((${goods.price}+extraPrice) * number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+	    	  document.querySelector('#optionPrice').innerText = (($x{goods.price}+extraPrice) * number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	    	  
 	    	  // 결과 출력
 	    	  resultElement.innerText = number;
