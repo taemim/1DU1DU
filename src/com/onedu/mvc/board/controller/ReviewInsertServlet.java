@@ -1,8 +1,6 @@
 package com.onedu.mvc.board.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onedu.mvc.board.model.dto.ReviewDTO;
 import com.onedu.mvc.board.model.service.ReviewService;
+import com.onedu.mvc.member.model.dto.MemberDTO;
 
 @WebServlet("/review/insert")
 public class ReviewInsertServlet extends HttpServlet {
@@ -31,11 +30,13 @@ public class ReviewInsertServlet extends HttpServlet {
 		String revTitle = request.getParameter("revTitle");
 		String  revContents = request.getParameter("revContents");
 		String gradeAvg = request.getParameter("totPnt");
+		String userId = ((MemberDTO) request.getSession().getAttribute("loginMember")).getUserId();
 		
 		ReviewDTO newReview = new ReviewDTO();
 		newReview.setRevTitle(revTitle);
 		newReview.setRevContents(revContents);
 		newReview.setGradeAvg(gradeAvg);
+		newReview.setUserId(userId);
 		
 		/* 2. 비즈니스 로직 호출 */
 		ReviewService reviewService = new ReviewService();
