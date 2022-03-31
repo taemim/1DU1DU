@@ -28,6 +28,15 @@
 	<!-- header import -->
     <jsp:include page="../main/header.jsp"/>
 
+	<c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
 	<div class="container">
 		<div class="row">
 			<!-- 마이페이지 사이드 영역 -->
@@ -87,10 +96,10 @@
 										<p class="content">${ reviewDetail.revContents }</p>
 									</td>
 								</tr>
-								<tr>
+								<!-- <tr>
 									<th scope="row" class="ct">첨부 이미지</th>
 									<td>첨부한 이미지</td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 
@@ -110,7 +119,8 @@
 			</div>
 		</div>
 	</div>
-
+	</c:if>
+	
 	<script>
 		function deleteReview(){
 			if(confirm('리뷰를 삭제하시겠습니까?')) {

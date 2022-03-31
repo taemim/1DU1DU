@@ -39,6 +39,24 @@ dl, ul, ol, li {
     margin :0px;
 }
 
+/* 회원만 접근 권한 부여 */
+.error {
+	max-width: 1300px;
+	display : flex;
+	justify-content : center;
+	margin: 0 auto;
+}
+
+.error p {
+	text-align: center;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size : 30px;
+}
+
+.error a:hover {
+	color: #432;
+}
+
 
 /*----------------------------------------------------------------------------------------------------------*/
 /* 헤더 영역 비워놓기 */
