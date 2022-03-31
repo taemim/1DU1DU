@@ -88,8 +88,9 @@ public class AuthenticationFilter implements Filter {
 		adminPermitList.add("/notice/delete");
 		
 		memberPermitList.add("/member/modify");
+		memberPermitList.add("/member/logout");
 		memberPermitList.add("/member/modifyPassword");
-		memberPermitList.add("/member/my-modify");
+		memberPermitList.add("/mypage/my-modify");
 		memberPermitList.add("/member/my-drop");
 		memberPermitList.add("/notice/list");
 		memberPermitList.add("/notice/detail");
@@ -103,9 +104,9 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/member/idCheck");
 		allPermitList.add("/member/enroll");
 		allPermitList.add("/member/login");
-		allPermitList.add("/member/logout");
 		allPermitList.add("/member/findId");
 		allPermitList.add("/member/findPwd");
+		
 		
 		
 		permitURIList.put("adminPermitList", adminPermitList);

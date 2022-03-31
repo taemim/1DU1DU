@@ -21,7 +21,7 @@ public class MemberDTO implements java.io.Serializable{
 	private int buyCnt;			//구매횟수
 	private String userAct;		//활동여부
 	private String userRole;	//구분
-	private int grade;		//회원등급번호
+	private String grade;		//회원등급번호
 	
 	
 	
@@ -33,7 +33,7 @@ public class MemberDTO implements java.io.Serializable{
 	/* 생성자 */
 	public MemberDTO(String userId, String userPwd, String userName, String phone, Date birthday, String gender,
 			String postal, String address, String address2, String email, Date enrollDate, int buyCnt, String userAct,
-			String userRole, int grade) {
+			String userRole, String grade) {
 		super();
 		this.userId = userId;
 		this.userPwd = userPwd;
@@ -222,14 +222,14 @@ public class MemberDTO implements java.io.Serializable{
 
 
 
-	public int getGradeNo() {
+	public String getGrade() {
 		return grade;
 	}
 
 
 
-	public void setGradeNo(int gradeNo) {
-		this.grade = gradeNo;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 
 
@@ -241,11 +241,11 @@ public class MemberDTO implements java.io.Serializable{
 		return "MemberDTO [userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName + ", phone=" + phone
 				+ ", birthday=" + birthday + ", gender=" + gender + ", postal=" + postal + ", address=" + address
 				+ ", address2=" + address2 + ", email=" + email + ", enrollDate=" + enrollDate + ", buyCnt=" + buyCnt
-				+ ", userAct=" + userAct + ", userRole=" + userRole + ", gradeNo=" + grade + "]";
+				+ ", userAct=" + userAct + ", userRole=" + userRole + ", grade=" + grade + "]";
 	}
-	
-	
-	
+
+
+
 	
 	
 	

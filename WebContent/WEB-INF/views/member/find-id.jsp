@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%
+String message = (String)request.getAttribute("message");
+ 
+%> 
+    
     
 <!DOCTYPE html>
 <html lang="ko">
@@ -64,68 +69,37 @@
                 <h1 id="t11">아이디 찾기</h1>
                 <h4>&nbsp 가입시 사용한 이메일 입력</h4>
                 <!--이메일 입력칸-->
-				<span class="input_area"><input type="email" name="memberId" id="emailFind" maxlength="50"
+				<span class="input_area"><input type="email" name="email" id="emailFind" maxlength="50"
 				placeholder="이메일 입력" required></span>
                 <h4>&nbsp 가입시 사용한 연락처 입력</h4>
                 <!--연락처 입력칸-->
-				<span class="input_area"><input type="text" name="memberPwd" id="phonePwd" maxlength="11"
+				<span class="input_area"><input type="text" name="phone" id="phonePwd" maxlength="11"
 				placeholder="핸드폰번호 입력" required></span>
                 
 
                 <h1></h1>
                 <h1></h1>
                 
+                
+                              
+
 
                 <!-- 아이디 찾기버튼 -->   
                 <span class="input_area"><input type="submit" id="findButton" value="아이디 찾기" ></span>
                 
                 
+
                 
                 
                 
                 
                 
-                
-<!--                 
-                <script type>
-
-onclick="findId()"
-
-                    function findId ( emailFind ) {    
-                            var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-                            return (emailFind != '' && emailFind != 'undefined' && regex.test(emailFind)); 
-                        }
-
-                        $("input[type=email]").blur(function(){
-                        var email = $(this).val();
-
-                        if( email == '' || email == 'undefined' || phonePwd == '') return false;
-                        if( ! email_check(email) ) {
-                            alert('올바른 정보를 기입해주세요.');
-                            $(".result-email").alert('올바른 정보를 기입해주세요.');
-                            $(this).focus();
-                            return false;
-
-
-                        } else {
-                        alert('회원님의 아이디는 _____ 입니다.');
-                            $(".result-email").alert('메일로 임시 비밀번호를 보냈습니다. 재로그인 후 회원정보수정에서 비밀번호를 재설정해주세요.');
-                            location.href="../login/find-id.html";
-                        } 
-                        });
-
-
-
-                    
-                    </script>
- -->
-
 
 
 
 
                  <!--로그인화면 돌아가기-->
-                <a href="${ pageContext.servletContext.contextPath }/login/login.jsp" class="myButton" !important> ◀ 로그인화면 돌아가기</a>
+                <a href="${ pageContext.servletContext.contextPath }/member/login" class="myButton" !important> ◀ 로그인화면 돌아가기</a>
 
                 
                 

@@ -21,7 +21,7 @@
 					break;
 				case "updateMember" : 
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }/member/modify";
+					movePath = "${ pageContext.servletContext.contextPath }/mypage/my-modify";
 					break;
 				case "updateMemberPassword" : 
 					successMessage = "회원 비밀번호 변경에 성공하셨습니다!";
@@ -51,6 +51,11 @@
 					successMessage = "썸네일 게시판 등록에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/thumbnail/list";
 					break;
+				case "findId" :
+					successMessage = "${ message }";
+					movePath = "${ pageContext.servletContext.contextPath }/member/login";
+					break;
+					
 			}
 
 			alert(successMessage);

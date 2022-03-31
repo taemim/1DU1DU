@@ -15,7 +15,7 @@ public class MemberDAO {
 	}
 	
 	/* 암호화 처리 된 비밀번호 조회용 메소드(로그인 확인용) */
-	public String selectEncrㄴyptedPwd(SqlSession session, MemberDTO requestMember) {
+	public String selectEncryptedPwd(SqlSession session, MemberDTO requestMember) {
 		
 		return session.selectOne("MemberDAO.selectEncryptedPwd", requestMember);
 	}
@@ -44,8 +44,8 @@ public class MemberDAO {
 	}
 
 	/* 회원 정보 수정 후 조회용 메소드 */
-	public MemberDTO selectChangedMemberInfo(SqlSession session, int no) {
-		return session.selectOne("MemberDAO.selectChangedMemberInfo", no);
+	public MemberDTO selectChangedMemberInfo(SqlSession session, String phone) {
+		return session.selectOne("MemberDAO.selectChangedMemberInfo", phone);
 	}
 	
 	/* 비밀번호 수정용 메소드 */

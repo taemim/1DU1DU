@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,11 +28,17 @@
 </head>
 <body>
 
+	<!-- 한글처리 -->
+	<%
+	// 인코딩
+	 request.setCharacterEncoding("UTF-8");
+	%>
+
+
+
 	<jsp:include page="../main/header.jsp"/>
     
-    <div class="header_hidden" >
-        <h1> 헤더영역 비워두는 용도 </h1>
-    </div>
+
 
     <div class="container-fluid">
         <div class="row">
@@ -60,7 +68,18 @@
             <label id="grade1">오늘도 <b>1DU1DU</b>와 기분좋은 하루 보내세요! &#128151;</label><br>
             <p id="grade">&#128204; 회원님의 등급은 &#128142; 입니다.
 
-            <a href="javascript:openModal('modal1');" class="btn btn-dark btn-right" style=" color: #ffffff;">비밀번호 변경</a>
+<!--             <a href="javascript:openModal('modal1');" class="btn btn-dark btn-right" style=" color: #ffffff;">비밀번호 변경</a> -->
+            
+            
+            <!-- 비밀번호 변경 버튼 -->
+            <button class="btn btn-dark btn-right" id="updateBtn" type="button" 
+				onclick="openPopup('${ pageContext.servletContext.contextPath }/member/modifyPassword', 'modifyPassword', 500, 500);" style=" color: #ffffff;">비밀번호 변경</button>
+            
+            
+            
+            
+            
+            
             </p>
         </div>
 
@@ -77,18 +96,26 @@
 
         <div class="my-info">
 
+				<form name="modifyForm" action="${ pageContext.servletContext.contextPath }/mypage/my-modify" method="post"
+				onsubmit="validate();">
+				
+				
+				<!--아이디-->
+				<h4></h4>
+                <label id="mail"><b>아이디</b></label>
+				<span class="input_area"><input type="email" name="userId" value="${ loginMember.userId }" id="emailCheck" readonly></span>
 
 
                 <!--이메일-->
 				<h4></h4>
                 <label id="mail"><b>이메일</b></label>
-				<span class="input_area"><input type="email" name="email" id="emailCheck" placeholder="이메일 주소"></span>
+				<span class="input_area"><input type="email" name="email" value="${ loginMember.email }" id="emailCheck"></span>
             
 
                 <!--연락처-->
 				<h4></h4>
                 <label id="phn"><b>연락처</b></label>
-				<span class="input_area"><input type="tel" maxlength="11" name="phone" id="phoneNum" placeholder=" 핸드폰 번호 "></span>
+				<span class="input_area"><input type="tel" maxlength="11" name="phone" value="${ loginMember.phone }" id="phoneNum"></span>
 		
                 
 
@@ -101,16 +128,16 @@
 				<h4></h4>
                 <label id="addr"><b>주소</b></label><br>
                 <!--기본주소-->
-				<span class="input_area"><input type="text" id="basicAddr" name="postal" class="postcodify_postcode5" readonly></span>
+				<span class="input_area"><input type="text" id="basicAddr" name="postal" class="postcodify_postcode5" value="${ loginMember.postal }" readonly></span>
 				<button id="postcodify_search_button" type="button" onclick="openZipSearch()" >검색</button>
 			
                 <!--도로명 주소-->
                 <h4></h4>
-				<span class="input_area"><input type="text" placeholder="도로명 주소" name="address" id="addr1" class="postcodify_address" readonly></span>
+				<span class="input_area"><input type="text" placeholder="도로명 주소" name="address" id="addr1" class="postcodify_address"  value="${ loginMember.address }" readonly></span>
 				
                 <!--상세 주소-->
                 <h4></h4>
-				<span class="input_area"><input type="text" placeholder="상세 주소" name="address2" id="addr2" class="postcodify_details"></span>
+				<span class="input_area"><input type="text" placeholder="상세 주소" name="address2" id="addr2" class="postcodify_details" value="${ loginMember.address2 }" ></span>
                 
 
 
@@ -137,92 +164,46 @@
     
 
 
-    <a href="javascript:openModal('modal4');" class="btn btn-dark btn-right1" style=" color: #ffffff;">정보 수정</a>
+    <!-- <a href="javascript:openModal('modal4');" class="btn btn-dark btn-right1" style=" color: #ffffff;">정보 수정</a> -->
+	<button class="btn btn-dark btn-right1" id="updateBtn" style=" color: #ffffff;" >수정하기</button>
+
+
+</form>
 
 
 
 
 
-          <!-- 모달 시작 !-->         
-          <!-- float:right; 설정 버튼 순서 오른쪽부터 시작-->
-
-    <!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
-
- 
-
-
-  <!-- 모달창 div 시작 !-->
-  <div id="modal">
-    <div class="modal-con modal1">
-      <!-- 모달 제목 -->
-      <p class="title">비밀번호 변경</p>
-      <!-- 모달 콘텐츠 영역-->
-      <div class="con">
-        <p>비밀번호를 변경 하시겠습니까? </p>
-      </div>
-      <!-- 모달창 버튼 영역-->
-      <div class="modal-btn">
-        <button type="button" class="madal-btn button btn btn-light btn-sm">
-            <a href="javascript:;" class="close">&nbsp;변경&nbsp;</a>
-        </button>
-        &nbsp;&nbsp;
-        <button type="button" class="madal-btn button btn btn-light btn-sm ">
-            <a href="javascript:;" class="close">&nbsp;&nbsp;취소&nbsp;&nbsp;</a>
-        </button>
-      </div>
-    </div>
-
-    <div class="modal-con modal4">
-      <p class="title">나의 정보 저장</p>
-      <div class="con">
-        <p>내 정보를 변경하시겠습니까?</p>
-        <!-- 모달 내부 입력창 부분 !-->
-        <div class="input-group modal-input">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="madal-input-btn btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">택배사 선택</button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Separated link</a></li>
-          </ul>
-          <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="운송장 번호를 입력하세요.">
-          &nbsp;&nbsp;&nbsp;&nbsp; <!-- 입력 폼 양쪽 공백추가 -->
-        </div>
-      </div>
-      <div class="modal-btn">
-        <button type="button" class="madal-btn button btn btn-light btn-sm">
-          <a href="javascript:;" class="close">&nbsp;변경&nbsp;</a>
-        </button>
-        &nbsp;&nbsp;
-        <button type="button" class="madal-btn button btn btn-light btn-sm ">
-            <a href="javascript:;" class="close">&nbsp;&nbsp;취소&nbsp;&nbsp;</a>
-        </button>
-      </div>
-    </div>
-     <!-- 모달 자바 스크립트 필수 -->
-     <script>
-      function openModal(modalname) {
-        document.get
-        $("#modal").fadeIn(300);
-        $("." + modalname).fadeIn(300);
-      }
-
-      $(".close").on('click', function () {
-        $("#modal").fadeOut(300);
-        $(".modal-con").fadeOut(300);
-      });  
-    </script>
+	
+	<script>
+		// 사용자 입력 값 유효성 검사
+		function validate(){
+			return true;
+		}
+		
+		// 팝업창 호출
+		function openPopup(url, title, width, height){
+			let left = (document.body.clientWidth/2)-(width/2); 
+			left += window.screenLeft;	 // 듀얼 모니터
+			let top = (screen.availHeight/2)-(height/2);
+	
+			let options = "width="+width+",height="+height+",left="+left+",top="+top;
+			
+			window.open(url, title, options);
+		}
+		
+		// 탈퇴하기 버튼 이벤트 핸들러 function
+		function confirmRemove(){
+			if(confirm("정말로 탈퇴하시겠습니까?")){
+				location.href = "${ pageContext.servletContext.contextPath }/member/remove";
+			}
+		}
+	</script>
 
 
-  </div> <!-- 모달 div 종료지점 -->
 
-          <br>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 
 <!-- footer import -->
 <div data-include-path="footer.html"></div>
@@ -251,16 +232,6 @@ Array.prototype.forEach.call(allElements, function(el) {
 
 
 
-
-
-
-
-
-    
-
-
-
-</body>
 
 
 
@@ -295,6 +266,16 @@ Array.prototype.forEach.call(allElements, function(el) {
       </script>
   
   </footer>
+
+
+    
+
+
+
+</body>
+
+
+
 
 
 

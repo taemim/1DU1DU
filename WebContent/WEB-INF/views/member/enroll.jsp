@@ -218,7 +218,7 @@
 
                  <!-- 회원 가입 버튼 -->   
                  <div class="goRback">
-                    <a href="login.jsp">
+                    <a href="${ pageContext.servletContext.contextPath }">
                     <input type="button" id="enrollment1" value="돌아가기">
                     </a>
                     <input type="submit" name="requestMember" id="enrollment2" value="회원 가입">

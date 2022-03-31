@@ -82,9 +82,9 @@ public class MemberService {
 		MemberDTO changedMemberInfo = null;
 		
 		int result = memberDAO.updateMember(session, requestMember);
-		if(result > 0) {
+		if(result > 0 ) {
 			session.commit();
-			changedMemberInfo = memberDAO.selectChangedMemberInfo(session, requestMember.getGradeNo());
+			changedMemberInfo = memberDAO.selectChangedMemberInfo(session, requestMember.getUserId());
 		} else {
 			session.rollback();
 		}
@@ -103,7 +103,10 @@ public class MemberService {
 		String encPwd = memberDAO.selectEncryptedPwd(session, requestMember);
 		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		/* 비밀번호 수정 요청한 원문 비밀번호와 저장되어있는 암호화된 비밀번호가 일치하는지 확인한다. */
+		/* 비밀번호 수정 요청한 원문 비밀번호와 저장되어있는 암호화된 비밀번호가 일치하는지 
+		 * 
+		 * 
+		 * 확인한다. */
 		if(passwordEncoder.matches(requestMember.getUserPwd(), encPwd)) {
 			/* 비밀번호가 일치하는 경우에만 새로 입력 된 비밀번호로 수정한다. */
 			requestMember.setUserPwd(userPwd);
@@ -142,15 +145,29 @@ public class MemberService {
 	
 	
 	/* 아이디 찾기용 메소드 */
-	public String memberFindId(MemberDTO requestMember) {
+/*	public String memberFindId(MemberDTO requestMember) {*/
+	
+	public String memberFindId (MemberDTO requestMember) {
 		
 		SqlSession session = getSqlSession();
 		
-		String userId = memberDAO.selectFindId(session, requestMember);
+		
+		
+		String result = memberDAO.selectFindId(session, requestMember);
+		
+		
+
+		if(result != null ) {
+			session.commit();
+		} else {
+			session.rollback();
+		}
+		
+		
 		
 		session.close();
 		
-		return userId;
+		return result;
 		
 		
 	}

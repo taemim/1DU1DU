@@ -25,16 +25,18 @@ public class MemberModifyPasswordServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		MemberDTO loginUser = (MemberDTO) request.getSession().getAttribute("loginMember");
-		String id = loginUser.getUserId();
+		String userId = loginUser.getUserId();
 		String checkPwd = request.getParameter("checkPwd"); 
 		
 		MemberDTO requestMember = new MemberDTO();
-		requestMember.setUserId(id);
+		requestMember.setUserId(userId);
 		requestMember.setUserPwd(checkPwd);
 		
-		String memberPwd = request.getParameter("memberPwd"); 
+		
+		
+		String userPwd = request.getParameter("userPwd"); 
 
-		int result = new MemberService().modifyPassword(requestMember, memberPwd);
+		int result = new MemberService().modifyPassword(requestMember, userPwd);
 
 		String page = "";
 		
@@ -44,6 +46,7 @@ public class MemberModifyPasswordServlet extends HttpServlet {
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "회원 비밀번호 정보 수정 실패!");
+			request.setAttribute("failedCode", "modifyPwd");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
