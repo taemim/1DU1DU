@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class EncryptRequestWrapper extends HttpServletRequestWrapper {
 	
+	/* 부모쪽에 기본생성자가 존재하지 않기 때문에 request를 전달해주는 생성자가 필요하다. */
 	public EncryptRequestWrapper(HttpServletRequest request) {
 		super(request);
 	}
@@ -15,7 +16,9 @@ public class EncryptRequestWrapper extends HttpServletRequestWrapper {
 	public String getParameter(String key) {
 		
 		String value = "";
+
 		if("userPwd".equals(key)) {
+
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			value = passwordEncoder.encode(super.getParameter(key));
 		} else {

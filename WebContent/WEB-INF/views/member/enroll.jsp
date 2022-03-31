@@ -15,7 +15,9 @@
     <!-- 파비콘 -->
 	<link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
 
-
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 
 
 <title>회원가입</title>
@@ -51,8 +53,6 @@
                 });
             });
         </script>
-
-
 
 
 

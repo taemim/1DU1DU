@@ -15,7 +15,7 @@
 		<img id="errorImage" src="${ pageContext.servletContext.contextPath }/resources/images/error.png">
 	</div>
 	<h1 align="center">${ requestScope.message }</h1>
-	
+
 		
 		
 		

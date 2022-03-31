@@ -5,7 +5,6 @@ import java.sql.Date;
 public class MemberDTO implements java.io.Serializable{
 	
 	
-	
 	/* 필드 */
 	private String userId;		//회원id
 	private String userPwd;		//회원 pwd
@@ -244,26 +243,6 @@ public class MemberDTO implements java.io.Serializable{
 				+ ", userAct=" + userAct + ", userRole=" + userRole + ", grade=" + grade + "]";
 	}
 
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 
-}

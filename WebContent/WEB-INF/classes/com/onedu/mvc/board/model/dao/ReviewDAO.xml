@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReviewDAO">
+
+	<resultMap type="com.onedu.mvc.board.model.dto.ReviewDTO" id="reviewResultMap">
+		<id property="revNo" column="REV_NO"/>
+		<result property="prodNo" column="PROD_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="revTitle" column="REV_TITLE"/>
+		<result property="revContents" column="REV_CONTENTS"/>
+		<result property="writeDate" column="WRITE_DATE"/>
+		<result property="ansTitle" column="ANS_TITLE"/>
+		<result property="ansContents" column="ANS_CONTENTS"/>
+		<result property="ansDate" column="ANS_DATE"/>
+		<result property="gradeAvg" column="GRADE_AVG"/>
+		<result property="revHits" column="REV_HITS"/>
+		<result property="revStatus" column="REV_STATUS"/>
+		
+		<association property="goods" resultMap="goodsResultMap"/> <!-- GoodsDTO -->
+		<collection property="imgList" resultMap="imgResultMap"/> <!-- ImgDTO -->
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
+		<id property="goodsNo" column="PROD_NO"/>
+		<result property="goodsName" column="PROD_NAME"/>
+		<result property="price" column="PROD_PRICE"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.ImgDTO" id="imgResultMap">
+  		<id property="imgId" column="IMG_ID"/>
+  		<result property="postNo" column="POST_NO"/>
+  		<result property="prodNo" column="PROD_NO"/>
+  		<result property="revNo" column="REV_NO"/>
+  		<result property="askNo" column="ASK_NO"/>
+  		<result property="originalName" column="ORIGIN_FILE_NAME"/>
+  		<result property="editedName" column="SAVED_NAME"/>
+  		<result property="fileRoot" column="SAVE_PATH"/>
+  		<result property="thumbnailPath" column="THUMB_PATH"/>
+  		<result property="fileSize" column="FILE_SIZE"/>
+  		<result property="status" column="FILE_STATUS"/>
+    </resultMap>
+	
+	<!--  마이페이지 review 전체 조회 -->
+	<select id="selectAllReviewList" resultMap="reviewResultMap">
+		SELECT
+			   A.REV_NO
+			 , B.PROD_NAME
+			 , A.USER_ID
+			 , A.REV_TITLE
+			 , A.REV_CONTENTS
+			 , A.WRITE_DATE
+			 , A.GRADE_AVG
+			 , A.REV_HITS
+			 , C.IMG_ID
+  	         , C.ORIGIN_FILE_NAME
+  	         , C.SAVED_NAME
+  	         , C.SAVE_PATH
+  	         , C.THUMB_PATH
+		  FROM REVIEW A
+		  JOIN PROD B ON(A.PROD_NO = B.PROD_NO)
+		  JOIN IMG C ON(B.PROD_NO = C.PROD_NO)
+		 WHERE A.REV_STATUS = 'Y'
+		   AND B.SALE_CHECK = 'Y'
+		   AND C.FILE_STATUS = 'Y'
+		 ORDER BY A.REV_NO DESC
+	</select>
+	
+	<!-- 마이페이지 review 조회수 증가 -->
+	<update id="increaseReviewCnt">
+		UPDATE
+			   REVIEW A
+		   SET A.REV_HITS = (SELECT
+		   						    B.REV_HITS
+		   					   FROM REVIEW B
+		   					  WHERE B.REV_NO = #{ revNo }
+		   					) + 1
+		 WHERE A.REV_NO = #{ revNo }
+	</update>
+	
+	<!-- 마이페이지 review 조회 -->
+	<select id="selectReviewDetail" resultMap="reviewResultMap">
+		SELECT
+			   A.REV_NO
+			 , A.REV_TITLE
+			 , A.REV_CONTENTS
+			 , B.PROD_NO
+			 , B.PROD_PRICE
+			 , B.PROD_NAME
+			 , C.IMG_ID
+  	         , C.ORIGIN_FILE_NAME
+  	         , C.SAVED_NAME
+  	         , C.SAVE_PATH
+  	         , C.THUMB_PATH
+		  FROM REVIEW A
+		  JOIN PROD B ON(A.PROD_NO = B.PROD_NO)
+		  JOIN IMG C ON(B.PROD_NO = C.PROD_NO)
+		 WHERE A.REV_STATUS = 'Y'
+		   AND C.FILE_STATUS = 'Y'
+		   AND A.REV_NO = #{ revNo }
+	</select>
+	
+	<!-- 마이페이지 review 등록 -->
+	<insert id="insertReview">
+		INSERT
+		  INTO REVIEW
+		(
+		  REV_NO
+		, PROD_NO
+		, USER_ID
+		, REV_TITLE
+		, REV_CONTENTS
+		, GRADE_AVG
+		)
+		VALUES
+		(
+		  SEQ_REV_NO.NEXTVAL
+		, 1
+		, #{ userId }
+		, #{ revTitle }
+		, #{ revContents }
+		, #{ gradeAvg }
+		)
+	</insert>
+	
+	<!-- 마이페이지 review 삭제 -->
+	<update id="deleteReview">
+		UPDATE
+			   REVIEW
+		   SET REV_STATUS = 'N'
+		 WHERE REV_NO = #{ revNo }
+	</update>
+	
+	<!-- 마이페이지 review 수정 -->
+	<update id="updateReview">
+		UPDATE
+			   REVIEW
+		   SET REV_TITLE = #{ revTitle }
+		     , REV_CONTENTS = #{ revContents }
+		 WHERE REV_NO = #{ revNo }
+	</update>
+
+</mapper>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="GoodsDAO">
+  	  <resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsListResultMap">
+  	  	   <id property="goodsNo" column="PROD_NO"/>
+  	  	   <id property="categoryId" column="CATEGORY_ID"/>
+  	  	   <id property="typeId" column="TYPE_ID"/>
+  	  	   <id property="goodsName" column="PROD_NAME"/>
+  	  	   <id property="goodsNameEn" column="PROD_NAME_EN"/>
+  	  	   <id property="price" column="PROD_PRICE"/>
+  	  	   <id property="goodsExplain" column="PROD_EXPLAIN"/>
+  	  	   <id property="enrollDate" column="ENROLL_DATE"/>
+  	  	   <id property="saleCheck" column="SALE_CHECK"/>
+  	  	   <id property="totalStock" column="TOTAL_STOCK"/>
+  	  	   <id property="saleVol" column="SALE_VOL"/>
+  	  	   <id property="goodsExplainDetail" column="PROD_EXPLAIN_DT"/>
+  	  	   
+  	  	   <association property="category" resultMap="categoryResultMap"/>
+  	  	   
+  	  	   <collection property="imgList" resultMap="imgResultMap"/>
+  	  	   <collection property="optionList" resultMap="optionResultMap"/>  <!-- OP테이블만 연결 해놓은 건데, 중간에 OP_PROD를 넣지 않아서 연결이 안돼요ㅜ -->
+  	
+  	  </resultMap>
+  	  
+  	 <resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
+		<id property="optionNo" column="OP_NO"/>
+		<result property="optionName" column="OP_NAME"/>
+		<result property="extra_pay" column="EXTRA_PAY"/>
+		<result property="optionNo2" column="OP_NO2"/>
+		<result property="optionName2" column="OP_NAME2"/>
+	</resultMap>
+	
+	<resultMap type="com.onedu.mvc.goods.model.dto.CategoryDTO" id="categoryResultMap">
+		<id property="id" column="CATEGORY_ID"/>
+		<result property="name" column="CATEGORY_NAME"/>
+	</resultMap>
+
+  	  <resultMap type="com.onedu.mvc.goods.model.dto.ImgDTO" id="imgResultMap">
+  	  		<id property="imgId" column="IMG_ID"/>
+  	  		<result property="postNo" column="POST_NO"/>
+  	  		<result property="prodNo" column="PROD_NO"/>
+  	  		<result property="revNo" column="REV_NO"/>
+  	  		<result property="askNo" column="ASK_NO"/>
+  	  		<result property="originalName" column="ORIGIN_FILE_NAME"/>
+  	  		<result property="editedName" column="SAVED_NAME"/>
+  	  		<result property="fileRoot" column="SAVE_PATH"/>
+  	  		<result property="thumbnailPath" column="THUMB_PATH"/>
+  	  		<result property="fileSize" column="FILE_SIZE"/>
+  	  		<result property="status" column="FILE_STATUS"/>
+  	  </resultMap>
+  	  
+  	  
+  	  <select id="selectGoodsList" resultMap="goodsListResultMap">
+  	  	   SELECT  /* com.onedu.mvc.goods.model.dao.GoodsDAO#selectGoodsList() */
+  	  	          A.PROD_NO
+  	  	        , A.CATEGORY_ID
+  	  	        , B.CATEGORY_NAME
+  	  	        , A.TYPE_ID
+  	  	        , A.PROD_NAME
+  	  	        , A.PROD_NAME_EN
+  	  	        , A.PROD_PRICE
+  	  	        , A.PROD_EXPLAIN
+  	  	        , C.IMG_ID
+  	  	        , C.ORIGIN_FILE_NAME
+  	  	        , C.SAVED_NAME
+  	  	        , C.SAVE_PATH
+  	  	        , C.THUMB_PATH
+  	  	     FROM PROD A
+  	  	     JOIN CATEGORY B ON (A.CATEGORY_ID = B.CATEGORY_ID)
+  	  	     JOIN IMG C ON (A.PROD_NO = C.PROD_NO)
+  	  	    WHERE A.SALE_CHECK = 'Y'
+  	  	    ORDER BY A.ENROLL_DATE DESC
+  	  </select>
+  	  
+ 
+  	  <insert id="insertGoodsDetail" >
+  	  	   INSERT  /* com.onedu.mvc.goods.model.dao.GoodsDAO#insertGoodsDetail() */
+  	  	     INTO PROD
+  	  	   (
+  	  	     A.PROD_NO
+  	  	   , A.CATEGORY_ID
+  	  	   , A.TYPE_ID
+  	  	   , A.PROD_NAME
+  	  	   , A.PROD_NAME_EN
+  	  	   , A.PROD_PRICE
+  	  	   , A.PROD_EXPLAIN
+  	  	   , A.PROD_EXPLAIN_DT
+  	  	   , A.SALE_CHECK
+  	  	   , A.TOTAL_STOCK
+  	  	   , A.SALE_VOL
+  	  	   )
+  	  	   VALUES
+  	  	   (
+  	  	     SEQ_PROD_NO.NEXTVAL
+  	  	   , 3
+  	  	   , #{ typeId }
+  	  	   , #{ goodsName } 
+  	  	   , #{ goodsNameEn }
+  	  	   , #{ price }
+  	  	   , #{ goodsExplain }
+  	  	   , #{ goodsExplainDetail }
+  	  	   , #{ saleCheck }
+  	  	   , #{ totalStock }
+  	  	   , #{ saleVol }
+  	  	   )
+  	  	   <selectKey keyProperty="goodsNo" resultType="Integer" order="AFTER">
+  	  	   	   SELECT
+  	  	   	          SEQ_PROD_NO.CURRVAL
+  	  	   	     FROM DUAL
+  	  	   </selectKey>
+  	  </insert>
+  	  
+  	  <insert id="insertImg">
+  	      INSERT /* com.onedu.mvc.goods.model.dao.GoodsDAO#insertImg() */
+  	        INTO IMG
+  	      (
+  	        IMG_ID
+  	      , ORIGIN_FILE_NAME
+  	      , SAVED_NAME
+  	      , SAVE_PATH
+  	      , THUMB_PATH
+  	      , FILE_SIZE
+  	      , FILE_STATUS
+  	      , PROD_NO
+  	      )
+  	      VALUES 
+  	      (
+  	        SEQ_IMG_NO.NEXTVAL
+  	      , #{ originalName }
+  	      , #{ savedName }
+  	      , #{ savePath }
+  	      , #{ thumbnailPath }
+  	      , #{ fileStatus }
+  	      , #{ goodsNo }  	      
+  	      )
+  	  </insert>
+  	  
+  	  
+  	  <select id="selectOneGoodsDetail" resultMap="goodsListResultMap">
+  	       SELECT /* com.onedu.mvc.goods.model.dao.GoodsDAO#selectOneGoodsDetail() */
+  	              A.PROD_NO
+  	            , A.CATEGORY_ID
+  	            , A.TYPE_ID
+  	            , A.PROD_NAME
+  	            , A.PROD_NAME_EN
+  	            , A.PROD_PRICE
+  	            , A.PROD_EXPLAIN
+  	            , C.IMG_ID
+  	            , C.ORIGIN_FILE_NAME
+  	            , C.SAVED_NAME
+  	            , C.SAVE_PATH
+  	            , C.THUMB_PATH
+  	            , E.OP_NAME
+  	            , E.EXTRA_PAY
+  	         FROM PROD A
+  	  	     JOIN CATEGORY B ON (A.CATEGORY_ID = B.CATEGORY_ID)
+  	  	     JOIN IMG C ON (A.PROD_NO = C.PROD_NO)
+  	  	     JOIN OP_PROD D ON (A.PROD_NO = D.PROD_NO)
+  	  	     JOIN OP E ON (D.OP_NO = E.OP_NO)
+  	  	    WHERE A.SALE_CHECK = 'Y'
+  	  	      AND C.FILE_STATUS = 'Y'
+  	  	      AND A.PROD_NO = #{ goodsNo }
+  	  </select>
+  	  
+  	  <select id="selectOptions" resultMap="optionResultMap">
+  	  	   SELECT 
+				  A.OP_NO 
+				, A.OP_NAME 
+				, A.EXTRA_PAY 
+				, A.OP_NO2 
+		     FROM OP A
+		        , (SELECT OD.OP_NO FROM OP_PROD OD, OP 
+		            WHERE OD.OP_NO = OP.OP_NO 
+		              AND PROD_NO = #{ goodsNo }) B
+		    WHERE A.OP_NO=B.OP_NO 
+		       OR A.OP_NO2 = B.OP_NO
+  	  </select>
+
+  </mapper>

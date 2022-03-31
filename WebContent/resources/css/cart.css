@@ -1,0 +1,421 @@
+/* 인코딩 문자 깨짐 방지 */
+@charset "UTF-8";
+
+/* 기본 요소의 적용되는 margin, padding값 0으로 초기화*/
+body, div, dl, dt, dd, ul, ol, li, 
+h1, h2, h3, h4, h5, h6, pre, code, 
+form, fieldset, legend, textarea, 
+p, blockquote, th, td, input, select, 
+textarea, button {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 리스트 블릿 기호 삭제 */
+dl, ul, ol, li {
+    list-style: none;
+}
+
+div {
+    display: block;
+}
+
+/* 컬럼명 세로쓰기 방지 */
+th, tr, td {
+    white-space:nowrap;
+    text-align: center;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* header 조정 */
+.top_banner {
+    margin :0px;
+}
+
+.top_banner >p {
+    margin :0px;
+}
+
+.right_menu {
+	display: flex!important;
+	justify-content: flex-end!important;
+}
+/* /header 조정 */
+
+.padding_top {
+	padding: 90px 0 50px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.content_subject {
+    height: 110px;
+    line-height: 110px;
+    margin-bottom: 60px;
+    width: 1100px;
+    margin: 0 auto;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.content_subject span { 
+    padding-left: 30 px;
+    display: inline-block;
+    color: black;
+    font-size: 50px;
+    font-weight: bolder; 
+}
+
+.cart {
+    margin-bottom: 12px;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.cart_title {
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+    text-align: center; 	
+}
+
+caption {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden; 
+}
+
+.cart_table {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.cart_table tr {
+    height: 110px;
+}
+
+.cart_table td {
+    border-bottom: 1px solid #ddd !important;
+}
+
+.table_text_align_center {
+    text-align: center;
+}
+
+.btn_modify {
+    border: 1px solid #ddd !important;
+    height: 21px;
+    line-height: 13px;
+    background-color: #fff;
+    text-align: center;
+    width: 40px;
+    display: inline-block;
+    padding: 4px 6px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 7px;	
+}
+
+.price_td {
+    padding-left: 5px;
+}
+
+.btn_delete {
+    width: 20px;
+    border: 1px solid white;
+    background-color: white;
+    cursor: pointer;
+}
+
+.cart_cal {
+    background-color: #F4F1F1;
+    width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 15px;
+}
+
+.total_wrap {
+    width: 80%;
+    margin: auto;
+    padding: 10px 0 10px 0;	
+}
+
+.total_cal {
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+th {
+    text-align: center;
+    color: #333;
+    border-bottom: 1px solid #ddd !important;
+    border-top: 2px solid #432 !important;
+    background: #F4F1F1;
+    padding: 13px 0 !important;
+    font-weight: bold!important;
+}
+
+.td_width_1 {
+    width: 5%;
+}
+
+.td_width_2 {
+    width: 10%;
+}
+
+.td_width_3 {
+    width: 25%;
+}
+
+.td_width_4 {
+    width: 15%;
+}
+
+.amount_div {
+    width: 84px;
+    height: 25px;
+    margin: 5px auto;
+}
+
+.amount_input {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    outline-style: none;
+    border: 1px solid #ddd;
+    line-height: 19px;
+    font-size: 12px;
+    color: #432;	
+    left: 0;
+}
+
+.amount_btn {
+    border: 1px solid #ddd;
+    color: #432;
+    width: 18px;
+    height: 18px;
+    padding: 0px;
+    background-color: #fff;
+    font-size: 20px;
+    line-height: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.btn_plus {
+    top: 0;
+    right: 0
+}
+
+.btn_minus {
+    bottom: 0;
+    right: 0
+}	
+
+.total_wrap td {
+    width : 1100px;
+}
+
+.boundary_div {
+    font-size: 0;
+    margin-bottom: 50px;
+}
+
+.btn_order {
+    width: 1100px;
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: end;
+}
+
+.btn_check {
+    text-align: center;
+}
+
+.btn_check a {
+    color: black;
+    background-color: #fefeff;
+    width: 125px;
+    padding: 3px 12px;
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    margin-right: 14px;
+    line-height: 39px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.btn_all {
+    text-align: center;
+}
+
+.btn_all a {
+    color: #fefeff;
+    background-color: #432;
+    width: 125px;
+    padding: 3px 12px;
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    margin-right: 14px;
+    line-height: 39px;
+    border-radius: 15px;
+    margin: 0;
+}
+
+.cart_cal_td td {
+    padding: 10px 0;
+}
+
+.cart_cal_tr {
+    font-weight: bold;
+}
+
+.etc {
+    width: 1100px;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.etc a {
+    color: black;
+    margin-left: 10px;
+}
+
+.etc a:hover {
+    font-weight: bolder;
+}
+
+.btn_select_delete button {
+    width: 100px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: small;
+    font-weight: 400;
+    padding: 5px 0;
+    margin-right: 32px;
+    border-radius: 10px;
+}
+
+.btn_select_delete button:hover {
+    font-weight: bolder;
+}
+
+.check_input_size {
+    width: 15px;
+    height: 15px;
+}
+
+/* 이미지 */
+.image_wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.image_wrap img {
+    max-width: 85%;
+    height: auto;
+    display: block;		
+}
+
+/* 사진 예시 넣어 본 것 */
+.pdtPhoto {
+    float: left;
+    width: 110px;
+    margin-left: 1px;
+}
+
+.pdtPhoto {
+    position: relative;
+}
+
+.detail {
+    text-align: left;
+    margin-left: 30px;
+}
+
+.detail2 {
+    margin-top: 12px;
+}
+
+.detail2 p {
+    line-height: 12px;
+}
+
+/* 주문 버튼 수정 */
+.btnArea {
+    max-width: 1100px;
+    display: flex;
+    justify-content: end;
+    line-height: 1.6;
+    margin: 20px auto 100px;
+    padding-top: 10px !important;
+}
+
+.btnArea .btnRed {
+    vertical-align: middle;
+    line-height: 13px;
+    padding: 9px 10px 10px;
+    width: 130px;
+    color: #fff;
+    background: #432;
+    margin: 0 3px;
+    font-size: 14px!important;
+    font-weight: normal;
+    border-radius: 12px!important;
+    border: none;
+}
+
+.btnArea .btnRed:hover {
+	color: white;
+}
+
+.btnGry {
+    overflow: visible;
+    vertical-align: middle;
+    line-height: 13px;
+    padding: 9px 10px 10px;
+    width: 130px;
+    border: 1px solid black !important;
+    color: black;
+    background: white;
+    margin: 0 3px;
+    font-size: 14px!important;
+    font-weight: normal;
+    border-radius: 12px!important;
+}
+
+/* a 설정 (위치 css 가장 아래에 두기)-----------------------------------------------------*/
+
+/* a 링크 설정 변경 */
+.padding_top a {
+    text-decoration: none;
+    color : #432;
+    line-height: 2.5em;
+}
+
+/* a 링크 호버시 글자 굵게 */
+.padding_top a:hover{
+    font-weight: bolder;
+    color : #432;
+}
