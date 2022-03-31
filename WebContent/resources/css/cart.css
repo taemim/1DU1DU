@@ -39,8 +39,23 @@ table {
     width: 100%;
 }
 
+/* header 조정 */
+.top_banner {
+    margin :0px;
+}
+
+.top_banner >p {
+    margin :0px;
+}
+
+.right_menu {
+	display: flex!important;
+	justify-content: flex-end!important;
+}
+/* /header 조정 */
+
 .padding_top {
-	padding-top: 200px;
+	padding: 90px 0 50px;
 	font-family: 'Nanum Gothic', sans-serif;
 }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="WebContent/WEB-INF/lib"/>
 	<classpathentry kind="src" path="mappers"/>
 	<classpathentry kind="src" path="log4j"/>
 	<classpathentry kind="src" path="resources"/>

@@ -11,6 +11,7 @@
 		<result property="amount" column="AMOUNT"/>
 		
 		<association property="goods" resultMap="goodsResultMap"/> <!-- GoodsDTO -->
+		<collection property="imgList" resultMap="imgResultMap"/> <!-- ImgDTO -->
 	</resultMap>
 	
 	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
@@ -26,6 +27,28 @@
 		<result property="saleVol" column="SALE_VOL"/>
 	</resultMap>
 	
+	<resultMap type="com.onedu.mvc.goods.model.dto.ImgDTO" id="imgResultMap">
+  		<id property="imgId" column="IMG_ID"/>
+  		<result property="postNo" column="POST_NO"/>
+  		<result property="prodNo" column="PROD_NO"/>
+  		<result property="revNo" column="REV_NO"/>
+  		<result property="askNo" column="ASK_NO"/>
+  		<result property="originalName" column="ORIGIN_FILE_NAME"/>
+  		<result property="editedName" column="SAVED_NAME"/>
+  		<result property="fileRoot" column="SAVE_PATH"/>
+  		<result property="thumbnailPath" column="THUMB_PATH"/>
+  		<result property="fileSize" column="FILE_SIZE"/>
+  		<result property="status" column="FILE_STATUS"/>
+    </resultMap>
+    
+    <resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
+		<id property="optionNo" column="OP_NO"/>
+		<result property="optionName" column="OP_NAME"/>
+		<result property="extra_pay" column="EXTRA_PAY"/>
+		<result property="optionNo2" column="OP_NO2"/>
+		<result property="optionName2" column="OP_NAME2"/>
+	</resultMap>
+	
 	<!-- 장바구니 전체 조회 -->
 	<select id="selectAllCartList" resultMap="cartResultMap">
 		SELECT
@@ -38,13 +61,22 @@
 			 , B.CATEGORY_ID
 			 , B.TYPE_ID
 			 , B.PROD_EXPLAIN
+			 , C.IMG_ID
+  	         , C.ORIGIN_FILE_NAME
+  	         , C.SAVED_NAME
+  	         , C.SAVE_PATH
+  	         , C.THUMB_PATH
 		  FROM CART A
 		  JOIN PROD B ON(A.PROD_NO = B.PROD_NO)
- 		 WHERE USER_ID = 'user01'
+		  JOIN IMG C ON(B.PROD_NO = C.PROD_NO)
+ 		 WHERE A.USER_ID = 'user01'
+ 		   AND B.SALE_CHECK = 'Y'
+ 		   AND C.FILE_STATUS = 'Y'
+ 		 ORDER BY A.CART_NO DESC
 	</select>
 	
 	<!-- 장바구니 추가 -->
-	<!-- <insert id="insertCart">
+	<insert id="insertCart">
 		INSERT
 		  INTO CART
 		(
@@ -56,11 +88,11 @@
 		VALUES
 		(
 		  SEQ_CART_NO.NEXTVAL
-		, 1
-		, 'user01'
-		, 1
+		, #{ prodNo }
+		, #{ userId }
+		, #{ amount }
 		)
-	</insert> -->
+	</insert>
 	
 	<!-- 장바구니 삭제 -->
 	<delete id="deleteCart">
@@ -69,18 +101,19 @@
 		 WHERE CART_NO = #{ cartNo }
 	</delete>
 	
+	<!-- 장바구니 상품 개별 삭제 -->
+	<delete id="deleteOneCart">
+		DELETE
+			   CART
+		 WHERE CART_NO = #{ cartNo }
+	</delete>
+	
+	<!-- 장바구니 수량 조절 -->
 	<update id="updateCart">
 		UPDATE
 			   CART
 		   SET AMOUNT = #{ amount }
 		 WHERE CART_NO = #{ cartNo }
 	</update>
-	
-	<!-- 장바구니 상품 개별 삭제 -->
-		<delete id="deleteOneCart">
-			DELETE
-				   CART
-			 WHERE CART_NO = #{ cartNo }
-		</delete>
 
 </mapper>

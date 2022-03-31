@@ -58,14 +58,14 @@
             <div>  
                 <ul class="sub_menu">
                     <li><a href="#">정기구독</a></li>
-                    <li><a href="#">취향테스트</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/taste/testMain">취향테스트</a></li>
                 </ul>
             </div>
             <div>
                 <ul class="sub_menu">
                     <li><a href="#">new</a></li>
                     <li><a href="#">best</a></li>
-                    <li><a href="#">원두</a></li>
+                    <li><a href="${ pageContext.servletContext.contextPath }/goods/list">원두</a></li>
                     <li><a href="#">드립백</a></li>
                     <li><a href="#">캡슐</a></li>
                     <li><a href="#">커피용품</a></li>
@@ -115,7 +115,7 @@
 					
                     
                     <!--장바구니 아이콘-->
-                    <li class="cart"><a href="#"><i class="bi bi-cart"></i></a></li>
+                    <li class="cart"><a href="${ pageContext.servletContext.contextPath }/cart/list"><i class="bi bi-cart"></i></a></li>
                 </ul>
             </div> 
     </div>    

@@ -36,7 +36,7 @@
 					<li class="li-1"><a href="mypage.html">mypage</a></li>
 					<li><a href="#">내 정보 확인</a></li>
 					<li><a href="#">구독 내역</a></li>
-					<li><a href="#">주문 내역</a></li>
+					<li><a href="${ pageContext.servletContext.contextPath }/order/list">주문 내역</a></li>
 					<li><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
 					<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
 					<li><a href="#">위시리스트 조회</a></li>
@@ -62,12 +62,12 @@
 									<td>
 										<div class="goodsInfo">
 											<div class="pdtPhoto">
-												<img src="../resources/images/5.jpeg" width="150"
+												<img src="${ pageContext.servletContext.contextPath }${ reviewDetail.imgList[0].thumbnailPath }" width="150"
 													height="150" alt="${ reviewDetail.goods.goodsName }">
 											</div>
 											<div class="pdfInfo">
 												<p class="pdtName tPad10">
-													<a href="상품주소" title="상품 페이지로 이동">${ reviewDetail.goods.goodsName }</a>
+													<a href="#" title="상품 페이지로 이동">${ reviewDetail.goods.goodsName }</a>
 												</p>
 												<p class="pdtPrice tPad10">
 													<span class="finalP"><fmt:formatNumber value="${ reviewDetail.goods.price }" pattern="#,###,### 원"/></span>

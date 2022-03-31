@@ -90,7 +90,7 @@
                 	<div class="col-5">
                 		<div class="d-grid gap-3">
                 			<p class="text mt-4 ms-3">
-                			<span id='gram'></span>&nbsp / &nbsp<span id='grinder'></span>
+                			<span id='gram'></span>&nbsp; / &nbsp;<span id='grinder'></span>
                 		</div>
                 		<div class="row">
                 			<div class="col">
@@ -115,7 +115,7 @@
                 	</div>              	
                 	<div class="col-2">
                 		<button type="button" class="btn-close mt-3 ms-5" aria-label="Close"></button>
-                		<p class="fw-bold mt-4 ms-1 mb-0"><strong id="optionPrice"><fmt:formatNumber value="${goods.price}" type="number"/>원</strong></p>
+                		<p class="fw-bold mt-4 ms-1 mb-0"><strong id="optionPrice"></strong></p>
                 	</div>
                 </div>
                 
@@ -127,7 +127,7 @@
                 	</div>
                 	<div class="col-2 mt-3 ms-5">
                 		
-                		<h5><strong id="price"><fmt:formatNumber value="${goods.price}" type="number"/>원</strong></h5>
+                		<h5><strong id="price"></strong></h5>
                 	</div>
                 </div>
              
@@ -137,7 +137,7 @@
                           <br>
                           
                           <input type="hidden" name="price" value="${ goods.price }">
-                          <input type="hidden" name="amount" value="1"> 
+                          <input type="hidden" name="amount"> 
                           <input type="hidden" name="goodsNo" value="${ goods.goodsNo }">
                           <input type="hidden" name="goodsName" value="${ goods.goodsName }">
                           <input type="hidden" name="option1">
@@ -147,12 +147,15 @@
                         </div>
                     </div>
 
-                    <div class="col-5">
-                        <div class="d-grid gap-2">
-                          <br>
-                            <button type="button" class="btn btn-lg btn-outline-dark mt-3">장바구니</button>
+						<div class="col-5">
+	                        <div class="d-grid gap-2">
+	                          <br>
+	                            <button type="button" class="btn btn-lg btn-outline-dark mt-3" onclick="insertCart()">장바구니</button>
+	                        </div>
                         </div>
-                    </div>
+				
+					
+					
                     <div class="col-1 mt-3">
                         <div class="d-grid">
                           <br>
@@ -181,7 +184,27 @@
             </div>
             </c:forEach>
         </div>
+
+              </form>
+
+              <!-- 장바구니 연결폼 -->
+              <form name="cartForm" method="post">
+                <input type="hidden" name="goodsNo" value="${ goods.goodsNo }">
+              <%-- <input type="hidden" name="amount" value="${ goods.Amount }"> --%>
+              </form>
+              <script type="text/javascript">
+                function insertCart() {
+                  if(confirm('장바구니에 담으시겠습니까?')){
+                    document.forms.cartForm.action = "${ pageContext.servletContext.contextPath }/cart/insert";
+                    document.forms.cartForm.submit();
+                  }
+                }
+              </script>
+              <!-- /장바구니 연결폼 -->
+		  
+
   </form>             
+
       </div>
       <div class="container">
         <br><br><br>
