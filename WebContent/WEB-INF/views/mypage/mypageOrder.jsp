@@ -63,6 +63,10 @@
  color : #432;
 }
 
+.modal_btn a:hover{
+ color : #432;
+}
+
 </style>
 
 </head>
@@ -73,7 +77,7 @@
 	<div class="header_hidden">
 	</div>
 
-	<div class="container-fluid" style="padding:50px 200px 50px 200px;">
+	<div class="container-fluid" style="padding: 50px 200px 50px 200px;">
 		<div class="row">
 			<!-- 마이페이지 사이드 영역 -->
 			<div class="col-lg-2 side-box">
@@ -93,14 +97,14 @@
 
 
 			<!-- 관리페이지 메인 영역 -->
-			<div class="col-lg-9 main-box" style=" margin-bottom : 0px;">
+			<div class="col-lg-9 main-box" style="margin-bottom: 0px;">
 				<div class="admin-page">
 					<h1>주문 내역</h1>
 					<br>
-					
+
 					<!-- 전체 내역 조회 (=테이블명)-->
 					<a href="#" class="sub-list">최근 주문조회</a>
-					
+
 					<!-- 같은 페이지에서 다른 데이터를 조회받을 때-->
 					<a href="#" class="sub-list">지난 주문조회</a>
 					<div class="my-info">
@@ -118,48 +122,48 @@
 									</tr>
 								</thead>
 								<tbody>
-								
-								<!-- 주문건 c:forEach로 추가하기-->
-								<c:forEach var="order" items="${ myOrder }">
-								<tr>
-									<td scope="row"><input type="checkbox" class="checkbox"
-										name="order_no" value="${ order.orderNo }"></td>
-									<td scope="col">${ order.payDate } <br> ${ order.orderNo }</td>
-									<td><img src="${ pageContext.servletContext.contextPath }${ order.goodsImg.thumbnailPath }"></td>
-									<td><a href="${ pageContext.servletContext.contextPath }/goods/detail?goodsNo=${order.goodsNo}">
-									${ order.goodsName }</a>
-									</td>
-									<td>${ order.price }원<br>${ order.amount }개</td>
-									<td>
-									<c:choose>
-										<c:when test="${ order.status eq 'Y' }">결제완료</c:when>
-										<c:when test="${ order.status ne 'Y'}"> ${ order.status }</c:when>
-									</c:choose>
-				
-									<td>
-										<c:choose>
-										<c:when test="${ empty order.invoice }"> 배송준비중</c:when>
-										<c:when test="${ not empty order.invoice }"> ${ order.invoice }</c:when>
-										</c:choose>
-									</td>
-									</tr>
-								   </c:forEach>	
+
+									<!-- 주문건 c:forEach로 추가하기-->
+									<c:forEach var="order" items="${ myOrder }">
+										<tr>
+											<td scope="row"><input type="checkbox" class="checkbox"
+												name="order_no" value="${ order.orderNo }"></td>
+											<td scope="col">${ order.payDate }<br> ${ order.orderNo }
+											</td>
+											<td><img
+												src="${ pageContext.servletContext.contextPath }${ order.goodsImg.thumbnailPath }"></td>
+											<td><a
+												href="${ pageContext.servletContext.contextPath }/goods/detail?goodsNo=${order.goodsNo}">
+													${ order.goodsName }</a></td>
+											<td>${ order.price }원<br>${ order.amount }개</td>
+											<td><c:choose>
+													<c:when test="${ order.status eq 'Y' }">결제완료</c:when>
+													<c:when test="${ order.status ne 'Y'}"> ${ order.status }</c:when>
+												</c:choose>
+											<td><c:choose>
+													<c:when test="${ empty order.invoice }"> 배송준비중</c:when>
+													<c:when test="${ not empty order.invoice }"> ${ order.invoice }</c:when>
+												</c:choose></td>
+										</tr>
+									</c:forEach>
 								</tbody>
 								<tfoot>
 									<tr></tr>
 								</tfoot>
 							</table>
 						</div>
-					  </form>
+						</form>
 					</div>
 					<br>
 
 					<!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
-					<a href="javascript:check('modal1');" class="modal-input-btn btn btn-dark btn-right"
-						style="color: #ffffff;">주문 상세 보기</a> 
-					<a href="javascript:check('modal2');" class="btn btn-light btn-right">리뷰작성</a>
-					<a href="javascript:check('modal3');" class="btn btn-light btn-right">문의작성</a> 
-					<a href="javascript:check('modal4');" class="btn btn-light btn-right">교환반품요청</a>
+					<a href="javascript:check('modal1');"
+						class="modal-input-btn btn btn-dark btn-right"
+						style="color: #ffffff;">주문 상세 보기</a> <a
+						href="javascript:check('modal2');" class="btn btn-light btn-right">리뷰작성</a>
+					<a href="javascript:check('modal3');"
+						class="btn btn-light btn-right">문의작성</a> <a
+						href="javascript:check('modal4');" class="btn btn-light btn-right">교환반품요청</a>
 
 				</div>
 
@@ -176,7 +180,8 @@
 						<p class="title">주문 상세보기</p>
 						<!-- 모달 콘텐츠 영역-->
 						<div class="con">
-							<p> 주문 상품 정보<p>
+							<p>주문 상품 정보
+							<p>
 						</div>
 						<!-- 모달창 버튼 영역-->
 						<div class="modal-btn">
@@ -239,32 +244,30 @@
 
 				<!-- 모달 자바 스크립트 필수 -->
 				<script>
-              function check(modalname) {
-                  if($('.checkbox').is(':checked')){
-                    openModal(modalname);
-                  } else {
-                    alert("주문건을 선택해주세요.");
-                  }
-              }
+					function check(modalname) {
+						if ($("input:checkbox[name=order_no]").length > 1) {
+							alert("주문건을 한개만 선택해주세요.");
+						} else if ($('.checkbox').is(':checked')) {
+							openModal(modalname);
+						} else {
+							alert("주문건을 선택해주세요.");
+						}
+					}
 
-              function openModal(modalname) {
-                document.get
-                $("#modal").fadeIn(300);
-                $("." + modalname).fadeIn(300);
-              }
-  
-              $(".close").on('click', function () {
-                $("#modal").fadeOut(300);
-                $(".modal-con").fadeOut(300);
-              }); 
-              
+					function openModal(modalname) {
+						document.get
+						$("#modal").fadeIn(300);
+						$("." + modalname).fadeIn(300);
+					}
 
-          </script>
-
+					$(".close").on('click', function() {
+						$("#modal").fadeOut(300);
+						$(".modal-con").fadeOut(300);
+					});
+				</script>
 
 			</div>
 			<!-- 모달 div 종료지점 -->
-
 			<br>
 		</div>
 	</div>

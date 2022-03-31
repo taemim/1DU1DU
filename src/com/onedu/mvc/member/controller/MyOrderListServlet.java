@@ -20,27 +20,30 @@ public class MyOrderListServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		OrderService orderService = new OrderService();
+		
 		String path = "";
+		
+		List<MyorderDTO> myOrder = new ArrayList();
+		
 		
 		// 세션 로그인 정보 담기
 		HttpSession session = request.getSession();
+		if(session.getAttribute("loginMember") != null) {
+			MemberDTO loginMember = (MemberDTO)session.getAttribute("loginMember");
+			String userId = loginMember.getUserId();
 		
-		MemberDTO loginMember = (MemberDTO)session.getAttribute("loginMember");
-		String userId = loginMember.getUserId();
-		
-	    System.out.println("로그인 확인" + loginMember);
-	    
-		List<MyorderDTO> myOrder = new ArrayList();
-		
-		OrderService orderService = new OrderService();
-		
-		if( userId !=null) {
+			if( userId !=null) {
 			
 			myOrder = orderService.selectMyOrder(userId);
 			
 			System.out.println("주문내역 조회 확인 !!! " + myOrder);
 		}
 		
+		}else {
+			//비회원일 경우 접근 불가
+			path="";
+		}
 		
 		if(myOrder != null) {
 			path = "/WEB-INF/views/mypage/mypageOrder.jsp";
@@ -49,7 +52,6 @@ public class MyOrderListServlet extends HttpServlet {
 		} else {
 			path = "/WEB-INF/views/common/filed.jsp";
 			request.setAttribute("message", "주문 조회에 실패하셨습니다.");
-			
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
