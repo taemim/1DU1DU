@@ -32,7 +32,7 @@
     <title>1 D U 1 D U</title>
 </head>
 
-</style>
+
 
 <body>
 	<jsp:include page="/WEB-INF/views/main/header.jsp" />
@@ -40,7 +40,7 @@
 		<h1>헤더영역 비워두는 용도</h1>
 	</div>
 
-    <form name="main" action="" id="main">
+    <form name="main" action="" id="TestStart" >
         <div class="container">
             <div class="row">
                 <!-- 관리페이지 사이드 영역 숨김 -->
@@ -51,12 +51,12 @@
                         <h3>커피 추천을 위해 저희가 불러드릴 이름을 입력해주세요.</h3>
                         <div class="row">
                             <div class="col-sm-3 box name-box">
-                                <input class="name-box" type="text" name="userName" placeholder="이름을 입력해주세요.">
+                                <input class="name-box" type="text" id="userName" name="userName" placeholder="이름을 입력해주세요.">
                             </div> <!-- /box -->
 
-                            <div class="start-box" onclick="nextTest(${ taste.testTools });">
-                                <button type="button" class="start" value="submit">테스트 시작하기</button>
-                            </div> <!-- /start-box -->
+						<div class="start-box">
+                            <button type="button" class="start" onclick="nextTest(this, 0);" >테스트 시작하기</button>
+                        </div> <!-- /start-box -->
                         </div><!-- row -->
 
                     </div> <!-- /side-box -->
@@ -66,7 +66,7 @@
     </form> <!-- /main -->
 
 
-    <form name="tools" action="" id="main">
+    <form name="tools" action="" id="main" class="hideDiv">
         <div class="container">
             <div class="row">
                 <!-- 관리페이지 사이드 영역 숨김 -->
@@ -78,7 +78,7 @@
                             <div class="col-sm-3 box">
 
                                 <button type="button" class="inner-box" value="커피메이커"
-                                    onclick="nextTest(${ taste.testTopping });">
+                                    onclick="nextTest(this, 1);">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/coffee-maker.png">
                                     <h5>커피메이커</h5>
@@ -86,8 +86,8 @@
                             </div>
 
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" value="커피메이커"
-                                    onclick="nextTest(${ taste.testTopping });">
+                                <button type="button" class="inner-box" value="핸드드립"
+                                    onclick="nextTest(this, 1);">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/dripper.png">
                                     <h5>핸드드립</h5>
@@ -95,8 +95,8 @@
                             </div>
 
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" value="커피메이커"
-                                    onclick="nextTest(${ taste.testTopping });">
+                                <button type="button" class="inner-box" value="에스프레소 머신"
+                                   onclick="nextTest(this, 1);">
                                     <i id="bi" class="bi bi-check-lg" style="display:none;"></i>
                                     <img src="../resources/image/espresso.png">
                                     <h5>에스프레소 머신</h5>
@@ -145,7 +145,7 @@
 
 
                         <div class="pre-box">
-                            <button type="button" class="pre-button" onclick="preTest(${ taste.testMain });">
+                            <button type="button" class="pre-button" onclick="preTest(1);">
                                 <img src="../resources/image/arrow_pre.png" alt="">
                             </button> <!-- /pre-button -->
                         </div> <!-- /pre-box -->
@@ -167,7 +167,7 @@
                         <h3>어떤 커피를 즐기세요?</h3><br>
                         <div class="row">
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
+                                <button type="button" class="inner-box" onclick="nextTest(this, 2);" value="블랙 그대로">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/black.png">
                                     <h5>블랙 그대로</h5>
@@ -299,7 +299,6 @@
     </form> <!-- /style -->
 
 
-<<<<<<< HEAD
     <form name="style" action="" id="main">
     	<div class="container">
 	        <div class="row">
@@ -404,11 +403,11 @@
 	        <div class="row">
 	            <!-- 관리페이지 사이드 영역 숨김 -->
 	            <div class="container">
-	                <div class="side-box" style="height: 700px;">
+	                <div class="side-box" style="height: 600px;">
 	                    <br>
 	                    <h3>마지막으로, 원두를 갈아드릴까요?</h3><br>
 	                    <div class="row">
-	                        <div class="col-2 box">
+	                        <div class="col-5 box">
 	
 	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
 	                                <i id="bi" class="bi bi-check-lg"></i>
@@ -416,7 +415,7 @@
 	                            </button>
 	                        </div>
 	
-	                        <div class="col-2 box">
+	                        <div class="col-5 box">
 	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>도구에 맞게 갈아주세요</h5>
@@ -437,7 +436,7 @@
 	</form> <!-- /grind -->
 	
 	
-	<form name="result" action="" id="result">
+	<form name="result" action="" id="result" class="hideDiv">
 		<div class="container">
 	        <div class="row" style=" margin-top: 0px; !important">
 	            <!-- 관리페이지 사이드 영역 숨김 -->
@@ -451,33 +450,33 @@
 	                            <table class="result-list">
 	                                <tr>
 	                                    <td>내리는 방식</td>
-	                                    <td class="answered">에스프레소 머신</td>
+	                                    <td class="answered"></td>
 	                                </tr>
 	                                <tr>
 	                                    <td>평소 커피 취향</td>
-	                                    <td class="answered">라떼</td>
+	                                    <td class="answered"></td>
 	                                </tr>
 	                                <tr>
 	                                    <td>카페인</td>
-	                                    <td class="answered">디카페인</td>
+	                                    <td class="answered"></td>
 	                                </tr>
 	                                <tr>
 	                                    <td>스타일</td>
-	                                    <td class="answered">어른스러운 커피맛</td>
+	                                    <td class="answered"></td>
 	                                </tr>
 	                                <tr>
 	                                    <td>원두 향</td>
-	                                    <td class="answered">달콤한 과일과 농후한 느낌</td>
+	                                    <td class="answered"></td>
 	                                </tr>
 	                                <tr>
 	                                    <td>분쇄도</td>
-	                                    <td class="answered">도구에 맞게</td>
+	                                    <td class="answered"></td>
 	                                </tr>
 	                            </table>
 	
 	                        </div> <!-- /col-5 box -->
 	                        <div class="anal" style="margin-top:80px;">
-	                            <h3 style="margin-bottom:10px;">김원두님의 취향 분석중...</h3>
+	                            <h3 style="margin-bottom:10px;"><b id="answer"></b>님의 취향 분석중...</h3>
 	                            <p>1DU 1DU가 추천하는 이번달 원두는 <br>
 	                                <b>케냐룽게토AB, 블랙수트, 과테말라 부에나 비스타 내추럴</b>이에요!</p>
 	                        </div> <!-- /anal -->
@@ -516,7 +515,59 @@
 	        </div> <!-- /row -->
 	    </div> <!-- /container -->
 	</form> <!-- /result -->
+<script>
 
+	$('form').hide(); //모든 폼 숨기기
+
+    var result= []; //취향 테스트 값 배열 선언
+    
+	$('form').first().show(); //첫번째 폼은 보이기
+	
+    //버튼에 함수호출 onclick=nextTest(this, n); n은 몇 번째 폼인지 0, 1, 2, 3 ,..
+	// this(전달인자) => e(매개변수) 
+    function nextTest(e, n) {
+		
+		// 폼 태그가 0번째 라면 이름 input값을 저장
+    	if( n == 0 ){
+    		
+    		let userName =  $('#userName').val();
+			if(userName==''){
+				alert('이름을 입력해주세요');
+				
+				return false;
+			}
+			
+			alert("1DU 1DU가 " + userName + "님 입맛에 딱맞는 원두를 추천해드릴게요! 테스트를 끝까지 진행해주세요.");
+			
+			$('#answer').text(userName);
+			 result[n] = userName;
+    	}
+			
+		$('form').eq(n).hide(); //지금 페이지 숨김
+		$('form').eq(n+1).show(); // 다음 페이지 보이기
+		   
+		result[n] = $(e).val(); // 결과에 저장 (버튼의 value값)
+		
+		alert(result[n]); //값 확인용 (첫번째 입력한 이름은 버튼에 value값이 없으므로 공백)
+		
+		//인덱스가 0번부터 시작하므로 n-1 (이름은 0-1로 건너뛰고 출력)
+		$('.answered').eq(n-1).text(result[n]);
+		
+		$('form').eq(8).show(); //테스트 선택이 잘 누적되는지 확인 하고 싶으면 주석 해제
+		
+	}
+
+	// 이전 페이지로 이동
+	function preTest(n) {	
+		
+		$('form').eq(n).hide(); //지금 페이지 숨김
+		$('form').eq(n-1).show(); // 이전 페이지 보이기
+		
+	}
+	
+
+
+</script>
 
     <!-- 부트스트랩 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
