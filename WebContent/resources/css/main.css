@@ -75,6 +75,7 @@ dl, ul, ol, li {
 .display_container {
     position:relative;
     font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 200px;
 }
 
 .display_bottommiddle {
@@ -296,7 +297,7 @@ img {
 /* 이미지 */
 .review_img img {
     height: 600px;
-    /* width: 70px; */
+    /* width: 70px;
     /* border-color: #efca66; */
 }
 

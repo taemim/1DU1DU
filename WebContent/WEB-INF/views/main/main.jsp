@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS 외부링크 -->
-    <link href="resources\css\main.css" rel="stylesheet" type="text/css">
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/main.css" rel="stylesheet" type="text/css">
     <!-- 구글웹폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
@@ -27,13 +27,12 @@
 
 <body>
 	
-	<main>
-    <div class="header_hidden">
-    </div>
-    
+	<jsp:include page="/WEB-INF/views/main/header.jsp"/>
+	
+
     <!-- main image -->
-    <div class="display_container center" id="section1">
-        <img src="resources/image/img-bg1.png" style="width: 100%; height: 600px;">
+    <div class="display_container center" style="margin-top: 0;" id="section1">
+        <img src="${ pageContext.servletContext.contextPath }/resources/image/img-bg1.png" style="width: 100%; height: 600px;">
         <div class="display_bottommiddle padding_32">
             <div class="main_white">
                 <h1 class="main_img_margin jumbo">
@@ -50,96 +49,23 @@
     </div>
     <!-- /main image -->
 
-    <!-- 배너(우측 하단) - a카카오톡 1:1문의, 위로 가기 버튼 -->
-    <!-- display:fiexed로 우측하단에 고정되는 배너입니다. -->
+<!--     배너(우측 하단) - a카카오톡 1:1문의, 위로 가기 버튼
+    display:fiexed로 우측하단에 고정되는 배너입니다.
     <div class="banner-wrap">
         <ul class="banner">
             <li><a href="#"><span>top
-                        <!-- 후에 이미지로 대체하면서 텍스트를 없앨 수 있습니다 -->
+                        후에 이미지로 대체하면서 텍스트를 없앨 수 있습니다
                     </span></a></li>
             <li><a href="#">1:1 문의하기</a></li>
-        </ul> <!-- /banner -->
-    </div><!-- /banner -->
-
-    <!-- 1do1do만의 원두구독 서비스 -->
-    <div class="content2">
-        <!-- 구조가 ul-li가 더 편할 것 같아서 이렇게 작성했는데 div가 정렬하기 좋다고 판단되면 수정해주세요! -->
-        <div class="service-wrap">
-            <ul>
-                <li>
-                    <p>원두 취향 테스트</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-                <li>
-                    <p>매월 정기배송</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-                <li>
-                    <p>정기일 지정</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-                <li>
-                    <p>매달 새로운 커피</p>
-                    <div class="img-wrap">
-                        <img src="" alt="">
-                    </div>
-                    <p>
-                        내 입맛에 맞는 원두 추천<br>
-                        나에게 맞는 커피 취향만<br>
-                        입력하면 끝!
-                    </p>
-                    <p>
-                        확고한 취향이 있다면 '블랜드' <br>
-                        다양하게 즐긴다면 '싱글오리진' <br>
-                        원두 종류는 매번 변경 가능합니다.
-                    </p>
-                </li>
-            </ul>
-        </div> <!-- /service-wrap -->
-        <button>1DU 1DU 구독하러 가기</button>
-    </div> <!-- /content2 -->
+        </ul> /banner
+    </div>/banner
+ -->
 
     <!-- 슬라이드 구간 -->
-    <div class="slideshow-container">
+<%--     <div class="slideshow-container">
         <div class="mySlides fade">
             <div class="white">
-                <img src="resources/image/img-bg1.png" style="width:100%">
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/img-bg1.png" style="width:100%">
                 <div class="text">
                     <p>원두 보관소 KH점</p>
                     <div class="bunder">
@@ -182,24 +108,86 @@
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
+    </div> --%>
     <!-- /슬라이드 구간 -->
-
+	
     <!-- 베스트 리뷰 -->
     <div class="content4">
         <div class="review_title">
             <h1>
-                <img src="../resources/image/iconbrown.png" alt="1DU1DU로고">
-                지금 1DU1DU를 즐기고 있는 사람들
-                <img src="../resources/image/iconbrown.png" alt="1DU1DU로고">
+            	<br><br>
+                <span class="fs-4 mt-2">S E A S O N A L</span><br>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <span class="fs-3 mt-2">매월 새롭게 소개하는 시즈널 커피</span>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <br>
             </h1>
         </div>
-
+		
+  		
+    	
         <!-- 베스트 리뷰 -->
         <div class="main_review">
             <div class="image_three">
                 <div class="review_img">
-                    <img src="../resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <div class="review_txt">
+                        <h2 class="txt1">
+                            <br>
+                            <p class="fs-4">케냐룽게토 AB</p>
+                            케냐 특유의 과일 향미를 느껴보세요!                            
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image_three">
+                <div class="review_img">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트5.jpeg" alt="Car" style="width:100%">
+                    <div class="review_txt">
+                        <h2>
+                        	<br>
+                            
+                            <br>
+                            <p class="fs-4" style="text-style: bold;">페루 리마 디카페인</p>
+                            숙면이 소중한 당신에게 소개합니다
+                            
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image_three">
+                <div class="review_img">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트원두3.jpeg" alt="Car" width="100%">
+                    <div class="review_txt">
+                        <h2>
+                        <br>
+                            
+                            <br>
+                            <p class="fs-4" style="text-style: bold;">에티오피아 봄베 테스티 내추럴</p>
+                            보랏빛 짙은 라벤더 향이 매력적이에요! <br>
+                           
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="review_title">
+            <h1>
+            	<br><br>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <span class="fs-4">지금 1DU1DU를 즐기고 있는 사람들</span>
+                <img src="${ pageContext.servletContext.contextPath }/resources/image/iconbrown.png" alt="1DU1DU로고">
+                <br>
+            </h1>
+        </div>
+        <!-- 2번째 줄  -->
+        <div class="main_review">
+            <div class="image_three">
+                <div class="review_img">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/후기1.png" alt="Car" style="width:100%">
                     <div class="review_txt">
                         <h2 class="txt1">
                             <p class="star">
@@ -251,9 +239,10 @@
 
             <div class="image_three">
                 <div class="review_img">
-                    <img src="../resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/후기2.png" alt="Car" style="width:100%">
                     <div class="review_txt">
                         <h2>
+                        	<br>
                             <p class="star">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#bf3f27"
                                     class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -281,7 +270,7 @@
                                         d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                 </svg>
                             </p>
-                            3개월째 구독중입니다.<br>
+                            
                             랜덤하게 보내주는 원두 덕분에<br>
                             제 취향을 알아가는 게 너무 좋아요!
                             <p>김
@@ -301,12 +290,13 @@
                     </div>
                 </div>
             </div>
-
+	
             <div class="image_three">
                 <div class="review_img">
-                    <img src="../resources/image/1.jpeg" alt="Car" style="width:100%">
+                    <img src="${ pageContext.servletContext.contextPath }/resources/image/후기3.png" alt="Car" style="width:100%">
                     <div class="review_txt">
                         <h2>
+                        <br>
                             <p class="star">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#bf3f27"
                                     class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -335,8 +325,8 @@
                                 </svg>
                             </p>
                             원두는 처음인데 모카포트도 사고<br>
-                            매일 커피 마시는 시간을<br>
-                            즐기고 있어요!
+                            매일 커피 마시는 시간을 즐기고 있어요! <br>
+                           
                             <p>송
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor"
                                     class="bi bi-asterisk" viewBox="0 0 16 16">
@@ -356,10 +346,8 @@
             </div>
         </div>
         <!-- /베스트 리뷰 -->
-
-        <button class="sub-button"><a href="#">1DO 1DO 구독하러 가기</a></button>
     </div> <!-- /content4 -->
-
+	<br><br>
     <!-- FAQ -->
     <div class="container">
         <br><br>
@@ -489,21 +477,18 @@
 
     </main><!-- /main-->
 
-  	<jsp:include page='footer.jsp'/>
+  	<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 
     <!-- 슬라이드 스크립트 -->
     <script>
         var slideIndex = 1;
         showSlides(slideIndex);
-
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
-
         function currentSlide(n) {
             showSlides(slideIndex = n);
         }
-
         function showSlides(n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");
@@ -525,6 +510,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+
+
 </body>
 
 </html>
