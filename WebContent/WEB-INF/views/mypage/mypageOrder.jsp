@@ -154,15 +154,12 @@
 					</div>
 					<br>
 
-
 					<!-- 버튼 만들기 javascript:openModal('모달명 설정') 하기 -->
-					<a href="javascript:check('modal1');"
-						class="modal-input-btn btn btn-dark btn-right"
-						style="color: #ffffff;">주문 상세 보기</a> <a
-						href="javascript:check('modal2');" class="btn btn-light btn-right">리뷰작성</a>
-					<a href="javascript:check('modal3');"
-						class="btn btn-light btn-right">문의작성</a> <a
-						href="javascript:check('modal4');" class="btn btn-light btn-right">교환반품요청</a>
+					<a href="javascript:check('modal1');" class="modal-input-btn btn btn-dark btn-right"
+						style="color: #ffffff;">주문 상세 보기</a> 
+					<a href="javascript:check('modal2');" class="btn btn-light btn-right">리뷰작성</a>
+					<a href="javascript:check('modal3');" class="btn btn-light btn-right">문의작성</a> 
+					<a href="javascript:check('modal4');" class="btn btn-light btn-right">교환반품요청</a>
 
 				</div>
 
@@ -185,7 +182,7 @@
 						<div class="modal-btn">
 							<button type="button"
 								class="madal-btn button btn btn-light btn-sm">
-								<a href="javascript:;" class="close">&nbsp;변경&nbsp;</a>
+								<a href="javascript:;" class="close">&nbsp;확인&nbsp;</a>
 							</button>
 							&nbsp;&nbsp;
 							<button type="button"
@@ -275,7 +272,7 @@
 	</div>
 
 	<!-- footer -->
-	<div style="margin-top: 50px;">
+	<div>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</div>
 
