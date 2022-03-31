@@ -2,6 +2,7 @@ package com.onedu.mvc.goods.model.service;
 
 import static com.onedu.mvc.common.mybatis.Template.getSqlSession;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,6 +13,7 @@ import com.onedu.mvc.goods.model.dto.ImgDTO;
 import com.onedu.mvc.goods.model.dto.OptionDTO;
 import com.onedu.mvc.goods.model.dto.OrderDTO;
 import com.onedu.mvc.goods.model.dto.PaymentDTO;
+import com.onedu.mvc.member.model.dto.MyorderDTO;
 
 public class OrderService {
 	
@@ -78,4 +80,27 @@ public class OrderService {
 		
 		return option;
 	}
+
+	/* 회원 주문내역 조회 */
+	public List<MyorderDTO> selectMyOrder(String userId) {
+		
+		SqlSession session = getSqlSession();
+		
+		List<MyorderDTO> myOrder = new ArrayList<>();
+		
+		OrderDAO orderDAO = new OrderDAO();
+		
+		myOrder = orderDAO.selectMyOrder(session, userId);
+		
+		if(myOrder != null ) {
+			session.commit();
+		} else {
+			session.rollback();
+		}
+		
+		session.close();
+		
+		return  myOrder;
+	}
+
 }

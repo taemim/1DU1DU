@@ -10,6 +10,8 @@ import com.onedu.mvc.goods.model.dto.ImgDTO;
 import com.onedu.mvc.goods.model.dto.OptionDTO;
 import com.onedu.mvc.goods.model.dto.OrderDTO;
 import com.onedu.mvc.goods.model.dto.PaymentDTO;
+import com.onedu.mvc.member.model.dto.MemberDTO;
+import com.onedu.mvc.member.model.dto.MyorderDTO;
 
 public class OrderDAO {
 
@@ -44,5 +46,8 @@ public class OrderDAO {
 		return session.insert("OrderDAO.insertOrderOp", goods);
 	}
 
+	public List<MyorderDTO> selectMyOrder(SqlSession session, String userId) {
+		return session.selectList("OrderDAO.selectMyOrder", userId);
+	}
 
 }
