@@ -39,7 +39,7 @@
                     내 취향에 <span>꼭</span> 맞는 커피로<br>추천 받고 <span>구독</span>하세요
                 </h1>
             </div>
-            <button class="main_img_button btn_recomm padding_large main_large margin_top">원두 취향 테스트</button>
+            <button class="main_img_button btn_recomm padding_large main_large margin_top"  onclick="gotest(${ taste.testMain });">원두 취향 테스트</button>
             <div class="recomm">
                 <p>|</p>
                 <p>내 취향에 딱 맞는 원두를 추천해요</p>
@@ -419,6 +419,11 @@
 
     <!-- 슬라이드 스크립트 -->
     <script>
+    
+    function gotest(testMain) {
+        location.href = '${ pageContext.servletContext.contextPath }/taste/testMain';
+    }
+    
         var slideIndex = 1;
         showSlides(slideIndex);
         function plusSlides(n) {

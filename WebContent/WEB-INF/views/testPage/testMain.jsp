@@ -17,34 +17,6 @@
         <jsp:include page="../main/header.jsp" />
     </div>
 
-		<!-- menu bar-->
-        <nav class="navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid" >
-              
-              <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-                <ul class="navbar-nav me-auto mb-2 mt-lg-2 mb-lg-2" >
-                  <li class="nav-item ms-5 me-4">
-                    <a class="nav-link fs-5" href="#">NEW</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link fs-5" href="#">BEST</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link fs-5" href="#">원두</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link fs-5" href="#">드립백</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link fs-5" href="#">콜드브루</a>
-                  </li>
-                  <li class="nav-item me-4">
-                    <a class="nav-link fs-5" href="#">커피용품</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
 
     <div class="container">
         <div class="row">

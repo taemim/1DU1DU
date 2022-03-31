@@ -136,7 +136,7 @@ if(confirm("선택하신 항목을 삭제하시겠습니까?")){
 
 
 
-출처: https://dev-gabriel.tistory.com/9 [애매한 잡학사전]
+/* 출처: https://dev-gabriel.tistory.com/9 [애매한 잡학사전] */
 
 </script>
 

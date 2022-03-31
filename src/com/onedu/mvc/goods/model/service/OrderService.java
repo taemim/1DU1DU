@@ -24,7 +24,6 @@ public class OrderService {
 		int result1 = OrderDAO.insertOrder(session, newOrder);
 		int result2 = OrderDAO.insertPayment(session, newPayment);
 		int result3 = OrderDAO.insertGoodsList(session, goods);
-		int result3 = OrderDAO.insertGoodsList(session, goods);
 		
 		
 		
