@@ -64,23 +64,23 @@
 										<td class="td_width_1 cart_info_td">
 											<input type="checkbox" class="individual_cart_checkbox check_input_size" checked="checked"
 												class="chkbox" value="${ prod.cartNo }" name="no">
+											<input type="hidden" name="no" value="${ prod.cartNo }">
 											<input type="hidden" class="individual_prodPrice_input" name="prodPrice" value="${ prod.goods.price }">
 											<input type="hidden" class="individual_amount_input" name="amount" value="${ prod.amount }">
 											<input type="hidden" class="individual_totalPrice_input" name="totalPrice" value="${ prod.goods.price * prod.amount }">
 										</td>
 										<td class="td_width_2">
-											<c:forEach var="goods" items="${ goodsList }">
-												<div class="image_wrap">
-													<img src="${ pageContext.servletContext.contextPath }${ prod.imgList[0].thumbnailPath }" width="100" alt="원두1" title="원두1" class="middle">
-													<%-- <img src="${ pageContext.servletContext.contextPath }${ goods.imgList[0].thumbnailPath }" width="150" height="150"> --%>
-													<!-- <img> 이미지 사용 예시 -->
-													<!-- <div class="pdtPhoto"><img
-														src="../resources/images/5.jpeg"
-														width="150" height="150" alt="">
-													</div> -->
-													<!-- 이미지 사용 예시 -->
-												</div>
-											</c:forEach>
+											<div class="image_wrap">
+												<!-- 혜원님이 찾아 주신 이미지 경로 -->
+												<img src="${ pageContext.servletContext.contextPath }${ prod.imgList[0].thumbnailPath }" width="100" alt="원두1" title="원두1" class="middle">
+												<%-- <img src="${ pageContext.servletContext.contextPath }${ goods.imgList[0].thumbnailPath }" width="150" height="150"> --%>
+												<!-- <img> 이미지 사용 예시 -->
+												<!-- <div class="pdtPhoto"><img
+													src="../resources/images/5.jpeg"
+													width="150" height="150" alt="">
+												</div> -->
+												<!-- 이미지 사용 예시 -->
+											</div>
 										</td>
 										<td class="td_width_3">
 											<div class="detail">
@@ -197,6 +197,7 @@
 			}
 		}
         
+        // 선생님 도움 받은 구현
         /* onclick="updateCart(this, ${ prod.cartNo })"
            updateForm의 id : updateCartNo & updateAmount
            <td class="td_width_4 table_text_align_center amount">의 amount 클래스
@@ -248,7 +249,6 @@
 				$(this).parent("div").find("input").val(--quantity);		
 			}
 		});
-		
 	</script>
 	
 	<%-- <script src="${ pageContext.servletContext.contextPath }/resources/js/cart.js"></script> --%>
