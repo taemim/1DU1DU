@@ -28,6 +28,15 @@
     <!-- header import -->
     <jsp:include page="../main/header.jsp"/>
 
+	<c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
     <div class="container">
         <div class="row">
             <!-- 마이페이지 사이드 영역 -->
@@ -91,6 +100,7 @@
             </div>
         </div>
     </div>
+    </c:if>
 
     <!-- footer import -->
     <jsp:include page="../main/footer.jsp"/>

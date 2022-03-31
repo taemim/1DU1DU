@@ -29,6 +29,15 @@
 	<!-- header import -->
     <jsp:include page="../main/header.jsp"/>
 
+	<c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
     <div class="container">
         <div class="row">
             <!-- 마이페이지 사이드 영역 -->
@@ -50,6 +59,10 @@
                 <div class="mypage table-scroll">
                     <h1>Review</h1>
                     <br>
+	                    <div class="write">
+	                         <button type="button"
+	                             onclick="location.href='${ pageContext.servletContext.contextPath }/review/insert'">작성하기</button>
+	                    </div>
                     <!-- 전체 내역 조회 (=my-review-list)-->
                     <table class="baseTable">
                         <colgroup>
@@ -103,6 +116,7 @@
             </div>
         </div>
     </div>
+    </c:if>
 
     <script type="text/javascript">	
 		function detailView(no){
