@@ -24,7 +24,16 @@
 	
 	<!-- header import -->
     <jsp:include page="../main/header.jsp"/>
-
+    
+    <c:if test="${ empty sessionScope.loginMember }">
+		<div class="error">
+			<a href="${ pageContext.servletContext.contextPath }/member/login">
+				<img src="${ pageContext.servletContext.contextPath }/resources/image/error.png">
+				<p>회원만 접근 권한이 있습니다</p>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${ !empty sessionScope.loginMember }">
 	<div class="padding_top">
 		<div class="content_subject"><span style="letter-spacing: 6px;">장바구니</span></div>
 
@@ -171,6 +180,7 @@
 			</div>
 		</form>
 	</div>
+	</c:if>
 
 	<!-- update를 위한 form -->
 	<form name="updateForm" method="post">
@@ -250,8 +260,6 @@
 			}
 		});
 	</script>
-	
-	<%-- <script src="${ pageContext.servletContext.contextPath }/resources/js/cart.js"></script> --%>
 	
 	<!-- footer import -->
     <jsp:include page="../main/footer.jsp"/>

@@ -54,6 +54,24 @@ table {
 }
 /* /header 조정 */
 
+/* 회원만 접근 권한 부여 */
+.error {
+	max-width: 1300px;
+	display : flex;
+	justify-content : center;
+	margin: 0 auto;
+}
+
+.error p {
+	text-align: center;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size : 30px;
+}
+
+.error a:hover {
+	color: #432;
+}
+
 .padding_top {
 	padding: 90px 0 50px;
 	font-family: 'Nanum Gothic', sans-serif;
