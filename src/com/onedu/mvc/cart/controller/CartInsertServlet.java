@@ -35,6 +35,7 @@ public class CartInsertServlet extends HttpServlet {
 		CartDTO insertCart = new CartDTO();
 		insertCart.setProdNo(prodNo);
 //		insertCart.setAmount(amount);
+		insertCart.setAmount(1);
 		insertCart.setUserId(userId);
 		
 		System.out.println(insertCart);
