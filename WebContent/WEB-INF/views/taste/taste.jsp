@@ -233,6 +233,225 @@
     </form> <!-- /decaffeine -->
 
 
+    <form name="style" action="" id="main" inputtype="hidden">
+    	<div class="container">
+	        <div class="row">
+	            <!-- 관리페이지 사이드 영역 숨김 -->
+	            <div class="container">
+	                <div class="side-box">
+	                    <br>
+	                    <h3>커피를 어떻게 내려드세요?</h3><br>
+	                    <div class="row">
+	                        <div class="col-4 box">
+	                            <button type="button" class="inner-box" value="원두본연의특색" onclick="nextTest(${ taste.testFlavor });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>원두 본연의 특색을 즐겨요</h5>
+	                                <span>과일, 꽃, 허브 등의 향미를 즐기고 싶어요. <br>
+	                                      다채롭고 산미가 있는 경우가 일반적이에요.</span>
+	                            </button>
+	                        </div>
+	                        <div class="col-4 box">
+	                            <button type="button" class="inner-box" value="커피스러운커피" onclick="nextTest(${ taste.testFlavor });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>커피스러운 커피 맛을 즐겨요</h5>
+	                                <span>우리가 잘 알고 있는 전형적인 그 커피예요. <br>
+	                                      산미가 적고 고소, 쌉싸름해요.</span>
+	                            </button>
+	                        </div>
+	                        <div class="col-4 box">
+	                            <button type="button" class="inner-box" value="조화로운맛" onclick="nextTest(${ taste.testFlavor });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>조화로운 맛을 즐겨요</h5>
+	                                <span>익숙한 커피 맛과 원두 본연의 다채로운 향미를 <br>
+	                                      조화롭게 느낄 수 있어요.</span>
+	                            </button>
+	                        </div>
+	
+	                    </div> <!-- /row -->
+	
+	                    <div class="pre-box">
+	                        <button type="button" class="pre-button" onclick="preTest(${ taste.testDecaffeine });">
+	                            <img src="../resources/image/arrow_pre.png" alt="">
+	                        </button> <!-- /pre-button -->
+	                    </div> <!-- /pre-box -->
+	
+	                </div> <!-- /side-box -->
+	            </div> <!-- /container(inner) -->
+	        </div> <!-- row -->
+	    </div> <!-- /container -->
+    </form> <!-- /style -->
+
+
+	<form name="frag" action="" id="frag" inputtype="hidden">
+		<div class="container">
+	        <div class="row">
+	            <!-- 관리페이지 사이드 영역 숨김 -->
+	            <div class="container">
+	                <div class="side-box">
+	                    <br>
+	                    <h3>어느 맛으로 즐기고 싶으세요?</h3><br>
+	                    <div class="row">
+	                        <div class="col-sm-3 box">
+	
+	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>상큼한 과일과 <br> 꽃향기의 <br> 깔끔한 느낌</h5>
+	                            </button>
+	
+	                        </div>
+	                        <div class="col-sm-3 box">
+	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>달콤한 과일과 <br> 농후한 느낌</h5>
+	                            </button>
+	                        </div>
+	                        <div class="col-sm-3 box">
+	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>고소하고 달콤하고 <br> 향긋한 <br> 균형잡힌 느낌</h5>
+	                            </button>
+	                        </div>
+	                        <div class="col-sm-3 box">
+	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>다크초콜릿 같은 <br> 쌉쌀함이 <br> 묵직한 느낌</h5>
+	                            </button>
+	                        </div>
+	                    </div> <!-- /row -->
+	
+	                    <div class="pre-box">
+	                        <button type="button" class="pre-button" onClick="preTest(${ taste.testStyle });">
+	                            <img src="../resources/image/arrow_pre.png" alt="">
+	                        </button> <!-- /pre-button -->
+	                    </div> <!-- /pre-box -->
+	
+	                </div><!-- /side-box -->
+	            </div> <!-- /container(inner) -->
+	        </div> <!-- /row -->
+	    </div> <!-- /container -->
+	</form> <!-- /frag -->
+	
+	
+	<form name="grind" action="" id="grind" inputtype="hidden">
+		<div class="container">
+	        <div class="row">
+	            <!-- 관리페이지 사이드 영역 숨김 -->
+	            <div class="container">
+	                <div class="side-box">
+	                    <br>
+	                    <h3>마지막으로, 원두를 갈아드릴까요?</h3><br>
+	                    <div class="row">
+	                        <div class="col-2 box">
+	
+	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>갈지 않고 받을래요</h5>
+	                            </button>
+	                        </div>
+	
+	                        <div class="col-2 box">
+	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
+	                                <i id="bi" class="bi bi-check-lg"></i>
+	                                <h5>도구에 맞게 갈아주세요</h5>
+	                            </button>
+	                        </div>
+	                    </div> <!-- /row -->
+	
+	                    <div class="pre-box">
+	                        <button type="button" class="pre-button" onClick="preTest(${ taste.testFlavor });">
+	                            <img src="../resources/image/arrow_pre.png" alt="">
+	                        </button> <!-- /pre-button -->
+	                    </div> <!-- /pre-box -->
+	
+	                </div> <!-- /side-box -->
+	            </div> <!-- /container -->
+	        </div><!-- /row -->
+	    </div><!-- /container -->
+	</form> <!-- /grind -->
+	
+	
+	<form name="result" action="" id="result" inputtype="hidden">
+		<div class="container">
+	        <div class="row">
+	            <!-- 관리페이지 사이드 영역 숨김 -->
+	            <div class="container">
+	                <div class="side-box">
+	                    <br>
+	                    <h2>1DU 1DU의 추천</h2><br>
+	                    <h5>방금 입력하신 취향을 바탕으로 매달 새로운 원두를 보내드릴게요!</h5>
+	                    <div class="row">
+	                        <div class="col-4 box result-box">
+	                            <table class="result-list">
+	                                <tr>
+	                                    <td>내리는 방식</td>
+	                                    <td class="answered">에스프레소 머신</td>
+	                                </tr>
+	                                <tr>
+	                                    <td>평소 커피 취향</td>
+	                                    <td class="answered">라떼</td>
+	                                </tr>
+	                                <tr>
+	                                    <td>카페인</td>
+	                                    <td class="answered">디카페인</td>
+	                                </tr>
+	                                <tr>
+	                                    <td>스타일</td>
+	                                    <td class="answered">어른스러운 커피맛</td>
+	                                </tr>
+	                                <tr>
+	                                    <td>원두 향</td>
+	                                    <td class="answered">달콤한 과일과 농후한 느낌</td>
+	                                </tr>
+	                                <tr>
+	                                    <td>분쇄도</td>
+	                                    <td class="answered">도구에 맞게</td>
+	                                </tr>
+	                            </table>
+	
+	                        </div> <!-- /col-5 box -->
+	
+	                        <div class="anal">
+	                            <h3>김원두님의 취향 분석중...</h3>
+	                            <p>1DU 1DU가 추천하는 이번달 원두는 <br>
+	                                <b>케냐룽게토AB, 블랙수트, 과테말라 부에나 비스타 내추럴</b>이에요!</p>
+	                        </div> <!-- /anal -->
+	
+	                        <div class="row">
+	                                <div class="col-3 box items">
+	                                    <img src="" alt="">
+	                                    <h5>케냐 룽게토 AB</h5>
+	                                    <p>자두의 쥬시함, 은은한 레몬티 향 <br> 12,000원</p>
+	                                </div>
+	                                <div class="col-3 box items">
+	                                    <img src="" alt="">
+	                                    <h5>블랙수트</h5>
+	                                    <p>이탈리안 에스프레소에 대한 오마주 <br> 10,000원</p>
+	                                </div>
+	                                <div class="col-3 box items">
+	                                    <img src="" alt="">
+	                                    <h5>과테말라 뷔에나 비스타 내추럴</h5>
+	                                    <p>초콜릿의 달콤함, 아몬드의 고소함 <br> 12,000원</p>
+	                                </div>
+	                        </div> <!-- /row -->
+	
+	                        <!-- 정기 구독 버튼 -->
+	                        <div class="button-wrap">
+	                            <button type="button" class="subs-button">
+	                                <h5>정기 구독하러 가기</h5>
+	                                <p>이 옵션으로 구독할래요!</p>
+	                            </button> <!-- /subs-button -->
+	                            <button type="button" class="another-button" onclick="goodsList(${ goods.goodsList });">
+	                                <h5>다른 상품 둘러보기</h5>
+	                                <p>좀 더 둘러볼래요!</p>
+	                            </button> <!-- /another-button -->
+	                        </div> <!-- /another-wrap -->
+	                    </div> <!-- /row -->
+	                </div> <!-- /side-box -->
+	            </div><!-- /container -->
+	        </div> <!-- /row -->
+	    </div> <!-- /container -->
+	</form> <!-- /result -->
+
 
     <!-- footer import -->
     <div data-include-path="footer.html"></div>
