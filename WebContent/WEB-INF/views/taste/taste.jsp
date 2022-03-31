@@ -7,9 +7,16 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 구글웹폰트 -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap"
+				rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+				rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
     <link href="${ pageContext.servletContext.contextPath }/resources/css/testMain.css" rel="stylesheet" type="text/css">
     <link href="${ pageContext.servletContext.contextPath }/resources/css/testTools.css" rel="stylesheet" type="text/css">
     <link href="${ pageContext.servletContext.contextPath }/resources/css/testTopping.css" rel="stylesheet" type="text/css">
@@ -18,17 +25,22 @@
     <link href="${ pageContext.servletContext.contextPath }/resources/css/testFrag.css" rel="stylesheet" type="text/css">
     <link href="${ pageContext.servletContext.contextPath }/resources/css/testGrind.css" rel="stylesheet" type="text/css">
     <link href="${ pageContext.servletContext.contextPath }/resources/css/testResult.css" rel="stylesheet" type="text/css">
+   
     <link rel="icon" type="image/x-icon"
         href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
+    
     <title>1 D U 1 D U</title>
 </head>
 
-<body>
-    <div class="header_hidden">
-        <jsp:include page="../main/header.jsp" />
-    </div> <!-- /header -->
+</style>
 
-    <form name="main" action="" id="main" inputtype="hidden">
+<body>
+	<jsp:include page="/WEB-INF/views/main/header.jsp" />
+	<div class="header_hidden">
+		<h1>헤더영역 비워두는 용도</h1>
+	</div>
+
+    <form name="main" action="" id="main">
         <div class="container">
             <div class="row">
                 <!-- 관리페이지 사이드 영역 숨김 -->
@@ -54,7 +66,7 @@
     </form> <!-- /main -->
 
 
-    <form name="tools" action="" id="main" inputtype="hidden">
+    <form name="tools" action="" id="main">
         <div class="container">
             <div class="row">
                 <!-- 관리페이지 사이드 영역 숨김 -->
@@ -145,7 +157,7 @@
     </form> <!-- /tools -->
 
 
-    <form name="topping" action="" id="main" inputtype="hidden">
+    <form name="topping" action="" id="main">
         <div class="container">
             <div class="row">
                 <!-- 관리페이지 사이드 영역 숨김 -->
@@ -200,7 +212,7 @@
     </form> <!-- /topping -->
 
 
-    <form name="deccafeine" action="" id="main" inputtype="hidden">
+    <form name="deccafeine" action="" id="main">
         <div class="container">
             <div class="row">
                 <!-- 관리페이지 사이드 영역 숨김 -->
@@ -238,7 +250,7 @@
         </div> <!-- /container -->
     </form> <!-- /decaffeine -->
     
-    <form name="style" action="" id="main" inputtype="hidden">
+    <form name="style" action="" id="main">
     	<div class="container">
 	        <div class="row">
 	            <!-- 관리페이지 사이드 영역 숨김 -->
@@ -288,7 +300,7 @@
 
 
 <<<<<<< HEAD
-    <form name="style" action="" id="main" inputtype="hidden">
+    <form name="style" action="" id="main">
     	<div class="container">
 	        <div class="row">
 	            <!-- 관리페이지 사이드 영역 숨김 -->
@@ -337,8 +349,6 @@
     </form> <!-- /style -->
 
 
-=======
->>>>>>> refs/heads/seyoungTaste
 	<form name="frag" action="" id="frag" inputtype="hidden">
 		<div class="container">
 	        <div class="row">
@@ -389,12 +399,12 @@
 	</form> <!-- /frag -->
 	
 	
-	<form name="grind" action="" id="grind" inputtype="hidden">
+	<form name="grind" action="" id="grind">
 		<div class="container">
 	        <div class="row">
 	            <!-- 관리페이지 사이드 영역 숨김 -->
 	            <div class="container">
-	                <div class="side-box">
+	                <div class="side-box" style="height: 700px;">
 	                    <br>
 	                    <h3>마지막으로, 원두를 갈아드릴까요?</h3><br>
 	                    <div class="row">
@@ -427,9 +437,9 @@
 	</form> <!-- /grind -->
 	
 	
-	<form name="result" action="" id="result" inputtype="hidden">
+	<form name="result" action="" id="result">
 		<div class="container">
-	        <div class="row">
+	        <div class="row" style=" margin-top: 0px; !important">
 	            <!-- 관리페이지 사이드 영역 숨김 -->
 	            <div class="container">
 	                <div class="side-box">
@@ -466,13 +476,11 @@
 	                            </table>
 	
 	                        </div> <!-- /col-5 box -->
-	
-	                        <div class="anal">
-	                            <h3>김원두님의 취향 분석중...</h3>
+	                        <div class="anal" style="margin-top:80px;">
+	                            <h3 style="margin-bottom:10px;">김원두님의 취향 분석중...</h3>
 	                            <p>1DU 1DU가 추천하는 이번달 원두는 <br>
 	                                <b>케냐룽게토AB, 블랙수트, 과테말라 부에나 비스타 내추럴</b>이에요!</p>
 	                        </div> <!-- /anal -->
-	
 	                        <div class="row">
 	                                <div class="col-3 box items">
 	                                    <img src="" alt="">
@@ -509,33 +517,6 @@
 	    </div> <!-- /container -->
 	</form> <!-- /result -->
 
-
-    <!-- footer import -->
-    <div data-include-path="footer.html"></div>
-
-    <script>
-
-        function nextTest(testTools) {
-            location.href = '${ pageContext.servletContext.contextPath }/taste/testTools';
-        }
-
-        window.addEventListener('load', function () {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function (el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
-    </script>
 
     <!-- 부트스트랩 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
