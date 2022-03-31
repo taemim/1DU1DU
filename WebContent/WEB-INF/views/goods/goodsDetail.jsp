@@ -90,7 +90,7 @@
                 	<div class="col-5">
                 		<div class="d-grid gap-3">
                 			<p class="text mt-4 ms-3">
-                			<span id='gram'></span>&nbsp / &nbsp<span id='grinder'></span>
+                			<span id='gram'></span>&nbsp; / &nbsp;<span id='grinder'></span>
                 		</div>
                 		<div class="row">
                 			<div class="col">
@@ -115,7 +115,7 @@
                 	</div>              	
                 	<div class="col-2">
                 		<button type="button" class="btn-close mt-3 ms-5" aria-label="Close"></button>
-                		<p class="fw-bold mt-4 ms-1 mb-0"><strong id="optionPrice"><fmt:formatNumber value="${goods.price}" type="number"/>원</strong></p>
+                		<p class="fw-bold mt-4 ms-1 mb-0"><strong id="optionPrice"></strong></p>
                 	</div>
                 </div>
                 
@@ -127,7 +127,7 @@
                 	</div>
                 	<div class="col-2 mt-3 ms-5">
                 		
-                		<h5><strong id="price"><fmt:formatNumber value="${goods.price}" type="number"/>원</strong></h5>
+                		<h5><strong id="price"></strong></h5>
                 	</div>
                 </div>
              
