@@ -61,6 +61,7 @@
       <div class="container">
         <div class="row my-5">
             <div class="col">
+            
                 <h1 class="h1 mt-4">${ goods.goodsName }</h1>
                 <p>${ goods.goodsNameEn }</p>
                 <h4 class="text-sm-start mt-5 mb-5">${ goods.goodsExplain }</h4>
@@ -71,7 +72,7 @@
 		                	<option value="" selected>${ rootOption.optionName }을 선택하세요</option>
 	                		<c:forEach items="${ goods.optionList }" var="option" varStatus="status">
 	                			<c:if test="${rootOption.optionNo eq option.optionNo2}">
-	                				<option value="${option.optionNo }" data-val="${option.extra_pay}">${ option.optionName }</option>
+	                				<option value="${ option.optionNo }" data-val="${option.extra_pay}">${ option.optionName }</option>
 	                			</c:if>
 	                		</c:forEach>
 	                	</select>
@@ -79,10 +80,12 @@
                 </c:forEach>
                 
                 <br>
-                
+
+						
                 <!-- 옵션 선택 후 나타나는 박스 -->
-              <form method="post" action="${ pageContext.servletContext.contextPath }/goods/order"
-						enctype="multipart/form-data"> 
+<form method="get" action="${ pageContext.servletContext.contextPath }/goods/order"
+						enctype="multipart/form-data" name="orderForm" onsubmit="return checkOp();"> 
+						
                 <div class="row bg-secondary bg-opacity-10" style="display:none" id="optionDiv">
                 	<div class="col-5">
                 		<div class="d-grid gap-3">
@@ -91,6 +94,7 @@
                 		</div>
                 		<div class="row">
                 			<div class="col">
+                			
                 				<div class="d-grid gap-2" onclick='count("minus")' value='-'>
                 					<a href="#"><i class="bi bi-dash-square ms-3"></i></a>
                 				</div>
@@ -126,14 +130,23 @@
                 		<h5><strong id="price"></strong></h5>
                 	</div>
                 </div>
-              </form>
+             
                 <div class="row">
                     <div class="col-5">
                         <div class="d-grid gap-2">
                           <br>
-                            <button type="submit" onclick="location.href='${ pageContext.servletContext.contextPath }/goods/order'" class="btn btn-primary btn-lg btn-dark mt-3">구매하기</button>
+                          
+                          <input type="hidden" name="price" value="${ goods.price }">
+                          <input type="hidden" name="amount" value="1"> 
+                          <input type="hidden" name="goodsNo" value="${ goods.goodsNo }">
+                          <input type="hidden" name="goodsName" value="${ goods.goodsName }">
+                          <input type="hidden" name="option1">
+                          <input type="hidden" name="option2">
+                          <input type="submit" class="btn btn-primary btn-lg btn-dark mt-3" value="결제 하기">
+                          
                         </div>
                     </div>
+
                     <div class="col-5">
                         <div class="d-grid gap-2">
                           <br>
@@ -143,7 +156,6 @@
                     <div class="col-1 mt-3">
                         <div class="d-grid">
                           <br>
-                          
                           <!-- 찜하기 : 채워진 하트 -->
                           <!-- <a href="#"><i class="bi bi-suit-heart-fill" style="font-size: 2rem; color: black;"></i></a> -->
                           <!-- 찜하기 : 빈 하트 -->
@@ -169,6 +181,7 @@
             </div>
             </c:forEach>
         </div>
+  </form>             
       </div>
       <div class="container">
         <br><br><br>
@@ -390,6 +403,16 @@
       </div>
       
       <script>
+      
+      function checkOp() {
+    	  if(document.querySelector('input[name=option1]').value == ''){
+    		  alert("옵션을 선택해주세요");
+    	 	 return false;
+    	  } 
+    	  return true;
+      }
+      
+      
       	  var extraPrice = 0;
 	      function clipcopy() {
 	    		var url = '';
@@ -428,8 +451,14 @@
 	    	  }
 	    	  document.querySelector('#price').innerText=(${goods.price}+extraPrice) * number;
 	    	  document.querySelector('#optionPrice').innerText=(${goods.price}+extraPrice) * number;
+	    	  
 	    	  // 결과 출력
 	    	  resultElement.innerText = number;
+	    	  
+	    	  // input값에도 금액 대입
+	    	  document.querySelector('input[name=amount]').value = number;
+
+
 	    	}
 	      
 	      function option(obj) {
@@ -437,6 +466,7 @@
 	    	  var options = document.querySelectorAll('select[name=option]');
 	    	  for(var i=1;i<options.length;i++){
 	    		  options[i].disabled = true;
+	    		options[i].disabled = true;
 	    	  }
 	    	  if(obj.value){
 		    	  for(var i=0;i<options.length;i++){
@@ -462,6 +492,12 @@
     		    	  document.querySelector('#price').innerText = (${goods.price}+extraPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
     		    	  document.querySelector('#optionPrice').innerText = (${goods.price}+extraPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	    			  document.querySelector('#optionDiv').style.display = 'block';
+	    			  
+	    			  
+	    			  document.querySelector('input[name=option1]').value = document.getElementById('gram').innerText;
+	    			  document.querySelector('input[name=option2]').value = document.getElementById('grinder').innerText;
+	    			  document.querySelector('input[name=price]').value = document.querySelector('#Price').innerText;
+	    			  
 	    		  }
 	    	  }  	  
 	      }
@@ -474,10 +510,9 @@
 	    	  }
 	      })
 	     
+	      
       </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-      
   </body>
 </html>

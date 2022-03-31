@@ -32,6 +32,7 @@
 
     <!-- main image -->
     <div class="display_container center" style="margin-top: 0;" id="section1">
+
         <img src="${ pageContext.servletContext.contextPath }/resources/image/img-bg1.png" style="width: 100%; height: 600px;">
         <div class="display_bottommiddle padding_32">
             <div class="main_white">

@@ -61,7 +61,7 @@ dl, ul, ol, li {
 /* nav 메뉴 장식 ---------------------------------------------------------------------------*/
 /* 헤더고정하기 */
 #header_wrap {
-    position: fixed;
+	/* position:fixed; */
     width: 100%;
     z-index: 100;
     background-color: #F3EFEF;
