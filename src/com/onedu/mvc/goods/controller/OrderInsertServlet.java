@@ -53,7 +53,8 @@ public class OrderInsertServlet extends HttpServlet {
 		List<OptionDTO> optionList = new ArrayList<>(); 
 		 
 		String[] op = request.getParameterValues("optionNo");
-		 
+		System.out.println("op확인!!!!!!!!!!" + op[0]);
+		
 		  if(op != null) {
 			  
 			  for (int i = 0; i < op.length ; i++) {

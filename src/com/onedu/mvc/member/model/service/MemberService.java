@@ -1,15 +1,14 @@
 package com.onedu.mvc.member.model.service;
 
-import org.apache.ibatis.session.SqlSession;
-
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.onedu.mvc.member.model.dao.MemberDAO;
-import  com.onedu.mvc.member.model.dto.MemberDTO;
 import static  com.onedu.mvc.common.mybatis.Template.getSqlSession;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.sql.Connection;
+import com.onedu.mvc.goods.model.dao.OrderDAO;
+import com.onedu.mvc.member.model.dao.MemberDAO;
+import  com.onedu.mvc.member.model.dto.MemberDTO;
+import com.onedu.mvc.member.model.dto.MyorderDTO;
 
 
 public class MemberService {
@@ -141,7 +140,6 @@ public class MemberService {
 	/*주문시 입력한 주소로 회원 정보 수정 메소드 */
 	public int updateAddress(MemberDTO member) {
 		
-		
 		SqlSession session = getSqlSession();
 		
 		int result = memberDAO.updateAddress(session, member);
@@ -156,6 +154,28 @@ public class MemberService {
 		
 		return result;
 
+	}
+
+	/* 회원 주문내역 조회 */
+	public MyorderDTO selectMyOrder(MemberDTO member) {
+		
+		SqlSession session = getSqlSession();
+		
+		MyorderDTO myOrder = new MyorderDTO();
+		
+		OrderDAO orderDAO = new OrderDAO();
+		
+		myOrder = orderDAO.selectMyOrder(session, member);
+		
+		if(myOrder != null ) {
+			session.commit();
+		} else {
+			session.rollback();
+		}
+		
+		session.close();
+		
+		return  myOrder;
 	}
 
 }
