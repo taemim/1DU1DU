@@ -40,6 +40,14 @@
   		<result property="fileSize" column="FILE_SIZE"/>
   		<result property="status" column="FILE_STATUS"/>
     </resultMap>
+    
+    <resultMap type="com.onedu.mvc.goods.model.dto.OptionDTO" id="optionResultMap">
+		<id property="optionNo" column="OP_NO"/>
+		<result property="optionName" column="OP_NAME"/>
+		<result property="extra_pay" column="EXTRA_PAY"/>
+		<result property="optionNo2" column="OP_NO2"/>
+		<result property="optionName2" column="OP_NAME2"/>
+	</resultMap>
 	
 	<!-- 장바구니 전체 조회 -->
 	<select id="selectAllCartList" resultMap="cartResultMap">
@@ -81,7 +89,7 @@
 		(
 		  SEQ_CART_NO.NEXTVAL
 		, #{ prodNo }
-		, 'user01'
+		, #{ userId }
 		, #{ amount }
 		)
 	</insert>

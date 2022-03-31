@@ -93,6 +93,11 @@
 					successMessage = "선택하신 상품이 삭제되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/cart/list";
 					break;
+				
+				case "insertCart" : 
+					successMessage = "선택하신 상품을 장바구니에 담았습니다.";
+					movePath = "${ pageContext.servletContext.contextPath }/cart/list";
+					break;
 			}
 
 			alert(successMessage);
