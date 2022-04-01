@@ -35,7 +35,11 @@
     <!-- header 시작 -->
     <header id="header" class="main-header">
     
-    <div id="header_wrap" style="display: block;" >
+    <div id="header_wrap" style=" position: fixed; 
+    width: 100%;
+    z-index: 100;
+    background-color: #F3EFEF;
+    !important;">
         <!-- 상단 top배너 광고 -->
         <div class="top_banner">
            <p>지금 바로 정기구독 9,900원 무료배송</p>
