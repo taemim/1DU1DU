@@ -10,9 +10,9 @@ import com.onedu.mvc.board.model.dto.ReviewDTO;
 public class ReviewDAO {
 
 	/* 마이페이지 review 전체 조회용 메소드 */
-	public List<ReviewDTO> selectAllReviewList(SqlSession sqlSession) {
+	public List<ReviewDTO> selectAllReviewList(SqlSession sqlSession, String userId) {
 		
-		return sqlSession.selectList("ReviewDAO.selectAllReviewList");
+		return sqlSession.selectList("ReviewDAO.selectAllReviewList", userId);
 	}
 	
 	/* 마이페이지 review 조회수 증가용 메소드 */

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.onedu.mvc.board.model.dto.AskDTO;
 import com.onedu.mvc.board.model.service.AskService;
@@ -30,7 +31,11 @@ public class AskInsertServlet extends HttpServlet {
 		String askType = request.getParameter("askType");
 //		int prodNo = Integer.parseInt(request.getParameter("prodNo"));
 //		String userName = ((MemberDTO) request.getSession().getAttribute("loginMember")).getUserName();
-		String userId = ((MemberDTO) request.getSession().getAttribute("loginMember")).getUserId();
+//		String userId = ((MemberDTO) request.getSession().getAttribute("loginMember")).getUserId();
+		HttpSession session = request.getSession();
+        MemberDTO loginMember = (MemberDTO) session.getAttribute("loginMember");
+        String userId = loginMember.getUserId();
+		
 		String askTitle = request.getParameter("askTitle");
 		String askContents = request.getParameter("askContents");
 		

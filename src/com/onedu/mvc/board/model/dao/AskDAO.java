@@ -9,9 +9,9 @@ import com.onedu.mvc.board.model.dto.AskDTO;
 public class AskDAO {
 
 	/* 마이페이지 1:1 문의 전체 조회용 메소드 */
-	public List<AskDTO> selectAllAskList(SqlSession sqlSession) {
+	public List<AskDTO> selectAllAskList(SqlSession sqlSession, String userId) {
 		
-		return sqlSession.selectList("AskDAO.selectAllAskList");
+		return sqlSession.selectList("AskDAO.selectAllAskList", userId);
 	}
 
 	/* 마이페이지 1:1 문의 등록용 메소드 */
