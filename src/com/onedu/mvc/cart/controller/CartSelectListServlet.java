@@ -24,21 +24,20 @@ public class CartSelectListServlet extends HttpServlet {
 		 * => user의 정보로 조회해 오는 것이기 때문에 user의 정보를 넘겨줘야 한다. */
 		HttpSession session = request.getSession();
         MemberDTO loginMember = (MemberDTO) session.getAttribute("loginMember");
+        String path = "";
         
-        if(loginMember == null) {
-			String path = "/WEB-INF/views/member/login.jsp";
-			response.sendRedirect(path);
-		}
+        if(loginMember != null) {
+			
+        	String userId = loginMember.getUserId();
+		
         
-        String userId = loginMember.getUserId();
 		
 		/* 2. 비즈니스 로직 호출 */
-		List<CartDTO> cartList = new CartService().selectAllCartList(userId);
+        List<CartDTO> cartList = new CartService().selectAllCartList(userId);
 		
 		System.out.println(cartList);
 		
 		/* 3. 조회 결과 성공 여부에 따른 뷰 결정 */
-		String path = "";
 		if(cartList != null) {
 			
 			path = "/WEB-INF/views/cart/cart.jsp";
@@ -50,7 +49,10 @@ public class CartSelectListServlet extends HttpServlet {
 			request.setAttribute("message", "장바구니 조회에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
+        } else {
+        	path = "/WEB-INF/views/member/login.jsp";
+        }
+        request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }
