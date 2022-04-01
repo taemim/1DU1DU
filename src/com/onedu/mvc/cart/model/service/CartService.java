@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.cart.model.dao.CartDAO;
 import com.onedu.mvc.cart.model.dto.CartDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
 
 import static com.onedu.mvc.common.mybatis.Template.getSqlSession;
 
@@ -18,13 +19,13 @@ public class CartService {
 	}
 
 	/* 장바구니 전체 조회용 메소드 */
-	public List<CartDTO> selectAllCartList() {
+	public List<CartDTO> selectAllCartList(String userId) {
 		
 		/* 1. SqlSession 생성 */
 		SqlSession sqlSession = getSqlSession();
 		
 		/* 2. SqlSession과 함께 정보를 전달하여 조회한다. */
-		List<CartDTO> cartList = cartDAO.selectAllCartList(sqlSession);
+		List<CartDTO> cartList = cartDAO.selectAllCartList(sqlSession, userId);
 		
 		/* 3. 트랜잭션 처리 - 전체 조회이기 때문에 생략 */
 		
@@ -113,13 +114,13 @@ public class CartService {
 	}
 
 	/* 장바구니 추가용 메소드 */
-	public int insertCart(CartDTO insertCart) {
+	public int insertCart(CartDTO newCart) {
 		
 		/* 1. SqlSession 생성 */
 		SqlSession sqlSession = getSqlSession();
 		
 		/* 2. SqlSession과 함께 정보를 전달하여 조회한다. */
-		int result = cartDAO.insertCart(sqlSession, insertCart);
+		int result = cartDAO.insertCart(sqlSession, newCart);
 		
 		/* 3. 트랜잭션 처리 */
 		if(result > 0) {
@@ -133,6 +134,24 @@ public class CartService {
 		
 		/* 5. 조회 결과 반환 */
 		return result;
+	}
+
+	/* 옵션 선택용 메소드 */
+	public OptionDTO selectOption(String op) {
+		
+		/* 1. SqlSession 생성 */
+		SqlSession sqlSession = getSqlSession();
+		
+		/* 2. SqlSession과 함께 정보를 전달하여 조회한다. */
+		OptionDTO option = cartDAO.selectOption(sqlSession, op);
+		
+		/* 3. 트랜잭션 처리 - 조회이기 때문에 생략 */
+		
+		/* 4. SqlSession 닫기 */
+		sqlSession.close();
+		
+		/* 5. 조회 결과 반환 */
+		return option;
 	}
 
 }

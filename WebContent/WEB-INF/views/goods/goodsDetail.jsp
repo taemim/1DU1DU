@@ -147,7 +147,7 @@
                           <br>
                           
                           <input type="hidden" name="price" value="${ goods.price }">
-                          <input type="hidden" name="amount"> 
+                          <input type="hidden" name="amount" value="1"> 
                           <input type="hidden" name="goodsNo" value="${ goods.goodsNo }">
                           <input type="hidden" name="goodsName" value="${ goods.goodsName }">
                           <input type="hidden" name="option1">
@@ -199,8 +199,10 @@
 
               <!-- 장바구니 연결폼 -->
               <form name="cartForm" method="post">
-                <input type="hidden" name="goodsNo" value="${ goods.goodsNo }">
-              <%-- <input type="hidden" name="amount" value="${ goods.Amount }"> --%>
+                <input type="hidden" name="goodsNo" value="${ goods.goodsNo }">                            
+                <input type="hidden" name="amount" value="1">
+                <input type="hidden" name="option1">
+                <input type="hidden" name="option2">                        
               </form>
               <script type="text/javascript">
                 function insertCart() {
@@ -483,7 +485,7 @@
 	    		  number = parseInt(number) - 1;
 	    	  }
 	    	  document.querySelector('#price').innerText = ((${goods.price}+extraPrice) * number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
-	    	  document.querySelector('#optionPrice').innerText = (($x{goods.price}+extraPrice) * number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+	    	  document.querySelector('#optionPrice').innerText = ((${goods.price}+extraPrice) * number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
 	    	  
 	    	  // 결과 출력
 	    	  resultElement.innerText = number;

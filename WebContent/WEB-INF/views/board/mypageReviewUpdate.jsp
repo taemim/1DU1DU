@@ -121,7 +121,7 @@
                                             <p class="asset">고객님의 소중한 상품평은 1DU1DU의 큰 자산이 됩니다.</p>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <th scope="row" class="ct">첨부 이미지</th>
                                         <td colspan="3">
                                             <div class="attachFile" id="idDivInputFile">
@@ -129,9 +129,9 @@
                                                     class="inputFile form-control form-control-sm">
                                                 <button type="button" class="btnListDel" onclick="">삭제</button>
                                             </div>
-                                            <!-- <p class="tMar07 fs12">파일크기는 3MB이하, JPG, PNG 또는 GIF형식의 파일만 가능합니다.</p> -->
+                                            <p class="tMar07 fs12">파일크기는 3MB이하, JPG, PNG 또는 GIF형식의 파일만 가능합니다.</p>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
 

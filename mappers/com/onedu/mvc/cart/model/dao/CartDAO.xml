@@ -7,11 +7,13 @@
 	<resultMap type="com.onedu.mvc.cart.model.dto.CartDTO" id="cartResultMap">
 		<id property="cartNo" column="CART_NO"/>
 		<result property="prodNo" column="PROD_NO"/>
-		<result property="userId" column="USER_ID"/>
 		<result property="amount" column="AMOUNT"/>
+		<result property="userId" column="USER_ID"/>
 		
 		<association property="goods" resultMap="goodsResultMap"/> <!-- GoodsDTO -->
+		<association property="user" resultMap="memberResultMap"/> <!-- MemberDTO -->
 		<collection property="imgList" resultMap="imgResultMap"/> <!-- ImgDTO -->
+		<collection property="optionList" resultMap="optionResultMap"/>
 	</resultMap>
 	
 	<resultMap type="com.onedu.mvc.goods.model.dto.GoodsDTO" id="goodsResultMap">
@@ -49,6 +51,24 @@
 		<result property="optionName2" column="OP_NAME2"/>
 	</resultMap>
 	
+	<resultMap type="com.onedu.mvc.member.model.dto.MemberDTO" id="memberResultMap">  
+		<id property="userId" column="USER_Id"/>
+		<result property="userPwd" column="USER_PWD"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="birthday" column="BIRTHDAY"/>
+		<result property="gender" column="GENDER"/>
+		<result property="postal" column="POSTAL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="email" column="EMAIL"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="buyCnt" column="BUY_CNT"/>				
+		<result property="userAct" column="USER_ACT"/>		
+		<result property="userRole" column="USER_ROLE"/>
+		<result property="grade" column="GRADE"/>				
+	</resultMap>
+	
 	<!-- 장바구니 전체 조회 -->
 	<select id="selectAllCartList" resultMap="cartResultMap">
 		SELECT
@@ -69,7 +89,7 @@
 		  FROM CART A
 		  JOIN PROD B ON(A.PROD_NO = B.PROD_NO)
 		  JOIN IMG C ON(B.PROD_NO = C.PROD_NO)
- 		 WHERE A.USER_ID = 'user01'
+ 		 WHERE A.USER_ID = #{ userId }
  		   AND B.SALE_CHECK = 'Y'
  		   AND C.FILE_STATUS = 'Y'
  		 ORDER BY A.CART_NO DESC
@@ -115,5 +135,21 @@
 		   SET AMOUNT = #{ amount }
 		 WHERE CART_NO = #{ cartNo }
 	</update>
+	
+	<!-- 옵션 선택 -->
+	<select id="selectOption" resultMap="optionResultMap">
+		SELECT
+			   A.OP_NO
+			 , A.OP_NAME
+			 , A.EXTRA_PAY
+			 , A.OP_NO2
+			 , (SELECT 
+			 		   OP_NAME
+			 	  FROM OP B
+			 	 WHERE A.OP_NO2 = B.OP_NO
+			   ) AS OP_NAME2
+		  FROM OP A
+		 WHERE OP_NAME = #{ op }
+	</select>
 
 </mapper>
