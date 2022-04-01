@@ -52,18 +52,18 @@ public class OrderInsertServlet extends HttpServlet {
 		 
 		List<OptionDTO> optionList = new ArrayList<>(); 
 		 
-		String[] op = request.getParameterValues("optionNo");
-		System.out.println("op확인!!!!!!!!!!" + op[0]);
-		
-		  if(op != null) {
-			  
-			  for (int i = 0; i < op.length ; i++) {
-				  System.out.println("option 배열 확인하기 " + op[i]);
-				  option.setOptionNo(Integer.parseInt(op[i]));
-				  
-				  optionList.add(option); 
-			  }
-		  }
+//		String[] op = request.getParameterValues("optionNo");
+//		System.out.println("op확인!!!!!!!!!!" + op[0]);
+//		
+//		  if(op != null) {
+//			  
+//			  for (int i = 0; i < op.length ; i++) {
+//				  System.out.println("option 배열 확인하기 " + op[i]);
+//				  option.setOptionNo(Integer.parseInt(op[i]));
+//				  
+//				  optionList.add(option); 
+//			  }
+//		  }
 		  
 		// 주문 상품 정보 담기
 		GoodsDTO goods = new GoodsDTO();

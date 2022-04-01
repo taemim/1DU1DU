@@ -20,15 +20,7 @@
 	<link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/android-icon-48x48.png">
     <!-- 슬라이드랑 충돌 나는 부트스트랩 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-		    <style>
-		.top_banner {
-		    margin :0px;
-		}
-		
-		.top_banner >p {
-		    margin :0px;
-		}
-		</style>
+
 
 
 
@@ -43,29 +35,9 @@
 	
 <!-- 헤더 -->
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />
-	        <script>
-            window.addEventListener('load', function() {
-                var allElements = document.getElementsByTagName('*');
-                Array.prototype.forEach.call(allElements, function(el) {
-                    var includePath = el.dataset.includePath;
-                    if (includePath) {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-                                el.outerHTML = this.responseText;
-                            }
-                        };
-                        xhttp.open('GET', includePath, true);
-                        xhttp.send();
-                    }
-                });
-            });
-        </script>
-
-		<div class="header_hidden">
-		        <h1></h1>
-		    </div>
-
+    <div class="header_hidden">
+        <h1>헤더영역 비워두는 용도</h1>
+    </div>
 
 <!-- 본문 -->
 

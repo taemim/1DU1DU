@@ -86,9 +86,9 @@
 					<li class="li-1"><a href="#">MYPAGE</a></li>
 					<li class="li-2"><a href="#">내 정보 확인</a></li>
 					<li class="li-2"><a href="#">구독 내역</a></li>
-					<li class="li-2"><a href="#" id="now">주문 내역</a></li>
-					<li class="li-2"><a href="#">1:1 문의</a></li>
-					<li class="li-2"><a href="#">리뷰 관리</a></li>
+					<li class="li-2"><a href="${ pageContext.servletContext.contextPath }/mypage/myOrder" id="now">주문 내역</a></li>
+					<li class="li-2"><a href="${ pageContext.servletContext.contextPath }/ask/list">1:1 문의</a></li>
+					<li class="li-2"><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰 관리</a></li>
 					<li class="li-2"><a href="#">위시리스트 조회</a></li>
 					<li class="li-2"><a href="#">회원 탈퇴</a></li>
 				</ul>

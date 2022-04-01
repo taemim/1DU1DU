@@ -32,7 +32,12 @@
     <title>1 D U 1 D U</title>
 </head>
 
+<style>
+ .side--box{
+  margin-top:100px;
+ }
 
+</style>
 
 <body>
 	<jsp:include page="/WEB-INF/views/main/header.jsp" />
@@ -45,7 +50,7 @@
             <div class="row">
                 <!-- 관리페이지 사이드 영역 숨김 -->
                 <div class="wrapper">
-                    <div class="side-box">
+                    <div class="side-box" style="margin-top:100px;">
                         <br>
                         <h3>안녕하세요. 매일 즐길 수 있는 커피 구독, 1DU 1DU입니다.</h3><br>
                         <h3>커피 추천을 위해 저희가 불러드릴 이름을 입력해주세요.</h3>
@@ -104,8 +109,8 @@
                             </div>
 
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" value="커피메이커"
-                                    onclick="nextTest(${ taste.testTopping });">
+                                <button type="button" class="inner-box" value="모카포트"
+                                    onclick="nextTest(this, 1);">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/moka-pot.png">
                                     <h5>모카포트</h5>
@@ -116,8 +121,8 @@
                         <div class="row">
                             <div class="col-sm-1"></div>
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" value="커피메이커"
-                                    onclick="nextTest(${ taste.testTopping });">
+                                <button type="button" class="inner-box" value=""
+                                    onclick="nextTest(this, 1);">
                                     <i class="bi bi-check-lg"></i>
                                     <img src="../resources/image/french-press.png">
                                     <h5>프렌치 프레스</h5>
@@ -125,16 +130,16 @@
                             </div>
 
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" value="커피메이커"
-                                    onclick="nextTest(${ taste.testTopping });">
+                                <button type="button" class="inner-box" value="에어로 프레스"
+                                    onclick="nextTest(this, 1);">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/aeropress.png">
                                     <h5>에어로 프레스</h5>
                                 </button>
                             </div>
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" value="커피메이커"
-                                    onclick="nextTest(${ taste.testTopping });">
+                                <button type="button" class="inner-box" value="콜드 브루"
+                                    onclick="nextTest(this, 1);">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/cold-brew.png">
                                     <h5>콜드 브루</h5>
@@ -145,7 +150,7 @@
 
 
                         <div class="pre-box">
-                            <button type="button" class="pre-button" onclick="preTest(1);">
+                            <button type="button" class="pre-button" onclick="preTest(0);">
                                 <img src="../resources/image/arrow_pre.png" alt="">
                             </button> <!-- /pre-button -->
                         </div> <!-- /pre-box -->
@@ -175,7 +180,7 @@
     
                             </div>
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
+                                <button type="button" class="inner-box" onclick="nextTest(this, 2);" value="우유를 더한 라떼">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/latte.png">
                                     <h5>우유를 더한 라떼</h5>
@@ -183,7 +188,7 @@
                             </div>
     
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
+                                <button type="button" class="inner-box" onclick="nextTest(this, 2);" value="설탕을 넣은 커피">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/sugar.png">
                                     <h5>설탕을 넣은 커피</h5>
@@ -191,7 +196,7 @@
                             </div>
     
                             <div class="col-sm-3 box">
-                                <button type="button" class="inner-box" onclick="nextTest(${ taste.testDecaffeine });">
+                                <button type="button" class="inner-box" onclick="nextTest(this, 2);" value="시럽을 넣은 커피">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <img src="../resources/image/syrup.png">
                                     <h5>시럽을 넣은 커피</h5>
@@ -200,7 +205,7 @@
                         </div> <!-- /row -->
     
                         <div class="pre-box">
-                            <button type="button" class="pre-button" onclick="preTest(${ taste.testTools });">
+                            <button type="button" class="pre-button" onclick="pretTest(this, 1);">>
                                 <img src="../resources/image/arrow_pre.png" alt="">
                             </button> <!-- /pre-button -->
                         </div> <!-- /pre-box -->
@@ -223,13 +228,13 @@
                         <div class="row">
                             <div class="col-5 box">
     
-                                <button type="button" class="inner-box" value="카페인" onclick="nextTest(${ taste.testStyle });">
+                                <button type="button" class="inner-box" value="카페인" onclick="nextTest(this, 3);">
                                     <h5>카페인으로 주세요</h5>
                                 </button>
     
                             </div>
                             <div class="col-5 box">
-                                <button type="button" class="inner-box" value="디카페인" onclick="nextTest(${ taste.testStyle });">
+                                <button type="button" class="inner-box" value="디카페인" onclick="nextTest(this, 3);">
                                     <i id="bi" class="bi bi-check-lg"></i>
                                     <h5>디카페인으로 주세요</h5>
                                 </button>
@@ -238,7 +243,7 @@
                         </div> <!-- /row -->
     
                         <div class="pre-box">
-                            <button type="button" class="pre-button" onclick="preTest(${ taste.testTopping });">
+                            <button type="button" class="pre-button" onclick="nextTest(this, 3);">
                                 <i id="bi" class="bi bi-check-lg"></i>
                                 <img src="../resources/image/arrow_pre.png" alt="">
                             </button> <!-- /pre-button -->
@@ -249,7 +254,7 @@
             </div> <!-- row -->
         </div> <!-- /container -->
     </form> <!-- /decaffeine -->
-    
+
     <form name="style" action="" id="main">
     	<div class="container">
 	        <div class="row">
@@ -257,10 +262,10 @@
 	            <div class="container">
 	                <div class="side-box">
 	                    <br>
-	                    <h3>커피를 어떻게 내려드세요?</h3><br>
+	                    <h3>어떤 스타일로 드세요?</h3><br>
 	                    <div class="row">
 	                        <div class="col-4 box">
-	                            <button type="button" class="inner-box" value="원두본연의특색" onclick="nextTest(${ taste.testFlavor });">
+	                            <button type="button" class="inner-box" value="원두 본연의 특색" onclick="nextTest(this, 4);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>원두 본연의 특색을 즐겨요</h5>
 	                                <span>과일, 꽃, 허브 등의 향미를 즐기고 싶어요. <br>
@@ -268,7 +273,7 @@
 	                            </button>
 	                        </div>
 	                        <div class="col-4 box">
-	                            <button type="button" class="inner-box" value="커피스러운커피" onclick="nextTest(${ taste.testFlavor });">
+	                            <button type="button" class="inner-box" value="커피스러운 커피" onclick="nextTest(this, 4);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>커피스러운 커피 맛을 즐겨요</h5>
 	                                <span>우리가 잘 알고 있는 전형적인 그 커피예요. <br>
@@ -276,7 +281,7 @@
 	                            </button>
 	                        </div>
 	                        <div class="col-4 box">
-	                            <button type="button" class="inner-box" value="조화로운맛" onclick="nextTest(${ taste.testFlavor });">
+	                            <button type="button" class="inner-box" value="조화로운 맛" onclick="nextTest(this, 4);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>조화로운 맛을 즐겨요</h5>
 	                                <span>익숙한 커피 맛과 원두 본연의 다채로운 향미를 <br>
@@ -287,56 +292,7 @@
 	                    </div> <!-- /row -->
 	
 	                    <div class="pre-box">
-	                        <button type="button" class="pre-button" onclick="preTest(${ taste.testDecaffeine });">
-	                            <img src="../resources/image/arrow_pre.png" alt="">
-	                        </button> <!-- /pre-button -->
-	                    </div> <!-- /pre-box -->
-	
-	                </div> <!-- /side-box -->
-	            </div> <!-- /container(inner) -->
-	        </div> <!-- row -->
-	    </div> <!-- /container -->
-    </form> <!-- /style -->
-
-
-    <form name="style" action="" id="main">
-    	<div class="container">
-	        <div class="row">
-	            <!-- 관리페이지 사이드 영역 숨김 -->
-	            <div class="container">
-	                <div class="side-box">
-	                    <br>
-	                    <h3>커피를 어떻게 내려드세요?</h3><br>
-	                    <div class="row">
-	                        <div class="col-4 box">
-	                            <button type="button" class="inner-box" value="원두본연의특색" onclick="nextTest(${ taste.testFlavor });">
-	                                <i id="bi" class="bi bi-check-lg"></i>
-	                                <h5>원두 본연의 특색을 즐겨요</h5>
-	                                <span>과일, 꽃, 허브 등의 향미를 즐기고 싶어요. <br>
-	                                      다채롭고 산미가 있는 경우가 일반적이에요.</span>
-	                            </button>
-	                        </div>
-	                        <div class="col-4 box">
-	                            <button type="button" class="inner-box" value="커피스러운커피" onclick="nextTest(${ taste.testFlavor });">
-	                                <i id="bi" class="bi bi-check-lg"></i>
-	                                <h5>커피스러운 커피 맛을 즐겨요</h5>
-	                                <span>우리가 잘 알고 있는 전형적인 그 커피예요. <br>
-	                                      산미가 적고 고소, 쌉싸름해요.</span>
-	                            </button>
-	                        </div>
-	                        <div class="col-4 box">
-	                            <button type="button" class="inner-box" value="조화로운맛" onclick="nextTest(${ taste.testFlavor });">
-	                                <i id="bi" class="bi bi-check-lg"></i>
-	                                <h5>조화로운 맛을 즐겨요</h5>
-	                                <span>익숙한 커피 맛과 원두 본연의 다채로운 향미를 <br>
-	                                      조화롭게 느낄 수 있어요.</span>
-	                            </button>
-	                        </div>
-	
-	                    </div> <!-- /row -->
-	
-	                    <div class="pre-box">
-	                        <button type="button" class="pre-button" onclick="preTest(${ taste.testDecaffeine });">
+	                        <button type="button" class="pre-button" onclick="preTest(this, 3);">
 	                            <img src="../resources/image/arrow_pre.png" alt="">
 	                        </button> <!-- /pre-button -->
 	                    </div> <!-- /pre-box -->
@@ -359,26 +315,26 @@
 	                    <div class="row">
 	                        <div class="col-sm-3 box">
 	
-	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                            <button type="button" class="inner-box" value="상큼한 과일과 꽃향기의 깔끔한 느낌" onclick="nextTest(this, 5);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>상큼한 과일과 <br> 꽃향기의 <br> 깔끔한 느낌</h5>
 	                            </button>
 	
 	                        </div>
 	                        <div class="col-sm-3 box">
-	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                            <button type="button" class="inner-box" value="달콤한 과일과 농후한 느낌" onclick="nextTest(this, 5);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>달콤한 과일과 <br> 농후한 느낌</h5>
 	                            </button>
 	                        </div>
 	                        <div class="col-sm-3 box">
-	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                            <button type="button" class="inner-box" value="고소하고 달콤하고 향긋한 균형잡힌 느낌" onclick="nextTest(this, 5);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>고소하고 달콤하고 <br> 향긋한 <br> 균형잡힌 느낌</h5>
 	                            </button>
 	                        </div>
 	                        <div class="col-sm-3 box">
-	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testGrind });">
+	                            <button type="button" class="inner-box" value="다크초콜릿 같은 쌉쌀함이 묵직한 느낌" onclick="nextTest(this, 5);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>다크초콜릿 같은 <br> 쌉쌀함이 <br> 묵직한 느낌</h5>
 	                            </button>
@@ -386,7 +342,7 @@
 	                    </div> <!-- /row -->
 	
 	                    <div class="pre-box">
-	                        <button type="button" class="pre-button" onClick="preTest(${ taste.testStyle });">
+	                        <button type="button" class="pre-button" onClick="preTest(this, 4);">
 	                            <img src="../resources/image/arrow_pre.png" alt="">
 	                        </button> <!-- /pre-button -->
 	                    </div> <!-- /pre-box -->
@@ -409,14 +365,14 @@
 	                    <div class="row">
 	                        <div class="col-5 box">
 	
-	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
+	                            <button type="button" class="inner-box" value="갈지 않고 받을래요" onclick="nextTest(this, 6);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>갈지 않고 받을래요</h5>
 	                            </button>
 	                        </div>
 	
 	                        <div class="col-5 box">
-	                            <button type="button" class="inner-box" value="커피메이커" onClick="nextTest(${ taste.testResult });">
+	                            <button type="button" class="inner-box" value="도구에 맞게 갈아주세요" onclick="nextTest(this, 6);">
 	                                <i id="bi" class="bi bi-check-lg"></i>
 	                                <h5>도구에 맞게 갈아주세요</h5>
 	                            </button>
@@ -424,7 +380,7 @@
 	                    </div> <!-- /row -->
 	
 	                    <div class="pre-box">
-	                        <button type="button" class="pre-button" onClick="preTest(${ taste.testFlavor });">
+	                        <button type="button" class="pre-button" onClick="preTest(this, 5);">
 	                            <img src="../resources/image/arrow_pre.png" alt="">
 	                        </button> <!-- /pre-button -->
 	                    </div> <!-- /pre-box -->
@@ -482,17 +438,17 @@
 	                        </div> <!-- /anal -->
 	                        <div class="row">
 	                                <div class="col-3 box items">
-	                                    <img src="" alt="">
+	                                    <img src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트5.jpeg" alt="">
 	                                    <h5>케냐 룽게토 AB</h5>
 	                                    <p>자두의 쥬시함, 은은한 레몬티 향 <br> 12,000원</p>
 	                                </div>
 	                                <div class="col-3 box items">
-	                                    <img src="" alt="">
+	                                    <img src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트6.jpeg" alt="">
 	                                    <h5>블랙수트</h5>
 	                                    <p>이탈리안 에스프레소에 대한 오마주 <br> 10,000원</p>
 	                                </div>
 	                                <div class="col-3 box items">
-	                                    <img src="" alt="">
+	                                    <img src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트원두1.jpeg" alt="">
 	                                    <h5>과테말라 뷔에나 비스타 내추럴</h5>
 	                                    <p>초콜릿의 달콤함, 아몬드의 고소함 <br> 12,000원</p>
 	                                </div>
@@ -548,7 +504,7 @@
 		   
 		result[n] = $(e).val(); // 결과에 저장 (버튼의 value값)
 		
-		alert(result[n]); //값 확인용 (첫번째 입력한 이름은 버튼에 value값이 없으므로 공백)
+		//alert(result[n]); //값 확인용 (첫번째 입력한 이름은 버튼에 value값이 없으므로 공백)
 		
 		//인덱스가 0번부터 시작하므로 n-1 (이름은 0-1로 건너뛰고 출력)
 		$('.answered').eq(n-1).text(result[n]);

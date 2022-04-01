@@ -28,6 +28,9 @@
 
     <!-- header import -->
     <jsp:include page="../main/header.jsp"/>
+    <h1 >헤더영역 비워두는 용도</h1>
+    </div>
+    <div style="margin-top:50px;"></div>
 
 	<c:if test="${ empty sessionScope.loginMember }">
 		<div class="error">
@@ -72,11 +75,11 @@
                                         <td>
                                             <div class="goodsInfo">
                                                 <div class="pdtPhoto"><img
-                                                        src="${ pageContext.servletContext.contextPath }${ reviewDetail.imgList[0].thumbnailPath }"
+                                                        src="${ pageContext.servletContext.contextPath }/resources/image/매뉴팩트5.jpeg"
                                                         width="150" height="150"></div>
                                                 <div class="pdfInfo">
-                                                    <p class="pdtName tPad10"><a href="#">과테말라 부에나 비스타 내추럴</a></p>
-                                                    <p class="pdtPrice tPad10"><span class="finalP">19,000원</span>
+                                                    <p class="pdtName tPad10"><a href="#">케냐룽게토</a></p>
+                                                    <p class="pdtPrice tPad10"><span class="finalP">16,000원</span>
                                                     </p>
                                                 </div>
                                             </div>
