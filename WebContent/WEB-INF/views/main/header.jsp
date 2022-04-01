@@ -26,6 +26,16 @@
     <!--파비콘-->
     <link rel="icon" type="image/x-icon" href="resources/image/android-icon-48x48.png">
 
+<style>
+.top_banner {
+    margin :0px;
+}
+
+.top_banner >p {
+    margin :0px;
+}
+</style>
+
     <title>1DU1DU</title>
 
 </head>
