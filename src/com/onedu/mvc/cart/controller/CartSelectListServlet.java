@@ -8,19 +8,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.onedu.mvc.cart.model.dto.CartDTO;
 import com.onedu.mvc.cart.model.service.CartService;
+import com.onedu.mvc.member.model.dto.MemberDTO;
 
 @WebServlet("/cart/list")
 public class CartSelectListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* 1. 파라미터 꺼내기 - 전체 조회이기 때문에 생략 */
+		/* 1. 파라미터 꺼내기 */
+		/* 태미님이 알려주신 코드
+		 * => user의 정보로 조회해 오는 것이기 때문에 user의 정보를 넘겨줘야 한다. */
+		HttpSession session = request.getSession();
+        MemberDTO loginMember = (MemberDTO) session.getAttribute("loginMember");
+        
+        if(loginMember == null) {
+			String path = "/WEB-INF/views/member/login.jsp";
+			response.sendRedirect(path);
+		}
+        
+        String userId = loginMember.getUserId();
 		
 		/* 2. 비즈니스 로직 호출 */
-		List<CartDTO> cartList = new CartService().selectAllCartList();
+		List<CartDTO> cartList = new CartService().selectAllCartList(userId);
 		
 		System.out.println(cartList);
 		

@@ -5,13 +5,14 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.onedu.mvc.cart.model.dto.CartDTO;
+import com.onedu.mvc.goods.model.dto.OptionDTO;
 
 public class CartDAO {
 
 	/* 장바구니 전체 조회용 메소드 */
-	public List<CartDTO> selectAllCartList(SqlSession sqlSession) {
+	public List<CartDTO> selectAllCartList(SqlSession sqlSession, String userId) {
 		
-		return sqlSession.selectList("CartDAO.selectAllCartList");
+		return sqlSession.selectList("CartDAO.selectAllCartList", userId);
 	}
 	
 	/* 장바구니 삭제용 메소드 */
@@ -33,9 +34,15 @@ public class CartDAO {
 	}
 
 	/* 장바구니 추가용 메소드 */
-	public int insertCart(SqlSession sqlSession, CartDTO insertCart) {
+	public int insertCart(SqlSession sqlSession, CartDTO newCart) {
 		
-		return sqlSession.insert("CartDAO.insertCart", insertCart);
+		return sqlSession.insert("CartDAO.insertCart", newCart);
+	}
+
+	/* 옵션 선택용 메소드 */
+	public OptionDTO selectOption(SqlSession sqlSession, String op) {
+		
+		return sqlSession.selectOne("CartDAO.selectOption", op);
 	}
 	
 }
