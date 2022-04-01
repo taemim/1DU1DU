@@ -46,6 +46,10 @@
     <div class="header_hidden">
         <h1> 헤더영역 비워두는 용도 </h1>
     </div>
+    <h1 ></h1>
+    </div>
+    <div style="margin-top:50px;"></div>
+    
     <div class="container-fluid" style="padding:0px; margin-bottom:20px;">
      <div class="row">
         <!-- 관리페이지 사이드 영역 -->

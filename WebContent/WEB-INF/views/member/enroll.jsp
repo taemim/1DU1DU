@@ -35,7 +35,7 @@
 
 		<!-- 헤더 -->
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />	
-		        <script>
+		       <!--  <script>
 	            window.addEventListener('load', function() {
 	                var allElements = document.getElementsByTagName('*');
 	                Array.prototype.forEach.call(allElements, function(el) {
@@ -52,7 +52,11 @@
 		                    }
 		                });
 		            });
-		        </script>
+		        </script> -->
+		        </div>
+    <h1 >헤더영역 비워두는 용도</h1>
+    </div>
+    <div style="margin-top:50px;"></div>
 
 
 

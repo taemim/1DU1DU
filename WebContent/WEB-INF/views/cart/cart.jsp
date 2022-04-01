@@ -24,6 +24,9 @@
 	
 	<!-- header import -->
     <jsp:include page="../main/header.jsp"/>
+    <h1 >헤더영역 비워두는 용도</h1>
+    </div>
+    <div style="margin-top:100px;"></div>
     
     <c:if test="${ empty sessionScope.loginMember }">
 		<div class="error">
@@ -73,7 +76,7 @@
 										<td class="td_width_1 cart_info_td">
 											<input type="checkbox" class="individual_cart_checkbox check_input_size" checked="checked"
 												class="chkbox" value="${ prod.cartNo }" name="no">
-											<input type="hidden" name="no" value="${ prod.cartNo }">
+											<%-- <input type="hidden" name="no" value="${ prod.cartNo }"> --%>
 											<input type="hidden" class="individual_prodPrice_input" name="prodPrice" value="${ prod.goods.price }">
 											<input type="hidden" class="individual_amount_input" name="amount" value="${ prod.amount }">
 											<input type="hidden" class="individual_totalPrice_input" name="totalPrice" value="${ prod.goods.price * prod.amount }">

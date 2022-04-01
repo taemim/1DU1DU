@@ -27,6 +27,9 @@
 
     <!-- header import -->
     <jsp:include page="../main/header.jsp"/>
+    <h1 >헤더영역 비워두는 용도</h1>
+    </div>
+    <div style="margin-top:50px;"></div>
 
 	<c:if test="${ empty sessionScope.loginMember }">
 		<div class="error">

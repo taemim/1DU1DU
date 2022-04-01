@@ -243,6 +243,6 @@ public class MemberDTO implements java.io.Serializable{
 				+ ", userAct=" + userAct + ", userRole=" + userRole + ", grade=" + grade + "]";
 	}
 
-	
+}	
 	
 

@@ -28,7 +28,8 @@
 <body>
 	
 	<jsp:include page="/WEB-INF/views/main/header.jsp"/>
-	
+	<div class="header_hidden" >
+    </div>
 
     <!-- main image -->
     <div class="display_container center" style="margin-top: 0;" id="section1">
@@ -40,7 +41,8 @@
                     내 취향에 <span>꼭</span> 맞는 커피로<br>추천 받고 <span>구독</span>하세요
                 </h1>
             </div>
-            <button class="main_img_button btn_recomm padding_large main_large margin_top">원두 취향 테스트</button>
+            <button class="main_img_button btn_recomm padding_large main_large margin_top">
+            <a href="${ pageContext.servletContext.contextPath }/taste/taste">원두 취향 테스트</a></button>
             <div class="recomm">
                 <p>|</p>
                 <p>내 취향에 딱 맞는 원두를 추천해요</p>

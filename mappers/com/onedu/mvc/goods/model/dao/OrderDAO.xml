@@ -200,6 +200,7 @@
 		  LEFT JOIN IMG E ON( C.PROD_NO = E.PROD_NO)
 		  LEFT JOIN PAYMENT J ON (A.ORDER_NO = J.ORDER_NO)
 		 WHERE A.USER_ID = #{ userId } 
+	 	 ORDER BY A.ORDER_NO DESC
 	</select>
 
 </mapper>
