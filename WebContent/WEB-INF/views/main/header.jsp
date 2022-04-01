@@ -41,8 +41,8 @@
     background-color: #F3EFEF;
     !important;">
         <!-- 상단 top배너 광고 -->
-        <div class="top_banner">
-           <p>지금 바로 정기구독 9,900원 무료배송</p>
+        <div class="top_banner" style="margin :0px; !important;">
+           <p style="margin :0px; !important;">지금 바로 정기구독 9,900원 무료배송</p>
        </div>
        <!-- 헤더 왼쪽 메인메뉴 nav -->
         <nav class="h_cate inline">
