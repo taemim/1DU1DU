@@ -52,6 +52,7 @@
 			 , ASK_STATUS
 		  FROM ASK
 		 WHERE ASK_STATUS = 'Y'
+		   AND USER_ID = #{ userId }
 		 ORDER BY ASK_NO DESC
 	</select>
 	
