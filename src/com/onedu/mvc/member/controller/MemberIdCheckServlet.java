@@ -17,7 +17,7 @@ public class MemberIdCheckServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userId = request.getParameter("memberId");
+		String userId = request.getParameter("userId");
 		
 		MemberService memberService = new MemberService();
 		int result = memberService.memberIdCheck(userId);

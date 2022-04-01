@@ -158,6 +158,7 @@
 		   AND GRADE = #{ no }
 	</update>
 
+
 		
 	<!-- 회원 주문시 입력한 배송주소로 수정 -->
 	<update id="updateAddress">

@@ -20,44 +20,48 @@
 %>
 
 
-<title>회원가입</title>
-<!-- 외부 스타일 시트 -->
-<link href="${ pageContext.servletContext.contextPath }/resources/css/enroll.css" rel="stylesheet">
-</head>
-<body>
+	<title>회원가입</title>
+	<!-- 외부 스타일 시트 -->
+	<link href="${ pageContext.servletContext.contextPath }/resources/css/enroll.css" rel="stylesheet">
+	</head>
+	<body>
 	
 	
-	<!-- 한글처리 -->
-	<%
-	// 인코딩
-	 request.setCharacterEncoding("UTF-8");
-	%>
+		<!-- 한글처리 -->
+		<%
+		// 인코딩
+		 request.setCharacterEncoding("UTF-8");
+		%>
 
-<!-- 헤더 -->
-	<jsp:include page="/WEB-INF/views/main/header.jsp" />	
-	        <script>
-            window.addEventListener('load', function() {
-                var allElements = document.getElementsByTagName('*');
-                Array.prototype.forEach.call(allElements, function(el) {
-                    var includePath = el.dataset.includePath;
-                    if (includePath) {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-                                el.outerHTML = this.responseText;
-                            }
-                        };
-                        xhttp.open('GET', includePath, true);
-                        xhttp.send();
-                    }
-                });
-            });
-        </script>
+		<!-- 헤더 -->
+		<jsp:include page="/WEB-INF/views/main/header.jsp" />	
+		        <script>
+	            window.addEventListener('load', function() {
+	                var allElements = document.getElementsByTagName('*');
+	                Array.prototype.forEach.call(allElements, function(el) {
+	                    var includePath = el.dataset.includePath;
+	                    if (includePath) {
+	                        var xhttp = new XMLHttpRequest();
+	                        xhttp.onreadystatechange = function () {
+	                            if (this.readyState == 4 && this.status == 200) {
+	                                el.outerHTML = this.responseText;
+	                            }
+	                        };
+	                        xhttp.open('GET', includePath, true);
+	                        xhttp.send();
+		                    }
+		                });
+		            });
+		        </script>
 
 
 
-	<div class="wrapper">
-		<div class="outer">
+
+
+
+		<div class="wrapper">
+			<div class="outer">
+
 
 
 			<form class="loginArea" action="${ pageContext.servletContext.contextPath }/member/enroll" method="post">
@@ -70,12 +74,12 @@
                 <h4></h4>
 				<span class="input_area"><input type="text"  placeholder="아이디 입력" maxlength="13" name="userId" id="memberId" required></span>
 				<button id="idCheck" type="button">중복확인</button>
-				<input type="hidden" name="idDuplication" value="idUncheck" >
+				<!-- <input type="hidden" name="idDuplication" value="idUncheck" > -->
 				
 				
 				<!--비밀번호-->
                 <h4></h4>
-				<span class="input_area"><input type="password"  placeholder="비밀번호 입력 &nbsp (영문 대소문자/숫자 4~16자)" maxlength="16" name="userPwd" id="memberPwd1" required></span>
+				<span class="input_area"><input type="password"  placeholder="비밀번호 입력 &nbsp (숫자와 영문자 조합 8~16자리)" maxlength="16" name="userPwd" id="memberPwd1" required></span>
 				
 				<!--비밀번호 확인-->
                 <h4></h4>
@@ -237,57 +241,80 @@
 
 
 
+		
+		<!-- 아이디 중복 검사 -->
+			
+			<script>
+				$("#idCheck").click(function(){
+					// 아이디 중복 시 false, 아이디 사용 가능 시 true --> 유효성 검사를 위한 변수
+					let isUsable = false;
+					const userId = $("[name=userId]");
+						
+					if(!userId || userId.val().length < 4){
+						alert("아이디는 최소 4자리 이상이어야 합니다.");
+						userId.focus();
+					}else {
+						// 4자리 이상의 userId 값을 입력했을 경우 $.ajax() 통신 
+						$.ajax({
+							url : "${ pageContext.servletContext.contextPath }/member/idCheck",
+							type : "post",
+							data : { userId : userId.val() },
+							success : function(result) {
+								console.log(result);
+								if (result == "fail") {
+									alert("사용할 수 없는 아이디입니다.");
+									userId.focus();
+								} else {
+									// alert("사용 가능한 아이디입니다.");
+									if (confirm("사용 가능한 아이디입니다. 사용하시겠습니까?")) {
+										userId.attr('readonly', true); // 더 이상 id 입력 공간을 바꿀 수 없도록
+										isUsable = true; // 사용 가능한 아이디라는 flag 값
+									} else {
+										// confirm 창에서 취소를 누를 경우 (처음, 또는 반복해서)
+										userId.attr('readonly', false); // 다시 id input태그 수정 가능하도록
+										isUsable = false; // 사용 불가능한 아이디 flag
+										userId.focus();
+									}
+								}
+								// 아이디 중복 체크 후 중복이 아니며 사용하겠다고 선택한 경우
+								if (isUsable) {
+									$("#enrollment2").attr("type", "submit");
+								} else {
+									$("#enrollment1").attr("type", "button");
+								}
+							},
+							error : function(e) {
+								console.log(e);
+							}
+						});
+					}
+				});
+			</script>
+		
+		
 
 
 
 
 
 
+	<!-- 비밀번호확인 일치 체크 -->
+	  <script type="text/javascript">
+	    function test() {
+	      var p1 = document.getElementById('memberPwd1').value;
+	      var p2 = document.getElementById('memberPwd2').value;
+	      if( p1 != p2 ) {
+	        alert("비밀번호가 일치 하지 않습니다");
+	        return false;
+	      } 
+	      /* else{
+	        alert("비밀번호가 일치합니다");
+	        return true;
+	      } */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--푸터 임포트-->
-
-    <footer>
-
-	<jsp:include page="/WEB-INF/views/main/footer.jsp" />	
-	        <script>
-            window.addEventListener('load', function() {
-                var allElements = document.getElementsByTagName('*');
-                Array.prototype.forEach.call(allElements, function(el) {
-                    var includePath = el.dataset.includePath;
-                    if (includePath) {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-                                el.outerHTML = this.responseText;
-                            }
-                        };
-                        xhttp.open('GET', includePath, true);
-                        xhttp.send();
-                    }
-                });
-            });
-        </script>
-    
-    </footer>
-
+	    }
+	  </script>
+	
 
 
 
@@ -316,7 +343,55 @@
 
 
 
+				<!--비밀번호 유효성 체크 8 ~ 16자 영문, 숫자 조합 -->
+                <script>
 
+                    function pwd_check( memberPwd1 ) {    
+                        var regex=/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+                        return (memberPwd1 != '' && memberPwd1 != 'undefined' && regex.test(memberPwd1)); 
+                    }
+    
+                    $("input[type=password]").blur(function(){
+                    var pwd = $(this).val();
+                    if( pwd == '' || pwd == 'undefined') return;
+                    if(! pwd_check(pwd) ) {
+                        $(".result-pwd").text('비밀번호를 다시 확인해주세요.');
+                        $(this).focus();
+                        return false;
+                    }else {
+                        $(".result-pwd").text('');
+                    }
+                    });
+                    </script>
+
+
+
+
+		    <!--푸터 임포트-->
+		
+		    <footer>
+		
+			<jsp:include page="/WEB-INF/views/main/footer.jsp" />	
+			        <script>
+		            window.addEventListener('load', function() {
+		                var allElements = document.getElementsByTagName('*');
+		                Array.prototype.forEach.call(allElements, function(el) {
+		                    var includePath = el.dataset.includePath;
+		                    if (includePath) {
+		                        var xhttp = new XMLHttpRequest();
+		                        xhttp.onreadystatechange = function () {
+		                            if (this.readyState == 4 && this.status == 200) {
+		                                el.outerHTML = this.responseText;
+		                            }
+		                        };
+		                        xhttp.open('GET', includePath, true);
+		                        xhttp.send();
+		                    }
+		                });
+		            });
+		        </script>
+		    
+		    </footer>
 
 
 
