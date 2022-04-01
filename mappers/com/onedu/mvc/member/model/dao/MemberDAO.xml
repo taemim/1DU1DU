@@ -2,7 +2,6 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
 <mapper namespace="MemberDAO">
 
 	<resultMap type="com.onedu.mvc.member.model.dto.MemberDTO" id="memberResultMap">  
@@ -22,9 +21,6 @@
 		<result property="userRole" column="USER_ROLE"/>
 		<result property="grade" column="GRADE"/>				
 	</resultMap>
-
-
-
 
 	<insert id="insertMember" parameterType="com.onedu.mvc.member.model.dto.MemberDTO">
         INSERT /* com.onedu.mvc.member.model.dao.MemberDAO#insertMember() */
@@ -163,13 +159,15 @@
 	</update>
 
 
+		
 	<!-- 회원 주문시 입력한 배송주소로 수정 -->
-    <update id="updateAddress">
-        UPDATE MEMBER
-          SET POSTAL = #{ postal }
-            , ADDRESS = #{ address }
-            , ADDRESS2 =  #{ address2 }
-        WHERE USER_ID = #{ userId }
-    </update>
+	<update id="updateAddress">
+		UPDATE MEMBER
+		  SET POSTAL = #{ postal }
+			, ADDRESS = #{ address }
+			, ADDRESS2 =  #{ address2 }
+		WHERE USER_ID = #{ userId }
+	</update>
+
 
 </mapper>

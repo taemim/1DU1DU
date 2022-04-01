@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.onedu.mvc.board.model.dto.AskDTO;
 import com.onedu.mvc.board.model.service.AskService;
+import com.onedu.mvc.member.model.dto.MemberDTO;
 
 @WebServlet("/ask/list")
 public class AskSelectListServlet extends HttpServlet {
@@ -18,9 +20,12 @@ public class AskSelectListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		/* 1. 파라미터 꺼내기 - 전체 조회이기 때문에 생략 */
+		HttpSession session = request.getSession();
+        MemberDTO loginMember = (MemberDTO) session.getAttribute("loginMember");
+        String userId = loginMember.getUserId();
 		
 		/* 2. 비즈니스 로직 호출 */
-		List<AskDTO> askList = new AskService().selectAllAskList();
+		List<AskDTO> askList = new AskService().selectAllAskList(userId);
 		
 		System.out.println(askList);
 		
@@ -37,8 +42,7 @@ public class AskSelectListServlet extends HttpServlet {
 			request.setAttribute("message", "1:1 문의 조회에 실패하였습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		request.getRequestDispatcher(path).forward(request, response);		
 	}
 
 }

@@ -28,7 +28,8 @@ public class MemberRegistServlet extends HttpServlet {
 	/* 회원 가입 폼을 작성 후 post 요청을 할 경우 처리하는 역할 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8"); 
+
 		
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");

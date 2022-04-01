@@ -7,11 +7,10 @@
 <title>index</title>
 </head>
 <body>
-	<jsp:forward page="WEB-INF/views/main/main.jsp"/> 
-	
-<!--<a href="">메인화면</a><br>
-	<a href=''>화면 이동</a><br>
-	<a href=''>메인 화면 이동</a><br> -->
+
+  <jsp:forward page="/WEB-INF/views/main/main.jsp"/>
+
+
 	 
 </body>
 </html>

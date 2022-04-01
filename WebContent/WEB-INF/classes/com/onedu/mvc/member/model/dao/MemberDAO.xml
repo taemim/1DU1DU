@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAO">
+
+	<resultMap type="com.onedu.mvc.member.model.dto.MemberDTO" id="memberResultMap">  
+		<result property="userId" column="USER_Id"/>
+		<result property="userPwd" column="USER_PWD"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="birthday" column="BIRTHDAY"/>
+		<result property="gender" column="GENDER"/>
+		<result property="postal" column="POSTAL"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="address2" column="ADDRESS2"/>
+		<result property="email" column="EMAIL"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="buyCnt" column="BUY_CNT"/>				
+		<result property="userAct" column="USER_ACT"/>		
+		<result property="userRole" column="USER_ROLE"/>
+		<result property="gradeNo" column="GRADE_NO"/>				
+	</resultMap>
+
+	<insert id="insertMember" parameterType="com.onedu.mvc.member.model.dto.MemberDTO">
+        INSERT /* com.onedu.mvc.member.model.dao.MemberDAO#insertMember() */
+          INTO MEMBER 
+        (
+          USER_ID
+		, USER_PWD
+		, USER_NAME
+		, EMAIL
+		, PHONE
+		, GENDER
+		, BIRTHDAY
+		, POSTAL  
+		, ADDRESS
+		, ADDRESS2
+
+        )
+        VALUES 
+        (
+          #{ userId }
+        , #{ userPwd }
+        , #{ userName }
+        , #{ email }
+        , #{ phone }
+        , #{ gender }        
+        , #{ birthday }
+        , #{ postal }
+        , #{ address }
+        , #{ address2 }
+        
+        )
+	</insert>
+	
+	<select id="selectEncryptedPwd" resultType="java.lang.String">
+        SELECT /* com.onedu.mvc.member.model.dao.MemberDAO#selectEncryptedPwd() */
+               USER_PWD
+          FROM MEMBER 
+         WHERE USER_ACT = '활동회원'
+           AND USER_ID = #{ userId }
+	</select>
+	
+	<select id="selectLoginMember" resultMap="memberResultMap">
+		SELECT /* com.onedu.mvc.member.model.dao.MemberDAO#selectLoginMember() */
+			   USER_ID
+		     , USER_NAME
+		     , PHONE
+		     , EMAIL
+		     , POSTAL 
+		     , ADDRESS 
+		     , ADDRESS2
+		     , ENROLL_DATE
+		     , USER_ROLE
+		     , USER_ACT
+		  FROM MEMBER A
+		 WHERE USER_ACT = '활동회원'
+		   AND USER_ID = #{ userId }
+	</select>
+	
+	<select id="memberIdCheck" resultType="_int">
+		SELECT /* com.onedu.mvc.member.model.dao.MemberDAO#memberIdCheck() */
+		       COUNT(*)
+		  FROM MEMBER
+		 WHERE USER_ID = #{ userId }
+	</select>
+	
+	<update id="updateMember">
+		UPDATE /* com.onedu.mvc.member.model.dao.MemberDAO#updateMember() */
+		       MEMBER
+		   SET USER_NAME = #{ userName }
+		     , PHONE = #{ phone }
+		     , EMAIL = #{ email }
+		     , POSTAL = #{ postal }
+		     , ADDRESS = #{ address }
+		     , ADDRESS2 = #{ address2 }
+		 WHERE USER_ACT = '활동회원'
+		   AND USER_ID = #{ userId }
+	</update>
+	
+	<select id="selectChangedMemberInfo" resultMap="memberResultMap">
+		SELECT /* com.onedu.mvc.member.model.dao.MemberDAO#selectChangedMemberInfo() */
+		       USER_ID
+		     , USER_NAME
+		     , PHONE
+		     , EMAIL
+		     , ADDRESS
+		     , ENROLL_DATE
+		     , USER_ROLE
+		     , USER_ACT
+		  FROM MEMBER
+		 WHERE USER_ACT = 'Y'
+		   AND GRADE_NO = #{ no }
+	</select>
+	
+	<update id="updateMemberPassword">
+		UPDATE /* com.onedu.mvc.member.model.dao.MemberDAO#updateMemberPassword() */
+		       MEMBER
+		   SET USER_PWD = #{ userPwd }
+		 WHERE USER_ACT = '활동회원'
+		   AND USER_ID = #{ id }
+	</update>
+	
+	<update id="deleteMember">		
+		UPDATE /* com.onedu.mvc.member.model.dao.MemberDAO##deleteMember() */
+		       MEMBER
+		   SET USER_ACT = 'N'
+		 WHERE USER_ACT = 'Y'
+		   AND GRADE_NO = #{ no }
+	</update>
+
+		
+	<!-- 회원 주문시 입력한 배송주소로 수정 -->
+	<update id="updateAddress">
+		UPDATE MEMBER
+		  SET POSTAL = #{ postal }
+			, ADDRESS = #{ address }
+			, ADDRESS2 =  #{ address2 }
+		WHERE USER_ID = #{ userId }
+	</update>
+
+
+</mapper>
